@@ -90,6 +90,11 @@
       [
         firefox
         #  thunderbird
+        steam
+        discord
+        slack
+        jetbrains-toolbox
+        remmina
       ];
   };
   # Allow unfree packages

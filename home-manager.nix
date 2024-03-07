@@ -13,14 +13,6 @@ in {
     home.sessionVariables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
 
 
-    home.packages = with pkgs; [
-      steam
-      discord
-      slack
-      jetbrains-toolbox
-      remmina
-    ];
-
     programs.git = {
       enable = true;
       userName = "Joonas Kajava";
