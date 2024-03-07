@@ -13,6 +13,7 @@ in {
     home.sessionVariables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
 
 
+
     programs.git = {
       enable = true;
       userName = "Joonas Kajava";
