@@ -5,22 +5,17 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./home-manager.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./home-manager.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  environment.variables = {
-	SSH_AUTH_SOCK = "~/.1password/agent.sock";
-};
-
-
+  environment.variables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -91,10 +86,11 @@
     isNormalUser = true;
     description = "Joonas Kajava";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-	firefox
-    #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        firefox
+        #  thunderbird
+      ];
   };
 
   # Allow unfree packages
@@ -105,26 +101,25 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     gh
+    nixfmt
   ];
 
-programs.neovim = {
-enable = true;
-defaultEditor = true;
-};
-programs.steam = {
-	enable = true;
-	remotePlay.openFirewall = true;
-};
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+  };
 
-programs._1password.enable = true;
-programs._1password-gui = {
-enable = true;
-polkitPolicyOwners = ["joonas"];
-};
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "joonas" ];
+  };
 
-
-virtualisation.vmware.guest.enable = true;
-
+  virtualisation.vmware.guest.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
