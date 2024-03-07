@@ -19,7 +19,6 @@ in {
       slack
       jetbrains-toolbox
       remmina
-      postman
     ];
 
     programs.git = {
