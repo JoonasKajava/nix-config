@@ -1,18 +1,15 @@
 { config, pkgs, ... }:
 let
-  home-manager = builtins.fetchTarball
-    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   onePassPath = "~/.1password/agent.sock";
 in {
-  imports = [ (import "${home-manager}/nixos") ];
 
-  home-manager.users.joonas = {
     # The home.stateVersion option does not have a default and must be set
     home.stateVersion = "18.09";
 
     home.sessionVariables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
 
-
+    home.username = "joonas";
+    home.homeDirectory = "/home/joonas";
 
     programs.git = {
       enable = true;
@@ -38,6 +35,6 @@ in {
       '';
     };
 
+    programs.home-manager.enable = true;
     # Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
-  };
 }
