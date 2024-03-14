@@ -14,8 +14,9 @@
     nixosConfigurations = {
       nixos-zeus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        # Also _module.args or config._module.args
         specialArgs = {
-          desktop = "gnome";
+          desktop = "kde";
         };
         modules = [
           ./hosts/nixos-zeus
