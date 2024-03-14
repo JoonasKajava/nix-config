@@ -14,7 +14,7 @@
     nixosConfigurations = {
       nixos-zeus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        extraArgs = {
+        specialArgs = {
           desktop = "gnome";
         };
         modules = [
