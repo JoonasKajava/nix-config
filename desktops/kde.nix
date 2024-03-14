@@ -1,4 +1,4 @@
-{pkgs, lib, ...}:
+{pkgs, lib, plasma-manager, ...}:
 {
 
   # Enable the X11 windowing system.
@@ -14,5 +14,15 @@
   };
 
   programs.dconf.enable = true;
-
+  environment = {
+    home-manager.users.joonas = {
+      imports = plasma-manager.homeManagerModules.plasma-manager;
+      programs.plasma = {
+        enable = true;
+        workspace = {
+          lookAndFeel = "org.kde.breeze.desktop";
+        };
+      };
+    };
+  };
 }

@@ -22,10 +22,10 @@
         # Also _module.args or config._module.args
         specialArgs = {
           desktop = "kde";
+          inherit plasma-manager home-manager;
         };
         modules = [
           ./hosts/nixos-zeus
-          plasma-manager
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
