@@ -7,16 +7,6 @@ in {
     isNormalUser = true;
     description = "Joonas Kajava";
     extraGroups = [ "networkmanager" "wheel" ];
-    #    packages = with pkgs;
-    #      [
-    #        firefox
-    #        #  thunderbird
-    #        steam
-    #        discord
-    #        slack
-    #        jetbrains-toolbox
-    #        remmina
-    #      ];
   };
 
   nix.settings = { experimental-features = [ "nix-command flakes" ]; };
