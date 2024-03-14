@@ -21,6 +21,7 @@
       workspace = {
         theme = "breeze-dark";
         colorScheme = "BreezeDark";
+        wallpaper = ../assets/images/desktop-bg.png;
       };
     };
   };
