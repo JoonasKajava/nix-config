@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
 
     nixosConfigurations = {
       nixos-zeus = nixpkgs.lib.nixosSystem {
@@ -20,6 +20,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = inputs;
             home-manager.users.joonas = import ./home;
           }
         ];

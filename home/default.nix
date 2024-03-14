@@ -8,7 +8,7 @@ in {
   home.sessionVariables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
 
   home.username = "joonas";
-  home.homeDirectory = lib.mkForce "/home/joonas";
+  home.homeDirectory = "/home/joonas";
 
   programs.git = {
     enable = true;
