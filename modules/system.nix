@@ -1,33 +1,27 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
-  username = "joonas";
-  in {
+{ pkgs, lib, ... }:
+let username = "joonas";
+in {
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.joonas = {
     isNormalUser = true;
     description = "Joonas Kajava";
     extraGroups = [ "networkmanager" "wheel" ];
-#    packages = with pkgs;
-#      [
-#        firefox
-#        #  thunderbird
-#        steam
-#        discord
-#        slack
-#        jetbrains-toolbox
-#        remmina
-#      ];
+    #    packages = with pkgs;
+    #      [
+    #        firefox
+    #        #  thunderbird
+    #        steam
+    #        discord
+    #        slack
+    #        jetbrains-toolbox
+    #        remmina
+    #      ];
   };
 
   nix.settings.trustedUsers = [ username ];
 
-  nix.settings = {
-     experimental-features = [ "nix-command flakes" ];
-  };
+  nix.settings = { experimental-features = [ "nix-command flakes" ]; };
 
   nix.gc = {
     automatic = lib.mkDefault true;
@@ -35,10 +29,8 @@
     options = lib.mkDefault "--delete-older-than 7d";
   };
 
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
 
   # Set your time zone.
   time.timeZone = "Europe/Helsinki";
@@ -57,7 +49,6 @@
     LC_TELEPHONE = "fi_FI.UTF-8";
     LC_TIME = "fi_FI.UTF-8";
   };
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -88,7 +79,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
 
   programs.neovim = {
     enable = true;

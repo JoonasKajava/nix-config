@@ -26,7 +26,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -40,14 +39,8 @@
     xkbVariant = "";
   };
 
-
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-
-
-
 
   programs.steam = {
     enable = true;
@@ -61,8 +54,6 @@
   };
 
   virtualisation.vmware.guest.enable = true;
-
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

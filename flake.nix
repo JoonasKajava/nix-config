@@ -9,21 +9,23 @@
     };
   };
 
-  outputs = inputs@{nixpkgs, home-manager, ...}: {
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
 
     nixosConfigurations = {
-     nixos-zeus = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/nixos-zeus
-        home-manager.nixosModules.home-manager {
+      nixos-zeus = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/nixos-zeus
+          home-manager.nixosModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.joonas = import ./home;
-        }
-      ];
+          }
+        ];
 
-    }; };
+      };
+    };
 
   };
 }
