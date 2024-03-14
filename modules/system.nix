@@ -19,8 +19,6 @@ in {
     #      ];
   };
 
-  nix.settings.trustedUsers = [ username ];
-
   nix.settings = { experimental-features = [ "nix-command flakes" ]; };
 
   nix.gc = {
