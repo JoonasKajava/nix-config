@@ -59,6 +59,15 @@
 
   virtualisation.vmware.guest.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    firefox
+    #  thunderbird
+    steam
+    discord
+    slack
+    jetbrains-toolbox
+    remmina
+  ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
