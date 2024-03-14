@@ -1,15 +1,18 @@
 {
-  description = "A very basic flake";
+  description = "My NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs, ... }@inputs: {
 
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./configuration.nix
+      ];
+    };
 
   };
 }
