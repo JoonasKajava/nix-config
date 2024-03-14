@@ -31,6 +31,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = inputs;
             home-manager.users.joonas = import ./home;
+            home-manager.users.joonas.modules = [plasma-manager];
           }
         ];
 
