@@ -14,6 +14,9 @@
     nixosConfigurations = {
       nixos-zeus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        extraArgs = {
+          desktop = "gnome";
+        };
         modules = [
           ./hosts/nixos-zeus
           home-manager.nixosModules.home-manager
