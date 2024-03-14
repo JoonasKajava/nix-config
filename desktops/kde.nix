@@ -15,7 +15,7 @@
 
   programs.dconf.enable = true;
   home-manager.users.joonas = {
-    imports = plasma-manager.homeManagerModules.plasma-manager;
+    imports = [ plasma-manager.homeManagerModules.plasma-manager ];
     programs.plasma = {
       enable = true;
       workspace = {
