@@ -14,4 +14,11 @@
   };
 
   programs.dconf.enable = true;
+
+  programs.plasma = {
+    enable = true;
+    workspace = {
+      lookAndFeel = "org.kde.breeze.desktop";
+    };
+  };
 }
