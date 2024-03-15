@@ -14,8 +14,11 @@
   };
 
   programs.dconf.enable = true;
+
   home-manager.users.joonas = {
     imports = [ plasma-manager.homeManagerModules.plasma-manager ];
+
+
     programs.plasma = {
       enable = true;
       workspace = {
@@ -24,5 +27,10 @@
         wallpaper = ../assets/images/desktop-bg.png;
       };
     };
+
+
   };
+
+
+
 }
