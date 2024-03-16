@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i bash -p konsave
 
-cp -a /etc/nixos/kde-profiles/main ~/.config/konsave/profiles
+rsync -a --delete /etc/nixos/kde-profiles/main ~/.config/konsave/profiles/main
 konsave -a main
