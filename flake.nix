@@ -15,7 +15,6 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, ... }: {
-
     nixosConfigurations = {
       nixos-zeus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -36,6 +35,24 @@
         ];
 
       };
+      nixos-hermes = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        # Also _module.args or config._module.args
+        specialArgs = {
+         desktop = "gnome";
+         inherit home-manager;
+        };
+        modules = [
+         ./hosts/nixos-hermes
+         home-manager.nixosModules.home-manager
+         {
+           home-manager.useGlobalPkgs = true;
+           home-manager.useUserPackages = true;
+           home-manager.extraSpecialArgs = inputs;
+           home-manager.users.joonas = import ./home;
+         }
+        ];
+     };
     };
 
   };
