@@ -7,6 +7,8 @@
 {
   imports = [
    ../../modules/system.nix
+   ../../modules/zsh.nix
+
    ../../desktops/${desktop}.nix
    # Include the results of the hardware scan.
    ./hardware-configuration.nix
