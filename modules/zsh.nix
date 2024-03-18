@@ -12,7 +12,9 @@
         enableCompletion = true;
         enableAutosuggestions = true;
         syntaxHighlighting.enable = true;
-
+        initExtra = ''
+          source /etc/nixos/assets/theme.zsh
+        '';
         shellAliases = {
         update = "sudo nixos-rebuild switch";
         };
