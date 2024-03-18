@@ -46,6 +46,7 @@ in {
     nixfmt
     git
     htop-vim
+    tldr
   ];
 
   # Enable CUPS to print documents.
