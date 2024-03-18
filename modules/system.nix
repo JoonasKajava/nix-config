@@ -45,7 +45,6 @@ in {
     nixfmt
     git
     htop-vim
-    neofetch
   ];
 
   # Enable CUPS to print documents.
