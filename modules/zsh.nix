@@ -17,7 +17,7 @@
         '';
         shellAliases = {
           update = "sudo nixos-rebuild switch";
-          optimize = "nix-collect-garbage -d && nix-store -v --optimize";
+          optimize = "nix-collect-garbage -v -d && nix-store -v --optimize";
         };
 
         history.size = 10000;
