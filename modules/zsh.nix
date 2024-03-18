@@ -17,7 +17,7 @@
         update = "sudo nixos-rebuild switch";
         };
 
-        historySize = 10000;
+        history.size = 10000;
         plugins = [
           {
             name = "powerlevel10k";
