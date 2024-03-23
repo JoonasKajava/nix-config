@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, user, ... }:
 let onePassPath = "~/.1password/agent.sock";
 in {
 
@@ -7,12 +7,12 @@ in {
 
   home.sessionVariables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
 
-  home.username = "joonas";
-  home.homeDirectory = "/home/joonas";
+  home.username = user.username;
+  home.homeDirectory = "/home/${user.username}";
 
   programs.git = {
     enable = true;
-    userName = "Joonas Kajava";
+    userName = user.name;
     userEmail = "5013522+JoonasKajava@users.noreply.github.com";
     extraConfig = {
       safe.directory = "/etc/nixos";

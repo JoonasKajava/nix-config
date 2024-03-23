@@ -1,4 +1,4 @@
-{pkgs, lib, plasma-manager, ...}:
+{pkgs, lib, plasma-manager, user, ...}:
 {
 
   # Enable the X11 windowing system.
@@ -15,7 +15,7 @@
 
   programs.dconf.enable = true;
 
-  home-manager.users.joonas = {
+  home-manager.users.${user.username} = {
     imports = [ plasma-manager.homeManagerModules.plasma-manager ];
 
 

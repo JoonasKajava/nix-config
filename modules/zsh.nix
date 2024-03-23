@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, user, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -6,7 +6,7 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-  home-manager.users.joonas = {
+  home-manager.users.${user.username} = {
       programs.zsh = {
         enable = true;
         enableCompletion = true;

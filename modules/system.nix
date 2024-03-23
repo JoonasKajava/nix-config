@@ -1,11 +1,10 @@
-{ pkgs, lib, ... }:
-let username = "joonas";
-in {
+{ pkgs, lib, user, ... }:
+{
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.joonas = {
+  users.users.${user.username} = {
     isNormalUser = true;
-    description = "Joonas Kajava";
+    description = user.name;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 

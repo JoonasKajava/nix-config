@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, desktop, ... }:
+{ config, pkgs, desktop, user, ... }:
 
 {
   imports = [
@@ -49,7 +49,7 @@
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ "joonas" ];
+    polkitPolicyOwners = [ user.username ];
   };
 
   virtualisation.vmware.guest.enable = true;

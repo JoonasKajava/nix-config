@@ -18,14 +18,21 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, nixos-wsl, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, nixos-wsl, ... }:
+  let
+    user = {
+      username = "joonas";
+      name = "Joonas Kajava";
+    };
+  in
+   {
     nixosConfigurations = {
       nixos-zeus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # Also _module.args or config._module.args
         specialArgs = {
           desktop = "kde";
-          inherit plasma-manager home-manager;
+          inherit plasma-manager home-manager user;
         };
         modules = [
           ./hosts/nixos-zeus
@@ -34,7 +41,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = inputs;
-            home-manager.users.joonas = import ./home;
+            home-manager.users.${user.username} = import ./home;
           }
         ];
 
@@ -44,7 +51,7 @@
         # Also _module.args or config._module.args
         specialArgs = {
          desktop = "gnome";
-         inherit home-manager;
+         inherit home-manager user;
         };
         modules = [
          ./hosts/nixos-hermes
@@ -53,7 +60,7 @@
            home-manager.useGlobalPkgs = true;
            home-manager.useUserPackages = true;
            home-manager.extraSpecialArgs = inputs;
-           home-manager.users.joonas = import ./home;
+           home-manager.users.${user.username} = import ./home;
          }
         ];
      };
@@ -61,7 +68,7 @@
              system = "x86_64-linux";
              # Also _module.args or config._module.args
              specialArgs = {
-              inherit home-manager;
+              inherit home-manager user;
              };
              modules = [
              nixos-wsl.nixosModules.wsl
@@ -71,7 +78,7 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = inputs;
-                home-manager.users.joonas = import ./home;
+                home-manager.users.${user.username} = import ./home;
               }
              ];
           };
