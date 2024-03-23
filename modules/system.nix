@@ -42,7 +42,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     gh
-    nixfmt
     git
     htop-vim
     tldr
