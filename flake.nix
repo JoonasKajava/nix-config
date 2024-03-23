@@ -40,7 +40,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = inputs;
+            home-manager.extraSpecialArgs = {inherit inputs user;};
             home-manager.users.${user.username} = import ./home;
           }
         ];
@@ -59,7 +59,7 @@
          {
            home-manager.useGlobalPkgs = true;
            home-manager.useUserPackages = true;
-           home-manager.extraSpecialArgs = inputs;
+           home-manager.extraSpecialArgs = {inherit inputs user;};
            home-manager.users.${user.username} = import ./home;
          }
         ];
@@ -77,7 +77,7 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = inputs;
+                home-manager.extraSpecialArgs = {inherit inputs user;};
                 home-manager.users.${user.username} = import ./home;
               }
              ];
