@@ -1,5 +1,4 @@
-{ pkgs, lib, user, ... }:
-{
+{ pkgs, lib, user, ... }: {
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user.username} = {
@@ -40,12 +39,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    gh
-    git
-    htop-vim
-    tldr
-  ];
+  environment.systemPackages = with pkgs; [ gh git htop-vim tldr ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

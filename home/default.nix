@@ -34,7 +34,6 @@ in {
     '';
   };
 
-
   programs.neovim = {
     vimAlias = true;
     enable = true;
