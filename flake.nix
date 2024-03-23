@@ -53,6 +53,23 @@
          }
         ];
      };
+     nixos-athena = nixpkgs.lib.nixosSystem {
+             system = "x86_64-linux";
+             # Also _module.args or config._module.args
+             specialArgs = {
+              inherit home-manager;
+             };
+             modules = [
+              ./hosts/nixos-athena
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = inputs;
+                home-manager.users.joonas = import ./home;
+              }
+             ];
+          };
     };
 
   };
