@@ -1,12 +1,16 @@
-{ pkgs, lib, user, ... }: {
-  home-manager.users.${user.username} = with home-manager; {
+{ pkgs, lib, user, ... }:
+let
+lazyvim = home-manager.config.lib.file.mkOutOfStoreLink "/etc/nixos/features/programs/neovim/lazyvim";
+in
+{
+  home-manager.users.${user.username} = {
     programs.neovim = {
       vimAlias = true;
       enable = true;
       viAlias = true;
     };
     xdg.configFile.nvim = {
-      source = home-manager.config.lib.file.mkOutOfStoreLink "/etc/nixos/features/programs/neovim/lazyvim";
+      source = lazyvim;
     };
   };
 
