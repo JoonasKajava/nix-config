@@ -6,7 +6,7 @@
       viAlias = true;
     };
     xdg.configFile.nvim = {
-      source = ./lazyvim;
+      source = config.lib.file.mkOutOfStoreLink "/etc/nixos/features/programs/neovim/lazyvim";
     };
   };
 
