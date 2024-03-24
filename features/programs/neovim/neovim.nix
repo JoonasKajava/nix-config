@@ -21,8 +21,6 @@ environment = {
   systemPackages = with pkgs; [
     gcc ripgrep lazygit cargo 
 
-    # Used with tex files
-    texliveFull
 
 
 
