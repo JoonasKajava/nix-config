@@ -23,7 +23,6 @@ environment = {
 
     # Used with tex files
     texliveFull
-    texlab
 
 
 
