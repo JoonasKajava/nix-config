@@ -18,6 +18,6 @@
 
   environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
-    libgcc nerdfonts
+    libgcc nerdfonts ripgrep
   ];
 }
