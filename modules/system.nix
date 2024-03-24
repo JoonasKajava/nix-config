@@ -1,5 +1,9 @@
 { pkgs, lib, user, ... }: {
 
+  imports =
+    [
+      ../features/programs/neovim/neovim.nix
+    ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user.username} = {
     isNormalUser = true;
@@ -61,9 +65,4 @@
     #media-session.enable = true;
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-  environment.variables.EDITOR = "nvim";
 }

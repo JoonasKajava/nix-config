@@ -34,11 +34,6 @@ in {
     '';
   };
 
-  programs.neovim = {
-    vimAlias = true;
-    enable = true;
-    viAlias = true;
-  };
 
   programs.home-manager.enable = true;
   # Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
