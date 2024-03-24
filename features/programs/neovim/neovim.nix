@@ -1,5 +1,5 @@
 { pkgs, lib, user, ... }: {
-  home-manager.user.${user.username} = {
+  home-manager.users.${user.username} = {
     programs.neovim = {
       vimAlias = true;
       enable = true;
