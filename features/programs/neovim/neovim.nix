@@ -18,7 +18,7 @@
 
   environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
-    gcc ripgrep
+    gcc ripgrep lazygit
   ];
   fonts.packages = with pkgs; [
     nerdfonts
