@@ -19,7 +19,10 @@
 environment = {
   variables.EDITOR = "nvim";
   systemPackages = with pkgs; [
-    gcc ripgrep lazygit cargo
+    gcc ripgrep lazygit cargo 
+
+ 
+    texliveFull # Used with tex files
   ];
 };
 
