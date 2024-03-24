@@ -22,7 +22,7 @@ environment = {
     gcc ripgrep lazygit cargo 
 
 
-
+    devenv
 
   ];
 };
