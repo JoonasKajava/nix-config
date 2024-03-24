@@ -1,6 +1,6 @@
-{ pkgs, lib, user, home-manager, ... }:
+{ pkgs, lib, user, ... }:
 let
-lazyvim = home-manager.config.lib.file.mkOutOfStoreLink "/etc/nixos/features/programs/neovim/lazyvim";
+lazyvim = lib.file.mkOutOfStoreLink "/etc/nixos/features/programs/neovim/lazyvim";
 in
 {
   home-manager.users.${user.username} = {
