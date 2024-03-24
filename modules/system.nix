@@ -1,9 +1,6 @@
 { pkgs, lib, user, ... }: {
 
-  imports =
-    [
-      ../features/programs/neovim/neovim.nix
-    ];
+  imports = [ ../features/programs/neovim/neovim.nix ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user.username} = {
     isNormalUser = true;

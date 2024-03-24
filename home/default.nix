@@ -34,7 +34,6 @@ in {
     '';
   };
 
-
   programs.home-manager.enable = true;
   # Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
 }
