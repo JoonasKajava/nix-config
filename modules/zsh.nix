@@ -1,4 +1,4 @@
-{ pkgs, lib, user, ... }: {
+{ pkgs, user, ... }: {
   programs.zsh = { enable = true; };
 
   users.defaultUserShell = pkgs.zsh;
@@ -7,14 +7,14 @@
     programs.zsh = {
       enable = true;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       initExtra = ''
         source /etc/nixos/assets/theme.zsh
       '';
       shellAliases = {
         update = "sudo nixos-rebuild switch";
-        optimize = "nix-collect-garbage -v -d && nix-store -v --optimize";
+        optimize = "sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'";
       };
 
       history.size = 10000;

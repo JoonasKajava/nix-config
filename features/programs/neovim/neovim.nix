@@ -16,16 +16,20 @@
     defaultEditor = true;
   };
 
-environment = {
-  variables.EDITOR = "nvim";
-  systemPackages = with pkgs; [
-    gcc ripgrep lazygit cargo 
+
+  programs.direnv.enable = true;
 
 
-    devenv
+  environment = {
+    variables.EDITOR = "nvim";
+    systemPackages = with pkgs; [
+      gcc ripgrep lazygit cargo 
 
-  ];
-};
+
+      devenv
+
+    ];
+  };
 
   fonts.packages = with pkgs; [
     nerdfonts
