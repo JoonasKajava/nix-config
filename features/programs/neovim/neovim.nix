@@ -21,8 +21,12 @@ environment = {
   systemPackages = with pkgs; [
     gcc ripgrep lazygit cargo 
 
- 
-    texliveFull # Used with tex files
+    # Used with tex files
+    texliveFull
+    texlab
+
+
+
   ];
 };
 
