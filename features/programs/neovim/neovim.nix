@@ -16,6 +16,11 @@
     defaultEditor = true;
   };
 
+  nix.settings = {
+    trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
+    substituters = ["https://devenv.cachix.org"];
+    trusted-users = ["root" user.username];
+  };
 
   programs.direnv.enable = true;
 
