@@ -6,12 +6,12 @@
 
 {
   imports = [
-   ../../modules/system.nix
-   ../../modules/zsh.nix
+    ../../modules/system.nix
+    ../../modules/zsh.nix
 
-   ../../desktops/${desktop}.nix
-   # Include the results of the hardware scan.
-   ./hardware-configuration.nix
+    ../../desktops/${desktop}.nix
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
   ];
 
   # Bootloader.
@@ -29,7 +29,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
 
   # Configure keymap in X11
   services.xserver = {

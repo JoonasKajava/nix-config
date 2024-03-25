@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+   packages = with pkgs; [
+      nixfmt
+      stylua
+   ];
+
    languages.nix.enable = true;
    languages.lua.enable = true;
 
