@@ -41,7 +41,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ gh git htop-vim tldr ];
+  environment.systemPackages = with pkgs; [ gh git htop-vim tldr difftastic ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

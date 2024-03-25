@@ -24,6 +24,16 @@ in {
     };
   };
 
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui = {
+
+      };
+      git.paging.externalDiffCommand = "difft --color=always";
+    };
+  };
+
   programs.ssh = {
     enable = true;
     extraOptionOverrides = { IdentityAgent = onePassPath; };
