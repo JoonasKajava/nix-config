@@ -1,6 +1,7 @@
 {
   description = "My NixOS configurations for Joonas Kajava";
 
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl = {

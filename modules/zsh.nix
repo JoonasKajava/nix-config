@@ -11,10 +11,12 @@
       syntaxHighlighting.enable = true;
       initExtra = ''
         source /etc/nixos/assets/theme.zsh
+        eval "$(direnv hook zsh)"
       '';
       shellAliases = {
         update = "sudo nixos-rebuild switch";
-        optimize = "sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'";
+        optimize =
+          "sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'";
       };
 
       history.size = 10000;
