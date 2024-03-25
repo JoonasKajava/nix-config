@@ -16,7 +16,7 @@
       shellAliases = {
         update = "sudo nixos-rebuild switch";
         optimize =
-          "sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'";
+          "sudo sh -c 'devenv gc; nix-collect-garbage -v -d && nix-store -v --optimize'";
       };
 
       history.size = 10000;
