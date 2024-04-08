@@ -6,13 +6,14 @@
 
 {
   imports = [
-   ../../modules/system.nix
-   ../../modules/zsh.nix
+    ../../modules/system.nix
+    ../../modules/zsh.nix
+    ../../features/programs/jetbrains/jetbrains.nix
 
-   ../../desktops/${desktop}.nix
-   # Include the results of the hardware scan.
-   ./hardware-configuration.nix
-   ./backups.nix
+    ../../desktops/${desktop}.nix
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./backups.nix
   ];
 
   # Bootloader.
@@ -31,7 +32,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
 
   # Configure keymap in X11
   services.xserver = {
@@ -61,7 +61,6 @@
     steam
     discord
     slack
-    jetbrains-toolbox
     remmina
   ];
   # Some programs need SUID wrappers, can be configured further or are

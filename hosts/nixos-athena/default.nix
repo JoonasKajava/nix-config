@@ -8,15 +8,11 @@
 { config, lib, pkgs, user, ... }:
 
 {
-  imports = [
-
-   ../../modules/system.nix
-   ../../modules/zsh.nix
-  ];
+  imports = [ ../../modules/system.nix ../../modules/zsh.nix ];
 
   wsl.enable = true;
   wsl.defaultUser = user.username;
-  
+
   networking.hostName = "nixos-athena";
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

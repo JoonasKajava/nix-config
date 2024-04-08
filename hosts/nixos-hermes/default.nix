@@ -8,6 +8,7 @@
   imports = [
     ../../modules/system.nix
     ../../modules/zsh.nix
+    ../../features/programs/jetbrains/jetbrains.nix
 
     ../../desktops/${desktop}.nix
     # Include the results of the hardware scan.
@@ -51,13 +52,11 @@
     polkitPolicyOwners = [ user.username ];
   };
 
-
   environment.systemPackages = with pkgs; [
     firefox
     #  thunderbird
     steam
     discord
-    jetbrains-toolbox
     remmina
   ];
   # Some programs need SUID wrappers, can be configured further or are
@@ -71,7 +70,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

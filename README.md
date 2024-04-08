@@ -6,3 +6,4 @@
 - [ ] hyprland?
 - [x] change to zsh with vim mode
 - [ ] ability to switch keyboard layout with hotkey
+- [ ] Automatic git commit with nix difference after update
