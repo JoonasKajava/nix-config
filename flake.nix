@@ -27,7 +27,7 @@
       };
     in {
       nixosConfigurations = {
-        nixos-zeus = nixpkgs.lib.nixosSystem {
+        nixos-desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           # Also _module.args or config._module.args
           specialArgs = {
@@ -35,7 +35,7 @@
             inherit plasma-manager home-manager user;
           };
           modules = [
-            ./hosts/nixos-zeus
+            ./hosts/nixos-desktop
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -46,7 +46,7 @@
           ];
 
         };
-        nixos-hermes = nixpkgs.lib.nixosSystem {
+        nixos-laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           # Also _module.args or config._module.args
           specialArgs = {
@@ -54,7 +54,7 @@
             inherit home-manager user;
           };
           modules = [
-            ./hosts/nixos-hermes
+            ./hosts/nixos-laptop
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -64,13 +64,13 @@
             }
           ];
         };
-        nixos-athena = nixpkgs.lib.nixosSystem {
+        nixos-wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           # Also _module.args or config._module.args
           specialArgs = { inherit home-manager user; };
           modules = [
             nixos-wsl.nixosModules.wsl
-            ./hosts/nixos-athena
+            ./hosts/nixos-wsl
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

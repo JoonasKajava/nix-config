@@ -21,7 +21,7 @@
 
   environment.variables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
 
-  networking.hostName = "nixos-hermes"; # Define your hostname.
+  networking.hostName = "nixos-laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
