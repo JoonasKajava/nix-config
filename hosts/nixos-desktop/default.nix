@@ -21,6 +21,8 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   environment.variables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
