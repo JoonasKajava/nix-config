@@ -9,6 +9,7 @@
     ../../modules/system.nix
     ../../modules/zsh.nix
     ../../features/programs/jetbrains/jetbrains.nix
+    ../../features/programs/gaming/gaming.nix
 
     ../../desktops/${desktop}.nix
     # Include the results of the hardware scan.
@@ -43,11 +44,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-  };
 
   programs._1password.enable = true;
   programs._1password-gui = {
