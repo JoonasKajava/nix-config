@@ -56,7 +56,6 @@
   environment.systemPackages = with pkgs; [
     firefox
     #  thunderbird
-    steam
     discord
     slack
     remmina
