@@ -31,7 +31,7 @@
           system = "x86_64-linux";
           # Also _module.args or config._module.args
           specialArgs = {
-            desktop = "kde";
+            desktop = "gnome";
             inherit plasma-manager home-manager user;
           };
           modules = [
