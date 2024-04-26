@@ -26,6 +26,8 @@ return {
         lsp_conf.nil_ls.setup({})
 
         lsp_conf.rust_analyzer.setup({})
+
+        lsp_conf.tsserver.setup({})
       end,
     },
     { "hrsh7th/cmp-nvim-lsp" },
