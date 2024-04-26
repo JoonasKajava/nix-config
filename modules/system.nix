@@ -47,7 +47,7 @@
     htop-vim
     tldr
     difftastic
-    comma
+    neofetch
   ];
 
   # Enable CUPS to print documents.
