@@ -28,6 +28,9 @@ return {
         lsp_conf.rust_analyzer.setup({})
 
         lsp_conf.tsserver.setup({})
+
+        lsp_conf.texlab.setup({})
+
       end,
     },
     { "hrsh7th/cmp-nvim-lsp" },
