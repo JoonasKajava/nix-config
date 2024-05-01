@@ -9,6 +9,8 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   nix.settings = { experimental-features = [ "nix-command flakes" ]; };
   nix.settings.auto-optimise-store = true;
 
