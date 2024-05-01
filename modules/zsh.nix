@@ -17,6 +17,7 @@
         update = "sudo nixos-rebuild switch";
         optimize =
           "sudo sh -c 'devenv gc; nix-collect-garbage -v -d && nix-store -v --optimize'";
+        neofetch = "fastfetch";
       };
 
       history.size = 10000;
