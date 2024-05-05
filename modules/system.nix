@@ -50,6 +50,7 @@
     tldr
     difftastic
     fastfetch
+    rm-improved
   ];
 
   # Enable CUPS to print documents.
