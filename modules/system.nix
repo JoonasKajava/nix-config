@@ -51,6 +51,7 @@
     difftastic
     fastfetch
     rm-improved
+    eza
   ];
 
   # Enable CUPS to print documents.
