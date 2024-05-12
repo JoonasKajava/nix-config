@@ -1,6 +1,13 @@
-{ pkgs, lib, user, ... }: {
+{ pkgs, lib, user, ... }:
+with lib; {
 
   imports = [ ../features/programs/neovim/neovim.nix ];
+
+  options.mystuff = {
+    audio = { enable = mkEnableOption "Audio functionality"; };
+    nix.gc = { enable = mkEnableOption "Automatic recycling"; };
+  };
+
   #
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user.username} = {

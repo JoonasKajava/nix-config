@@ -8,7 +8,7 @@
 { config, lib, pkgs, user, ... }:
 
 {
-  imports = [ ../../modules/system.nix ../../modules/zsh.nix ];
+  imports = [ ../../modules ];
 
   wsl.enable = true;
   wsl.defaultUser = user.username;
