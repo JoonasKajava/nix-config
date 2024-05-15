@@ -1,11 +1,15 @@
-{ pkgs, lib, user, ... }:
+{
+  pkgs,
+  lib,
+  user,
+  ...
+}:
 with lib; {
-
-  imports = [ ../features/programs/neovim/neovim.nix ];
+  imports = [../features/programs/neovim/neovim.nix];
 
   options.mystuff = {
-    audio = { enable = mkEnableOption "Audio functionality"; };
-    nix.gc = { enable = mkEnableOption "Automatic recycling"; };
+    audio = {enable = mkEnableOption "Audio functionality";};
+    nix.gc = {enable = mkEnableOption "Automatic recycling";};
   };
 
   #
@@ -13,12 +17,12 @@ with lib; {
   users.users.${user.username} = {
     isNormalUser = true;
     description = user.name;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  nix.settings = { experimental-features = [ "nix-command flakes" ]; };
+  nix.settings = {experimental-features = ["nix-command flakes"];};
   nix.settings.auto-optimise-store = true;
 
   nix.gc = {
@@ -80,5 +84,4 @@ with lib; {
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
 }

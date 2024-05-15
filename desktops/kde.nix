@@ -1,5 +1,10 @@
-{ pkgs, lib, plasma-manager, user, ... }: {
-
+{
+  pkgs,
+  lib,
+  plasma-manager,
+  user,
+  ...
+}: {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -15,7 +20,7 @@
   programs.dconf.enable = true;
 
   home-manager.users.${user.username} = {
-    imports = [ plasma-manager.homeManagerModules.plasma-manager ];
+    imports = [plasma-manager.homeManagerModules.plasma-manager];
 
     programs.plasma = {
       enable = true;
@@ -25,7 +30,5 @@
         wallpaper = ../assets/images/desktop-bg.png;
       };
     };
-
   };
-
 }

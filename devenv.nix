@@ -1,13 +1,8 @@
-{ pkgs, ... }:
+{pkgs, ...}: {
+  packages = with pkgs; [alejandra stylua];
 
-{
-   packages = with pkgs; [
-      nixfmt
-      stylua
-   ];
-
-   languages.nix.enable = true;
-   languages.lua.enable = true;
+  languages.nix.enable = true;
+  languages.lua.enable = true;
 
   # https://devenv.sh/pre-commit-hooks/
   # pre-commit.hooks.shellcheck.enable = true;

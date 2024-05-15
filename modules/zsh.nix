@@ -1,16 +1,17 @@
-{ lib, pkgs, user, config, ... }:
-with lib;
-let
-
+{
+  lib,
+  pkgs,
+  user,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.mystuff.zsh;
-
 in {
-
-  options.mystuff.zsh = { enable = mkEnableOption "Zsh"; };
+  options.mystuff.zsh = {enable = mkEnableOption "Zsh";};
 
   config = mkIf cfg.enable {
-
-    programs.zsh = { enable = true; };
+    programs.zsh = {enable = true;};
 
     users.defaultUserShell = pkgs.zsh;
 
@@ -26,8 +27,7 @@ in {
         '';
         shellAliases = {
           update = "sudo nixos-rebuild switch";
-          optimize =
-            "sudo sh -c 'devenv gc; nix-collect-garbage -v -d && nix-store -v --optimize'";
+          optimize = "sudo sh -c 'devenv gc; nix-collect-garbage -v -d && nix-store -v --optimize'";
           neofetch = "fastfetch";
           l = "eza -hlaog --total-size --icons";
         };
@@ -48,5 +48,4 @@ in {
       };
     };
   };
-
 }

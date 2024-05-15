@@ -1,6 +1,5 @@
-{ config, ... }: {
-  imports = [ ./system.nix ./zsh.nix ];
+{config, ...}: {
+  imports = [./system.nix ./zsh.nix];
 
-  config.mystuff = { zsh.enable = true; };
-
+  config.mystuff = {zsh.enable = true;};
 }

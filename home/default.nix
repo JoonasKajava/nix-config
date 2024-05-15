@@ -1,11 +1,16 @@
-{ config, pkgs, lib, user, ... }:
-let onePassPath = "~/.1password/agent.sock";
+{
+  config,
+  pkgs,
+  lib,
+  user,
+  ...
+}: let
+  onePassPath = "~/.1password/agent.sock";
 in {
-
   # The home.stateVersion option does not have a default and must be set
   home.stateVersion = "18.09";
 
-  home.sessionVariables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
+  home.sessionVariables = {SSH_AUTH_SOCK = "~/.1password/agent.sock";};
 
   home.username = user.username;
   home.homeDirectory = "/home/${user.username}";
@@ -28,7 +33,6 @@ in {
     enable = true;
     settings = {
       gui = {
-
       };
       git.paging.externalDiffCommand = "difft --color=always";
     };
@@ -36,7 +40,7 @@ in {
 
   programs.ssh = {
     enable = true;
-    extraOptionOverrides = { IdentityAgent = onePassPath; };
+    extraOptionOverrides = {IdentityAgent = onePassPath;};
     extraConfig = ''
       Host *
                 IdentitiesOnly=yes

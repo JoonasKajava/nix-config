@@ -1,7 +1,7 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p nixfmt
+#!nix-shell -i bash -p alejandra
 
 for i in ./**/*.nix; do
-  nixfmt "$i"
+  alejandra "$i"
 done
 
