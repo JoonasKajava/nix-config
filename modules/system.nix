@@ -2,7 +2,6 @@
   pkgs,
   lib,
   user,
-  config,
   ...
 }:
 with lib; {
@@ -12,8 +11,8 @@ with lib; {
     nix.gc = {enable = mkEnableOption "Automatic recycling";};
   };
 
-  config = with config.mystuff; {
-    audio.enable = mkDefault true;
+  config = {
+    mystuff.audio.enable = mkDefault true;
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.${user.username} = {

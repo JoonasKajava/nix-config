@@ -1,17 +1,21 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
-
-{ config, lib, pkgs, user, ... }:
-
 {
-  imports = [ ../../modules ];
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}: {
+  imports = [../../modules];
 
   wsl.enable = true;
   wsl.defaultUser = user.username;
+
+  mystuff.audio.enable = false;
 
   networking.hostName = "nixos-wsl";
   # This value determines the NixOS release from which the default
