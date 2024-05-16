@@ -6,9 +6,7 @@
 with lib; let
   cfg = config.mystuff.audio;
 in {
-  options.mystuff = {
-    audio = {enable = mkEnableOption "Audio functionality";};
-  };
+  options.mystuff.audio.enable = mkEnableOption "Audio functionality";
 
   config = mkIf cfg.enable {
     # Enable sound with pipewire.

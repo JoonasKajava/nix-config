@@ -5,17 +5,15 @@
   config,
   ...
 }:
-with lib; let
-  cfg = config.mystuff;
-in {
+with lib; {
   imports = [../features/programs/neovim/neovim.nix ./audio.nix];
 
   options.mystuff = {
     nix.gc = {enable = mkEnableOption "Automatic recycling";};
   };
 
-  config = {
-    cfg.audio.enable = mkDefault true;
+  config = with config.mystuff; {
+    audio.enable = mkDefault true;
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.${user.username} = {
@@ -71,22 +69,5 @@ in {
 
     # Enable CUPS to print documents.
     services.printing.enable = true;
-
-    # Enable sound with pipewire.
-    sound.enable = cfg.audio;
-    hardware.pulseaudio.enable = false;
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
-      #jack.enable = true;
-
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
-    };
   };
 }
