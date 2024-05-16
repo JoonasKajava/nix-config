@@ -2,17 +2,21 @@
   pkgs,
   lib,
   user,
+  config,
   ...
 }:
-with lib; {
-  imports = [../features/programs/neovim/neovim.nix];
+with lib; let
+  cfg = config.mystuff;
+in {
+  imports = [../features/programs/neovim/neovim.nix ./audio.nix];
 
   options.mystuff = {
-    audio = {enable = mkEnableOption "Audio functionality";};
     nix.gc = {enable = mkEnableOption "Automatic recycling";};
   };
 
   config = {
+    cfg.audio.enable = mkDefault true;
+
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.${user.username} = {
       isNormalUser = true;
@@ -69,7 +73,7 @@ with lib; {
     services.printing.enable = true;
 
     # Enable sound with pipewire.
-    sound.enable = true;
+    sound.enable = cfg.audio;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
