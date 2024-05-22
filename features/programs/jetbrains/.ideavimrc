@@ -17,7 +17,8 @@ set incsearch
 set ignorecase
 set smartcase
 set gdefault
-nmap <leader>nh :noh<CR>
+
+nnoremap <Esc> :nohlsearch<CR><Esc>
 
 " ideaVim settings
 set ideajoin
