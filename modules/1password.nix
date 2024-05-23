@@ -15,22 +15,23 @@ in {
   config = mkIf cfg.enable {
     environment.variables = {SSH_AUTH_SOCK = onePassSock;};
 
-    home.sessionVariables = {SSH_AUTH_SOCK = onePassSock;};
-
     programs._1password.enable = true;
     programs._1password-gui = {
       enable = true;
       polkitPolicyOwners = [user.username];
     };
 
-    programs.ssh = {
-      enable = true;
-      extraOptionOverrides = {IdentityAgent = onePassPath;};
-      extraConfig = ''
-        Host *
-                  IdentitiesOnly=yes
-                  IdentityAgent ${onePassPath}
-      '';
+    home-manager.users.${user.username} = {
+      home.sessionVariables = {SSH_AUTH_SOCK = onePassSock;};
+      programs.ssh = {
+        enable = true;
+        extraOptionOverrides = {IdentityAgent = onePassPath;};
+        extraConfig = ''
+          Host *
+                    IdentitiesOnly=yes
+                    IdentityAgent ${onePassPath}
+        '';
+      };
     };
   };
 }
