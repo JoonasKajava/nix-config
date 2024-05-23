@@ -17,6 +17,14 @@
 
   mystuff.audio.enable = false;
 
+  home-manager.users.${user.username} = {
+    programs.keychain = {
+      enable = true;
+      enableZshIntegration = true;
+      keys = ["id_ed25519"];
+    };
+  };
+
   networking.hostName = "nixos-wsl";
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
