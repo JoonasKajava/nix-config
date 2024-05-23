@@ -1,13 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, desktop, user, ... }:
-
 {
+  config,
+  pkgs,
+  desktop,
+  user,
+  ...
+}: {
   imports = [
-    ../../modules/system.nix
-    ../../modules/zsh.nix
+    ../../modules/default.nix
     ../../features/programs/jetbrains/jetbrains.nix
     ../../features/programs/gaming/gaming.nix
 
@@ -23,8 +25,6 @@
   boot.loader.grub.useOSProber = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  environment.variables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -45,11 +45,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ user.username ];
-  };
+  config.mystuff.onepassword.enable = true;
 
   virtualisation.vmware.guest.enable = true;
 
@@ -86,5 +82,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

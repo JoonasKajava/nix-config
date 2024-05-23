@@ -1,13 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, desktop, user, ... }:
-
 {
+  config,
+  pkgs,
+  desktop,
+  user,
+  ...
+}: {
   imports = [
-    ../../modules/system.nix
-    ../../modules/zsh.nix
+    ../../modules/default.nix
     ../../features/programs/jetbrains/jetbrains.nix
 
     ../../desktops/${desktop}.nix
@@ -19,7 +21,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  environment.variables = { SSH_AUTH_SOCK = "~/.1password/agent.sock"; };
+  environment.variables = {SSH_AUTH_SOCK = "~/.1password/agent.sock";};
 
   networking.hostName = "nixos-laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -46,11 +48,7 @@
     remotePlay.openFirewall = true;
   };
 
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ user.username ];
-  };
+  config.mystuff.onepassword.enable = true;
 
   environment.systemPackages = with pkgs; [
     firefox
@@ -85,5 +83,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

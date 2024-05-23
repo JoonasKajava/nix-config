@@ -4,13 +4,9 @@
   lib,
   user,
   ...
-}: let
-  onePassPath = "~/.1password/agent.sock";
-in {
+}: {
   # The home.stateVersion option does not have a default and must be set
   home.stateVersion = "18.09";
-
-  home.sessionVariables = {SSH_AUTH_SOCK = "~/.1password/agent.sock";};
 
   home.username = user.username;
   home.homeDirectory = "/home/${user.username}";
@@ -40,12 +36,6 @@ in {
 
   programs.ssh = {
     enable = true;
-    extraOptionOverrides = {IdentityAgent = onePassPath;};
-    extraConfig = ''
-      Host *
-                IdentitiesOnly=yes
-                IdentityAgent ${onePassPath}
-    '';
   };
 
   programs.home-manager.enable = true;
