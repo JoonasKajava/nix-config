@@ -26,7 +26,8 @@ in {
           eval "$(direnv hook zsh)"
         '';
         shellAliases = {
-          update = "sudo nixos-rebuild switch";
+          rebuild = "sudo nixos-rebuild switch";
+          upgrade = "cd /etc/nixos/;devenv update;nix flake update";
           optimize = "sudo sh -c 'devenv gc; nix-collect-garbage -v -d && nix-store -v --optimize'";
           neofetch = "fastfetch";
           l = "eza -hlaog --total-size --icons";
