@@ -28,7 +28,7 @@ in {
         shellAliases = {
           rebuild = "sudo nixos-rebuild switch";
           upgrade = "cd /etc/nixos/;devenv update;nix flake update";
-          optimize = "sudo sh -c 'devenv gc; nix-collect-garbage -v -d && nix-store -v --optimize'";
+          optimize = "devenv gc; sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'";
           neofetch = "fastfetch";
           l = "eza -hlaog --total-size --icons";
         };
