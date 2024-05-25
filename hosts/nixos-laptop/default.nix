@@ -48,6 +48,8 @@
 
   config.mystuff.onepassword.enable = true;
 
+  config.mystuff.nvidia.enable = true;
+
   environment.systemPackages = with pkgs; [
     firefox
     #  thunderbird

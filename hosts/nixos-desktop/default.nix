@@ -46,6 +46,7 @@
   # services.xserver.libinput.enable = true;
 
   config.mystuff.onepassword.enable = true;
+  config.mystuff.nvidia.enable = true;
 
   virtualisation.vmware.guest.enable = true;
 
