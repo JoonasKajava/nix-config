@@ -21,8 +21,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  environment.variables = {SSH_AUTH_SOCK = "~/.1password/agent.sock";};
-
   networking.hostName = "nixos-laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
