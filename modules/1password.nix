@@ -25,11 +25,11 @@ in {
       home.sessionVariables = {SSH_AUTH_SOCK = onePassSock;};
       programs.ssh = {
         enable = true;
-        extraOptionOverrides = {IdentityAgent = onePassPath;};
+        extraOptionOverrides = {IdentityAgent = onePassSock;};
         extraConfig = ''
           Host *
                     IdentitiesOnly=yes
-                    IdentityAgent ${onePassPath}
+                    IdentityAgent ${onePassSock}
         '';
       };
     };
