@@ -40,12 +40,8 @@
     variant = "";
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   mystuff.onepassword.enable = true;
   mystuff.nvidia.enable = true;
-
   mystuff.studio.enable = true;
 
   virtualisation.vmware.guest.enable = true;
