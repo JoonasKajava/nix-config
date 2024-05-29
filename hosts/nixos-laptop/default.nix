@@ -50,6 +50,11 @@
 
     mystuff.nvidia.enable = true;
 
+    mystuff.studio = {
+      enable = true;
+      video.enable = false;
+    };
+
     environment.systemPackages = with pkgs; [
       firefox
       #  thunderbird

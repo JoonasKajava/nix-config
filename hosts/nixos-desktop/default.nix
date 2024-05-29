@@ -46,6 +46,8 @@
   mystuff.onepassword.enable = true;
   mystuff.nvidia.enable = true;
 
+  mystuff.studio.enable = true;
+
   virtualisation.vmware.guest.enable = true;
 
   environment.systemPackages = with pkgs; [
