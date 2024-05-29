@@ -32,9 +32,9 @@
     networking.networkmanager.enable = true;
 
     # Configure keymap in X11
-    services.xserver = {
+    services.xserver.xkb = {
       layout = "fi";
-      xkbVariant = "";
+      variant = "";
     };
 
     console.keyMap = "fi";
