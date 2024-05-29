@@ -1,37 +1,51 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
   cfg = config.mystuff.studio;
 in {
   options.mystuff.studio = {
-    enable = mkEnableOption "Studio applications";
+    enable = mkEnableOption "Enable studio applications";
 
     audio = {
-      enable = mkDefault true;
+      enable = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable audio tools";
+      };
     };
 
     image = {
-      enable = mkDefault true;
+      enable = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable image tools";
+      };
     };
 
     video = {
-      enable = mkDefault true;
+      enable = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable video tools";
+      };
     };
   };
 
   config = {
-    environment.systemPackages = with pkgs;
-      mkIf cfg.audio [
-        audacity
-      ]
-      ++ mkIf cfg.image [
+    environment.systemPackages = with pkgs; [
+      (mkIf cfg.audio.enable audacity)
+      (
+        mkIf cfg.image.enable
         gimp-with-plugins
-      ]
-      ++ mkIf cfg.video [
+      )
+      (
+        mkIf cfg.audio.enable
         davinci-resolve
-      ];
+      )
+    ];
   };
 }
