@@ -36,20 +36,21 @@ in {
   };
 
   config = {
-    environment.systemPackages = with pkgs; [
-      (mkIf cfg.audio.enable audacity)
-      (
-        mkIf cfg.image.enable
-        krita
-      )
-      (
-        mkIf cfg.image.enable
-        gimp-with-plugins
-      )
-      (
-        mkIf cfg.audio.enable
-        davinci-resolve
-      )
-    ];
+    environment.systemPackages = with pkgs;
+      mkIf cfg.enable [
+        (mkIf cfg.audio.enable audacity)
+        (
+          mkIf cfg.image.enable
+          krita
+        )
+        (
+          mkIf cfg.image.enable
+          gimp-with-plugins
+        )
+        (
+          mkIf cfg.audio.enable
+          davinci-resolve
+        )
+      ];
   };
 }
