@@ -4,6 +4,10 @@
   languages.nix.enable = true;
   languages.lua.enable = true;
 
+  enterTest = ''
+    nix flake check
+  '';
+
   # https://devenv.sh/pre-commit-hooks/
   # pre-commit.hooks.shellcheck.enable = true;
 

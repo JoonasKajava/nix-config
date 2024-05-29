@@ -24,8 +24,6 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -45,8 +43,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  config.mystuff.onepassword.enable = true;
-  config.mystuff.nvidia.enable = true;
+  mystuff.onepassword.enable = true;
+  mystuff.nvidia.enable = true;
 
   virtualisation.vmware.guest.enable = true;
 
