@@ -40,6 +40,10 @@ in {
       (mkIf cfg.audio.enable audacity)
       (
         mkIf cfg.image.enable
+        krita
+      )
+      (
+        mkIf cfg.image.enable
         gimp-with-plugins
       )
       (
