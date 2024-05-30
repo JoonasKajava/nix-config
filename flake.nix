@@ -18,69 +18,51 @@
     };
   };
 
-  outputs =
-    inputs@{ self, nixpkgs, home-manager, plasma-manager, nixos-wsl, ... }:
-    let
-      user = {
-        username = "joonas";
-        name = "Joonas Kajava";
-      };
-    in {
-      nixosConfigurations = {
-        nixos-desktop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          # Also _module.args or config._module.args
-          specialArgs = {
-            desktop = "gnome";
-            inherit plasma-manager home-manager user;
-          };
-          modules = [
-            ./hosts/nixos-desktop
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs user; };
-              home-manager.users.${user.username} = import ./home;
-            }
-          ];
-
-        };
-        nixos-laptop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          # Also _module.args or config._module.args
-          specialArgs = {
-            desktop = "gnome";
-            inherit home-manager user;
-          };
-          modules = [
-            ./hosts/nixos-laptop
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs user; };
-              home-manager.users.${user.username} = import ./home;
-            }
-          ];
-        };
-        nixos-wsl = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          # Also _module.args or config._module.args
-          specialArgs = { inherit home-manager user; };
-          modules = [
-            nixos-wsl.nixosModules.wsl
-            ./hosts/nixos-wsl
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs user; };
-              home-manager.users.${user.username} = import ./home;
-            }
-          ];
-        };
-      };
-
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    plasma-manager,
+    nixos-wsl,
+    ...
+  }: let
+    user = {
+      username = "joonas";
+      name = "Joonas Kajava";
     };
+  in {
+    nixosConfigurations = {
+      nixos-desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        # Also _module.args or config._module.args
+        specialArgs = {
+          desktop = "gnome";
+          inherit inputs home-manager user;
+        };
+        modules = [
+          ./hosts/nixos-desktop
+        ];
+      };
+      nixos-laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        # Also _module.args or config._module.args
+        specialArgs = {
+          desktop = "gnome";
+          inherit home-manager user inputs;
+        };
+        modules = [
+          ./hosts/nixos-laptop
+        ];
+      };
+      nixos-wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        # Also _module.args or config._module.args
+        specialArgs = {inherit home-manager user inputs;};
+        modules = [
+          nixos-wsl.nixosModules.wsl
+          ./hosts/nixos-wsl
+        ];
+      };
+    };
+  };
 }
