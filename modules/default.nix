@@ -1,8 +1,5 @@
 {config, ...}: {
-  imports = [./system.nix ./zsh.nix ./1password.nix ./nvidia.nix ./studio.nix ./home-manager.nix];
+  imports = [./system.nix ./zsh.nix ./1password.nix ./nvidia.nix ./studio.nix];
 
-  config.mystuff = {
-    zsh.enable = true;
-    home-manager.enable = true;
-  };
+  config.mystuff = {zsh.enable = true;};
 }
