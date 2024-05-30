@@ -32,11 +32,11 @@
       git.paging.externalDiffCommand = "difft --color=always";
       customCommands = [
         {
-          key = "C";
+          key = "c";
           command = "git cz c";
-          description = "commit with commitizen";
+          description = "Commit with commitizen";
           context = "files";
-          loadingText = "opening commitizen commit tool";
+          loadingText = "Opening commitizen commit tool";
           subprocess = true;
         }
       ];
