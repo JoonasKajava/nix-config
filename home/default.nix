@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   user,
@@ -31,6 +30,16 @@
       gui = {
       };
       git.paging.externalDiffCommand = "difft --color=always";
+      customCommands = [
+        {
+          key = "C";
+          command = "git cz c";
+          description = "commit with commitizen";
+          context = "files";
+          loadingText = "opening commitizen commit tool";
+          subprocess = true;
+        }
+      ];
     };
   };
 

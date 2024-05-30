@@ -64,6 +64,7 @@ with lib; {
       fastfetch
       rm-improved
       eza
+      commitizen
     ];
 
     # Enable CUPS to print documents.
