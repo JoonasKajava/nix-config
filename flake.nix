@@ -17,7 +17,6 @@
     self,
     nixpkgs,
     home-manager,
-    plasma-manager,
     nixos-wsl,
     ...
   }: let
