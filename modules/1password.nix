@@ -28,8 +28,7 @@ in {
         extraOptionOverrides = {IdentityAgent = onePassSock;};
         extraConfig = ''
           Host *
-                    IdentitiesOnly=yes
-                    IdentityAgent ${onePassSock}
+              IdentityAgent ${onePassSock}
         '';
       };
     };
