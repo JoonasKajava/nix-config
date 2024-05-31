@@ -20,9 +20,8 @@
   ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -44,8 +43,6 @@
   mystuff.nvidia.enable = true;
   mystuff.studio.enable = true;
 
-  virtualisation.vmware.guest.enable = true;
-
   environment.systemPackages = with pkgs; [
     firefox
     #  thunderbird
@@ -53,6 +50,9 @@
     slack
     remmina
   ];
+
+    services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "joonas";
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
