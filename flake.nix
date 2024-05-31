@@ -11,11 +11,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:pjones/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
   };
 
   outputs = inputs @ {
@@ -36,8 +31,8 @@
         system = "x86_64-linux";
         # Also _module.args or config._module.args
         specialArgs = {
-          desktop = "kde";
-          inherit plasma-manager home-manager user;
+          desktop = "gnome";
+          inherit home-manager user;
         };
         modules = [
           ./hosts/nixos-desktop
