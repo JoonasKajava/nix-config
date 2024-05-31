@@ -5,7 +5,20 @@
   user,
   ...
 }: {
-  services.desktopManager.plasma6.enable = true;
+  services = {
+    desktopManager.plasma6.enable = true;
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+      defaultSession = "plasma";
+    };
+  };
+
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+  };
 
   qt = {
     enable = true;
