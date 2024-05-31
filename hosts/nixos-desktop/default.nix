@@ -44,12 +44,19 @@
   mystuff.studio.enable = true;
 
   environment.systemPackages = with pkgs; [
-    firefox
+    firefoxpwa
+
     #  thunderbird
     discord
     slack
     remmina
   ];
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    nativeMessagingHosts.packages = [pkgs.firefoxpwa];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
