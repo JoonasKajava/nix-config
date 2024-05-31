@@ -21,6 +21,8 @@ in {
       polkitPolicyOwners = [user.username];
     };
 
+    services.gnome.gnome-keyring.enable = true;
+
     home-manager.users.${user.username} = {
       home.sessionVariables = {SSH_AUTH_SOCK = onePassSock;};
       programs.ssh = {
