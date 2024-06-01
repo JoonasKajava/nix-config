@@ -11,7 +11,11 @@ in {
   };
 
   config = mkIf cfg.enable {
+    boot.blacklistedKernelModules = ["nouveau"];
+
     services.xserver.videoDrivers = ["nvidia"];
+
+    boot.extraModulePackages = [config.boot.kernelPackages.nvidia_x11_beta];
 
     hardware.nvidia = {
       modesetting.enable = true;
