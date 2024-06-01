@@ -10,4 +10,6 @@
   };
 
   programs.gamemode.enable = true;
+
+  mystuff.mangohud.enable = true;
 }
