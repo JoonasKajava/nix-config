@@ -30,7 +30,7 @@
         system = "x86_64-linux";
         # Also _module.args or config._module.args
         specialArgs = {
-          desktop = "gnome";
+          desktop = "kde";
           inherit home-manager user;
         };
         modules = [
