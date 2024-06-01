@@ -11,6 +11,8 @@ in {
     enable = mkEnableOption "Enable mangohud";
   };
 
+  # Add mangohud %command% to steam launch options
+
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       mangohud
