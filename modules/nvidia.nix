@@ -17,6 +17,8 @@ in {
 
     boot.extraModulePackages = [config.boot.kernelPackages.nvidia_x11_beta];
 
+    boot.initrd.kernelModules = ["nvidia"];
+
     hardware.nvidia = {
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
