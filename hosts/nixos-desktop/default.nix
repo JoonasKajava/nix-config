@@ -50,6 +50,8 @@
     discord
     slack
     remmina
+
+    bazecor
   ];
 
   programs.firefox = {
