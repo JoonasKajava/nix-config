@@ -15,6 +15,12 @@ in {
   config = mkIf cfg.enable {
     programs.hyprland.enable = true;
 
+    wayland.windowManager.hyprland = {
+      enable = true;
+      systemdIntegration = true;
+      nvidiaPatches = true;
+    };
+
     home-manager.users.${user.username} = {config, ...}: {
       xdg.configFile."hypr/hyprland.conf".source =
         config.lib.file.mkOutOfStoreSymlink
