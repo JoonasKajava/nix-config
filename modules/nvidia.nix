@@ -15,7 +15,7 @@ in {
 
     services.xserver.videoDrivers = ["nvidia"];
 
-    boot.extraModulePackages = [config.boot.kernelPackages.nvidia_x11_beta];
+    # boot.extraModulePackages = [config.boot.kernelPackages.nvidia_x11_beta];
 
     boot.initrd.kernelModules = ["nvidia"];
 
