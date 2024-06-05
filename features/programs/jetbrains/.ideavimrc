@@ -207,7 +207,7 @@ set surround
 
 " nerdtree (bundle plugin)
 set NERDTree
-nmap <leader>nt :NERDTree<CR>
+nmap <leader>e :NERDTree<CR>
 " replace with register (bundle plugin)
 " usage: https://github.com/vim-scripts/ReplaceWithRegister
 set ReplaceWithRegister
