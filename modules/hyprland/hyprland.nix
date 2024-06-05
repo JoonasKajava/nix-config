@@ -2,6 +2,7 @@
   config,
   lib,
   user,
+  pkgs,
   ...
 }
 :
@@ -13,18 +14,24 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.hyprland.enable = true;
+    environment.variables = {
+      WLR_RENDERER_ALLOW_SOFTWARE = "1";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_TYPE = "wayland";
+      XDG_SESSION_DESKTOP = "Hyprland";
+    };
 
-    wayland.windowManager.hyprland = {
+    programs.hyprland = {
       enable = true;
-      systemdIntegration = true;
-      nvidiaPatches = true;
+      package = pkgs.hyprland.override {
+        debug = true;
+      };
     };
 
     home-manager.users.${user.username} = {config, ...}: {
       xdg.configFile."hypr/hyprland.conf".source =
         config.lib.file.mkOutOfStoreSymlink
-        "/etc/nixos/modules/hyprland/hyprland.conf";
+        "/etc/nixos/modules/hyprland/hyprlandd.conf";
     };
   };
 }

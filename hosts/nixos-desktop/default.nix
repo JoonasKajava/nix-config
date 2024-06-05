@@ -13,7 +13,7 @@
     ../../features/programs/jetbrains/jetbrains.nix
     ../../features/programs/gaming/gaming.nix
 
-    ../../desktops/${desktop}.nix
+    # ../../desktops/${desktop}.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./backups.nix
@@ -42,6 +42,7 @@
   mystuff.onepassword.enable = true;
   mystuff.nvidia.enable = true;
   mystuff.studio.enable = true;
+  mystuff.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
     firefoxpwa
