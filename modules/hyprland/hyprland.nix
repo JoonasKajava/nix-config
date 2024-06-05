@@ -21,11 +21,16 @@ in {
       XDG_SESSION_DESKTOP = "Hyprland";
     };
 
+    environment.systemPackages = with pkgs; [
+      kitty
+    ];
+
     programs.hyprland = {
       enable = true;
       package = pkgs.hyprland.override {
         debug = true;
       };
+      xwayland.enable = true;
     };
 
     home-manager.users.${user.username} = {config, ...}: {
