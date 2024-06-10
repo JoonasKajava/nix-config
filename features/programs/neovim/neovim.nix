@@ -9,6 +9,13 @@
       vimAlias = true;
       enable = true;
       viAlias = true;
+
+      extraPackages = with pkgs; [
+        gcc
+        ripgrep
+        cargo
+        xclip
+      ];
     };
     xdg.configFile.nvim = {
       source =
@@ -33,11 +40,7 @@
   environment = {
     variables.EDITOR = "nvim";
     systemPackages = with pkgs; [
-      gcc
-      ripgrep
       lazygit
-      cargo
-      xclip
       devenv
     ];
   };
