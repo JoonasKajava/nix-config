@@ -15,6 +15,7 @@
         ripgrep
         cargo
         xclip
+        alejandra
       ];
     };
     xdg.configFile.nvim = {

@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  packages = with pkgs; [alejandra stylua];
+  packages = with pkgs; [stylua];
 
   languages.nix.enable = true;
   languages.lua.enable = true;
