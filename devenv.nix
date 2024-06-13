@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  packages = with pkgs; [stylua];
-
   languages.nix.enable = true;
   languages.lua.enable = true;
 

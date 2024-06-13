@@ -16,6 +16,9 @@
         cargo
         xclip
         alejandra
+
+        stylua
+        lua-language-server
       ];
     };
     xdg.configFile.nvim = {

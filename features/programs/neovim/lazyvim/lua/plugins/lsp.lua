@@ -31,6 +31,7 @@ return {
 
         lsp_conf.texlab.setup({})
 
+        lsp_conf.pyright.setup({})
       end,
     },
     { "hrsh7th/cmp-nvim-lsp" },
