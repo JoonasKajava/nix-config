@@ -17,6 +17,13 @@ return {
 
         lsp_zero.on_attach(function(client, bufnr)
           lsp_zero.default_keymaps({ buffer = bufnr })
+
+          vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", {
+            desc = "Code Actions",
+          })
+          vim.keymap.set("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", {
+            desc = "Rename",
+          })
         end)
 
         local lua_opts = lsp_zero.nvim_lua_ls()
@@ -37,5 +44,13 @@ return {
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/nvim-cmp" },
     { "L3MON4D3/LuaSnip" },
+    {
+      "nvimtools/none-ls.nvim",
+      config = function()
+        local null_ls = require("null-ls")
+
+        null_ls.setup()
+      end,
+    },
   },
 }
