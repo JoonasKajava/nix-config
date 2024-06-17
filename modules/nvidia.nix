@@ -11,13 +11,13 @@ in {
   };
 
   config = mkIf cfg.enable {
-    boot.blacklistedKernelModules = ["nouveau"];
+    # boot.blacklistedKernelModules = ["nouveau"];
 
     services.xserver.videoDrivers = ["nvidia"];
 
     # boot.extraModulePackages = [config.boot.kernelPackages.nvidia_x11_beta];
 
-    boot.initrd.kernelModules = ["nvidia"];
+    # boot.initrd.kernelModules = ["nvidia"];
 
     hardware.nvidia = {
       modesetting.enable = true;
@@ -25,7 +25,7 @@ in {
       nvidiaSettings = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;
-      open = false;
+      open = true;
     };
 
     hardware.opengl = {

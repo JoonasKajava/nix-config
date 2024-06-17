@@ -49,6 +49,7 @@
 
   environment.systemPackages = with pkgs; [
     firefoxpwa
+    chromium
 
     #  thunderbird
     discord
