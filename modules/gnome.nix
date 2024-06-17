@@ -20,19 +20,12 @@ in {
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.displayManager.gdm.wayland = true;
     services.xserver.desktopManager.gnome.enable = true;
-    home-manager.users.${user.username} = {
-      dconf = {
-        enable = true;
-        settings."org/gnome/shell" = {
-          disable-user-extensions = false;
-          enabled-extensions = with pkgs.gnomeExtensions; [
-            appindicator
-            tray-icons-reloaded
-            vitals
-            wayland-or-x11
-          ];
-        };
-      };
-    };
+
+    environment.systemPackages = with pkgs.gnomeExtensions; [
+      appindicator
+      tray-icons-reloaded
+      vitals
+      wayland-or-x11
+    ];
   };
 }
