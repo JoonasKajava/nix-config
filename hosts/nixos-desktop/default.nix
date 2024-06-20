@@ -40,30 +40,21 @@
   };
 
   mystuff.onepassword.enable = true;
-  mystuff.nvidia.enable = true;
   mystuff.studio.enable = true;
+  mystuff.firefox.enable = true;
+
+  mystuff.nvidia.enable = true;
 
   mystuff.hyprland.enable = false;
-
   mystuff.gnome.enable = true;
 
   environment.systemPackages = with pkgs; [
-    firefoxpwa
     chromium
-
-    #  thunderbird
     discord
     slack
     remmina
-
     bazecor
   ];
-
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox;
-    nativeMessagingHosts.packages = [pkgs.firefoxpwa];
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

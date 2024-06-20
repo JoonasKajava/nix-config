@@ -8,6 +8,7 @@
     ./gaming/mangohud.nix
     ./hyprland/hyprland.nix
     ./gnome.nix
+    ./firefox.nix
   ];
 
   config.mystuff = {zsh.enable = true;};

@@ -47,6 +47,7 @@
     };
 
     mystuff.onepassword.enable = true;
+    mystuff.firefox.enable = true;
 
     mystuff.nvidia.enable = true;
 
@@ -56,7 +57,6 @@
     };
 
     environment.systemPackages = with pkgs; [
-      firefox
       #  thunderbird
       steam
       discord
