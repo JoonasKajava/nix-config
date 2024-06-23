@@ -1,14 +1,15 @@
 {config, ...}: {
   imports = [
-    ./system.nix
-    ./zsh.nix
     ./1password.nix
+    ./firefox.nix
+    ./gaming/mangohud.nix
+    ./gnome.nix
+    ./hyprland/hyprland.nix
+    ./kde.nix
     ./nvidia.nix
     ./studio.nix
-    ./gaming/mangohud.nix
-    ./hyprland/hyprland.nix
-    ./gnome.nix
-    ./firefox.nix
+    ./system.nix
+    ./zsh.nix
   ];
 
   config.mystuff = {zsh.enable = true;};
