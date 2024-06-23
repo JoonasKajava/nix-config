@@ -46,7 +46,8 @@
   mystuff.nvidia.enable = true;
 
   mystuff.hyprland.enable = false;
-  mystuff.gnome.enable = true;
+  mystuff.gnome.enable = false;
+  mystuff.kde.enable = true;
 
   environment.systemPackages = with pkgs; [
     chromium
