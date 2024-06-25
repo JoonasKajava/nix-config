@@ -13,25 +13,29 @@ in {
   };
 
   config = mkIf cfg.enable {
-    #
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
-
-    services.displayManager = {
-      autoLogin.enable = true;
-      autoLogin.user = "joonas";
-      sddm = {
+    services = {
+      xserver = {
         enable = true;
       };
+
+      displayManager = {
+        #autoLogin.enable = true;
+        #autoLogin.user = "joonas";
+        defaultSession = "plasma";
+        sddm = {
+          #wayland.enable = true;
+          enable = true;
+        };
+      };
+
+      desktopManager.plasma6.enable = true;
     };
 
-    services.xserver.desktopManager.plasma5.enable = true;
-
-    qt = {
-      enable = true;
-      platformTheme = "gnome";
-      style = "adwaita-dark";
-    };
+    #   qt = {
+    #     enable = true;
+    #    platformTheme = "gnome";
+    #   style = "adwaita-dark";
+    #  };
 
     programs.dconf.enable = true;
   };
