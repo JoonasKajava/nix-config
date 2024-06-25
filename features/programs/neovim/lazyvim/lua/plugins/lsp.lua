@@ -32,8 +32,6 @@ return {
 
         lsp_conf.nil_ls.setup({})
 
-        lsp_conf.rust_analyzer.setup({})
-
         lsp_conf.tsserver.setup({})
 
         lsp_conf.texlab.setup({})
