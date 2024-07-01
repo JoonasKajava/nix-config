@@ -41,7 +41,7 @@
 
   mystuff.onepassword.enable = true;
   mystuff.studio.enable = true;
-  mystuff.firefox.enable = true;
+  mystuff.firefox.enable = false;
 
   mystuff.nvidia.enable = true;
 
@@ -50,7 +50,7 @@
   mystuff.kde.enable = true;
 
   environment.systemPackages = with pkgs; [
-    chromium
+    brave
     discord
     slack
     remmina

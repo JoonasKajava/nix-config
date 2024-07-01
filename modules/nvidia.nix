@@ -19,6 +19,8 @@ in {
 
     # boot.initrd.kernelModules = ["nvidia"];
 
+    boot.kernelParams = ["nvidia-drm.fbdev=1"];
+
     hardware.nvidia = {
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
