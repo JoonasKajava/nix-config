@@ -2,21 +2,20 @@ return {
   {
     {
       "VonHeikemen/lsp-zero.nvim",
-      config = false,
+      config = function() end,
       lazy = true,
-      init = function()
-        vim.g.lsp_zero_extend_lspconfig = 0
-      end,
     },
     {
       "neovim/nvim-lspconfig",
+      cmd = { "LspInfo", "LspInstall", "LspStart" },
+      event = { "BufReadPre", "BufNewFile" },
       config = function()
         local lsp_conf = require("lspconfig")
         local lsp_zero = require("lsp-zero")
         lsp_zero.extend_lspconfig()
 
         lsp_zero.on_attach(function(client, bufnr)
-          lsp_zero.default_keymaps({ buffer = bufnr })
+          lsp_zero.default_keymaps({ buffer = bufnr, preserve_mappings = false })
 
           vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", {
             desc = "Code Actions",
@@ -25,6 +24,12 @@ return {
             desc = "Rename",
           })
         end)
+        local lsp_capabilities = lsp_zero.get_capabilities()
+        vim.g.rustaceanvim = {
+          server = {
+            capabilities = lsp_capabilities,
+          },
+        }
 
         local lua_opts = lsp_zero.nvim_lua_ls()
 
@@ -32,7 +37,7 @@ return {
 
         lsp_conf.nil_ls.setup({})
 
-        lsp_conf.tsserver.setup({})
+        lsp_conf.tsserver.setup({ capabilities = lsp_capabilities })
 
         lsp_conf.texlab.setup({})
 

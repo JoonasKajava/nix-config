@@ -5,6 +5,7 @@ return {
     ft = { "rust" },
     opts = {
       server = {
+        capabilities = require("lsp-zero").get_capabilities(),
         on_attach = function(_, bufnr)
           vim.keymap.set("n", "<leader>cR", function()
             vim.cmd.RustLsp("codeAction")
@@ -48,6 +49,10 @@ return {
     end,
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = { ensure_installed = { "rust", "ron" } },
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       {
@@ -81,9 +86,9 @@ return {
         desc = "Show Versions",
       })
 
-      vim.keymap.set("n", "<leader>cf", crates.show_features_popup, {
-        desc = "Show Features",
-      })
+      --vim.keymap.set("n", "<leader>cf", crates.show_features_popup, {
+      --desc = "Show Features",
+      --})
     end,
   },
   {

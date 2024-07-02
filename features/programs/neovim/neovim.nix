@@ -16,6 +16,8 @@
         cargo
         xclip
         alejandra
+        tree-sitter
+        fd
 
         stylua
         lua-language-server
