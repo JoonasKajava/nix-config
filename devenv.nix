@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  packages = with pkgs; [openssl luajit];
   languages.nix.enable = true;
   languages.lua.enable = true;
 
