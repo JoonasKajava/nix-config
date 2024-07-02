@@ -19,6 +19,8 @@
 
         stylua
         lua-language-server
+        luajit
+        openssl
       ];
     };
     xdg.configFile.nvim = {
