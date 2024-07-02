@@ -21,6 +21,8 @@
         lua-language-server
         luajit
         openssl
+        python3
+        unzip
       ];
     };
     xdg.configFile.nvim = {
