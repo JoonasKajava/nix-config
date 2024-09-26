@@ -158,7 +158,9 @@ nmap zA <Action>(ExpandAllRegions)
 
 " []
 map ]e <Action>(GotoNextError)
+map ]E <Action>(ReSharperGotoNextErrorInSolution)
 nmap [e <Action>(GotoPreviousError)
+nmap [E <Action>(ReSharperGotoPrevErrorInSolution)
 
 " goto
 nmap <leader>a <Action>(GotoAction)
