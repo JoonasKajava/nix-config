@@ -108,6 +108,9 @@ nmap <leader>qD <Action>(QuickTypeDefinition)
 " code
 map <leader>cc <Action>(CommentByLineComment)
 map <leader>cC <Action>(CommentByBlockComment)
+map <leader>ca <Action>(IntentionActionAsAction_com.intellij.ml.llm.intentions.chat.AIAssistantIntention)
+
+
 nmap <leader>qf <Action>(ShowIntentionActions)
 nmap <leader>se <Action>(ShowErrorDescription)
 nmap <leader>om <Action>(OverrideMethods)
@@ -155,7 +158,9 @@ nmap zA <Action>(ExpandAllRegions)
 
 " []
 map ]e <Action>(GotoNextError)
+map ]E <Action>(ReSharperGotoNextErrorInSolution)
 nmap [e <Action>(GotoPreviousError)
+nmap [E <Action>(ReSharperGotoPrevErrorInSolution)
 
 " goto
 nmap <leader>a <Action>(GotoAction)
@@ -199,7 +204,7 @@ let g:highlightedyank_highlight_color = "rgba(57, 197, 187, 155)"
 
 nmap <leader>ss <Action>(osmedile.intellij.stringmanip.PopupChoiceAction)
 
-
+nmap <leader>cd <Action>(FixDocComment)
 
 " surround (bundle plugin)
 " usage: https://github.com/tpope/vim-surround
@@ -222,6 +227,5 @@ nmap <C-a> ggVG"+y
 set which-key
 set notimeout
 set ttimeout
-
 
 set quickscope
