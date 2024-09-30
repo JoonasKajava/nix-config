@@ -42,6 +42,8 @@ return {
         lsp_conf.texlab.setup({})
 
         lsp_conf.pyright.setup({})
+
+        lsp_conf.quick_lint_js.setup({})
       end,
     },
     { "hrsh7th/cmp-nvim-lsp" },

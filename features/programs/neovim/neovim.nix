@@ -10,18 +10,26 @@
       enable = true;
       viAlias = true;
 
-      extraPackages = with pkgs; [
-        gcc
-        ripgrep
-        cargo
-        xclip
-        alejandra
-        tree-sitter
-        fd
+      extraPackages = with pkgs;
+        [
+          gcc
+          ripgrep
+          cargo
+          xclip
+          alejandra
+          tree-sitter
+          fd
 
-        stylua
-        lua-language-server
-      ];
+          stylua
+          lua-language-server
+          quick-lint-js
+        ]
+        # Lsp from Node
+        ++ (with pkgs.nodePackages; [
+          typescript-language-server
+          bash-language-server
+          vscode-langservers-extracted
+        ]);
     };
     xdg.configFile.nvim = {
       source =
