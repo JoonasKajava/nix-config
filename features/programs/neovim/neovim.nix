@@ -11,6 +11,7 @@
       viAlias = true;
 
       extraPackages = with pkgs;
+      # Other dependencies
         [
           gcc
           ripgrep
@@ -19,11 +20,14 @@
           alejandra
           tree-sitter
           fd
-
+        ]
+        # Lsps
+        ++ (with pkgs; [
           stylua
           lua-language-server
           quick-lint-js
-        ]
+          rust-analyzer
+        ])
         # Lsp from Node
         ++ (with pkgs.nodePackages; [
           typescript-language-server
