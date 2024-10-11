@@ -176,6 +176,7 @@ nmap gD <Action>(GotoTypeDeclaration)
 nmap gi <Action>(GotoImplementation)
 nmap gI <Action>(QuickImplementations)
 nmap gn <Action>(ShowNavBar)
+nmap gm <Action>(ActivateStructureToolWindow)
 nmap <s-k> <Action>(ShowHoverInfo)
 nmap g; <Action>(JumpToLastChange)
 " terminal
