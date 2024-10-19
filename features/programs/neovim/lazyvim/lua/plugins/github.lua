@@ -1,3 +1,8 @@
+-- TODO: This does not work currently since build for this fails
+if true then
+  return {}
+end
+
 return {
   {
     "napisani/nvim-github-codesearch",
