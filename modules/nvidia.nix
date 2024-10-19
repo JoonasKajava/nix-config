@@ -19,7 +19,10 @@ in {
 
     # boot.initrd.kernelModules = ["nvidia"];
 
-    boot.kernelParams = ["nvidia-drm.fbdev=1"];
+    boot.kernelParams = [
+      "nvidia-drm.fbdev=1"
+      "module_blacklist=i915"
+    ];
 
     hardware.nvidia = {
       modesetting.enable = true;
@@ -27,7 +30,7 @@ in {
       nvidiaSettings = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;
-      open = false;
+      open = true;
     };
 
     hardware.graphics = {
