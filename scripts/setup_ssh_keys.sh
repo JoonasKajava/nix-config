@@ -1,8 +1,11 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -i bash -p _1password
 
-export_public_key(name) {
-        op read "op://Private/Github - Joonas Kajava/public key" > ~/.ssh/github.pub;
+export_key() {
+  echo "Exporting public key $1 to $2.pub"
+  op read "op://Private/$1/public key" >~/.ssh/"$2".pub
+  echo "Exporting private key $1 to $2"
+  op read "op://Private/$1/private key" >~/.ssh/"$2"
 }
 
-
+export_key "Github - Joonas Kajava" "github"

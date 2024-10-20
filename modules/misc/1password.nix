@@ -35,6 +35,11 @@ in {
         enable = true;
         extraOptionOverrides = {IdentityAgent = onePassSock;};
         extraConfig = ''
+          Host github
+              HostName github.com
+              User JoonasKajava
+              IdentityFile ~/.ssh/github.pub
+              IdentitiesOnly yes
           Host *
               IdentityAgent ${onePassSock}
         '';
