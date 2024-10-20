@@ -23,7 +23,13 @@ in {
 
     services.gnome.gnome-keyring.enable = true;
 
-    home-manager.users.${user.username} = {
+    home-manager.users.${user.username} = {config, ...}: {
+      home.file.".config/1Password/ssh/agent.toml" = {
+        source =
+          config.lib.file.mkOutOfStoreSymlink
+          "/etc/nixos/modules/misc/agent.toml";
+      };
+
       home.sessionVariables = {SSH_AUTH_SOCK = onePassSock;};
       programs.ssh = {
         enable = true;
