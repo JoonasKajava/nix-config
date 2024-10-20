@@ -6,7 +6,7 @@
 with lib; let
   cfg = config.mystuff.office.obsidian;
 in {
-  options.office.obsidian = {
+  options.mystuff.office.obsidian = {
     enable = mkEnableOption "Obsidian";
   };
 
