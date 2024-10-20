@@ -30,15 +30,15 @@ in {
           Host github
               HostName github.com
               User JoonasKajava
-              IdentityFile ~/.ssh/github.pub
+              IdentityFile ~/.ssh/github
               IdentitiesOnly yes
           Host borg
               HostName borgbase.com
-              IdentityFile ~/.ssh/borg.pub
+              IdentityFile ~/.ssh/borg
               IdentitiesOnly yes
           Host azure
               HostName azure.com
-              IdentityFile ~/.ssh/azure.pub
+              IdentityFile ~/.ssh/azure
               IdentitiesOnly yes
         '';
       };
