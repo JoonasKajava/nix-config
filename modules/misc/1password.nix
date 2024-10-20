@@ -27,17 +27,13 @@ in {
       programs.ssh = {
         enable = true;
         extraConfig = ''
-          Host github
-              HostName github.com
-              User JoonasKajava
+          Host github.com
               IdentityFile ~/.ssh/github
               IdentitiesOnly yes
-          Host borg
-              HostName borgbase.com
+          Host *.borgbase.com
               IdentityFile ~/.ssh/borg
               IdentitiesOnly yes
-          Host azure
-              HostName azure.com
+          Host *.azure.com
               IdentityFile ~/.ssh/azure
               IdentitiesOnly yes
         '';
