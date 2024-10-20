@@ -9,3 +9,5 @@ export_key() {
 }
 
 export_key "Github - Joonas Kajava" "github"
+export_key "BorgBase - SSH Key" "borg"
+export_key "DevOps" "azure"

@@ -6,15 +6,12 @@
 }:
 with lib; let
   cfg = config.mystuff.onepassword;
-  onePassSock = "~/.1password/agent.sock";
 in {
   options.mystuff.onepassword = {
     enable = mkEnableOption "1 password";
   };
 
   config = mkIf cfg.enable {
-    environment.variables = {SSH_AUTH_SOCK = onePassSock;};
-
     programs._1password.enable = true;
     programs._1password-gui = {
       enable = true;
@@ -23,25 +20,26 @@ in {
 
     services.gnome.gnome-keyring.enable = true;
 
-    home-manager.users.${user.username} = {config, ...}: {
-      home.file.".config/1Password/ssh/agent.toml" = {
-        source =
-          config.lib.file.mkOutOfStoreSymlink
-          "/etc/nixos/modules/misc/agent.toml";
-      };
+    # I will not use 1password ssh agent since it is difficult to manage multiple keys with it
+    # Also automated tasks cannot use it.
 
-      home.sessionVariables = {SSH_AUTH_SOCK = onePassSock;};
+    home-manager.users.${user.username} = {config, ...}: {
       programs.ssh = {
         enable = true;
-        extraOptionOverrides = {IdentityAgent = onePassSock;};
         extraConfig = ''
           Host github
               HostName github.com
               User JoonasKajava
               IdentityFile ~/.ssh/github.pub
               IdentitiesOnly yes
-          Host *
-              IdentityAgent ${onePassSock}
+          Host borg
+              HostName borgbase.com
+              IdentityFile ~/.ssh/borg.pub
+              IdentitiesOnly yes
+          Host azure
+              HostName azure.com
+              IdentityFile ~/.ssh/azure.pub
+              IdentitiesOnly yes
         '';
       };
     };
