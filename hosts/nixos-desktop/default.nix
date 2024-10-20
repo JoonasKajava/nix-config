@@ -48,6 +48,7 @@
     office.obsidian.enable = true;
     onepassword.enable = true;
     studio.enable = true;
+    easyeffects.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
