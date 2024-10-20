@@ -50,7 +50,8 @@
     studio.enable = true;
 
     audio = {
-      easyeffects.enable = true;
+      # Disable easyeffects for now since i don't have the time to add good noise suppression
+      easyeffects.enable = false;
     };
   };
 
