@@ -12,6 +12,8 @@
     ./studio.nix
     ./system.nix
     ./zsh.nix
+
+    ../work/knowit.nix
   ];
 
   config.mystuff = {zsh.enable = true;};

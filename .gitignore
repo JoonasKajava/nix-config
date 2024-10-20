@@ -5,6 +5,9 @@ devenv.local.nix
 # direnv
 .direnv
 
+/work
+
+
 # pre-commit
 .pre-commit-config.yaml
 ### JetBrains template

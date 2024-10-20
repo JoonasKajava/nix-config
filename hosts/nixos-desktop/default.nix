@@ -49,6 +49,8 @@
     onepassword.enable = true;
     studio.enable = true;
 
+    work.knowit.enable = true;
+
     audio = {
       # Disable easyeffects for now since i don't have the time to add good noise suppression
       easyeffects.enable = false;
