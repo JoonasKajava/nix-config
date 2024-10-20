@@ -6,6 +6,9 @@ return {
         lua = { "stylua" },
         nix = { "alejandra" },
         rust = { "rustfmt" },
+        bash = { " shfmt" },
+        zsh = { " shfmt" },
+        sh = { " shfmt" },
       },
       formatters = {
         alejandra = {

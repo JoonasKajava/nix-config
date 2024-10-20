@@ -20,6 +20,7 @@
           alejandra
           tree-sitter
           fd
+          shfmt
         ]
         # Lsps
         ++ (with pkgs; [
