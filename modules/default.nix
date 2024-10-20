@@ -1,5 +1,6 @@
 {config, ...}: {
   imports = [
+    ./office/obsidian.nix
     ./1password.nix
     ./firefox.nix
     ./gaming/mangohud.nix

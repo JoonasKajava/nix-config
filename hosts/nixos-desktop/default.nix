@@ -39,15 +39,16 @@
     variant = "";
   };
 
-  mystuff.onepassword.enable = true;
-  mystuff.studio.enable = true;
-  mystuff.firefox.enable = false;
-
-  mystuff.nvidia.enable = true;
-
-  mystuff.hyprland.enable = false;
-  mystuff.gnome.enable = false;
-  mystuff.kde.enable = true;
+  mystuff = {
+    firefox.enable = false;
+    gnome.enable = false;
+    hyprland.enable = false;
+    kde.enable = true;
+    nvidia.enable = true;
+    office.obsidian.enable = true;
+    onepassword.enable = true;
+    studio.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     brave
