@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./office/obsidian.nix
     ./audio/easyeffects.nix
@@ -14,6 +18,10 @@
     ./zsh.nix
 
     ../work/knowit.nix
+  ];
+
+  config.environment.systemPackages = with pkgs; [
+    wl-clipboard
   ];
 
   config.mystuff = {zsh.enable = true;};

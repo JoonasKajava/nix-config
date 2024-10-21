@@ -46,6 +46,8 @@ return {
         lsp_conf.quick_lint_js.setup({})
 
         lsp_conf.bashls.setup({})
+
+        lsp_conf.yamlls.setup({})
       end,
     },
     { "hrsh7th/cmp-nvim-lsp" },

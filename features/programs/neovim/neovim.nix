@@ -28,6 +28,7 @@
           lua-language-server
           quick-lint-js
           rust-analyzer
+          yaml-language-server
         ])
         # Lsp from Node
         ++ (with pkgs.nodePackages; [
