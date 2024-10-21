@@ -31,7 +31,7 @@ nmap <C-i> <Action>(Back)
 nmap <C-o> <Action>(Forward)
 
 " buffer (buffer < window < tab)
-nmap <leader>bx <Action>(CloseContent)
+nmap <leader>bd <Action>(CloseContent)
 nmap <leader>ba <Action>(CloseAllEditors)
 nmap <leader>bo <Action>(CloseAllEditorsButActive)
 nmap <leader>bP <Action>(CloseAllUnpinnedEditors)
