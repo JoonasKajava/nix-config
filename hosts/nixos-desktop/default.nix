@@ -48,6 +48,7 @@
     office.obsidian.enable = true;
     onepassword.enable = true;
     studio.enable = true;
+    discord.enable = true;
 
     work.knowit.enable = true;
 

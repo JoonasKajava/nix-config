@@ -15,6 +15,7 @@
     ./nvidia.nix
     ./studio.nix
     ./system.nix
+    ./networking/instant-messangers/discord.nix
     ./zsh.nix
 
     ../work/knowit.nix
