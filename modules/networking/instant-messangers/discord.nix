@@ -7,7 +7,7 @@
 with lib; let
   cfg = config.mystuff.discord;
 in {
-  options.mystuff.discrod = {
+  options.mystuff.discord = {
     enable = mkEnableOption "Enable Discrod";
   };
 
