@@ -9,6 +9,8 @@
       vimAlias = true;
       enable = true;
       viAlias = true;
+      
+      # TODO: check https://www.youtube.com/watch?v=M_zMoHlbZBY
 
       extraPackages = with pkgs;
       # Other dependencies
