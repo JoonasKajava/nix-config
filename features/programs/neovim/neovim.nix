@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   lib,
   user,
   ...
@@ -9,7 +10,7 @@
       vimAlias = true;
       enable = true;
       viAlias = true;
-      
+
       # TODO: check https://www.youtube.com/watch?v=M_zMoHlbZBY
 
       extraPackages = with pkgs;
@@ -31,6 +32,7 @@
           quick-lint-js
           rust-analyzer
           yaml-language-server
+          nixd
         ])
         # Lsp from Node
         ++ (with pkgs.nodePackages; [
@@ -50,6 +52,8 @@
     enable = true;
     defaultEditor = true;
   };
+
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   nix.settings = {
     trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
