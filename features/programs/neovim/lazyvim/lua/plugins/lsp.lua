@@ -35,7 +35,24 @@ return {
 
         lsp_conf.lua_ls.setup(lua_opts)
 
-        lsp_conf.nil_ls.setup({})
+        lsp_conf.nixd.setup({
+          cmd = { "nixd" },
+          settings = {
+            nixd = {
+              nixpkgs = {
+                expr = "import <nixpkgs> { }",
+              },
+              options = {
+                nixos = {
+                  expr = '(builtins.getFlake "/etc/nixos/").nixosConfigurations.nixos-desktop.options',
+                },
+                home_manager = {
+                  expr = '(builtins.getFlake "/etc/nixos/").homeConfigurations.nixos-desktop.options',
+                },
+              },
+            },
+          },
+        })
 
         lsp_conf.tsserver.setup({ capabilities = lsp_capabilities })
 
