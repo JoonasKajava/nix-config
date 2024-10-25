@@ -49,6 +49,8 @@
     onepassword.enable = true;
     studio.enable = true;
     discord.enable = true;
+    virtualization.enable = true;
+
     work.knowit.enable = true;
 
     audio = {

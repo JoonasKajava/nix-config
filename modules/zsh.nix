@@ -15,6 +15,8 @@ in {
 
     users.defaultUserShell = pkgs.zsh;
 
+    home-manager.backupFileExtension = "hm-backup";
+
     home-manager.users.${user.username} = {
       programs.zsh = {
         enable = true;
