@@ -31,7 +31,7 @@
         # Also _module.args or config._module.args
         specialArgs = {
           desktop = "kde";
-          inherit home-manager user;
+          inherit inputs home-manager user;
         };
         modules = [
           ./hosts/nixos-desktop
@@ -49,7 +49,7 @@
         # Also _module.args or config._module.args
         specialArgs = {
           desktop = "gnome";
-          inherit home-manager user;
+          inherit inputs home-manager user;
         };
         modules = [
           ./hosts/nixos-laptop
@@ -65,7 +65,7 @@
       nixos-wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # Also _module.args or config._module.args
-        specialArgs = {inherit home-manager user;};
+        specialArgs = {inherit inputs home-manager user;};
         modules = [
           nixos-wsl.nixosModules.wsl
           ./hosts/nixos-wsl
