@@ -16,6 +16,7 @@
     ./studio.nix
     ./system.nix
     ./networking/instant-messangers/discord.nix
+    ./virtualization/virtualization.nix
     ./zsh.nix
 
     ../work/knowit.nix
