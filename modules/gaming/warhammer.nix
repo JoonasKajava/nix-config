@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.mystuff.warhammer;
+  cfg = config.mystuff.gaming.warhammer;
 in {
-  options.mystuff.warhammer = {
+  options.mystuff.gaming.warhammer = {
     enable = mkEnableOption "warhammer related stuff";
   };
 
