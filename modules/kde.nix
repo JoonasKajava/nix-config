@@ -23,7 +23,7 @@ in {
         #autoLogin.user = "joonas";
         defaultSession = "plasma";
         sddm = {
-          #wayland.enable = true;
+          wayland.enable = true;
           enable = true;
         };
       };
