@@ -53,6 +53,10 @@
 
     work.knowit.enable = true;
 
+    gaming = {
+      warhammer.enable = true;
+    };
+
     audio = {
       # Disable easyeffects for now since i don't have the time to add good noise suppression
       easyeffects.enable = false;
@@ -83,7 +87,7 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedTCPPorts = [  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

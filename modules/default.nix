@@ -9,6 +9,7 @@
     ./misc/1password.nix
     ./firefox.nix
     ./gaming/mangohud.nix
+    ./gaming/warhammer.nix
     ./gnome.nix
     ./hyprland/hyprland.nix
     ./kde.nix
