@@ -54,7 +54,7 @@
     work.knowit.enable = true;
 
     gaming = {
-      warhammer.enable = true;
+      warhammer.enable = false;
     };
 
     audio = {
