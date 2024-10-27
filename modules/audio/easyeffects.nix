@@ -8,7 +8,7 @@ with lib; let
   cfg = config.mystuff.audio.easyeffects;
 in {
   options.mystuff.audio.easyeffects = {
-    enable = mkEnableOption "Enable Easyeffects";
+    enable = mkEnableOption "easyeffects";
   };
 
   config = mkIf cfg.enable {
