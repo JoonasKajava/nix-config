@@ -20,7 +20,7 @@ in {
           to = 27036;
         }
       ];
-      allowedTCPPorts = [27015 27036];
+      allowedTCPPorts = [27015 27027 27036];
     };
   };
 }
