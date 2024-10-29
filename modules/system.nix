@@ -65,7 +65,6 @@ with lib; {
       rm-improved
       eza
       commitizen
-      ranger
     ];
 
     # Enable CUPS to print documents.
