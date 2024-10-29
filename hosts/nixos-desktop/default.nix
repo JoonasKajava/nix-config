@@ -52,6 +52,7 @@
     virtualization.enable = true;
 
     work.knowit.enable = true;
+    yazi.enable = true;
 
     gaming = {
       warhammer.enable = false;

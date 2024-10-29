@@ -19,6 +19,7 @@
     ./networking/instant-messangers/discord.nix
     ./virtualization/virtualization.nix
     ./zsh.nix
+    ./yazi.nix
 
     ../work/knowit.nix
   ];
