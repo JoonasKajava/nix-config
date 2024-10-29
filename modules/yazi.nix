@@ -6,7 +6,7 @@
 with lib; let
   cfg = config.mystuff.yazi;
 in {
-  options.mystuff.firefox = {
+  options.mystuff.yazi = {
     enable = mkEnableOption "yazi";
   };
 
