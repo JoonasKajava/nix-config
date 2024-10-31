@@ -67,7 +67,6 @@
   environment.systemPackages = with pkgs; [
     brave
     discord
-    slack
     remmina
     bazecor
   ];
