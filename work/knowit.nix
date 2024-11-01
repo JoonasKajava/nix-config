@@ -14,6 +14,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       slack
+      parsec-bin
       microsoft-edge
     ];
   };
