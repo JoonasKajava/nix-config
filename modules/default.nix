@@ -20,7 +20,6 @@
     ./virtualization/virtualization.nix
     ./zsh.nix
     ./yazi.nix
-    ./brave.nix
 
     ../work/knowit.nix
   ];
