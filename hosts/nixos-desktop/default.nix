@@ -41,8 +41,6 @@
 
   mystuff = {
     firefox.enable = false;
-    brave.enable = true;
-
     gnome.enable = false;
     hyprland.enable = false;
     kde.enable = true;
@@ -67,6 +65,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    brave
     discord
     remmina
     bazecor
