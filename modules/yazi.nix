@@ -2,6 +2,7 @@
   config,
   lib,
   user,
+  inputs,
   ...
 }:
 with lib; let
@@ -14,6 +15,8 @@ in {
   config = mkIf cfg.enable {
     programs.yazi = {
       enable = true;
+      #TODO use stable for now. Can switch when build works
+      package = inputs.nixos-stable.yazi;
     };
 
     home-manager.users.${user.username} = {
