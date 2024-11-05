@@ -16,7 +16,7 @@ in {
     programs.yazi = {
       enable = true;
       #TODO use stable for now. Can switch when build works
-      package = inputs.nixos-stable.yazi;
+      package = inputs.nixpkgs-stable.yazi;
     };
 
     home-manager.users.${user.username} = {

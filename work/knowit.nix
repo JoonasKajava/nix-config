@@ -15,7 +15,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       slack
-      nixos-stable.parsec-bin
+      inputs.nixpkgs-stable.parsec-bin
       microsoft-edge
     ];
   };
