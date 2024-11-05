@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  nixos-stable,
+  inputs,
   ...
 }:
 with lib; let
