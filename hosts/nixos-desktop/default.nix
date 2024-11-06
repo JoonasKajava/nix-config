@@ -57,6 +57,7 @@
 
     gaming = {
       warhammer.enable = false;
+      lutris.enable = true;
     };
 
     audio = {

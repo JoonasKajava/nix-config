@@ -11,6 +11,7 @@
     ./brave.nix
     ./gaming/mangohud.nix
     ./gaming/warhammer.nix
+    ./gaming/lutrix.nix
     ./gnome.nix
     ./hyprland/hyprland.nix
     ./kde.nix
