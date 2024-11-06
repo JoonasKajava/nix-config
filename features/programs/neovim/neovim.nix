@@ -36,6 +36,7 @@
         ])
         # Lsp from Node
         ++ (with pkgs.nodePackages; [
+          prettier
           typescript-language-server
           bash-language-server
           vscode-langservers-extracted
