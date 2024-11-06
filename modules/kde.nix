@@ -19,8 +19,8 @@ in {
       };
 
       displayManager = {
-        autoLogin.enable = true;
-        autoLogin.user = "joonas";
+        #autoLogin.enable = true;
+        #autoLogin.user = "joonas";
         defaultSession = "plasma";
         sddm = {
           wayland.enable = true;
