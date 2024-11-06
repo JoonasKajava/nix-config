@@ -15,5 +15,9 @@ in {
     environment.systemPackages = with pkgs; [
       lutris
     ];
+
+    hardware.graphics = {
+      driSupport32Bit = true;
+    };
   };
 }
