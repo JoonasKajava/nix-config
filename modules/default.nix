@@ -8,6 +8,7 @@
     ./audio/easyeffects.nix
     ./misc/1password.nix
     ./firefox.nix
+    ./brave.nix
     ./gaming/mangohud.nix
     ./gaming/warhammer.nix
     ./gnome.nix
