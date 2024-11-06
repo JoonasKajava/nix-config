@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  inputs,
+  pkgs-stable,
   ...
 }:
 with lib; let
@@ -15,7 +15,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       slack
-      inputs.nixpkgs-stable.parsec-bin
+      # pkgs-stable.parsec-bin
       microsoft-edge
     ];
   };

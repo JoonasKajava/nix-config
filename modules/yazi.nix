@@ -2,7 +2,7 @@
   config,
   lib,
   user,
-  inputs,
+  pkgs-stable,
   ...
 }:
 with lib; let
@@ -16,7 +16,7 @@ in {
     programs.yazi = {
       enable = true;
       #TODO use stable for now. Can switch when build works
-      package = inputs.nixpkgs-stable.yazi;
+      package = pkgs-stable.yazi;
     };
 
     home-manager.users.${user.username} = {

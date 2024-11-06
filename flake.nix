@@ -28,11 +28,15 @@
     };
   in {
     nixosConfigurations = {
-      nixos-desktop = nixpkgs.lib.nixosSystem {
+      nixos-desktop = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         # Also _module.args or config._module.args
         specialArgs = {
           desktop = "kde";
+          pkgs-stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+          };
           inherit inputs home-manager user;
         };
         modules = [
