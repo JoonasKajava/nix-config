@@ -22,6 +22,7 @@
     ./virtualization/virtualization.nix
     ./zsh.nix
     ./yazi.nix
+    ./terminal/tmux.nix
 
     ../work/knowit.nix
   ];
