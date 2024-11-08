@@ -25,65 +25,52 @@
     user = {
       username = "joonas";
       name = "Joonas Kajava";
+      githubEmail = "5013522+JoonasKajava@users.noreply.github.com";
     };
-    defaultSpecialArgs = {
+
+    defaultSpecialArgs = system: {
       inherit inputs home-manager user;
       pkgs-stable = import nixpkgs-stable {
+        inherit system;
         config.allowUnfree = true;
       };
     };
   in {
     nixosConfigurations = {
-      nixos-desktop = nixpkgs.lib.nixosSystem {
+      nixos-desktop = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         # Also _module.args or config._module.args
-        specialArgs = {
-          desktop = "kde";
-          inherit defaultSpecialArgs;
-        };
+        specialArgs =
+          defaultSpecialArgs system
+          // {
+            desktop = "kde";
+          };
         modules = [
           ./hosts/nixos-desktop
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit defaultSpecialArgs;};
-            home-manager.users.${user.username} = import ./home;
-          }
+          ./home/default.nix
         ];
       };
-      nixos-laptop = nixpkgs.lib.nixosSystem {
+      nixos-laptop = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         # Also _module.args or config._module.args
-        specialArgs = {
-          desktop = "gnome";
-          inherit inputs home-manager user;
-        };
+        specialArgs =
+          defaultSpecialArgs system
+          // {
+            desktop = "gnome";
+          };
         modules = [
           ./hosts/nixos-laptop
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs user;};
-            home-manager.users.${user.username} = import ./home;
-          }
+          ./home/default.nix
         ];
       };
-      nixos-wsl = nixpkgs.lib.nixosSystem {
+      nixos-wsl = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         # Also _module.args or config._module.args
-        specialArgs = {inherit inputs home-manager user;};
+        specialArgs = defaultSpecialArgs system;
         modules = [
           nixos-wsl.nixosModules.wsl
           ./hosts/nixos-wsl
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs user;};
-            home-manager.users.${user.username} = import ./home;
-          }
+          ./home/default.nix
         ];
       };
     };
