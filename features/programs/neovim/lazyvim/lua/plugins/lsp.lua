@@ -25,11 +25,6 @@ return {
           })
         end)
         local lsp_capabilities = lsp_zero.get_capabilities()
-        vim.g.rustaceanvim = {
-          server = {
-            capabilities = lsp_capabilities,
-          },
-        }
 
         local lua_opts = lsp_zero.nvim_lua_ls()
 
