@@ -26,18 +26,20 @@
       username = "joonas";
       name = "Joonas Kajava";
     };
+    defaultSpecialArgs = {
+      inherit inputs home-manager user;
+      pkgs-stable = import nixpkgs-stable {
+        config.allowUnfree = true;
+      };
+    };
   in {
     nixosConfigurations = {
-      nixos-desktop = nixpkgs.lib.nixosSystem rec {
+      nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # Also _module.args or config._module.args
         specialArgs = {
           desktop = "kde";
-          pkgs-stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          inherit inputs home-manager user;
+          inherit defaultSpecialArgs;
         };
         modules = [
           ./hosts/nixos-desktop
@@ -45,7 +47,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs user;};
+            home-manager.extraSpecialArgs = {inherit defaultSpecialArgs;};
             home-manager.users.${user.username} = import ./home;
           }
         ];
