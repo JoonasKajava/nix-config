@@ -33,6 +33,8 @@
           rust-analyzer
           yaml-language-server
           nixd
+          # TODO: Enable when this package appears on unstable
+          # vtsls
         ])
         # Lsp from Node
         ++ (with pkgs.nodePackages; [
