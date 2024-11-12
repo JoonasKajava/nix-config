@@ -13,6 +13,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = [
+      kdePackages.kcolorchooser
+    ];
+
     services = {
       xserver = {
         enable = true;
