@@ -80,9 +80,6 @@ set argtextobj
 set NERDTree
 nmap <leader>e :NERDTree<CR>
 
-" replace with register (bundle plugin)
-" usage: https://github.com/vim-scripts/ReplaceWithRegister
-set ReplaceWithRegister
 " Key maps
 
 " https://www.lazyvim.org/configuration/keymaps
@@ -226,6 +223,7 @@ nmap <leader>- <c-w>s
 nmap <leader><bar> <c-w>v
 " Delete Window
 nmap <leader>wd <Action>(CloseContent)
+nmap <leader>ww <Action>(HideAllWindows)
 " Toggle Maximize
 nmap <leader>wm <Action>(ToggleDistractionFreeMode)
 " Last Tab
@@ -250,7 +248,6 @@ nmap <leader><tab>d <Action>(CloseContent)
 nmap <leader>cc :echo 'There is no equivalent mapping for Lsp Info.'<cr>
 " Goto Definition
 nmap gd <Action>(GotoDeclaration)
-" Goto action
 nmap ga <Action>(GotoAction)
 " References
 nmap gr <Action>(FindUsages)
