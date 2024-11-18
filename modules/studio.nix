@@ -48,8 +48,8 @@ in {
           gimp-with-plugins
         )
         (
-          mkIf cfg.audio.enable
-          davinci-resolve
+          mkIf cfg.video.enable
+          kdePackages.kdenlive
         )
       ];
   };

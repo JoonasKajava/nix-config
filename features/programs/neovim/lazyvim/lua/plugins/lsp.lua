@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 return {
   {
     {
@@ -48,8 +51,6 @@ return {
             },
           },
         })
-
-        lsp_conf.tsserver.setup({ capabilities = lsp_capabilities })
 
         lsp_conf.texlab.setup({})
 
