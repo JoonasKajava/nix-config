@@ -20,10 +20,6 @@ in {
     home-manager.users.${user.username} = {config, ...}: {
       programs.kitty = {
         enable = true;
-        settings = {
-          background_opacity = "0.5";
-          background_blur = 5;
-        };
       };
     };
 
