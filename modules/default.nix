@@ -23,6 +23,7 @@
     ./zsh.nix
     ./yazi.nix
     ./terminal/tmux.nix
+    ./terminal/kitty.nix
 
     ../work/knowit.nix
   ];

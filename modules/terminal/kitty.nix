@@ -9,6 +9,10 @@ with lib; let
 in {
   options.mystuff.terminal.kitty = {
     enable = mkEnableOption "kitty";
+    disableOtherTerminals = mkOption {
+      type = types.bool;
+      default = true;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -21,5 +25,11 @@ in {
         };
       };
     };
+
+    environment.plasma6.excludePackages = mkIf cfg.disableOtherTerminals (
+      with pkgs.kdePackages; [
+        konsole
+      ]
+    );
   };
 }
