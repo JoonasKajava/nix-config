@@ -41,6 +41,11 @@ set showmode
 set showcmd
 set idearefactormode=normal
 
+set easymotion
+let g:EasyMotion_do_mapping = 0
+nmap s <Plug>(easymotion-s)
+
+
 " highlight yank (bundle plugin)
 set highlightedyank
 let g:highlightedyank_highlight_duration = "1000"
@@ -497,5 +502,3 @@ nnoremap Q @@
 " https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
 " None, yet.  Possible conflicts: ctrl -6befhjklorsvw
 " jump-motion (required idea plugin: IdeaVim-EasyMotion, AceJump)
-set easymotion
-nmap s <Plug>(easymotion-s)
