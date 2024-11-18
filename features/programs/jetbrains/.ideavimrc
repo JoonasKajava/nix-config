@@ -41,8 +41,8 @@ set showmode
 set showcmd
 set idearefactormode=normal
 
-g:EasyMotion_do_mapping = 0
 set easymotion
+let g:EasyMotion_do_mapping = 0
 nmap s <Plug>(easymotion-s)
 
 
