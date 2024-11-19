@@ -25,7 +25,7 @@
     ./terminal/tmux.nix
     ./terminal/kitty.nix
 
-    ../work/knowit.nix
+    ../work/work.nix
   ];
 
   config.environment.systemPackages = with pkgs; [

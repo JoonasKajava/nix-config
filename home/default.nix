@@ -25,10 +25,6 @@
         userEmail = user.githubEmail;
         extraConfig = {
           safe.directory = "/etc/nixos";
-          # gpg.format = "ssh";
-          # gpg."ssh".program = "/opt/1Password/op-ssh-sign";
-          # commit.gpgsign = true;
-          # user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBW2Rddbmwj9W61WtcXqu3HEFCC7hg81pRaqZRlHTPt";
           push.autoSetupRemote = true;
         };
       };

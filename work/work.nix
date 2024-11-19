@@ -6,10 +6,10 @@
   ...
 }:
 with lib; let
-  cfg = config.mystuff.work.knowit;
+  cfg = config.mystuff.work;
 in {
-  options.mystuff.work.knowit = {
-    enable = mkEnableOption "Enable software required by knowit";
+  options.mystuff.work = {
+    enable = mkEnableOption "work related stuff";
   };
 
   config = mkIf cfg.enable {
