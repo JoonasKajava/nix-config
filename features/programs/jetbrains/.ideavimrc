@@ -40,6 +40,8 @@ set ideamarks
 set showmode
 set showcmd
 set idearefactormode=normal
+set visualbell
+set noerrorbells
 
 set easymotion
 let g:EasyMotion_do_mapping = 0
