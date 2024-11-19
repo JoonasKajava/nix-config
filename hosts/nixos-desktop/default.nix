@@ -52,7 +52,7 @@
     discord.enable = true;
     virtualization.enable = true;
 
-    work.knowit.enable = true;
+    work.enable = true;
     yazi.enable = true;
 
     gaming = {
