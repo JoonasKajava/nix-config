@@ -13,9 +13,15 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      kdePackages.kcolorchooser
-    ];
+    environment = {
+      plasma6.excludePackages = with pkgs.kdePackages; [
+        kate
+      ];
+
+      systemPackages = with pkgs; [
+        kdePackages.kcolorchooser
+      ];
+    };
 
     services = {
       xserver = {
