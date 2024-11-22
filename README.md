@@ -47,3 +47,4 @@ This some features I'm planning to add to my configuration.
 - [ ] Add better system wide noise suppression for microphone.
 - [ ] Automatic backups for important files.
 - [ ] Fix commit signing in git.
+- [ ] Experiment with NixOS Specializations.
