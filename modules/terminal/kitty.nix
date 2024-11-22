@@ -20,6 +20,9 @@ in {
     home-manager.users.${user.username} = {config, ...}: {
       programs.kitty = {
         enable = true;
+        settings = {
+          cursor_trail = 3;
+        };
       };
     };
 
