@@ -49,7 +49,7 @@
           };
         modules =
           defaultModules
-          // [
+          ++ [
             ./hosts/nixos-desktop
           ];
       };
@@ -63,7 +63,7 @@
           };
         modules =
           defaultModules
-          // [
+          ++ [
             ./hosts/nixos-laptop
           ];
       };
@@ -73,7 +73,7 @@
         specialArgs = defaultSpecialArgs system;
         modules =
           defaultModules
-          // [
+          ++ [
             nixos-wsl.nixosModules.wsl
             ./hosts/nixos-wsl
           ];
