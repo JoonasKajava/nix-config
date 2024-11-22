@@ -34,6 +34,7 @@
           yaml-language-server
           nixd
           vtsls
+          markdownlint-cli2
         ])
         # Lsp from Node
         ++ (with pkgs.nodePackages; [
