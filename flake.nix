@@ -12,11 +12,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    private = {
-      url = "git+file:nix-config-private";
-      flake = false;
-    };
   };
 
   outputs = inputs @ {
@@ -42,7 +37,7 @@
       };
     };
 
-    defaultModules = [private ./home/default.nix];
+    defaultModules = [./nix-config-private/private.nix ./home/default.nix];
   in {
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem rec {

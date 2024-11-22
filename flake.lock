@@ -109,12 +109,29 @@
         "type": "github"
       }
     },
+    "private": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732274382,
+        "narHash": "sha256-jsi3g63RT0HMC3cRMOLT8C3eoZ1n7R5TNovuNPazUlw=",
+        "ref": "refs/heads/master",
+        "rev": "b682a40594ddaf19eb6a5984531461dfd2bbe40e",
+        "revCount": 2,
+        "type": "git",
+        "url": "file:nix-config-private"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:nix-config-private"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable"
+        "nixpkgs-stable": "nixpkgs-stable",
+        "private": "private"
       }
     },
     "systems": {
