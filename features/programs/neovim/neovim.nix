@@ -11,6 +11,10 @@
       enable = true;
       viAlias = true;
 
+      plugins = with pkgs.vimPlugins; [
+        markdown-preview-nvim
+      ];
+
       # TODO: check https://www.youtube.com/watch?v=M_zMoHlbZBY
 
       extraPackages = with pkgs;
@@ -24,6 +28,7 @@
           tree-sitter
           fd
           shfmt
+          nodejs
         ]
         # Lsps
         ++ (with pkgs; [
@@ -35,6 +40,7 @@
           nixd
           vtsls
           markdownlint-cli2
+          marksman
         ])
         # Lsp from Node
         ++ (with pkgs.nodePackages; [
