@@ -24,8 +24,6 @@
     ./yazi.nix
     ./terminal/tmux.nix
     ./terminal/kitty.nix
-
-    ../work/work.nix
   ];
 
   config.environment.systemPackages = with pkgs; [
