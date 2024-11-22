@@ -1,3 +1,9 @@
+
+<div aling="center">
+  <img src=".github/nixos-logo.png" alt="NixOS Logo" width="200"/>
+</div>
+
+
 # nix-config
 
 
