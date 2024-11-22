@@ -35,6 +35,8 @@
         config.allowUnfree = true;
       };
     };
+
+    defaultModules = [./nix-config-private/private.nix ./home/default.nix];
   in {
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem rec {
@@ -45,10 +47,11 @@
           // {
             desktop = "kde";
           };
-        modules = [
-          ./hosts/nixos-desktop
-          ./home/default.nix
-        ];
+        modules =
+          defaultModules
+          // [
+            ./hosts/nixos-desktop
+          ];
       };
       nixos-laptop = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
@@ -58,20 +61,22 @@
           // {
             desktop = "gnome";
           };
-        modules = [
-          ./hosts/nixos-laptop
-          ./home/default.nix
-        ];
+        modules =
+          defaultModules
+          // [
+            ./hosts/nixos-laptop
+          ];
       };
       nixos-wsl = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         # Also _module.args or config._module.args
         specialArgs = defaultSpecialArgs system;
-        modules = [
-          nixos-wsl.nixosModules.wsl
-          ./hosts/nixos-wsl
-          ./home/default.nix
-        ];
+        modules =
+          defaultModules
+          // [
+            nixos-wsl.nixosModules.wsl
+            ./hosts/nixos-wsl
+          ];
       };
     };
   };
