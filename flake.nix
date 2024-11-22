@@ -20,7 +20,6 @@
     nixpkgs-stable,
     home-manager,
     nixos-wsl,
-    private,
     ...
   }: let
     user = {

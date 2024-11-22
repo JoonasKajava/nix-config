@@ -29,7 +29,7 @@ in {
           eval "$(direnv hook zsh)"
         '';
         shellAliases = {
-          rebuild = "sudo nixos-rebuild switch; source ~/.zshenv; source ~/.zshrc";
+          rebuild = "sudo nixos-rebuild switch --flake .\\?submodules=1; source ~/.zshenv; source ~/.zshrc";
           upgrade = "cd /etc/nixos/;devenv update;nix flake update";
           optimize = "devenv gc; sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'";
           neofetch = "fastfetch";
