@@ -1,0 +1,3 @@
+[submodule "nix-config-private"]
+	path = nix-config-private
+	url = git@github.com:JoonasKajava/nix-config-private.git
