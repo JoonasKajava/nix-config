@@ -33,3 +33,12 @@ This configuration adds few aliases to make upgrading and rebuilding easier.
 
 Unfortunately, I cannot share all parts of my configuration. This private module contains scripts and configuration to manage secrets in my devices and other work related stuff.
 It is **not** necessary to use this module to use the rest of the configuration. Simply remove the import from `flake.nix`.
+
+## Roadmap
+
+This some features I'm planning to add to my configuration.
+
+- [ ] Add some way of managing KDE settings from here, maybe plasma manager?.
+  - Currently, this is a bit tricky as KDE settings contain a lot of state information.
+- [ ] Add better system wide noise suppression for microphone.
+- [ ] Automatic backups for important files.
