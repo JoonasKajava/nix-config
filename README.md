@@ -11,9 +11,13 @@
 
 ## Installation
 
-Clone this repository to `/etc/nixos` and run:
+Clone this repository to `/etc/nixos`.
 
-`sudo nixos-rebuild switch --flake .\?submodules=1;`
+Generate hardware configuration:
+`nixos-generate-config` after this, you can remove the generated `configuration.nix` file.
+
+Run (replace `nixos-desktop` with the name of the system you want to install):
+`sudo nixos-rebuild switch --flake .#nixos-desktop\?submodules=1;`
 After this has been successfully run, you can rebuild the system with just `rebuild` command.
 Continue installation according to the ReadMe in the private module.
 
