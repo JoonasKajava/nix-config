@@ -13,6 +13,9 @@ in {
   config = mkIf cfg.enable {
     programs.zsh = {enable = true;};
 
+    environment.systemPackages = with pkgs; [
+      nh
+    ];
     users.defaultUserShell = pkgs.zsh;
 
     home-manager.backupFileExtension = "hm-backup";
@@ -29,7 +32,7 @@ in {
           eval "$(direnv hook zsh)"
         '';
         shellAliases = {
-          rebuild = "sudo nixos-rebuild switch --flake .\\?submodules=1; source ~/.zshenv; source ~/.zshrc";
+          rebuild = "sudo nh switch --ask .\\?submodules=1; source ~/.zshenv; source ~/.zshrc";
           upgrade = "cd /etc/nixos/;devenv update;nix flake update";
           optimize = "devenv gc; sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'";
           neofetch = "fastfetch";
