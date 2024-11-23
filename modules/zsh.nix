@@ -32,7 +32,7 @@ in {
           eval "$(direnv hook zsh)"
         '';
         shellAliases = {
-          rebuild = "sudo nh os switch --ask .\\?submodules=1; source ~/.zshenv; source ~/.zshrc";
+          rebuild = "cd /etc/nixos/;nh os switch --ask .\\?submodules=1; source ~/.zshenv; source ~/.zshrc";
           upgrade = "cd /etc/nixos/;devenv update;nix flake update";
           optimize = "devenv gc; sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'";
           neofetch = "fastfetch";
