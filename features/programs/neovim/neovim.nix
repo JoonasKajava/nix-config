@@ -41,6 +41,7 @@
           vtsls
           markdownlint-cli2
           marksman
+          taplo
         ])
         # Lsp from Node
         ++ (with pkgs.nodePackages; [
