@@ -2,6 +2,8 @@
   config,
   lib,
   pkgs,
+  inputs,
+  user,
   ...
 }:
 with lib; let
@@ -13,8 +15,6 @@ with lib; let
       description = "${lang} support";
     };
 in {
-  # TODO: Create better neovim module that allows easily enabling or disabling features
-
   options.mystuff.editors.neovim = {
     enable = mkEnableOption "Whether to enable neovim with my configuration";
     lang = {
@@ -47,39 +47,39 @@ in {
             fd
             nodejs
           ]
-          ++ (lib.optional cfg.lang.rust [
-            rust-analyzer
-            taplo
+          ++ (lib.optionals cfg.lang.rust [
+            pkgs.rust-analyzer
+            pkgs.taplo
           ])
-          ++ (lib.optional cfg.lang.lua [
-            stylua
-            lua-language-server
+          ++ (lib.optionals cfg.lang.lua [
+            pkgs.stylua
+            pkgs.lua-language-server
           ])
-          ++ (lib.optional cfg.lang.python [
+          ++ (lib.optionals cfg.lang.python [
             # TODO: Add python packages
           ])
-          ++ (lib.optional cfg.lang.typescript [
-            quick-lint-js
-            vtsls
-            nodePackages.prettier
-            nodePackages.typescript-language-server
+          ++ (lib.optionals cfg.lang.typescript [
+            pkgs.quick-lint-js
+            pkgs.vtsls
+            pkgs.nodePackages.prettier
+            pkgs.nodePackages.typescript-language-server
           ])
-          ++ (lib.optional cfg.lang.nix [
-            yaml-language-server
-            nil
+          ++ (lib.optionals cfg.lang.nix [
+            pkgs.yaml-language-server
+            pkgs.nil
           ])
-          ++ (lib.optional cfg.lang.markdown [
-            markdownlint-cli2
-            marksman
+          ++ (lib.optionals cfg.lang.markdown [
+            pkgs.markdownlint-cli2
+            pkgs.marksman
           ])
-          ++ (lib.optional cfg.lang.html [
-            vscode-langservers-extracted
+          ++ (lib.optionals cfg.lang.html [
+            pkgs.vscode-langservers-extracted
           ])
-          ++ (lib.optional cfg.lang.bash [
-            nodePackages.bash-language-server
-            shfmt
+          ++ (lib.optionals cfg.lang.bash [
+            pkgs.nodePackages.bash-language-server
+            pkgs.shfmt
           ]);
-
+      };
       # TODO: Move when ready
       xdg.configFile.nvim = {
         source =
