@@ -6,7 +6,7 @@
   imports = [
     ./audio/easyeffects.nix
     ./brave.nix
-    ./editors/neovim.nix
+    ./editors/neovim/neovim.nix
     ./firefox.nix
     ./gaming/lutris.nix
     ./gaming/mangohud.nix
