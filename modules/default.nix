@@ -4,31 +4,37 @@
   ...
 }: {
   imports = [
-    ./office/obsidian.nix
     ./audio/easyeffects.nix
-    ./misc/1password.nix
-    ./firefox.nix
     ./brave.nix
+    ./editors/neovim.nix
+    ./firefox.nix
+    ./gaming/lutris.nix
     ./gaming/mangohud.nix
     ./gaming/warhammer.nix
-    ./gaming/lutris.nix
     ./gnome.nix
     ./hyprland/hyprland.nix
     ./kde.nix
+    ./misc/1password.nix
+    ./networking/instant-messangers/discord.nix
     ./nvidia.nix
+    ./office/obsidian.nix
     ./studio.nix
     ./system.nix
-    ./networking/instant-messangers/discord.nix
-    ./virtualization/virtualization.nix
-    ./zsh.nix
-    ./yazi.nix
-    ./terminal/tmux.nix
     ./terminal/kitty.nix
+    ./terminal/tmux.nix
+    ./virtualization/virtualization.nix
+    ./yazi.nix
+    ./zsh.nix
   ];
 
   config.environment.systemPackages = with pkgs; [
     wl-clipboard
   ];
 
-  config.mystuff = {zsh.enable = true;};
+  config.mystuff = {
+    zsh.enable = true;
+    editors = {
+      neovim.enable = true;
+    };
+  };
 }
