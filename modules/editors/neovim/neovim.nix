@@ -66,7 +66,7 @@ in {
           ])
           ++ (lib.optional cfg.lang.nix [
             yaml-language-server
-            nixd
+            nil
           ])
           ++ (lib.optional cfg.lang.markdown [
             markdownlint-cli2
