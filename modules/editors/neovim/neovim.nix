@@ -84,7 +84,7 @@ in {
       xdg.configFile.nvim = {
         source =
           config.lib.file.mkOutOfStoreSymlink
-          "/etc/nixos/features/programs/neovim/lazyvim";
+          "/etc/nixos/modules/editors/neovim/lazyvim";
       };
     };
     programs.neovim = {
