@@ -78,8 +78,8 @@ in {
           ++ (lib.optional cfg.lang.bash [
             nodePackages.bash-language-server
             shfmt
-          ])
-      };
+          ]);
+
       # TODO: Move when ready
       xdg.configFile.nvim = {
         source =
