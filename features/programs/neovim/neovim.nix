@@ -41,7 +41,6 @@
           vtsls
           markdownlint-cli2
           marksman
-          omnisharp-roslyn
         ])
         # Lsp from Node
         ++ (with pkgs.nodePackages; [
