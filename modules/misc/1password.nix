@@ -22,22 +22,5 @@ in {
 
     # I will not use 1password ssh agent since it is difficult to manage multiple keys with it
     # Also automated tasks cannot use it.
-
-    home-manager.users.${user.username} = {config, ...}: {
-      programs.ssh = {
-        enable = true;
-        extraConfig = ''
-          Host github.com
-              IdentityFile ~/.ssh/github
-              IdentitiesOnly yes
-          Host *.borgbase.com
-              IdentityFile ~/.ssh/borg
-              IdentitiesOnly yes
-          Host *.azure.com
-              IdentityFile ~/.ssh/azure
-              IdentitiesOnly yes
-        '';
-      };
-    };
   };
 }
