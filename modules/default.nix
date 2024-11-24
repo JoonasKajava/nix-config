@@ -33,8 +33,5 @@
 
   config.mystuff = {
     zsh.enable = true;
-    editors = {
-      neovim.enable = true;
-    };
   };
 }

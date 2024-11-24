@@ -5,15 +5,19 @@
   ...
 }:
 with lib; {
-  imports = [../features/programs/neovim/neovim.nix ./audio.nix];
+  imports = [./audio.nix];
 
   options.mystuff = {
     nix.gc = {enable = mkEnableOption "Automatic recycling";};
   };
 
   config = {
-    mystuff.audio.enable = mkDefault true;
-
+    mystuff = {
+      audio.enable = mkDefault true;
+      editors = {
+        neovim.enable = mkDefault true;
+      };
+    };
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.${user.username} = {
       isNormalUser = true;
