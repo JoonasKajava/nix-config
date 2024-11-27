@@ -10,7 +10,6 @@
 }: {
   imports = [
     ../../modules/default.nix
-    ../../features/programs/jetbrains/jetbrains.nix
     ../../features/programs/gaming/gaming.nix
 
     # ../../desktops/${desktop}.nix
@@ -69,6 +68,10 @@
     audio = {
       # Disable easyeffects for now since i don't have the time to add good noise suppression
       easyeffects.enable = false;
+    };
+
+    editors = {
+      jetbrains.enable = true;
     };
   };
 

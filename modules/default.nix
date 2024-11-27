@@ -7,6 +7,7 @@
     ./audio/easyeffects.nix
     ./brave.nix
     ./editors/neovim/neovim.nix
+    ./editors/jetbrains/jetbrains.nix
     ./firefox.nix
     ./gaming/lutris.nix
     ./gaming/mangohud.nix
