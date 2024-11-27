@@ -74,6 +74,7 @@ in {
           ])
           ++ (lib.optionals cfg.lang.html [
             pkgs.vscode-langservers-extracted
+            pkgs.tailwindcss-language-server
           ])
           ++ (lib.optionals cfg.lang.bash [
             pkgs.nodePackages.bash-language-server
