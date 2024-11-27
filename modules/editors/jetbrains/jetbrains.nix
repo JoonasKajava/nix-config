@@ -7,7 +7,7 @@
 }:
 with lib; let
   cfg = config.mystuff.editors.jetbrains;
-  addIDE = idePkg: pkgs.jetbrains.plugins addPlugins idePkg ["github-copilot"];
+  withPlugins = idePkg: (pkgs.jetbrains.plugins.addPlugins idePkg ["17718"]);
 in {
   options.mystuff.editors.jetbrains = {
     enable = mkEnableOption "jetbrains products";
@@ -21,7 +21,7 @@ in {
     };
     environment = {
       systemPackages = with pkgs; [
-        (addIDE jetbrains.rider)
+        (withPlugins jetbrains.rider)
         dotnet-sdk_8
         nodejs_22
       ];
