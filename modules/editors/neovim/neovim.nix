@@ -80,7 +80,7 @@ in {
             pkgs.shfmt
           ]);
       };
-      # TODO: Move when ready
+
       xdg.configFile.nvim = {
         source =
           config.lib.file.mkOutOfStoreSymlink
