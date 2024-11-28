@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -11,6 +12,9 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      egl-wayland
+    ];
     # boot.blacklistedKernelModules = ["nouveau"];
 
     services.xserver.videoDrivers = ["nvidia"];
