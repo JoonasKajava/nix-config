@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib; let
@@ -9,8 +10,9 @@ in {
   options.mystuff.audio.enable = mkEnableOption "Audio functionality";
 
   config = mkIf cfg.enable {
-    # Enable sound with pipewire.
-    hardware.pulseaudio.enable = false;
+    environment.systemPackages = with pkgs; [
+      qpwgraph
+    ];
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
