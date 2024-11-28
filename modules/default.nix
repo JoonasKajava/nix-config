@@ -18,6 +18,7 @@
     ./kde.nix
     ./misc/1password.nix
     ./networking/instant-messangers/discord.nix
+    ./networking/remote/freerdp.nix
     ./nvidia.nix
     ./office/obsidian.nix
     ./studio.nix
