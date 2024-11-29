@@ -76,7 +76,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    discord
     remmina
     bazecor
   ];
