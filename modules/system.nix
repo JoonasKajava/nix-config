@@ -39,6 +39,9 @@ with lib; {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
+    nixpkgs.config.permittedInsecurePackages = [
+      "dotnet-sdk-7.0.410" # Remove some day
+    ];
     # Set your time zone.
     time.timeZone = "Europe/Helsinki";
 
