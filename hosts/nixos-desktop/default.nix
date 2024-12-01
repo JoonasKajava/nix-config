@@ -10,7 +10,6 @@
 }: {
   imports = [
     ../../modules/default.nix
-    ../../features/programs/gaming/gaming.nix
 
     # ../../desktops/${desktop}.nix
     # Include the results of the hardware scan.
