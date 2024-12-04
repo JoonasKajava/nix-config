@@ -20,6 +20,8 @@ in {
         set -ga terminal-overrides ",*256col*:Tc"
         set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
         set-environment -g COLORTERM "truecolor"
+        set-option -g base-index 1
+        set -g renumber-windows on
       '';
     };
   };
