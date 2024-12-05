@@ -24,6 +24,9 @@ in {
         set -g renumber-windows on
 
         set -s escape-time 0
+
+        run-shell "${pkgs.tmuxPlugins.power-theme}/share/tmux-plugins/power/tmux-power.tmux"
+        set -g @tmux_power_theme 'gold'
       '';
     };
   };
