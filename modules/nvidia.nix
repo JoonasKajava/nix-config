@@ -12,9 +12,16 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      egl-wayland
-    ];
+    environment = {
+      systemPackages = with pkgs; [
+        egl-wayland
+      ];
+
+      sessionVariables = {
+        GBM_BACKEND = "nvidia-drm";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      };
+    };
     # boot.blacklistedKernelModules = ["nouveau"];
 
     services.xserver.videoDrivers = ["nvidia"];
