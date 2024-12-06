@@ -14,6 +14,7 @@
     ./gaming/warhammer.nix
     ./gaming/wow.nix
     ./gaming/steam.nix
+    ./gaming/heroic.nix
     ./gnome.nix
     ./hyprland/hyprland.nix
     ./kde.nix

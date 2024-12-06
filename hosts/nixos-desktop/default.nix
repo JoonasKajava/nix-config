@@ -57,7 +57,9 @@
       warhammer.enable = false;
       lutris.enable = true;
       wow.enable = true;
+
       steam.enable = true;
+      heroic.enable = true;
     };
 
     terminal = {
