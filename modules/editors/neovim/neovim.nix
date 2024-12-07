@@ -111,8 +111,7 @@ in {
     };
 
     fonts.packages = with pkgs.nerd-fonts; [
-      symbols-only
-      #commit-mono
+      fira-mono
     ];
   };
 }
