@@ -26,12 +26,14 @@ in {
 
     services.xserver.videoDrivers = ["nvidia"];
 
+    boot.kernelModules = ["nvidia-uvm" "nvidia_modeset" "nvidia" "nvidia_drm"];
+
     # boot.extraModulePackages = [config.boot.kernelPackages.nvidia_x11_beta];
 
     # boot.initrd.kernelModules = ["nvidia"];
 
     boot.kernelParams = [
-      "nvidia-drm.fbdev=1"
+      "nvidia_drm.fbdev=1"
       "module_blacklist=i915"
     ];
 
