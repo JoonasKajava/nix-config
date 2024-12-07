@@ -39,6 +39,7 @@
   "package-info.nvim": { "branch": "master", "commit": "3de4f3569ce60e248707df042b72769b3ec343b8" },
   "persistence.nvim": { "branch": "main", "commit": "f6aad7dde7fcf54148ccfc5f622c6d5badd0cc3d" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
+  "refactoring.nvim": { "branch": "master", "commit": "2db6d378e873de31d18ade549c2edba64ff1c2e3" },
   "render-markdown.nvim": { "branch": "main", "commit": "634acd5da964c32f6947cd0c7802d7a116662665" },
   "rustaceanvim": { "branch": "master", "commit": "4ac7a3c6cca9e393229651cc90733afbdc7c6395" },
   "snacks.nvim": { "branch": "main", "commit": "3c1849a09b9618cbc49eed337f0a302394ef049b" },
