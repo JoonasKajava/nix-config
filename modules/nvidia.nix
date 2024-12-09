@@ -20,6 +20,7 @@ in {
       sessionVariables = {
         GBM_BACKEND = "nvidia-drm";
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        EGL_PLATFORM = "wayland";
       };
     };
     # boot.blacklistedKernelModules = ["nouveau"];
@@ -33,6 +34,7 @@ in {
     # boot.initrd.kernelModules = ["nvidia"];
 
     boot.kernelParams = [
+      "nvidia_drm.modeset=1"
       "nvidia_drm.fbdev=1"
       "module_blacklist=i915"
     ];
@@ -49,6 +51,9 @@ in {
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        egl-wayland
+      ];
     };
   };
 }
