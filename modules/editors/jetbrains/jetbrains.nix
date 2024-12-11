@@ -35,6 +35,7 @@ in {
         ++ lib.optionals cfg.ide.rust-rover (with pkgs; [
           (withPlugins jetbrains.rust-rover)
           rustup
+          gcc
         ]);
 
       sessionVariables = lib.mkIf cfg.ide.rider {
