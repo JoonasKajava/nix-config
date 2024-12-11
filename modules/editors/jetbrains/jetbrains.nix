@@ -22,8 +22,9 @@ in {
     environment = {
       systemPackages = with pkgs; [
         (withPlugins jetbrains.rider)
+        (withPlugins jetbrains.rust-rover)
         dotnet-sdk_8
-        nodejs_22
+        nodejs
       ];
       sessionVariables = {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
