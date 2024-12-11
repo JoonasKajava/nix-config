@@ -73,7 +73,13 @@
     };
 
     editors = {
-      jetbrains.enable = true;
+      jetbrains = {
+        enable = true;
+        ide = {
+          rider = true;
+          rust-rover = true;
+        };
+      };
     };
   };
 
