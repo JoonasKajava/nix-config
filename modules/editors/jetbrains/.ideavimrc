@@ -266,6 +266,8 @@ nmap gy <Action>(GotoTypeDeclaration)
 nmap gD <Action>(GotoDeclaration)
 " Signature Help
 nmap gK <Action>(ParameterInfo)
+" Hover Info
+nmap <S-k> <Action>(ShowHoverInfo)
 " Signature Help in Insert Mode
 imap <C-k> <C-o><Action>(ParameterInfo)
 " Code Action
