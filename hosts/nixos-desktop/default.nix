@@ -49,7 +49,7 @@
     studio.enable = true;
     discord.enable = true;
     virtualization.enable = true;
-
+    printing.enable = true;
     work.enable = true;
     yazi.enable = true;
 

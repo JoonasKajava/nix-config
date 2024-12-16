@@ -73,8 +73,5 @@ with lib; {
       eza
       commitizen
     ];
-
-    # Enable CUPS to print documents.
-    services.printing.enable = true;
   };
 }

@@ -30,6 +30,7 @@
     ./virtualization/virtualization.nix
     ./yazi.nix
     ./zsh.nix
+    ./printing.nix
   ];
 
   config.environment.systemPackages = with pkgs; [
