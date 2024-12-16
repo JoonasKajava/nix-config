@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  user,
+  pkgs,
   ...
 }:
 with lib; let
@@ -12,11 +12,18 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.printing.enable = true;
-    services.avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
+    services = {
+      printing = {
+        enable = true;
+        drivers = with pkgs; [
+          hplip
+        ];
+      };
+      avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+      };
     };
   };
 }
