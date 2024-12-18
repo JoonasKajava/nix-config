@@ -12,7 +12,6 @@
     ./gaming/lutris.nix
     ./gaming/mangohud.nix
     ./gaming/warhammer.nix
-    ./gaming/wow.nix
     ./gaming/steam.nix
     ./gaming/heroic.nix
     ./gnome.nix
