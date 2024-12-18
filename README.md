@@ -42,6 +42,7 @@ It is **not** necessary to use this module to use the rest of the configuration.
 
 This some features I'm planning to add to my configuration.
 
+- [ ] Specify monitors so that flickering doesn't happen on boot. And plymouth splash screen is shown on the correct monitor.
 - [ ] Create cli tool / script to read flake input timestamps and compare them with newest version on github. Then output some kind of notification 'nixpkgs-unstable input is 10 days behind.'
   - Maybe display this on the fastfetch output?
 - [ ] Add some way of managing KDE settings from here, maybe plasma manager?.
