@@ -68,7 +68,6 @@
     };
 
     audio = {
-      # Disable easyeffects for now since i don't have the time to add good noise suppression
       easyeffects.enable = true;
     };
 
@@ -84,7 +83,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    remmina
     bazecor
   ];
 
