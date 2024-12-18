@@ -38,6 +38,10 @@
   };
 
   mystuff = {
+    os = {
+      plymouth.enable = false; # Otherwise good, but it shows on the wrong screen
+    };
+
     firefox.enable = false;
     brave.enable = true;
     gnome.enable = false;

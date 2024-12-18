@@ -31,6 +31,7 @@
     ./yazi.nix
     ./zsh.nix
     ./printing.nix
+    ./os/plymouth.nix
   ];
 
   config.environment.systemPackages = with pkgs; [
