@@ -1,17 +1,10 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  pkgs,
-  desktop,
-  user,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../../modules/default.nix
-    ../../features/programs/jetbrains/jetbrains.nix
 
-    ../../desktops/${desktop}.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -41,27 +34,6 @@
     # Enable touchpad support (enabled default in most desktopManager).
     # services.xserver.libinput.enable = true;
 
-    programs.steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-    };
-
-    mystuff.onepassword.enable = true;
-    mystuff.firefox.enable = true;
-
-    mystuff.nvidia.enable = true;
-
-    mystuff.studio = {
-      enable = true;
-      video.enable = false;
-    };
-
-    environment.systemPackages = with pkgs; [
-      #  thunderbird
-      steam
-      discord
-      remmina
-    ];
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     # programs.mtr.enable = true;
@@ -72,8 +44,28 @@
 
     # List services that you want to enable:
 
+    mystuff = {
+      brave.enable = true;
+      gnome.enable = true;
+      nvidia.enable = true;
+      office.obsidian.enable = true;
+      onepassword.enable = true;
+      discord.enable = true;
+      yazi.enable = true;
+
+      gaming = {
+        lutris.enable = true;
+        steam.enable = true;
+      };
+
+      terminal = {
+        kitty.enable = true;
+        tmux.enable = true;
+      };
+    };
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
     # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
+    services.openssh.enable = false;
 
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];
