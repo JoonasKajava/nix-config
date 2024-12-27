@@ -12,6 +12,11 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = inputs @ {
@@ -20,6 +25,7 @@
     nixpkgs-stable,
     home-manager,
     nixos-wsl,
+    plasma-manager,
     ...
   }: let
     user = {
@@ -29,7 +35,7 @@
     };
 
     defaultSpecialArgs = system: {
-      inherit inputs home-manager user;
+      inherit inputs home-manager user plasma-manager;
       pkgs-stable = import nixpkgs-stable {
         inherit system;
         config.allowUnfree = true;

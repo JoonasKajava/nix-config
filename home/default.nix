@@ -3,6 +3,7 @@
   lib,
   user,
   home-manager,
+  plasma-manager,
   ...
 }: {
   imports = [
@@ -12,6 +13,8 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    sharedModules = [plasma-manager.homeManagerModules.plasma-manager];
+
     users.${user.username} = {
       # The home.stateVersion option does not have a default and must be set
       home.stateVersion = "18.09";
