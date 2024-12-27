@@ -45,6 +45,7 @@ in {
             alejandra
             tree-sitter
             fd
+            fzf
             nodejs
           ]
           ++ (lib.optionals cfg.lang.rust [
