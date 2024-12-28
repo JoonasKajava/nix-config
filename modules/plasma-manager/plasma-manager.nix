@@ -37,6 +37,9 @@ in {
           {
             location = "bottom";
             screen = "all";
+            floating = true;
+            height = 44;
+            lengthMode = "fill";
             widgets = [
               {
                 kickoff = {
