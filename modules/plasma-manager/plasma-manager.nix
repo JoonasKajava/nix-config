@@ -3,7 +3,6 @@
   lib,
   pkgs,
   user,
-  home-manager,
   ...
 }:
 with lib; let
@@ -102,6 +101,17 @@ in {
             ];
           }
         ];
+
+        kwin = {
+          effects = {
+            shakeCursor.enabled = false;
+            wobblyWindows.enabled = true;
+          };
+        };
+
+        dataFile = {
+          "dolphin/view_properties/global/.directory"."Settings"."HiddenFilesShown" = true;
+        };
       };
     };
   };
