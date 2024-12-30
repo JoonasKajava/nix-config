@@ -6,19 +6,10 @@
   ...
 }:
 with lib; let
-  cfg = config.mystuff.plasma-manager;
-  mkPwaDesktopItem = {
-    name,
-    app,
-    icon,
-  }:
-    pkgs.makeDesktopItem {
-      name = "${name}-pwa-desktop";
-      desktopName = name;
-      exec = "${pkgs.brave}/bin/brave --app\"${app}\"";
-    };
+  cfg = config.mystuff.kde.plasma-manager;
+  wallpaper = "/etc/nixos/nix-config-private/wallpapers/4K Mountain Moon Night - Nguyez.jpeg";
 in {
-  options.mystuff.plasma-manager = {
+  options.mystuff.kde.plasma-manager = {
     enable = mkEnableOption "plasma manager";
   };
 
@@ -27,16 +18,22 @@ in {
       programs.plasma = {
         enable = true;
 
+        workspace.wallpaper = wallpaper;
+
         hotkeys.commands."1password-quick-access" = mkIf config.mystuff.onepassword.enable {
           name = "Open Quick Access";
           key = "Ctrl+Alt+Shift+P";
           command = "1password --quick-access";
         };
 
+        shortcuts = {
+          "kwin"."Window Maximize" = ["Meta+Up"];
+        };
+
         panels = [
           {
             location = "bottom";
-            screen = "all";
+            screen = [0 1 2]; # "all" does not work for some reason
             floating = true;
             height = 44;
             lengthMode = "fill";
@@ -57,31 +54,22 @@ in {
                       "preferred://filemanager"
                     ]
                     ++ (lib.optionals config.mystuff.brave.enable [
-                      "${pkgs.brave}/share/applications/brave-browser.desktop"
-                      mkPwaDesktopItem
-                      {
-                        name = "Whatsapp";
-                        app = "https://web.whatsapp.com/";
-                        icon = builtins.fetchurl "https://static.whatsapp.net/rsrc.php/v4/yw/r/WDR7jNjkVfM.png";
-                      }
-                      mkPwaDesktopItem
-                      {
-                        name = "FastMail";
-                        app = "https://app.fastmail.com/";
-                        icon = builtins.fetchurl "https://app.fastmail.com/static/appicons/Icon-MacOS-512x512@2x.png";
-                      }
+                      "file://${pkgs.brave}/share/applications/brave-browser.desktop"
+                      # If one of these is not working, just generate new shortcuts from brave and check the app id
+                      "file:///home/joonas/.local/share/applications/brave-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop" # Whatsapp
+                      "file:///home/joonas/.local/share/applications/brave-nkbljeindhmekmppbpgebpjebkjbmfaj-Default.desktop" # Fastmail
                     ])
                     ++ (lib.optionals config.mystuff.office.obsidian.enable [
-                      "${pkgs.obsidian}/share/applications/obsidian.desktop"
+                      "file://${pkgs.obsidian}/share/applications/obsidian.desktop"
                     ])
                     ++ (lib.optionals config.mystuff.gaming.steam.enable [
-                      "${pkgs.steam}/share/applications/steam.desktop"
+                      "file://${pkgs.steam}/share/applications/steam.desktop"
                     ])
                     ++ (lib.optionals config.mystuff.onepassword.enable [
-                      "${pkgs._1password-gui}/share/applications/1password.desktop"
+                      "file://${pkgs._1password-gui}/share/applications/1password.desktop"
                     ])
                     ++ (lib.optionals config.mystuff.discord.enable [
-                      "${pkgs.discord-canary}/share/applications/discord-canary.desktop"
+                      "file://${pkgs.discord-canary}/share/applications/discord-canary.desktop"
                     ]);
                 };
               }
@@ -107,8 +95,8 @@ in {
 
         kwin = {
           effects = {
-            shakeCursor.enabled = false;
-            wobblyWindows.enabled = true;
+            shakeCursor.enable = true;
+            wobblyWindows.enable = true;
           };
         };
 

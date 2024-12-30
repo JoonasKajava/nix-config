@@ -32,6 +32,7 @@
     ./zsh.nix
     ./printing.nix
     ./os/plymouth.nix
+    ./plasma-manager/plasma-manager.nix
   ];
 
   config.environment.systemPackages = with pkgs; [

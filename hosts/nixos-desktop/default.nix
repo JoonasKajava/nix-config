@@ -42,11 +42,11 @@
       plymouth.enable = false; # Otherwise good, but it shows on the wrong screen
     };
 
-    firefox.enable = false;
     brave.enable = true;
-    gnome.enable = false;
-    hyprland.enable = false;
-    kde.enable = true;
+    kde = {
+      enable = true;
+      plasma-manager.enable = true;
+    };
     nvidia.enable = true;
     office.obsidian.enable = true;
     onepassword.enable = true;
