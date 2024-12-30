@@ -257,7 +257,8 @@ nmap <leader>cc :echo 'There is no equivalent mapping for Lsp Info.'<cr>
 nmap gd <Action>(GotoDeclaration)
 nmap ga <Action>(GotoAction)
 " References
-nmap gr <Action>(FindUsages)
+nmap gr <Action>(ShowUsages)
+nmap gR <Action>(FindUsages)
 " Goto Implementation
 nmap gI <Action>(GotoImplementation)
 " Goto Type Definition
