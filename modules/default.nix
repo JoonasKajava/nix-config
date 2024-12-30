@@ -26,6 +26,7 @@
     ./system.nix
     ./terminal/kitty.nix
     ./terminal/tmux.nix
+    ./terminal/zellij.nix
     ./virtualization/virtualization.nix
     ./yazi.nix
     ./zsh.nix
