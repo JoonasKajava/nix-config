@@ -58,9 +58,9 @@
     nvidia.enable = true;
     office.obsidian.enable = true;
     onepassword.enable = true;
-    studio.enable = true;
+    studio.enable = false; # this causes build fail https://github.com/NixOS/nixpkgs/issues/369212
     discord.enable = true;
-    virtualization.enable = true;
+    virtualization.enable = false; # This causes build fail https://github.com/NixOS/nixpkgs/issues/359723
     printing.enable = true;
     work.enable = true;
     yazi.enable = true;
@@ -71,7 +71,7 @@
       wow.enable = true;
 
       steam.enable = true;
-      heroic.enable = true;
+      heroic.enable = false; # This does not work for now
     };
 
     terminal = {
