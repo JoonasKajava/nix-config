@@ -13,6 +13,8 @@
 
 Clone this repository to `/etc/nixos`.
 
+Execute following command: `git submodule update --init --recursive`.
+
 Generate hardware configuration:
 `nixos-generate-config` after this, you can remove the generated `configuration.nix` file.
 
