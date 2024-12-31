@@ -16,10 +16,18 @@
     ./hardware-configuration.nix
     ./backups.nix
   ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      # Bootloader.
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelParams = [
+      "video=DP-1:2560x1440@165"
+      "video=DP-2:1920x1080@144"
+      "video=HDMI-A-1:1920x1080@60"
+    ];
+  };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
