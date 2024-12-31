@@ -13,13 +13,21 @@
 
 Clone this repository to `/etc/nixos`.
 
-Execute following command: `git submodule update --init --recursive`.
+Execute following command:
+
+```shell
+git submodule update --init --recursive
+```
 
 Generate hardware configuration:
 `nixos-generate-config` after this, you can remove the generated `configuration.nix` file.
 
 Run (replace `nixos-desktop` with the name of the system you want to install):
-`sudo nixos-rebuild switch --flake .#nixos-desktop\?submodules=1;`
+
+```shell
+sudo nixos-rebuild switch --flake .#nixos-desktop\?submodules=1;
+```
+
 After this has been successfully run, you can rebuild the system with just `rebuild` command.
 Continue installation according to the ReadMe in the private module.
 
