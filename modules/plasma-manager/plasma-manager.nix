@@ -95,7 +95,7 @@ in {
 
         kwin = {
           effects = {
-            shakeCursor.enable = true;
+            shakeCursor.enable = false;
             wobblyWindows.enable = true;
           };
         };
