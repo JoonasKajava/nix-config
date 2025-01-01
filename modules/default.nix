@@ -33,6 +33,7 @@
     ./printing.nix
     ./os/plymouth.nix
     ./plasma-manager/plasma-manager.nix
+    ./bazecor.nix
   ];
 
   config.environment.systemPackages = with pkgs; [

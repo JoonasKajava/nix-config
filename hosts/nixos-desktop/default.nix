@@ -65,6 +65,8 @@
     work.enable = true;
     yazi.enable = true;
 
+    bazecor.enable = true;
+
     gaming = {
       warhammer.enable = false;
       lutris.enable = true;
@@ -93,10 +95,6 @@
       };
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    bazecor
-  ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
