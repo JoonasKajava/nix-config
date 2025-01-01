@@ -55,6 +55,11 @@
       enable = true;
       plasma-manager.enable = true;
     };
+
+    devices = {
+      kdeconnect.enable = true;
+    };
+
     nvidia.enable = true;
     office.obsidian.enable = true;
     onepassword.enable = true;

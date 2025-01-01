@@ -5,15 +5,17 @@
 }: {
   imports = [
     ./audio/easyeffects.nix
+    ./bazecor.nix
     ./brave.nix
-    ./editors/neovim/neovim.nix
+    ./devices/kdeconnect.nix
     ./editors/jetbrains/jetbrains.nix
+    ./editors/neovim/neovim.nix
     ./firefox.nix
+    ./gaming/heroic.nix
     ./gaming/lutris.nix
     ./gaming/mangohud.nix
-    ./gaming/warhammer.nix
     ./gaming/steam.nix
-    ./gaming/heroic.nix
+    ./gaming/warhammer.nix
     ./gnome.nix
     ./hyprland/hyprland.nix
     ./kde.nix
@@ -22,6 +24,9 @@
     ./networking/remote/freerdp.nix
     ./nvidia.nix
     ./office/obsidian.nix
+    ./os/plymouth.nix
+    ./plasma-manager/plasma-manager.nix
+    ./printing.nix
     ./studio.nix
     ./system.nix
     ./terminal/kitty.nix
@@ -30,10 +35,6 @@
     ./virtualization/virtualization.nix
     ./yazi.nix
     ./zsh.nix
-    ./printing.nix
-    ./os/plymouth.nix
-    ./plasma-manager/plasma-manager.nix
-    ./bazecor.nix
   ];
 
   config.environment.systemPackages = with pkgs; [
