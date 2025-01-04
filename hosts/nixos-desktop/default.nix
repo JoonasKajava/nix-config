@@ -90,6 +90,8 @@
       easyeffects.enable = true;
     };
 
+    vlc.enable = true;
+
     editors = {
       jetbrains = {
         enable = true;

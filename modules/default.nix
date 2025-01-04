@@ -35,6 +35,7 @@
     ./virtualization/virtualization.nix
     ./yazi.nix
     ./zsh.nix
+    ./vlc.nix
   ];
 
   config.environment.systemPackages = with pkgs; [
