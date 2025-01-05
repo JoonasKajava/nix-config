@@ -76,7 +76,11 @@ in {
               {
                 name = "org.kde.plasma.systemmonitor.cpucore";
               }
-              "org.kde.plasma.systemtray"
+              {
+                systemTray.items = {
+                  hidden = ["org.kde.plasma.brightness"];
+                };
+              }
               {
                 digitalClock = {
                   time = {
