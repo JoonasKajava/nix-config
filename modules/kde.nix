@@ -16,6 +16,7 @@ in {
     environment = {
       plasma6.excludePackages = with pkgs.kdePackages; [
         kate
+        elisa
       ];
 
       systemPackages = with pkgs; [
