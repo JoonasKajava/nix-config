@@ -107,6 +107,7 @@
 
   # Semi temporary packages
   environment.systemPackages = with pkgs; [
+    gparted
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
