@@ -69,7 +69,7 @@ in {
                       "file://${pkgs._1password-gui}/share/applications/1password.desktop"
                     ])
                     ++ (lib.optionals config.mystuff.discord.enable [
-                      "file://${pkgs.discord-canary}/share/applications/discord-canary.desktop"
+                      "file://${pkgs.discord}/share/applications/discord.desktop"
                     ]);
                 };
               }
