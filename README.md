@@ -61,3 +61,4 @@ This some features I'm planning to add to my configuration.
 - [ ] Experiment with NixOS Specializations.
 - [ ] Setup Zellij with tmux keybindings (those work better with lazyvim).
 - [ ] Setup neovim with NixVim.
+- [ ] Rewrite this flake to use Snowfall Lib.
