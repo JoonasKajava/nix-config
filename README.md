@@ -55,10 +55,9 @@ This some features I'm planning to add to my configuration.
 - [ ] Specify monitors so that flickering doesn't happen on boot. And plymouth splash screen is shown on the correct monitor.
 - [ ] Create cli tool / script to read flake input timestamps and compare them with newest version on github. Then output some kind of notification 'nixpkgs-unstable input is 10 days behind.'
   - Maybe display this on the fastfetch output?
-- [x] Add some way of managing KDE settings from here, maybe plasma manager?.
-  - Currently, this is a bit tricky as KDE settings contain a lot of state information.
-- [ ] Add better system wide noise suppression for microphone.
+- [x] Add better system wide noise suppression for microphone.
 - [ ] Automatic backups for important files.
 - [ ] Fix commit signing in git.
 - [ ] Experiment with NixOS Specializations.
-- [ ] Setup Zellij
+- [ ] Setup Zellij with tmux keybindings (those work better with lazyvim).
+- [ ] Setup neovim with NixVim.
