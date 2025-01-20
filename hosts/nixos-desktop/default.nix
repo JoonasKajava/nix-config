@@ -108,6 +108,7 @@
   # Semi temporary packages
   environment.systemPackages = with pkgs; [
     gparted
+    ventoy-full
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
