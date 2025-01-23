@@ -13,7 +13,13 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      lutris
+      (lutris.override {
+        extraPkgs = pkgs: [
+          gamemode
+        ];
+      })
+      wine
+      winetricks
       umu-launcher
       protonup-qt
     ];
