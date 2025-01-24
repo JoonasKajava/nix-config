@@ -20,7 +20,7 @@ in {
       })
       wine
       winetricks
-      umu-launcher
+      # umu-launcher
       protonup-qt
     ];
   };

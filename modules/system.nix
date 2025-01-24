@@ -25,8 +25,7 @@ with lib; {
       extraGroups = ["networkmanager" "wheel"];
     };
 
-    # boot.kernelPackages = pkgs.linuxPackages_latest;
-    boot.kernelPackages = pkgs.linuxPackages_6_12; # TODO: Change to latest when nvidia stuff is fixed.
+    boot.kernelPackages = pkgs.linuxPackages_latest;
 
     nix.settings = {experimental-features = ["nix-command flakes"];};
     nix.settings.auto-optimise-store = true;
