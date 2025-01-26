@@ -13,6 +13,9 @@ in {
     enable = mkEnableOption "plasma manager";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     home-manager.users.${user.username} = {
       programs.plasma = {

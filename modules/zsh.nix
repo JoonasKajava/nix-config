@@ -10,6 +10,9 @@ with lib; let
 in {
   options.mystuff.zsh = {enable = mkEnableOption "Zsh";};
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     programs.zsh = {enable = true;};
 

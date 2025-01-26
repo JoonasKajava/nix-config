@@ -11,6 +11,9 @@ in {
     enable = mkEnableOption "tmux";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     programs.tmux = {
       enable = true;

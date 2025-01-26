@@ -7,6 +7,9 @@
 with lib; let
   cfg = config.mystuff.gaming.steam;
 in {
+  #
+  # Migrated to Snowfall
+  #
   options.mystuff.gaming.steam = {
     enable = mkEnableOption "steam";
     proton-ge.enable = mkOption {

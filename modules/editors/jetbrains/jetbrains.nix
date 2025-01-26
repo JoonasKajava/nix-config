@@ -16,6 +16,9 @@ in {
       rust-rover = mkEnableOption "JetBrains Rider";
     };
   };
+  #
+  # Migrated to Snowfall
+  #
 
   config = mkIf cfg.enable {
     home-manager.users.${user.username} = {config, ...}: {

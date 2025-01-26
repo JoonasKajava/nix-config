@@ -11,6 +11,9 @@ in {
     enable = mkEnableOption "printing";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     services = {
       printing = {

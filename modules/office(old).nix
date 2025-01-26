@@ -10,6 +10,9 @@ in {
     enable = mkEnableOption "Office";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       libreoffice

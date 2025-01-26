@@ -12,6 +12,9 @@ in {
     enable = mkEnableOption "Enable gnome desktop";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     # Enable the X11 windowing system.
     services.xserver.enable = true;

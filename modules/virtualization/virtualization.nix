@@ -13,6 +13,9 @@ in {
   config = mkIf cfg.enable {
     users.users.${user.username}.extraGroups = ["libvirtd"];
 
+    #
+    # Migrated to Snowfall
+    #
     virtualisation = {
       libvirtd = {
         enable = true;

@@ -13,6 +13,9 @@ in {
     environment.systemPackages = with pkgs; [
       qpwgraph
     ];
+    #
+    # Migrated to Snowfall
+    #
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;

@@ -12,6 +12,9 @@ in {
     enable = mkEnableOption "bazecor";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       bazecor

@@ -10,6 +10,9 @@ in {
   options.mystuff.gaming.lutris = {
     enable = mkEnableOption "lutris";
   };
+  #
+  # Migrated to Snowfall
+  #
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

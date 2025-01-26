@@ -12,6 +12,9 @@ in {
     enable = mkEnableOption "Enable kde desktop";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     environment = {
       plasma6.excludePackages = with pkgs.kdePackages; [

@@ -7,6 +7,9 @@
 with lib; let
   cfg = config.mystuff.brave;
 in {
+  #
+  # Migrated to Snowfall
+  #
   options.mystuff.brave = {
     enable = mkEnableOption "brave";
   };

@@ -11,6 +11,9 @@ in {
     enable = mkEnableOption "yazi";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     programs.yazi = {
       enable = true;

@@ -11,6 +11,9 @@ in {
     enable = mkEnableOption "Enable firefox";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       firefoxpwa

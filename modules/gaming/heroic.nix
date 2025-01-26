@@ -10,6 +10,9 @@ in {
   options.mystuff.gaming.heroic = {
     enable = mkEnableOption "Heroic Games launcher";
   };
+  #
+  # Migrated to Snowfall
+  #
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

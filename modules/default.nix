@@ -38,6 +38,9 @@
     ./vlc.nix
   ];
 
+  #
+  # Migrated to Snowfall
+  #
   config.environment.systemPackages = with pkgs; [
     wl-clipboard
   ];

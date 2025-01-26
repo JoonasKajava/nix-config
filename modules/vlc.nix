@@ -7,6 +7,9 @@
 with lib; let
   cfg = config.mystuff.vlc;
 in {
+  #
+  # Migrated to Snowfall
+  #
   options.mystuff.vlc = {
     enable = mkEnableOption "vlc";
   };

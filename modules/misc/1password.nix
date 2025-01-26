@@ -11,6 +11,9 @@ in {
     enable = mkEnableOption "1 password";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     programs._1password.enable = true;
     programs._1password-gui = {

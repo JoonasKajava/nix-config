@@ -7,6 +7,9 @@
 with lib; let
   cfg = config.mystuff.studio;
 in {
+  #
+  # Migrated to Snowfall
+  #
   options.mystuff.studio = {
     enable = mkEnableOption "Enable studio applications";
 
