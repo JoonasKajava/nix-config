@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-stable,
   ...
 }:
 with lib; let
@@ -15,16 +16,23 @@ in {
   #
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      (lutris.override {
-        extraPkgs = pkgs: [
-          gamemode
-        ];
-      })
-      wine
-      winetricks
-      umu-launcher
-      protonup-qt
-    ];
+    environment.systemPackages = with pkgs;
+      [
+        (lutris.override {
+          extraPkgs = pkgs: [
+            gamemode
+          ];
+        })
+        wine
+        winetricks
+        umu-launcher
+        protonup-qt
+      ]
+      ++ (with pkgs-stable; [
+        glib
+        glib-networking
+        libproxy
+        dconf
+      ]);
   };
 }
