@@ -36,6 +36,7 @@
     ./yazi.nix
     ./zsh.nix
     ./vlc.nix
+    ./minecraft.nix
   ];
 
   #

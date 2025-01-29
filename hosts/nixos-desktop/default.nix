@@ -72,6 +72,7 @@
 
     bazecor.enable = true;
 
+    minecraft.enable = true;
     gaming = {
       warhammer.enable = false;
       lutris.enable = true;
