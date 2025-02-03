@@ -22,8 +22,9 @@ in {
         elisa
       ];
 
-      systemPackages = with pkgs; [
-        kdePackages.kcolorchooser
+      systemPackages = with pkgs.kdePackages; [
+        kcolorchooser
+        filelight
       ];
     };
 
