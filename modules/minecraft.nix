@@ -12,6 +12,10 @@ in {
     enable = mkEnableOption "Enable minecraft";
     enableServer = mkEnableOption "Enable minecraft server";
   };
+
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     environment = {
       systemPackages = with pkgs; [

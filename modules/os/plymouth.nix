@@ -12,6 +12,9 @@ in {
     enable = mkEnableOption "plymouth";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     boot = {
       plymouth = {

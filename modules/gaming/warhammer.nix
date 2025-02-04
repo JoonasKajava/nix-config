@@ -11,6 +11,9 @@ in {
     enable = mkEnableOption "warhammer related stuff";
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = mkIf cfg.enable {
     networking.firewall = {
       allowedUDPPorts = [27015];
