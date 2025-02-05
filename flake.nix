@@ -46,14 +46,13 @@
       };
 
       homes.modules = with inputs; [
-	plasma-manager.homeManagerModules.plasma-manager
+        plasma-manager.homeManagerModules.plasma-manager
       ];
 
-      systems.modules.nixos = with inputs; [
-        lumi-private.nixosModules."scripts/ssh-setup"
-        lumi-private.nixosModules."scripts/setup-env-secrets"
-	# TODO: learn how to import all
-      ];
+      systems.modules.nixos = with inputs;
+        [
+        ]
+        ++ (builtins.attrValues lumi-private.nixosModules);
       # systems.hosts.nixos-wsl.modules = with inputs; [
       #   nixos-wsl.nixosModules.wsl
       # ];
