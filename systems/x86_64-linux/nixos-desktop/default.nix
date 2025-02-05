@@ -54,13 +54,18 @@ with lib.${namespace}; {
     hardware.keyboards.bazecor.enable = true;
     services.printing.enable = true;
   };
+
+  lumi-private = {
+    services.borgbackup.enable = true;
+  };
+
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
-environment.systemPackages = with pkgs; [
-parsec-bin
-wowup-cf
-slack
-];
+  environment.systemPackages = with pkgs; [
+    parsec-bin
+    wowup-cf
+    slack
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
