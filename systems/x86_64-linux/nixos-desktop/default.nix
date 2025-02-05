@@ -56,7 +56,7 @@ with lib.${namespace}; {
   };
 
   lumi-private = {
-    services.borgbackup.enable = true;
+    services.borgbackup.enable = false; # TODO: Enable when encryption plan is ready
   };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
