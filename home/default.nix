@@ -10,6 +10,9 @@
     home-manager.nixosModules.home-manager
   ];
 
+  #
+  # Migrated to Snowfall
+  #
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -22,6 +25,7 @@
       home.username = user.username;
       home.homeDirectory = "/home/${user.username}";
 
+      # Migrated
       programs.git = {
         enable = true;
         userName = user.name;
@@ -32,6 +36,7 @@
         };
       };
 
+      # Migrated
       programs.lazygit = {
         enable = true;
         settings = {

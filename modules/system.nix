@@ -11,6 +11,9 @@ with lib; {
     nix.gc = {enable = mkEnableOption "Automatic recycling";};
   };
 
+  #
+  # Migrated to Snowfall
+  #
   config = {
     mystuff = {
       audio.enable = mkDefault true;
@@ -63,15 +66,15 @@ with lib; {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-      gh
-      git
+      gh # migrated
+      git # migrated
       htop-vim
       tldr
-      difftastic
+      difftastic # migrated
       fastfetch
       rm-improved
       eza
-      commitizen
+      commitizen # migrated
     ];
   };
 }
