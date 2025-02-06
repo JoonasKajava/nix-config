@@ -65,6 +65,7 @@ with lib.${namespace}; {
     parsec-bin
     wowup-cf
     slack
+    freecad-wayland
   ];
 
   # Enable networking
