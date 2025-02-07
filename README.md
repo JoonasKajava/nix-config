@@ -55,10 +55,10 @@ This some features I'm planning to add to my configuration.
 - [ ] Specify monitors so that flickering doesn't happen on boot. And plymouth splash screen is shown on the correct monitor.
 - [ ] Create cli tool / script to read flake input timestamps and compare them with newest version on github. Then output some kind of notification 'nixpkgs-unstable input is 10 days behind.'
   - Maybe display this on the fastfetch output?
-- [x] Add better system wide noise suppression for microphone.
 - [ ] Automatic backups for important files.
 - [ ] Fix commit signing in git.
 - [ ] Experiment with NixOS Specializations.
 - [ ] Setup Zellij with tmux keybindings (those work better with lazyvim).
 - [ ] Setup neovim with NixVim.
-- [ ] Rewrite this flake to use Snowfall Lib (take inspiration from <https://github.com/jakehamilton/config/tree/main>).
+- [x] Rewrite this flake to use Snowfall Lib (take inspiration from <https://github.com/jakehamilton/config/tree/main>).
+- [ ] Create module for <https://github.com/casey/just>.
