@@ -10,21 +10,10 @@
   user,
   ...
 }: {
-  imports = [../../modules];
+  imports = [./hardware.nix];
 
   wsl.enable = true;
   wsl.defaultUser = user.username;
-
-  mystuff.audio.enable = false;
-
-  home-manager.users.${user.username} = {
-    programs.keychain = {
-      enable = true;
-      enableZshIntegration = true;
-      keys = ["id_ed25519"];
-      agents = ["ssh" "gpg"];
-    };
-  };
 
   networking.hostName = "nixos-wsl";
   # This value determines the NixOS release from which the default
