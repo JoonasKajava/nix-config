@@ -61,4 +61,3 @@ This some features I'm planning to add to my configuration.
 - [ ] Setup Zellij with tmux keybindings (those work better with lazyvim).
 - [ ] Setup neovim with NixVim.
 - [x] Rewrite this flake to use Snowfall Lib (take inspiration from <https://github.com/jakehamilton/config/tree/main>).
-- [ ] Create module for <https://github.com/casey/just>.
