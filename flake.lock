@@ -76,11 +76,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738789832,
-        "narHash": "sha256-HdlMPfObPu5y7oDfH/w3vvlU3UTQ/bQjSULChZARm5M=",
+        "lastModified": 1738878603,
+        "narHash": "sha256-fmhq8B3MvQLawLbMO+LWLcdC2ftLMmwSk+P29icJ3tE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "30ea6fed4e4b41693cebc2263373dd810de4de49",
+        "rev": "433799271274c9f2ab520a49527ebfe2992dcfbd",
         "type": "github"
       },
       "original": {
@@ -100,11 +100,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738792036,
-        "narHash": "sha256-78hp3UN+7/ZYWsUnRjQK/E44+HHq+3HN+FMT+JBXvTs=",
+        "lastModified": 1738952091,
+        "narHash": "sha256-+iF70RnpcqV9HFhcbN4GBekbVRf1B3SyRupQuS/RTzQ=",
         "ref": "refs/heads/master",
-        "rev": "b5677f439d7086dd1945d397e196497550d4087d",
-        "revCount": 29,
+        "rev": "f59bbdf6abfac83f35f19c1ab60ba3072e19d713",
+        "revCount": 36,
         "type": "git",
         "url": "ssh://git@github.com/JoonasKajava/nix-config-private"
       },
@@ -152,11 +152,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1738791150,
-        "narHash": "sha256-nEul8p6gVuAIfgkOOXzzCR+LN58CYe7/cqfiH7jpl6k=",
+        "lastModified": 1738946289,
+        "narHash": "sha256-KnbKPCfr/RT+TTtKS9y/J+nwisSEiQ/AzNSVehw6uiA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "09d63b645f771864218c038fd2f5a9c45810c71e",
+        "rev": "c40cf0feb1304c646cf67408f6c657b1178ef326",
         "type": "github"
       },
       "original": {
