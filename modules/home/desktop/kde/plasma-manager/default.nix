@@ -10,7 +10,7 @@ with lib; let
   wallpaper = "/etc/nixos/nix-config-private/wallpapers/4K Mountain Moon Night - Nguyez.jpeg";
 in {
   options.${namespace}.desktop.kde.plasma-manager = {
-  enable = mkEnableOption "plasma manager";
+    enable = mkEnableOption "plasma manager";
   };
 
   config = mkIf cfg.enable {
@@ -49,27 +49,26 @@ in {
                 };
                 launchers =
                   [
-                    "applications:systemsettings.desktop"
                     "preferred://filemanager"
                   ]
-                  ++ ([
+                  ++ [
                     "file://${pkgs.brave}/share/applications/brave-browser.desktop"
                     # If one of these is not working, just generate new shortcuts from brave and check the app id
                     "file:///home/joonas/.local/share/applications/brave-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop" # Whatsapp
                     "file:///home/joonas/.local/share/applications/brave-nkbljeindhmekmppbpgebpjebkjbmfaj-Default.desktop" # Fastmail
-                  ])
-                  ++ ([
+                  ]
+                  ++ [
                     "file://${pkgs.obsidian}/share/applications/obsidian.desktop"
-                  ])
-                  ++ ( [
+                  ]
+                  ++ [
                     "file://${pkgs.steam}/share/applications/steam.desktop"
-                  ])
-                  ++ ( [
+                  ]
+                  ++ [
                     "file://${pkgs._1password-gui}/share/applications/1password.desktop"
-                  ])
-                  ++ ([
+                  ]
+                  ++ [
                     "file://${pkgs.discord}/share/applications/discord.desktop"
-                  ]);
+                  ];
               };
             }
             {
