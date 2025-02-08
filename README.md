@@ -59,6 +59,6 @@ This some features I'm planning to add to my configuration.
 - [ ] Fix commit signing in git.
 - [ ] Experiment with NixOS Specializations.
 - [ ] Setup Zellij with tmux keybindings (those work better with lazyvim).
-- [ ] Setup neovim with NixVim (or NixCats or nvf?).
+- [ ] Setup neovim with nvf (or NixCats or NixVim?).
 - [x] Rewrite this flake to use Snowfall Lib (take inspiration from <https://github.com/jakehamilton/config/tree/main>).
 - [ ] Setup <https://github.com/mrjones2014/opnix>.
