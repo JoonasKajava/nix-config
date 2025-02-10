@@ -100,11 +100,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738968834,
-        "narHash": "sha256-+iF70RnpcqV9HFhcbN4GBekbVRf1B3SyRupQuS/RTzQ=",
+        "lastModified": 1739185992,
+        "narHash": "sha256-LGw09zikCDW91+3wy//rn62qQGwvI0SRHcyRMGxFfRY=",
         "ref": "refs/heads/master",
-        "rev": "28349eb568885a9be1f96886210e520e87cc486b",
-        "revCount": 38,
+        "rev": "a32eae7ac00b33dd084c90df1b7e9e483fa929ff",
+        "revCount": 44,
         "type": "git",
         "url": "ssh://git@github.com/JoonasKajava/nix-config-private"
       },
