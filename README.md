@@ -62,3 +62,4 @@ This some features I'm planning to add to my configuration.
 - [ ] Setup neovim with nvf (or NixCats or NixVim?).
 - [x] Rewrite this flake to use Snowfall Lib (take inspiration from <https://github.com/jakehamilton/config/tree/main>).
 - [ ] Setup <https://github.com/mrjones2014/opnix>.
+- [ ] Setup catppuccin theme
