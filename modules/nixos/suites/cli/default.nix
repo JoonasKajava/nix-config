@@ -29,8 +29,8 @@ in {
         tmux.enable = true;
         git.enable = true;
         lazygit.enable = true;
-        neovim.enable = true; # for testing
-        neovim.nvf.enable = false; # for testing
+        neovim.enable = false; # for testing
+        neovim.nvf.enable = true; # for testing
       };
     };
     lumi-private.scripts = {

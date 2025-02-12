@@ -3,11 +3,9 @@
   config,
   namespace,
   inputs,
-  pkgs,
   ...
 }: let
-  inherit (lib) types mkEnableOption mkIf mkOption;
-  inherit (lib.${namespace}) mkOpt;
+  inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.cli.neovim.nvf;
 in {
@@ -27,12 +25,14 @@ in {
       }
     ];
 
+        
     programs.nvf = {
       enable = true;
       settings = {
         vim = {
           viAlias = true;
           vimAlias = true;
+
 
           luaConfigRC.myBasic =
             /*
@@ -71,7 +71,7 @@ in {
               #listImplementations = "?"; # TODO: find
               listReferences = "gr";
               nextDiagnostic = "]d";
-              prevDiagnostic = "[d";
+              previousDiagnostic = "[d";
               renameSymbol = "<leader>cr";
               signatureHelp = "gK";
             };
@@ -95,11 +95,11 @@ in {
               lsp = {
                 server = "nixd";
                 options = {
-                  nixos = {
-                    expr = "(builtins.getFlake (" git+file:// " + toString ./.)).nixosConfigurations.${config.networking.hostName}.options";
+                  nixos = { # TODO: This still is now working
+                    expr = ''(builtins.getFlake "/etc/nixos").nixosConfigurations.${config.networking.hostName}.options'';
                   };
                   home_manager = {
-                    expr = "(builtins.getFlake (" git+file:// " + toString ./.)).homeManagerConfigurations.${config.${namespace}.user.name}.options";
+                    expr = ''(builtins.getFlake "/etc/nixos").homeManagerConfigurations.${config.${namespace}.user.name}.options'';
                   };
                 };
               };
@@ -145,21 +145,22 @@ in {
           };
 
           autopairs.nvim-autopairs.enable = true;
-          autocomplete.blink-cmp = {
+
+          # TODO: change to blink
+          autocomplete.nvim-cmp = {
             enable = true;
             mappings = {
               confirm = "<CR>";
-              next = "<Up>";
-              previous = "<Down>";
+              next = "<Down>";
+              previous = "<Up>";
             };
           };
           snippets.luasnip.enable = true;
 
           # TODO: Replace with oil.nvim
           filetree = {
-            neo-tree = {
+            nvim-oil = {
               enable = true;
-              mappings.toggle = "<leader>e";
             };
           };
           tabline = {
@@ -191,7 +192,7 @@ in {
           };
 
           dashboard = {
-            alpha.enable = true;
+            dashboard-nvim.enable = true;
           };
 
           notify.nvim-notify.enable = true;
