@@ -26,6 +26,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.snowfall-lib.follows = "snowfall-lib";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -51,6 +55,7 @@
 
       systems.modules.nixos = with inputs;
         [
+          inputs.nvf.nixosModules.default
         ]
         ++ (builtins.attrValues lumi-private.nixosModules);
       # systems.hosts.nixos-wsl.modules = with inputs; [

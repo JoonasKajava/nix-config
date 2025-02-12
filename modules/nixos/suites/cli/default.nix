@@ -29,12 +29,13 @@ in {
         tmux.enable = true;
         git.enable = true;
         lazygit.enable = true;
-        neovim.enable = true;
+        neovim.enable = true; # for testing
+        neovim.nvf.enable = false; # for testing
       };
     };
     lumi-private.scripts = {
-	    ssh-setup.enable = true;
-	    setup-env-secrets.enable = true;
+      ssh-setup.enable = true;
+      setup-env-secrets.enable = true;
     };
   };
 }
