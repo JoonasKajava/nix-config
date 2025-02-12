@@ -33,16 +33,48 @@ in {
         vim = {
           viAlias = true;
           vimAlias = true;
-          useSystemClipboard = true;
+
+          luaConfigRC.myBasic =
+            /*
+            lua
+            */
+            ''
+              vim.opt.clipboard = "unnamedplus"
+            '';
 
           lsp = {
             enable = true;
             lspkind.enable = true;
             lightbulb.enable = true;
             lspsaga.enable = false; #TODO: maybe this?
-            trouble.enable = true;
+            trouble = {
+              enable = true;
+              mappings = {
+                documentDiagnostics = "<leader>xx"; # or <leader>xX
+                locList = "<leader>xL";
+                lspReferences = "<leader>cS";
+                quickfix = "<leader>xQ";
+                symbols = "<leader>cs";
+              };
+            };
             lspSignature.enable = true;
             lsplines.enable = true;
+
+            mappings = {
+              codeAction = "<leader>ca";
+              format = "<leader>cf";
+              goToDeclaration = "gD";
+              goToDefinition = "gd";
+              goToType = "gy";
+              hover = "K";
+              #listDocumentSymbols = "?"; # TODO: find
+              #listImplementations = "?"; # TODO: find
+              listReferences = "gr";
+              nextDiagnostic = "]d";
+              prevDiagnostic = "[d";
+              renameSymbol = "<leader>cr";
+              signatureHelp = "gK";
+            };
           };
 
           debugger = {
@@ -113,13 +145,21 @@ in {
           };
 
           autopairs.nvim-autopairs.enable = true;
-          autocomplete.nvim-cmp.enable = true;
+          autocomplete.blink-cmp = {
+            enable = true;
+            mappings = {
+              confirm = "<CR>";
+              next = "<Up>";
+              previous = "<Down>";
+            };
+          };
           snippets.luasnip.enable = true;
 
           # TODO: Replace with oil.nvim
           filetree = {
             neo-tree = {
               enable = true;
+              mappings.toggle = "<leader>e";
             };
           };
           tabline = {
@@ -133,7 +173,16 @@ in {
             cheatsheet.enable = true;
           };
 
-          telescope.enable = true;
+          telescope = {
+            enable = true;
+            mappings = {
+              diagnostics = "<leader>sd";
+              findFiles = "<leader><space>";
+              liveGrep = "<leader>/";
+              lspDefinitions = "<leader>fd";
+              lspDocumentSymbols = "<leader>ss";
+            };
+          };
 
           git = {
             enable = true;
@@ -153,7 +202,12 @@ in {
           };
 
           notes = {
-            todo-comments.enable = true;
+            todo-comments = {
+              enable = true;
+              mappings = {
+                telescope = "<leader>st";
+              };
+            };
           };
 
           terminal = {
@@ -176,6 +230,7 @@ in {
           };
 
           assistant = {
+            # TODO: Add chatgpt
             copilot = {
               enable = true;
               cmp.enable = true;
