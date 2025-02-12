@@ -33,10 +33,18 @@ in {
   };
 
   config = mkIf cfg.enable {
-	snowfallorg.users.${config.${namespace}.user.name}.home.config = {
-	  ${namespace}.cli.neovim.enable = true;
-	};
+    assertions = [
+      {
+        assertion = !config.${namespace}.cli.neovim.nvf.enable;
+        message = ''
+          cli.neovim.nvf.enable activates nvf, which conflicts with lazyvim.
+        '';
+      }
+    ];
 
+    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+      ${namespace}.cli.neovim.enable = true;
+    };
 
     programs.neovim = {
       enable = true;

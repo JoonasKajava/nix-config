@@ -18,6 +18,15 @@ in {
   config = mkIf cfg.enable {
     nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
+    assertions = [
+      {
+        assertion = !config.${namespace}.cli.neovim.enable;
+        message = ''
+          cli.neovim.enable activates lazyvim, which conflicts with nvf.
+        '';
+      }
+    ];
+
     programs.nvf = {
       enable = true;
       settings = {
