@@ -30,6 +30,7 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = inputs:
@@ -51,11 +52,13 @@
 
       homes.modules = with inputs; [
         plasma-manager.homeManagerModules.plasma-manager
+        catppuccin.homeManagerModules.catppuccin
       ];
 
       systems.modules.nixos = with inputs;
         [
-          inputs.nvf.nixosModules.default
+          nvf.nixosModules.default
+          catppuccin.nixosModules.catppuccin
         ]
         ++ (builtins.attrValues lumi-private.nixosModules);
       # systems.hosts.nixos-wsl.modules = with inputs; [
