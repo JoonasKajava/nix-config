@@ -17,7 +17,20 @@ in {
     programs.plasma = {
       enable = true;
 
-      workspace.wallpaper = wallpaper;
+      workspace = {
+        wallpaper = wallpaper;
+        lookAndFeel = mkDefault "org.kde.breezedark.desktop";
+        theme = mkDefault "breeze-dark";
+        colorScheme = mkDefault "BreezeDark";
+        cursor = mkDefault {
+          theme = "breeze_cursors";
+          size = 24;
+        };
+        windowDecorations = {
+          library = mkDefault "org.kde.breeze";
+          theme = mkDefault "Breeze";
+        };
+      };
 
       hotkeys.commands."1password-quick-access" = {
         name = "Open Quick Access";
