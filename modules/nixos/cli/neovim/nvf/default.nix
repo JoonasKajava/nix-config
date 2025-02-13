@@ -25,14 +25,14 @@ in {
       }
     ];
 
-        
     programs.nvf = {
       enable = true;
       settings = {
         vim = {
+          # TODO: Add buffer management keybindings
+          # Wait for snacks.nvim to be merged
           viAlias = true;
           vimAlias = true;
-
 
           luaConfigRC.myBasic =
             /*
@@ -95,7 +95,8 @@ in {
               lsp = {
                 server = "nixd";
                 options = {
-                  nixos = { # TODO: This still is now working
+                  nixos = {
+                    # TODO: This still is now working
                     expr = ''(builtins.getFlake "/etc/nixos").nixosConfigurations.${config.networking.hostName}.options'';
                   };
                   home_manager = {
@@ -164,7 +165,12 @@ in {
             };
           };
           tabline = {
-            nvimBufferline.enable = true;
+            nvimBufferline = {
+              enable = true;
+              mappings = {
+                closeCurrent = "<leader>bd";
+              };
+            };
           };
 
           treesitter.context.enable = true;
@@ -220,7 +226,27 @@ in {
 
           ui = {
             borders.enable = true;
-            noice.enable = false;
+            noice = {
+              enable = false;
+              routes = [
+                {
+                  filter = {
+                    event = "msg_show";
+                    any = [
+                      {find = "%d+L, %d+B";}
+                      {find = "; after #%d+";}
+                      {find = "; before #%d+";}
+                    ];
+                  };
+                  view = "mini";
+                }
+              ];
+              setupOpts.lsp.override = {
+                "cmp.entry.get_documentation" = true;
+                "vim.lsp.util.convert_input_to_markdown_lines" = true;
+                "vim.lsp.util.stylize_markdown" = true;
+              };
+            };
             colorizer.enable = true;
             breadcrumbs = {
               enable = true;
