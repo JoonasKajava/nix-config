@@ -19,7 +19,6 @@ in {
 
       workspace = {
         wallpaper = wallpaper;
-        lookAndFeel = mkDefault "org.kde.breezedark.desktop";
         theme = mkDefault "breeze-dark";
         colorScheme = mkDefault "BreezeDark";
         cursor = mkDefault {
