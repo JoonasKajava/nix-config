@@ -59,6 +59,9 @@ in {
                 appearance = {
                   indicateAudioStreams = false;
                 };
+                settings.General = {
+                  interactiveMute = false;
+                };
                 launchers =
                   [
                     "preferred://filemanager"
