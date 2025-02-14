@@ -25,7 +25,7 @@ Generate hardware configuration:
 Run (replace `nixos-desktop` with the name of the system you want to install):
 
 ```shell
-sudo nixos-rebuild switch --flake .#nixos-desktop\?submodules=1;
+sudo nixos-rebuild switch --flake .#nixos-desktop;
 ```
 
 After this has been successfully run, you can rebuild the system with just `rebuild` command.
@@ -63,3 +63,4 @@ This some features I'm planning to add to my configuration.
 - [x] Rewrite this flake to use Snowfall Lib (take inspiration from <https://github.com/jakehamilton/config/tree/main>).
 - [ ] Setup <https://github.com/mrjones2014/opnix>.
 - [ ] Setup catppuccin theme
+- [ ] Use `notify-send` (or similar) to inform about borgmatic backups.
