@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-wsl = {
       url = "github:nix-community/nixos-wsl";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,6 +59,7 @@
       homes.modules = with inputs; [
         plasma-manager.homeManagerModules.plasma-manager
         catppuccin.homeManagerModules.catppuccin
+        nix-index-database.hmModules.nix-index
       ];
 
       systems.modules.nixos = with inputs;
@@ -61,6 +67,7 @@
           nvf.nixosModules.default
           nixvim.nixosModules.nixvim
           catppuccin.nixosModules.catppuccin
+          nix-index-database.nixosModules.nix-index
         ]
         ++ (builtins.attrValues lumi-private.nixosModules);
       # systems.hosts.nixos-wsl.modules = with inputs; [
