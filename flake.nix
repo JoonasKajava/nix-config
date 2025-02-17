@@ -30,6 +30,7 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim.url = "github:nix-community/nixvim";
     catppuccin.url = "github:catppuccin/nix";
   };
 
@@ -58,6 +59,7 @@
       systems.modules.nixos = with inputs;
         [
           nvf.nixosModules.default
+          nixvim.nixosModules.nixvim
           catppuccin.nixosModules.catppuccin
         ]
         ++ (builtins.attrValues lumi-private.nixosModules);
