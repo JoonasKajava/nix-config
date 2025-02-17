@@ -16,9 +16,9 @@ in {
         enable = true;
         remotePlay.openFirewall = true;
 
-        extraCompatPackages = (with pkgs; [
+        extraCompatPackages = with pkgs; [
           proton-ge-bin
-        ]);
+        ];
       };
 
       gamemode.enable = true;
