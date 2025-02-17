@@ -16,6 +16,7 @@ in {
   config = mkIf cfg.enable {
     nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     programs.nixvim = {
+      enable = true;
       imports = [
         ./settings.nix
         ./lazy.nix

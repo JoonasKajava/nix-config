@@ -1,20 +1,21 @@
 {
   config,
   lib,
-  inputs,
-  mkPkgs,
+  pkgs,
   ...
-}:
-{
-  extraPlugins = [
-    (mkPkgs "blink.compat" inputs.blink-compat)
+}: {
+  extraPlugins = let
+    mkPkgs = name: src: pkgs.vimUtils.buildVimPlugin {inherit name src;};
+  in [
+    (mkPkgs "blink.compat" pkgs.vimPlugins.blink-compat)
   ];
 
   plugins = lib.mkMerge [
     {
       blink-cmp = {
         enable = true;
-        luaConfig.pre = # lua
+        luaConfig.pre =
+          # lua
           ''
             require('blink.compat').setup({debug = true, impersonate_nvim_cmp = true})
           '';
@@ -77,7 +78,6 @@
                 "buffer"
                 "calc"
                 "cmdline"
-                "codeium"
                 "emoji"
                 "git"
                 "lsp"
@@ -88,6 +88,7 @@
                 "spell"
                 #"treesitter"
                 "zsh"
+                "copilot"
               ];
             };
             providers = {
@@ -108,26 +109,22 @@
                   show_autosnippets = true;
                 };
               };
-              codeium = {
-                name = "codeium";
-                module = "blink.compat.source";
+              copilot = {
+                async = true;
+                name = "copilot";
+                module = "blink-copilot";
+                score_offset = 100;
+                opts = {
+                  max_completions = 3;
+                  max_attempts = 4;
+                  kind = "Copilot";
+                  debounce = 750;
+                  auto_refresh = {
+                    backward = true;
+                    forward = true;
+                  };
+                };
               };
-              # copilot = {
-              #   name = "copilot";
-              #   module = "blink.compat.source";
-              #   score_offset = 100;
-              #   transform_items.__raw = ''
-              #     function(ctx, items)
-              #         -- TODO: check https://github.com/Saghen/blink.cmp/pull/253#issuecomment-2454984622
-              #         local kind = require("blink.cmp.types").CompletionItemKind.Text
-              #
-              #         for i = 1, #items do
-              #             items[i].kind = kind
-              #         end
-              #
-              #         return items
-              #     end'';
-              # };
               emoji = {
                 name = "emoji";
                 module = "blink.compat.source";
@@ -168,7 +165,8 @@
       cmp-treesitter.enable = true;
       cmp-zsh.enable = true;
 
-      lsp.capabilities = # Lua
+      lsp.capabilities =
+        # Lua
         ''
           capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
         '';

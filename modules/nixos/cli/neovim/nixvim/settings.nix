@@ -50,12 +50,6 @@
     # Enable mouse support
     mouse = "a";
 
-    # Set folding method to manual
-    foldmethod = "manual";
-
-    # Disable folding by default
-    foldenable = false;
-
     # Wrap long lines at a character in 'breakat'
     linebreak = true;
 

@@ -4,12 +4,14 @@
   namespace,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) types mkEnableOption mkIf;
   inherit (lib.${namespace}) mkOpt;
 
   cfg = config.${namespace}.suites.cli;
-in {
+in
+{
   options.${namespace}.suites.cli = {
     enable = mkEnableOption "Whether to enable the CLI suite.";
   };
@@ -29,9 +31,9 @@ in {
         tmux.enable = true;
         git.enable = true;
         lazygit.enable = true;
-        neovim.enable = false; # for testing
+        neovim.enable = true; # for testing
         neovim.nvf.enable = false; # for testing
-        neovim.nixvim.enable = true; # for testing
+        neovim.nixvim.enable = false; # for testing
       };
     };
     lumi-private.scripts = {
