@@ -24,7 +24,6 @@ with lib.${namespace}; {
     suites.cli.enable = true;
 
     apps = {
-      ferdium.enable = true;
       brave.enable = true;
       kdeconnect.enable = true;
       obsidian.enable = true;
