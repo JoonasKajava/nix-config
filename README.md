@@ -61,6 +61,6 @@ This some features I'm planning to add to my configuration.
 - [ ] Setup Zellij with tmux keybindings (those work better with lazyvim).
 - [ ] Setup neovim with nvf (or NixCats or NixVim?).
 - [x] Rewrite this flake to use Snowfall Lib (take inspiration from <https://github.com/jakehamilton/config/tree/main>).
-- [ ] Setup <https://github.com/mrjones2014/opnix>.
+- [ ] Setup <https://github.com/ryantm/agenix>.
 - [ ] Setup catppuccin theme
 - [ ] Use `notify-send` (or similar) to inform about borgmatic backups.
