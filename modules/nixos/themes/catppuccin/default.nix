@@ -23,7 +23,7 @@ in {
   # TODO: window decorations look awful maybe because of not using kvantum?
   # TODO: Application style is missing
   config = mkIf cfg.enable {
-    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+    myHome = {
       catppuccin = {
         enable = true;
         nvim.enable = false;

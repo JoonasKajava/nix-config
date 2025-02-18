@@ -13,7 +13,7 @@ in {
   config = mkIf cfg.enable {
     programs.nix-index-database.comma.enable = true;
 
-    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+    myHome = {
       programs.nix-index.enable = true;
     };
   };

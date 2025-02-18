@@ -11,7 +11,7 @@ in {
   options.${namespace}.cli.yazi = {enable = mkEnableOption "yazi";};
 
   config = mkIf cfg.enable {
-    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+    myHome = {
       programs.yazi = {
         enable = true;
       };

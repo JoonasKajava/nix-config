@@ -19,7 +19,7 @@ in {
 
     users.defaultUserShell = pkgs.zsh;
 
-    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+    myHome = {
       programs.zsh = {
         enable = true;
         enableCompletion = true;

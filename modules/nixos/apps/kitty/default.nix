@@ -16,7 +16,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+    myHome = {
       programs.kitty = {
         enable = true;
         settings = {

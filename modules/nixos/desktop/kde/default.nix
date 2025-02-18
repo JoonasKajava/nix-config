@@ -15,7 +15,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+    myHome = {
       ${namespace}.desktop.kde.plasma-manager.enable = true;
     };
 

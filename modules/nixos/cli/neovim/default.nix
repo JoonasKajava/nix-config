@@ -42,7 +42,7 @@ in {
       }
     ];
 
-    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+    myHome = {
       ${namespace}.cli.neovim.enable = true;
     };
 
