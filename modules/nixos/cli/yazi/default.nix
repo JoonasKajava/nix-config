@@ -14,6 +14,11 @@ in {
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.yazi = {
         enable = true;
+        settings = {
+          manager = {
+            show_hidden = true;
+          };
+        };
       };
 
       programs.zsh = mkIf config.${namespace}.cli.zsh.enable {
