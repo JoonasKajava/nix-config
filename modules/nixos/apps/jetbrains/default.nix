@@ -18,7 +18,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+    myHome = {
       ${namespace}.apps.jetbrains.enable = true;
     };
     environment = {
