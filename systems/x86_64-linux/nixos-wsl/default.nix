@@ -15,6 +15,10 @@
   wsl.enable = true;
   wsl.defaultUser = user.username;
 
+  lumi = {
+    suites.cli.enable = true;
+  };
+
   networking.hostName = "nixos-wsl";
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
