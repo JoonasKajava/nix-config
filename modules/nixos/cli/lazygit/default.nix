@@ -22,7 +22,7 @@ in {
       commitizen
     ];
 
-    myHome = {
+    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.lazygit = {
         enable = true;
         settings = {

@@ -15,7 +15,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    myHome = {
+    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.zellij = {
         enable = true;
         settings = {

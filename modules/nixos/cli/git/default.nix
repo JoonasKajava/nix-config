@@ -17,7 +17,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    myHome = {
+    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.git = {
         enable = true;
         inherit (cfg) userName userEmail;
