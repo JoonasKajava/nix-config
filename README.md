@@ -11,6 +11,17 @@
 
 ## Installation
 
+Run installation script:
+
+> [!CAUTION]
+> This script needs to bee run as root. Please review the script before running it.
+
+```shell
+curl https://raw.githubusercontent.com/JoonasKajava/nix-config/refs/heads/master/install.sh | sudo sh
+```
+
+Or you can do the manual installation:
+
 Clone this repository to `/etc/nixos`.
 
 Execute following command:
