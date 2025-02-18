@@ -1,10 +1,5 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {pkgs, ...}: {
   imports = [
-    ../../modules/default.nix
-
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -44,24 +39,34 @@
 
     # List services that you want to enable:
 
-    mystuff = {
-      brave.enable = true;
-      gnome.enable = true;
-      nvidia.enable = true;
-      office.obsidian.enable = true;
-      onepassword.enable = true;
-      discord.enable = true;
-      yazi.enable = true;
+    lumi = {
+      suites.cli.enable = true;
 
-      gaming = {
-        lutris.enable = true;
+      apps = {
+        brave.enable = true;
+        kdeconnect.enable = true;
+        obsidian.enable = true;
+        _1password.enable = true;
+        gimp.enable = true;
+        discord.enable = true;
         steam.enable = true;
+        kitty.enable = true;
+        vlc.enable = true;
+        jetbrains = {
+          enable = true;
+          ide = {
+            rider = true;
+            rust-rover = true;
+          };
+        };
+      };
+      desktop = {
+        gnome.enable = true;
       };
 
-      terminal = {
-        kitty.enable = true;
-        tmux.enable = true;
-      };
+      hardware.gpu.nvidia.enable = true;
+      hardware.audio.enable = true;
+      services.printing.enable = true;
     };
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     # Enable the OpenSSH daemon.
