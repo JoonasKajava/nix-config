@@ -51,7 +51,7 @@ This configuration adds few aliases to make upgrading and rebuilding easier.
 | Command    | Description                                                                          |
 | ---------- | ------------------------------------------------------------------------------------ |
 | `rebuild`  | Rebuilds the system with the current configuration. Also sources zsh configurations. |
-| `upgrade`  | Updates the flake and runs `devenv update`.                                          |
+| `upgrade`  | Updates the flake.                                                                   |
 | `optimize` | Removes old NixOS generations, runs garbage collection and deletes old devenvs.      |
 
 ## Private Module

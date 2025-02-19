@@ -32,7 +32,7 @@ in {
         '';
         shellAliases = {
           rebuild = "cd /etc/nixos/;nh os switch --ask .\\?submodules=1; source ~/.zshenv; source ~/.zshrc";
-          upgrade = "cd /etc/nixos/;devenv update;nix flake update";
+          upgrade = "cd /etc/nixos/;nix flake update";
           optimize = "devenv gc; sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'";
           neofetch = "fastfetch";
           l = "eza -hlaog --total-size --icons";
