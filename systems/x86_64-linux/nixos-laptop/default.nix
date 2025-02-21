@@ -61,7 +61,7 @@
         };
       };
       desktop = {
-        gnome.enable = true;
+        kde.enable = true;
       };
 
       hardware.gpu.nvidia.enable = true;
