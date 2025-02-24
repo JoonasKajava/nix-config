@@ -69,7 +69,7 @@
       services.printing.enable = true;
     };
     # Enable the OpenSSH daemon.
-    services.openssh.enable = false;
+    services.openssh.enable = true;
 
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];
