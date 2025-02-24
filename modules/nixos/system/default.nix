@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) types mkEnableOption mkIf;
+  inherit (lib) types mkEnableOption mkIf mkDefault;
   inherit (lib.${namespace}) mkOpt;
 
   cfg = config.${namespace}.system;
@@ -15,6 +15,6 @@ in {
   };
 
   config = {
-    boot.kernelPackages = cfg.kernelPackages;
+    boot.kernelPackages = mkDefault cfg.kernelPackages;
   };
 }

@@ -65,20 +65,11 @@
       };
 
       hardware.gpu.nvidia.enable = true;
-      hardware.audio.enable = false;
+      hardware.audio.enable = true;
 
       services.printing.enable = true;
       services.ssh.enable = true;
     };
-
-    hardware = {
-      pulseaudio = {
-        enable = true;
-        support32Bit = true;
-      };
-    };
-    nixpkgs.config.pulseaudio = true;
-    lumi.user.extraGroups = ["audio"];
 
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];
