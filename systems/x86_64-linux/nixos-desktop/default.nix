@@ -38,6 +38,7 @@ with lib.${namespace}; {
       kitty.enable = true;
       easyeffects.enable = true;
       vlc.enable = true;
+      parsec.enable = true;
       jetbrains = {
         enable = true;
         ide = {
@@ -63,7 +64,6 @@ with lib.${namespace}; {
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
-    parsec-bin
     wowup-cf
     slack
   ];
