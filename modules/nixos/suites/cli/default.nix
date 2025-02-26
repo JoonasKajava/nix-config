@@ -4,12 +4,14 @@
   namespace,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) types mkEnableOption mkIf;
   inherit (lib.${namespace}) mkOpt;
 
   cfg = config.${namespace}.suites.cli;
-in {
+in
+{
   options.${namespace}.suites.cli = {
     enable = mkEnableOption "Whether to enable the CLI suite.";
   };

@@ -1,7 +1,7 @@
 {
   imports = [
     # Ui
-    ./ui/alpha.nix
+    ./ui/dashboard.nix
     ./ui/bufferline.nix
     ./ui/flash.nix
     ./ui/general.nix

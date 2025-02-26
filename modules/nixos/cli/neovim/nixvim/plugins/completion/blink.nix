@@ -3,12 +3,15 @@
   lib,
   pkgs,
   ...
-}: {
-  extraPlugins = let
-    mkPkgs = name: src: pkgs.vimUtils.buildVimPlugin {inherit name src;};
-  in [
-    (mkPkgs "blink.compat" pkgs.vimPlugins.blink-compat)
-  ];
+}:
+{
+  extraPlugins =
+    let
+      mkPkgs = name: src: pkgs.vimUtils.buildVimPlugin { inherit name src; };
+    in
+    [
+      (mkPkgs "blink.compat" pkgs.vimPlugins.blink-compat)
+    ];
 
   plugins = lib.mkMerge [
     {
@@ -72,25 +75,23 @@
             enabled = true;
             window.border = "rounded";
           };
+          snippets.preset = "luasnip";
           sources = {
-            completion = {
-              enabled_providers = [
-                "buffer"
-                "calc"
-                "cmdline"
-                "emoji"
-                "git"
-                "lsp"
-                "luasnip"
-                #"npm"
-                "path"
-                "snippets"
-                "spell"
-                #"treesitter"
-                "zsh"
-                "copilot"
-              ];
-            };
+            default = [
+              "buffer"
+              "calc"
+              "cmdline"
+              "emoji"
+              "git"
+              "lsp"
+              #"npm"
+              "path"
+              "snippets"
+              "spell"
+              #"treesitter"
+              "zsh"
+              "copilot"
+            ];
             providers = {
               calc = {
                 name = "calc";
