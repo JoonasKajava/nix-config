@@ -16,7 +16,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      stable.brave
+      brave
     ];
 
     nixpkgs.config.packageOverrides = pkgs: {
