@@ -38,6 +38,20 @@ in {
         # Look and feel?
         # theme?
       };
+
+      qt = {
+        enable = true;
+        platformTheme.name = "kvantum";
+        style = {
+          name = "kvantum";
+          catppuccin = {
+            enable = true;
+            apply = true;
+            accent = catppuccinAccent;
+            flavor = catppuccinFlavor;
+          };
+        };
+      };
     };
 
     environment.systemPackages = with pkgs; [
@@ -54,6 +68,12 @@ in {
       enable = true;
       flavor = "mocha";
       accent = "sapphire";
+    };
+
+    qt = {
+      enable = true;
+      platformTheme = "qt5ct";
+      style = "kvantum";
     };
   };
 }
