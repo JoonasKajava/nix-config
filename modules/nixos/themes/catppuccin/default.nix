@@ -27,7 +27,7 @@ in {
       catppuccin = {
         enable = true;
         nvim.enable = false;
-        kvantum.enable = false;
+        kvantum.enable = true;
       };
       programs.plasma.workspace = {
         colorScheme = "Catppuccin${capitalizeWord catppuccinFlavor}${capitalizeWord catppuccinAccent}";
@@ -53,6 +53,7 @@ in {
     catppuccin = {
       enable = true;
       flavor = "mocha";
+      accent = "sapphire";
     };
   };
 }
