@@ -4,14 +4,12 @@
   namespace,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) types mkEnableOption mkIf;
   inherit (lib.${namespace}) mkOpt;
 
   cfg = config.${namespace}.suites.cli;
-in
-{
+in {
   options.${namespace}.suites.cli = {
     enable = mkEnableOption "Whether to enable the CLI suite.";
   };
@@ -29,7 +27,10 @@ in
         zsh.enable = true;
         comma.enable = true;
         yazi.enable = true;
-        tmux.enable = true;
+
+        tmux.enable = false;
+        zellij.enable = true;
+
         git.enable = true;
         lazygit.enable = true;
         neovim.enable = true; # for testing
