@@ -19,6 +19,7 @@ in {
       programs.zellij = {
         enable = true;
         settings = {
+          default_mode = "locked";
         };
       };
     };
