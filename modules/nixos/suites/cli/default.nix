@@ -38,9 +38,12 @@ in {
         neovim.nixvim.enable = false; # for testing
       };
     };
-    lumi-private.scripts = {
-      ssh-setup.enable = true;
-      setup-env-secrets.enable = true;
+    lumi-private = {
+      scripts = {
+        ssh-setup.enable = true;
+        setup-env-secrets.enable = true;
+      };
+      services.sops.enable = true;
     };
   };
 }

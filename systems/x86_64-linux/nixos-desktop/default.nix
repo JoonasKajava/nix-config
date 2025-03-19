@@ -60,7 +60,6 @@ with lib.${namespace}; {
 
   lumi-private = {
     services.borgbackup.enable = true;
-    services.sops.enable = true;
   };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
