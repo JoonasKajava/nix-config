@@ -218,14 +218,15 @@
         ],
         "snowfall-lib": [
           "snowfall-lib"
-        ]
+        ],
+        "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1740476805,
-        "narHash": "sha256-RU37Y9uGkFV3QIIb18x8pM/6pPwIwsuhRug3WNiHE08=",
+        "lastModified": 1742403279,
+        "narHash": "sha256-0fmlUqyhHsRjT2uCVSUMGBNJy1EAStMVLkyN7EGkgMw=",
         "ref": "refs/heads/master",
-        "rev": "675b1d6acf8042258f10d1da4d3ce15b5ef86344",
-        "revCount": 45,
+        "rev": "f50ace3f84b3adc56c5d8fc06a3d27ad46848db2",
+        "revCount": 54,
         "type": "git",
         "url": "ssh://git@github.com/JoonasKajava/nix-config-private"
       },
@@ -558,6 +559,27 @@
       "original": {
         "owner": "snowfallorg",
         "repo": "lib",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "lumi-private",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1742239755,
+        "narHash": "sha256-ptn8dR4Uat3UUadGYNnB7CIH9SQm8mK69D2A/twBUXQ=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "787afce414bcce803b605c510b60bf43c11f4b55",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },
