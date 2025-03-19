@@ -27,7 +27,7 @@ in {
         syntaxHighlighting.enable = true;
         initExtra = ''
           source /etc/nixos/modules/nixos/cli/zsh/theme.zsh
-          source ~/.secrets.sh
+          source /etc/secrets.sh
           eval "$(direnv hook zsh)"
         '';
         shellAliases = {
