@@ -70,6 +70,4 @@ This some features I'm planning to add to my configuration.
 - [ ] Experiment with NixOS Specializations.
 - [ ] Setup Zellij with tmux keybindings (those work better with lazyvim).
 - [ ] Setup neovim with nvf (or NixCats or NixVim?).
-- [ ] Setup <https://github.com/ryantm/agenix>.
-- [x] Setup catppuccin theme
 - [ ] Use `notify-send` (or similar) to inform about borgmatic backups.
