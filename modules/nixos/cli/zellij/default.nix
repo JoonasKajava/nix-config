@@ -20,6 +20,7 @@ in {
         enable = true;
         settings = {
           default_mode = "locked";
+          show_startup_tips = false;
         };
       };
     };
