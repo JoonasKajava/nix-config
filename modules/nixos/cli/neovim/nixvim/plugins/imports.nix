@@ -72,6 +72,7 @@
 
     ./ai/copilot.nix
 
-    ./theme/catppuccin.nix
+    #./theme/catppuccin.nix
+    ./theme/tokyonight.nix
   ];
 }
