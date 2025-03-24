@@ -21,6 +21,7 @@ in {
       fastfetch
       rm-improved
       eza
+      just
     ];
     lumi = {
       cli = {
