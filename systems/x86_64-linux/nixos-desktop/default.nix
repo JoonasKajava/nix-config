@@ -55,7 +55,11 @@ with lib.${namespace}; {
     hardware.gpu.nvidia.enable = true;
     hardware.audio.enable = true;
     hardware.keyboards.bazecor.enable = true;
-    services.printing.enable = true;
+
+    services = {
+      printing.enable = true;
+      docker.enable = true;
+    };
   };
 
   lumi-private = {
