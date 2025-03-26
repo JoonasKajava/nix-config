@@ -58,7 +58,7 @@ with lib.${namespace}; {
 
     services = {
       printing.enable = true;
-      docker.enable = true;
+      docker.enable = false; # Disable docker for now.
     };
   };
 
