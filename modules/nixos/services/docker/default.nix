@@ -11,6 +11,7 @@
 in {
   options.${namespace}.services.docker = {
     enable = mkEnableOption "Whether to enable docker services";
+    wallos = mkEnableOption "Whether to enable wallos container";
   };
 
   config = mkIf cfg.enable {
@@ -24,8 +25,7 @@ in {
       };
       oci-containers.backend = "docker";
       oci-containers.containers = {
-        # TODO: create better options for containers
-        wallos = import ./containers/wallos.nix;
+        wallos = mkIf cfg.wallos import ./containers/wallos.nix;
       };
     };
   };
