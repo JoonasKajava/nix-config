@@ -18,6 +18,7 @@ in {
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.zellij = {
         enable = true;
+        enableZshIntegration = true;
         settings = {
           default_mode = "locked";
           show_startup_tips = false;
