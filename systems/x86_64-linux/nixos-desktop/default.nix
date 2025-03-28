@@ -34,7 +34,6 @@ with lib.${namespace}; {
       minecraft.enable = true;
       steam.enable = true;
       lutris.enable = true;
-      # TODO: Add world of warcraft module
       kitty.enable = true;
       easyeffects.enable = true;
       vlc.enable = true;
