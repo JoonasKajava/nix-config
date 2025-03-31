@@ -68,6 +68,5 @@ This some features I'm planning to add to my configuration.
   - Maybe display this on the fastfetch output?
 - [ ] Fix commit signing in git.
 - [ ] Experiment with NixOS Specializations.
-- [ ] Setup Zellij with tmux keybindings (those work better with lazyvim).
 - [ ] Setup neovim with nvf (or NixCats or NixVim?).
 - [ ] Use `notify-send` (or similar) to inform about borgmatic backups.
