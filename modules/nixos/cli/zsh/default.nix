@@ -32,7 +32,6 @@ in {
         '';
         shellAliases = {
           neofetch = "fastfetch";
-          l = "eza -hlaog --total-size --icons";
         };
 
         history.size = 10000;
