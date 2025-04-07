@@ -33,8 +33,8 @@ in {
 
         git.enable = true;
         lazygit.enable = true;
-        neovim.enable = true; # for testing
-        neovim.nvf.enable = false; # for testing
+        neovim.enable = false; # for testing
+        neovim.nvf.enable = true; # for testing
         neovim.nixvim.enable = false; # for testing
       };
     };
