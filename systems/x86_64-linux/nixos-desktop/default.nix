@@ -39,6 +39,7 @@ with lib.${namespace}; {
       vlc.enable = true;
       parsec.enable = true;
       onlyoffice.enable = true;
+      
       jetbrains = {
         enable = true;
         ide = {
