@@ -52,19 +52,12 @@ in {
     };
     nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
-    nix.settings = {
-      trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
-      substituters = ["https://devenv.cachix.org"];
-      trusted-users = ["root" config.${namespace}.user.name];
-    };
-
     programs.direnv.enable = true;
 
     environment = {
       variables.EDITOR = "nvim";
       systemPackages = with pkgs; [
         lazygit
-        devenv
         wl-clipboard
       ];
     };
