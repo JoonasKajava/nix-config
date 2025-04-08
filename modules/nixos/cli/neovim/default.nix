@@ -61,9 +61,5 @@ in {
         wl-clipboard
       ];
     };
-
-    fonts.packages = with pkgs.nerd-fonts; [
-      fira-mono
-    ];
   };
 }

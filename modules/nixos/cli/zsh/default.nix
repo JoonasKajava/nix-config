@@ -15,6 +15,10 @@ in {
       nh
     ];
 
+    fonts.packages = with pkgs.nerd-fonts; [
+      fira-mono
+    ];
+
     programs.zsh.enable = true; # Necessary even when enabled by home-manager.
 
     users.defaultUserShell = pkgs.zsh;
