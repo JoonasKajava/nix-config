@@ -14,7 +14,8 @@
 Run installation script:
 
 > [!CAUTION]
-> This script needs to be run as root. Please review the script before running it.
+> This script needs to be run as root. Please review the script before running
+> it.
 
 ```shell
 curl https://raw.githubusercontent.com/JoonasKajava/nix-config/refs/heads/master/install.sh | sudo sh
@@ -30,8 +31,8 @@ Execute following command:
 git submodule update --init --recursive
 ```
 
-Generate hardware configuration:
-`nixos-generate-config` after this, you can remove the generated `configuration.nix` file.
+Generate hardware configuration: `nixos-generate-config` after this, you can
+remove the generated `configuration.nix` file.
 
 Run (replace `nixos-desktop` with the name of the system you want to install):
 
@@ -39,10 +40,13 @@ Run (replace `nixos-desktop` with the name of the system you want to install):
 sudo nixos-rebuild switch --flake .#nixos-desktop;
 ```
 
-After this has been successfully run, you can rebuild the system with just `rebuild` command.
-Continue installation according to the ReadMe in the private module.
+After this has been successfully run, you can rebuild the system with just
+`rebuild` command. Continue installation according to the ReadMe in the private
+module.
 
-This repository also contains installation script for windows `win-install.ps1`. This script mainly creates symbolic links to the configuration files in this repository.
+This repository also contains installation script for windows `win-install.ps1`.
+This script mainly creates symbolic links to the configuration files in this
+repository.
 
 ## Upgrading and Rebuilding
 
@@ -56,17 +60,21 @@ This configuration adds few aliases to make upgrading and rebuilding easier.
 
 ## Private Module
 
-Unfortunately, I cannot share all parts of my configuration. This private module contains scripts and configuration to manage secrets in my devices and other work related stuff.
-It is **not** necessary to use this module to use the rest of the configuration. Simply remove the import from `flake.nix`.
+Unfortunately, I cannot share all parts of my configuration. This private module
+contains scripts and configuration to manage secrets in my devices and other
+work related stuff. It is **not** necessary to use this module to use the rest
+of the configuration. Simply remove the import from `flake.nix`.
 
 ## Roadmap
 
 This some features I'm planning to add to my configuration.
 
-- [ ] Specify monitors so that flickering doesn't happen on boot. And plymouth splash screen is shown on the correct monitor.
-- [ ] Create cli tool / script to read flake input timestamps and compare them with newest version on github. Then output some kind of notification 'nixpkgs-unstable input is 10 days behind.'
+- [ ] Specify monitors so that flickering doesn't happen on boot. And plymouth
+      splash screen is shown on the correct monitor.
+- [ ] Create cli tool / script to read flake input timestamps and compare them
+      with newest version on github. Then output some kind of notification
+      'nixpkgs-unstable input is 10 days behind.'
   - Maybe display this on the fastfetch output?
 - [ ] Fix commit signing in git.
 - [ ] Experiment with NixOS Specializations.
-- [ ] Setup neovim with nvf (or NixCats or NixVim?).
 - [ ] Use `notify-send` (or similar) to inform about borgmatic backups.

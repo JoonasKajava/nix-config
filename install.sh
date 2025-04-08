@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -p gh
+#! nix-shell -i bash -p gh
 
 gh auth login
 
