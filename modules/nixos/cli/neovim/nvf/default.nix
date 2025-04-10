@@ -15,8 +15,12 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      inputs.my-nvf.packages.${system}.default
-    ];
+    environment = {
+      systemPackages = [
+        inputs.my-nvf.packages.${system}.default
+      ];
+
+      variables.EDITOR = "nvim";
+    };
   };
 }
