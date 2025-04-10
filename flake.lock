@@ -275,11 +275,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1744302823,
-        "narHash": "sha256-Sg55yONwYLiobXY9g+LHEZcmDZ+K1vM/Dyfv391yPXI=",
+        "lastModified": 1744314160,
+        "narHash": "sha256-idIVibEaWg/9vHLlAOmGvacX0K6Eh3SutGhZ6Zh3moQ=",
         "owner": "JoonasKajava",
         "repo": "nvf-config",
-        "rev": "0ec773002f091be01d7bdd0155f6cc2096428cfe",
+        "rev": "ab1b2e6622388ca7a9460ec539a883826c81ed5b",
         "type": "github"
       },
       "original": {
