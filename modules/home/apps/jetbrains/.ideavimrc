@@ -155,10 +155,10 @@ nmap [q <Action>(GotoPreviousError)
 " Next Quickfix
 nmap ]q <Action>(GotoNextError)
 " Format
-nmap <leader>cf <Action>(ReformatCode)
-vmap <leader>cf <Action>(ReformatCode)
+nmap <leader>lf <Action>(ReformatCode)
+vmap <leader>lf <Action>(ReformatCode)
 " Line Diagnostics
-nmap <leader>cd <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>xd <Action>(ActivateProblemsViewToolWindow)
 " Next Diagnostic
 nmap ]d <Action>(GotoNextError)
 " Prev Diagnostic
@@ -272,8 +272,8 @@ nmap <S-k> <Action>(ShowHoverInfo)
 " Signature Help in Insert Mode
 imap <C-k> <C-o><Action>(ParameterInfo)
 " Code Action
-nmap <leader>ca <Action>(RefactoringMenu)
-vmap <leader>ca <Action>(RefactoringMenu)
+nmap <leader>cr <Action>(RefactoringMenu)
+vmap <leader>cr <Action>(RefactoringMenu)
 nmap <leader>oi <Action>(OptimizeImports)
 " Run Codelens
 nmap <leader>cc :echo 'There is no equivalent mapping for Run Codelens.'<cr>
@@ -283,9 +283,9 @@ nmap <leader>cC :echo 'There is no equivalent mapping for Refresh & Display Code
 " Rename File
 nmap <leader>cR <Action>(RenameFile)
 " Rename
-nmap <leader>cr <Action>(RenameElement)
+nmap <leader>ln <Action>(RenameElement)
 " Source Action
-nmap <leader>cA <Action>(ShowIntentionActions)
+nmap <leader>la <Action>(ShowIntentionActions)
 " Next Reference
 nmap ]] <Action>(GotoNextError)
 " Prev Reference
