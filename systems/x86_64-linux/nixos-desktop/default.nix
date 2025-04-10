@@ -39,7 +39,8 @@ with lib.${namespace}; {
       vlc.enable = true;
       parsec.enable = true;
       onlyoffice.enable = true;
-      
+      bottles.enable = true;
+
       jetbrains = {
         enable = true;
         ide = {
@@ -52,9 +53,11 @@ with lib.${namespace}; {
       kde.enable = true;
     };
 
-    hardware.gpu.nvidia.enable = true;
-    hardware.audio.enable = true;
-    hardware.keyboards.bazecor.enable = true;
+    hardware = {
+      gpu.nvidia.enable = true;
+      audio.enable = true;
+      keyboards.bazecor.enable = true;
+    };
 
     services = {
       printing.enable = true;
