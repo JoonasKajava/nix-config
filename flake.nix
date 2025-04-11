@@ -34,7 +34,6 @@
     my-nvf = {
       url = "github:JoonasKajava/nvf-config";
     };
-    nixvim.url = "github:nix-community/nixvim";
     catppuccin.url = "github:catppuccin/nix";
   };
 
@@ -63,7 +62,6 @@
 
       systems.modules.nixos = with inputs;
         [
-          nixvim.nixosModules.nixvim
           catppuccin.nixosModules.catppuccin
           nix-index-database.nixosModules.nix-index
         ]

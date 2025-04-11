@@ -36,9 +36,7 @@ in {
 
         devenv.enable = true;
 
-        neovim.enable = false; # for testing
-        neovim.nvf.enable = true; # for testing
-        neovim.nixvim.enable = false; # for testing
+        neovim.nvf.enable = true;
       };
     };
     lumi-private = {
