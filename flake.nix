@@ -33,6 +33,7 @@
     };
     my-nvf = {
       url = "github:JoonasKajava/nvf-config";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
   };
