@@ -53,6 +53,7 @@ with lib.${namespace}; {
     };
 
     hardware = {
+      gpu.amd.enable = true;
       audio.enable = true;
       keyboards.bazecor.enable = true;
     };
