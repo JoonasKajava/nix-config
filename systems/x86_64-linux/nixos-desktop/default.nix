@@ -49,6 +49,9 @@ with lib.${namespace}; {
         };
       };
     };
+
+    cli.mangohud.enable = true;
+
     desktop = {
       kde.enable = true;
     };
