@@ -17,5 +17,23 @@ in {
     environment.systemPackages = with pkgs; [
       mangohud
     ];
+
+    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+      programs.mangohud = {
+        enable = true;
+        settings = {
+          gpu_stats = true;
+          gpu_temp = true;
+
+          cpu_stats = true;
+          cpu_temp = true;
+
+          io_read = true;
+
+          vram = true;
+          fps_metrics = "avg,0.01,0.001";
+        };
+      };
+    };
   };
 }
