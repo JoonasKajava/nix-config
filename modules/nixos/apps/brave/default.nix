@@ -19,20 +19,20 @@ in {
       brave
     ];
 
-    nixpkgs.config.packageOverrides = pkgs: {
-      intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
-    };
+    # nixpkgs.config.packageOverrides = pkgs: {
+    #   intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
+    # };
 
-    hardware.graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-        libvdpau-va-gl
-      ];
-    };
+    # hardware.graphics = {
+    #   enable = true;
+    #   extraPackages = with pkgs; [
+    #     intel-media-driver
+    #     libvdpau-va-gl
+    #   ];
+    # };
 
     environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = "iHD";
+      #LIBVA_DRIVER_NAME = "iHD";
       NIXOS_OZONE_WL = "1";
     };
   };

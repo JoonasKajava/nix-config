@@ -15,7 +15,7 @@ with lib.${namespace}; {
     };
     kernelParams = [
       "video=DP-1:2560x1440@165"
-      "video=DP-2:1920x1080@144"
+      "video=HDMI-A-2:1920x1080@144"
       "video=HDMI-A-1:1920x1080@60"
     ];
   };
@@ -53,7 +53,6 @@ with lib.${namespace}; {
     };
 
     hardware = {
-      gpu.nvidia.enable = true;
       audio.enable = true;
       keyboards.bazecor.enable = true;
     };
