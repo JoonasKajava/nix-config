@@ -14,6 +14,11 @@ in {
   };
 
   config = mkIf cfg.enable {
+    boot.kernelParams = [
+      "amdgpu.gpu_recovery=1"
+      "panic=30"
+    ];
+
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
