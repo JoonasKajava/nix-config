@@ -21,10 +21,13 @@ in {
       fastfetch
       rm-improved
       just
+      nh
     ];
     lumi = {
       cli = {
         zsh.enable = true;
+        #nushell.enable = true;
+
         comma.enable = true;
         yazi.enable = true;
 

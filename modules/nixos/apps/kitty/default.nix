@@ -16,6 +16,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    fonts.packages = with pkgs.nerd-fonts; [
+      fira-mono
+    ];
+
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.kitty = {
         enable = true;
