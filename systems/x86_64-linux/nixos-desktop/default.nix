@@ -22,7 +22,6 @@ with lib.${namespace}; {
 
   lumi = {
     suites.cli.enable = true;
-    services.ssh.enable = true;
 
     apps = {
       brave.enable = true;
