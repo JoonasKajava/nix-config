@@ -8,7 +8,10 @@
 with lib; let
   cfg = config.${namespace}.cli.zsh;
 in {
-  options.${namespace}.cli.zsh = {enable = mkEnableOption "Zsh";};
+  options.${namespace}.cli.zsh = {
+    enable = mkEnableOption "Zsh";
+    powerlevel = {enable = mkEnableOption "powerlevel10k" // {default = true;};};
+  };
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
@@ -40,11 +43,11 @@ in {
 
         history.size = 10000;
         plugins = [
-          {
+          (mkIf cfg.powerlevel.enable {
             name = "powerlevel10k";
             src = pkgs.zsh-powerlevel10k;
             file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-          }
+          })
           {
             name = "vi-mode";
             src = pkgs.zsh-vi-mode;
