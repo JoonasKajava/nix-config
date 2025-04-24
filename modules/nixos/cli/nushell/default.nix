@@ -26,7 +26,15 @@ in {
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.nushell = {
         enable = true;
-        configFile.source = ./config.nu;
+        configFile.text = concatStringsSep "\n" [
+          # nu
+          ''
+            let carapace_completer = {|spans|
+              ${getExe pkgs.carapace} $spans.0 nushell ...$spans | from json
+            }
+          ''
+          (builtins.readFile ./config.nu)
+        ];
         extraConfig = concatStringsSep "\n" (builtins.map (p: "plugin add ${getExe p}") cfg.plugins);
       };
     };

@@ -4,4 +4,10 @@ $env.config = {
     vi_insert: line
     vi_normal: block
   }
+  completions: {
+    external: {
+      enable: true
+      completer: $carapace_completer
+    }
+  }
 }
