@@ -69,7 +69,7 @@ in {
             [](fg:${firstSegmentColor.bg})
             $time
           '';
-          add_newline = false;
+          add_newline = true;
 
           username = rec {
             show_always = true;
@@ -183,7 +183,7 @@ in {
           };
           nix_shell = {
             style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
-            format = "nix-shell";
+            format = "[ nix-shell ]($style)";
           };
           status = {
             disabled = false;

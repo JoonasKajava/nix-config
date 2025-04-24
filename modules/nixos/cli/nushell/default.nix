@@ -24,21 +24,14 @@ in {
     users.defaultUserShell = pkgs.nushell;
 
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+      home.shell.enableNushellIntegration = true;
+
+      programs.carapace.enable = true;
+      programs.nix-your-shell.enable = true;
+
       programs.nushell = {
         enable = true;
-        configFile.text = concatStringsSep "\n" [
-          # nu
-          ''
-            let carapace_completer = {|spans|
-              ${getExe pkgs.carapace} $spans.0 nushell ...$spans | from json
-            }
-
-            $env.config.hooks.pre_prompt = ($env.config.hooks.pre_prompt | append (source ${pkgs.nu_scripts}/share/nu_scripts/nu-hooks/nu-hooks/direnv/config.nu)
-            )
-
-          ''
-          (builtins.readFile ./config.nu)
-        ];
+        configFile.source = ./config.nu;
         extraConfig = concatStringsSep "\n" (builtins.map (p: "plugin add ${getExe p}") cfg.plugins);
       };
     };
