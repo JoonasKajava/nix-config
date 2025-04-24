@@ -44,7 +44,7 @@ in {
             $git_branch
             $git_status
             [](fg:${thirdSegmentColor.bg} bg:${fourthSegmentColor.bg})
-            $test
+            $lua
             $c
             $elixir
             $elm
@@ -59,6 +59,7 @@ in {
             $scala
             $dotnet
             $docker_context
+            $nix_shell
             [ ](fg:${fourthSegmentColor.bg})
           '';
 
@@ -99,6 +100,11 @@ in {
 
           c = {
             symbol = " ";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
+            format = "[ $symbol ($version) ]($style)";
+          };
+          lua = {
+            symbol = " ";
             style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
@@ -175,12 +181,16 @@ in {
             style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
+          nix_shell = {
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
+            format = "nix-shell";
+          };
           status = {
             disabled = false;
             style = "bg:red yellow";
             success_style = "bg:none";
             success_symbol = "✔";
-            format = "[$symbol $status]($style)";
+            format = "[ $symbol $status ]($style)";
           };
           time = {
             disabled = false;
