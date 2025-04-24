@@ -82,7 +82,7 @@ in {
             format = "[ $symbol]($style)";
           };
           directory = {
-            style = "bg:${secondSegmentColor.bg}";
+            style = "bg:${secondSegmentColor.bg} bold";
             truncate_to_repo = false;
             format = "[ $path ]($style)";
             truncation_length = 3;

@@ -26,8 +26,8 @@ in {
     lumi = {
       cli = {
         zsh.enable = true;
-        #zsh.powerlevel.enable = false;
-        #starship.enable = true;
+        zsh.powerlevel.enable = false;
+        starship.enable = true;
         #nushell.enable = true;
 
         comma.enable = true;
