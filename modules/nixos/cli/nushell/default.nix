@@ -32,6 +32,10 @@ in {
             let carapace_completer = {|spans|
               ${getExe pkgs.carapace} $spans.0 nushell ...$spans | from json
             }
+
+            $env.config.hooks.pre_prompt = ($env.config.hooks.pre_prompt | append (source ${pkgs.nu_scripts}/share/nu_scripts/nu-hooks/nu-hooks/direnv/config.nu)
+            )
+
           ''
           (builtins.readFile ./config.nu)
         ];
