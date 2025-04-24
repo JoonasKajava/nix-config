@@ -16,9 +16,7 @@ in {
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.nushell = {
         enable = true;
-        extraConfig = ''
-          $env.config.edit_mode = 'vi'
-        '';
+        configFile.source = ./config.nu;
       };
     };
   };
