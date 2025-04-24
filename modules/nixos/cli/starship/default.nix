@@ -18,18 +18,33 @@ in {
         enableNushellIntegration = true;
         enableZshIntegration = true;
         settings = let
-          firstSegmentColor = "#dcdcdc";
-          secondSegmentColor = "#0c72cb";
+          firstSegmentColor = {
+            bg = "#dcdcdc";
+            fg = "#000000";
+          };
+          secondSegmentColor = {
+            bg = "#0c72cb";
+            fg = "white";
+          };
+          thirdSegmentColor = {
+            bg = "yellow";
+            fg = "black";
+          };
+          fourthSegmentColor = {
+            bg = "#86BBD8";
+            fg = "black";
+          };
         in {
           format = mkSingleLine ''
             $os
             $username
-            [](bg:${secondSegmentColor} fg:${firstSegmentColor})
+            [](bg:${secondSegmentColor.bg} fg:${firstSegmentColor.bg})
             $directory
-            [](fg:#DA627D bg:#FCA17D)
+            [](fg:${secondSegmentColor.bg} bg:${thirdSegmentColor.bg})
             $git_branch
             $git_status
-            [](fg:#FCA17D bg:#86BBD8)
+            [](fg:${thirdSegmentColor.bg} bg:${fourthSegmentColor.bg})
+            $test
             $c
             $elixir
             $elm
@@ -42,119 +57,135 @@ in {
             $nim
             $rust
             $scala
-            [](fg:#86BBD8 bg:#06969A)
+            $dotnet
             $docker_context
-            [ ](fg:#33658A)
+            [ ](fg:${fourthSegmentColor.bg})
           '';
 
+          #TODO: add duration
           right_format = mkSingleLine ''
             $status
-            [](fg:${firstSegmentColor})
+            [](fg:${firstSegmentColor.bg})
             $time
           '';
-          #TODO: add time to the right
           add_newline = false;
+
           username = rec {
             show_always = true;
-            style_user = "bg:${firstSegmentColor} #000000";
+            style_user = "bg:${firstSegmentColor.bg} ${firstSegmentColor.fg}";
             style_root = style_user;
             format = "[$user ]($style)";
           };
           os = {
-            style = "bg:${firstSegmentColor} black";
+            style = "bg:${firstSegmentColor.bg} ${firstSegmentColor.fg}";
             disabled = false;
-            format = "[ $symbol ]($style)";
+            format = "[ $symbol]($style)";
           };
           directory = {
-            style = "bg:${secondSegmentColor}";
+            style = "bg:${secondSegmentColor.bg}";
+            truncate_to_repo = false;
             format = "[ $path ]($style)";
             truncation_length = 3;
             fish_style_pwd_dir_length = 2;
+            home_symbol = "󰋜 ~";
             substitutions = {
-              "Documents" = "󰈙 ";
-              "Downloads" = " ";
-              "Music" = " ";
-              "Pictures" = " ";
+              "Documents" = "󰈙 Documents";
+              "Downloads" = " Downloads";
+              "Music" = " Music";
+              "Pictures" = " Pictures";
+              "Development" = "  Development";
             };
           };
 
           c = {
             symbol = " ";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           docker_context = {
             symbol = " ";
-            style = "bg:#06969A";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol $context ]($style)";
           };
           elixir = {
             symbol = " ";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           elm = {
             symbol = " ";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           git_branch = {
             symbol = "";
-            style = "bg:#FCA17D";
+            style = "bg:${thirdSegmentColor.bg} ${thirdSegmentColor.fg}";
             format = "[ $symbol $branch ]($style)";
           };
           git_status = {
-            style = "bg:#FCA17D";
-            format = "[$all_status$ahead_behind ]($style)";
+            style = "bg:${thirdSegmentColor.bg} ${thirdSegmentColor.fg}";
+            modified = " $count";
+            format = "[$all_status]($style)";
           };
           golang = {
             symbol = " ";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           gradle = {
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           haskell = {
             symbol = " ";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           java = {
             symbol = " ";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           julia = {
             symbol = " ";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           nodejs = {
             symbol = "";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           nim = {
             symbol = "󰆥 ";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           rust = {
             symbol = "";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
           };
           scala = {
             symbol = " ";
-            style = "bg:#86BBD8";
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
             format = "[ $symbol ($version) ]($style)";
+          };
+          dotnet = {
+            style = "bg:${fourthSegmentColor.bg} ${fourthSegmentColor.fg}";
+            format = "[ $symbol ($version) ]($style)";
+          };
+          status = {
+            disabled = false;
+            style = "bg:red yellow";
+            success_style = "bg:none";
+            success_symbol = "✔";
+            format = "[$symbol $status]($style)";
           };
           time = {
             disabled = false;
-            style = "bg:${firstSegmentColor} #000000";
-            format = "[ $time ]($style)";
+            style = "bg:${firstSegmentColor.bg} ${firstSegmentColor.fg}";
+            format = "[ $time  ]($style)";
           };
         };
       };
