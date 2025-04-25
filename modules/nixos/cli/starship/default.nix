@@ -131,7 +131,7 @@ in {
           git_status = {
             style = "bg:${thirdSegmentColor.bg} ${thirdSegmentColor.fg}";
             modified = " $count";
-            format = "[$all_status]($style)";
+            format = "[$all_status ]($style)";
           };
           golang = {
             symbol = " ";
