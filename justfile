@@ -1,5 +1,5 @@
 rebuild:
-    nh os switch --ask .\?submodules=1; source ~/.zshenv; source ~/.zshrc
+    nh os switch --ask .\?submodules=1;
 upgrade:
     nix flake update
 upgrade-my-configs: 

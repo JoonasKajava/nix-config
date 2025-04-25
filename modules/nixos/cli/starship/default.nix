@@ -126,12 +126,12 @@ in {
           git_branch = {
             symbol = "";
             style = "bg:${thirdSegmentColor.bg} ${thirdSegmentColor.fg}";
-            format = "[ $symbol $branch ]($style)";
+            format = "[( $symbol $branch )]($style)";
           };
           git_status = {
             style = "bg:${thirdSegmentColor.bg} ${thirdSegmentColor.fg}";
             modified = " $count";
-            format = "[$all_status ]($style)";
+            format = "[($all_status )]($style)";
           };
           golang = {
             symbol = " ";
