@@ -7,7 +7,7 @@
 }:
 with lib; let
   cfg = config.${namespace}.desktop.kde.plasma-manager;
-  wallpaper = "/etc/nixos/nix-config-private/wallpapers/4K Mountain Moon Night - Nguyez.jpeg";
+  wallpaper = "/etc/nixos/nix-config-private/wallpapers/wallhaven-g8dm6e_3840x2160.png";
 in {
   options.${namespace}.desktop.kde.plasma-manager = {
     enable = mkEnableOption "plasma manager";
