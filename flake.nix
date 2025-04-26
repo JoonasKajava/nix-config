@@ -66,8 +66,5 @@
           nix-index-database.nixosModules.nix-index
         ]
         ++ (builtins.attrValues lumi-private.nixosModules);
-      # systems.hosts.nixos-wsl.modules = with inputs; [
-      #   nixos-wsl.nixosModules.wsl
-      # ];
     };
 }

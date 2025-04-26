@@ -7,13 +7,16 @@
   config,
   lib,
   pkgs,
-  user,
+  inputs,
   ...
 }: {
-  imports = [./hardware.nix];
+  imports = [
+    inputs.nixos-wsl.nixosModules.wsl
+    ./hardware.nix
+  ];
 
   wsl.enable = true;
-  wsl.defaultUser = user.username;
+  wsl.defaultUser = config.lumi.user.name;
 
   lumi = {
     suites.cli.enable = true;
