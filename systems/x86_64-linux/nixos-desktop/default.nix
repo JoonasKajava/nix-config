@@ -21,6 +21,9 @@ with lib.${namespace}; {
   };
 
   lumi = {
+    # TODO: remove once latest is >= 6.15
+    system.kernelPackages = pkgs.linuxPackages_testing;
+
     suites.cli.enable = true;
 
     apps = {
