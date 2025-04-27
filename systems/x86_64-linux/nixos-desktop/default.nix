@@ -63,9 +63,32 @@ with lib.${namespace}; {
       gpu.amd.enable = true;
       audio.enable = true;
       keyboards.bazecor.enable = true;
-      monitors = [
-        #TODO: add montiors here
-      ];
+      video = {
+        enable = true;
+        monitors = [
+          {
+            connector = "DP-1";
+            resolution = "2560x1440";
+            refreshRate = 165;
+            scale = 1.15;
+            position = "0x0";
+          }
+          {
+            connector = "HDMI-A-2";
+            resolution = "1920x1080";
+            refreshRate = 60;
+            scale = 1;
+            position = "2560x0";
+          }
+          {
+            connector = "HDMI-A-1";
+            resolution = "1920x1080";
+            refreshRate = 60;
+            scale = 1;
+            position = "-2560x0";
+          }
+        ];
+      };
     };
 
     services = {
