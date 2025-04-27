@@ -63,6 +63,9 @@ with lib.${namespace}; {
       gpu.amd.enable = true;
       audio.enable = true;
       keyboards.bazecor.enable = true;
+      monitors = [
+        #TODO: add montiors here
+      ];
     };
 
     services = {

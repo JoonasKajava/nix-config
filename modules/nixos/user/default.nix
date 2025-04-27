@@ -10,7 +10,7 @@ with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.user;
 in {
-  options.${namespace}.user = with types; {
+  options.${namespace}.user = with lib.types; {
     name = mkOpt str "joonas" "The name to use for the user account.";
     fullName = mkOpt str "Joonas Kajava" "The full name of the user.";
     githubEmail = mkOpt str "5013522+JoonasKajava@users.noreply.github.com" "The github email of the user.";
