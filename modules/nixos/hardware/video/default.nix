@@ -7,6 +7,7 @@
 }: let
   inherit (lib) types mkEnableOption mkIf mkOption;
   inherit (lib.${namespace}.types) monitor;
+  inherit (builtins) toString;
 
   cfg = config.${namespace}.hardware.video;
 in {
@@ -25,6 +26,6 @@ in {
 
   config = mkIf cfg.enable {
     # Configures the bootloader to use the monitors specified in the config.
-    boot.kernelParams = mkIf (cfg.monitors != []) builtins.map (m: "video=${m.connector}:${m.resolution}@${m.refreshRate}") cfg.monitors;
+    boot.kernelParams = mkIf (cfg.monitors != []) (builtins.map (m: "video=${m.connector}:${m.resolution}@${toString m.refreshRate}") cfg.monitors);
   };
 }

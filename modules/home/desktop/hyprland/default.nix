@@ -7,6 +7,7 @@
   ...
 }: let
   inherit (lib) types mkEnableOption mkIf mkOption;
+  inherit (builtins) toString;
   inherit (lib.${namespace}) mkOpt;
   inherit (lib.${namespace}.types) monitor;
 
@@ -38,7 +39,7 @@ in {
         "$menu" = "${lib.getExe pkgs.wofi} --show drun";
 
         monitor =
-          (builtins.map (x: "${x.connector}, ${x.resolution}@${x.refreshRate}, ${x.position}, ${x.scale}") cfg.monitors)
+          (builtins.map (x: "${x.connector}, ${x.resolution}@${toString x.refreshRate}, ${x.position}, ${toString x.scale}") cfg.monitors)
           ++ [", preferred, auto, 1"]; # Any new random monitor will be placed to the right of the last monitor.
 
         general = {
