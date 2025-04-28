@@ -32,7 +32,12 @@ in {
       programs.nushell = {
         enable = true;
         configFile.source = ./config.nu;
-        extraConfig = concatStringsSep "\n" (builtins.map (p: "plugin add ${getExe p}") cfg.plugins);
+        extraConfig =
+          # nushell
+          ''
+            ${lib.getExe pkgs.fastfetch} # display fastfetch on startup
+          ''
+          + concatStringsSep "\n" (builtins.map (p: "plugin add ${getExe p}") cfg.plugins);
       };
     };
   };
