@@ -39,6 +39,7 @@ in {
   config = mkIf cfg.enable {
     imports = [
       ./binds.nix
+      ./waybar.nix
     ];
     wayland.windowManager.hyprland = {
       enable = true;
