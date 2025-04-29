@@ -21,7 +21,7 @@
     "$terminal" = lib.getExe pkgs.kitty;
     "$fileManager" = lib.getExe pkgs.kdePackages.dolphin;
     "$browser" = lib.getExe pkgs.brave;
-    "$menu" = "${lib.getExe pkgs.wofi} --show drun";
+    "$menu" = "${lib.getExe pkgs.anyrun}";
 
     bind = [
       # Apps
