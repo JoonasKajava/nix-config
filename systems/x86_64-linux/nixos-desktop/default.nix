@@ -13,11 +13,18 @@ with lib.${namespace}; {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelParams = [
-      "video=DP-1:2560x1440@165"
-      "video=HDMI-A-2:1920x1080@60"
-      "video=HDMI-A-1:1920x1080@60"
-    ];
+  };
+
+  specialisation = {
+    hyprland = {
+      inheritParentConfig = true;
+      configuration = {
+        lumi.desktop = {
+          kde.enable = lib.mkForce false;
+          hyprland.enable = true;
+        };
+      };
+    };
   };
 
   lumi = {

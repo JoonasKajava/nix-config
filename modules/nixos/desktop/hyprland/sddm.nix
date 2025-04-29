@@ -11,7 +11,7 @@
     ];
 
     services.displayManager = {
-      defaultSession = "hyprland.desktop";
+      defaultSession = "hyprland-uwsm";
 
       sddm = {
         enable = true;
