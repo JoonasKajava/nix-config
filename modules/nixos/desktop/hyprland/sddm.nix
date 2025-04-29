@@ -1,20 +1,23 @@
 {
   lib,
-  config,
   pkgs,
+  config,
+  namespace,
   ...
 }: {
-  config.environment.systemPackages = [
-    pkgs.sddm-astronaut
-  ];
+  config = lib.mkIf config.${namespace}.desktop.hyprland.enable {
+    environment.systemPackages = [
+      pkgs.sddm-astronaut
+    ];
 
-  config.services.displayManager = {
-    defaultSession = "hyprland.desktop";
+    services.displayManager = {
+      defaultSession = "hyprland.desktop";
 
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "sddm-astronaut-theme";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        theme = "sddm-astronaut-theme";
+      };
     };
   };
 }

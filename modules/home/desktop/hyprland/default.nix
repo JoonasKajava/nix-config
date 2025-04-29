@@ -36,11 +36,12 @@ in {
     };
   };
 
+  imports = [
+    ./binds.nix
+    ./waybar.nix
+  ];
+
   config = mkIf cfg.enable {
-    imports = [
-      ./binds.nix
-      ./waybar.nix
-    ];
     wayland.windowManager.hyprland = {
       enable = true;
 

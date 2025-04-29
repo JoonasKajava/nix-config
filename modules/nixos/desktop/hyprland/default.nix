@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf optionals;
 
   cfg = config.${namespace}.desktop.hyprland;
 in {
@@ -13,11 +13,11 @@ in {
     enable = mkEnableOption "Whether to install the hyprland";
   };
 
-  config = mkIf cfg.enable {
-    imports = [
-      ./sddm.nix
-    ];
+  imports = [
+    ./sddm.nix
+  ];
 
+  config = mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
       withUWSM = true;

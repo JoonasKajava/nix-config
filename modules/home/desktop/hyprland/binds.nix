@@ -1,9 +1,11 @@
 {
   lib,
   pkgs,
+  config,
+  namespace,
   ...
 }: {
-  config.wayland.windowManager.hyprland.settings = {
+  config.wayland.windowManager.hyprland.settings = lib.mkIf config.${namespace}.desktop.hyprland.enable {
     # Inspiration from https://github.com/mylinuxforwork/dotfiles/blob/main/share/dotfiles/.config/hypr/conf/keybindings/default.conf
     bindm = [
       "$mainMod, mouse:272, movewindow" # Move window with the mouse
