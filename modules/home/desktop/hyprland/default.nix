@@ -43,6 +43,10 @@ in {
     ];
     wayland.windowManager.hyprland = {
       enable = true;
+
+      # Systemd integration conflicts with uwsm.
+      systemd.enable = !osConfig.programs.hyprland.withUWSM;
+
       settings = {
         # Autostart programs
         exec-once = builtins.map (x: "${lib.getExe x}") (cfg.autostart
