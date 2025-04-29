@@ -92,7 +92,7 @@ with lib.${namespace}; {
             resolution = "1920x1080";
             refreshRate = 60;
             scale = 1;
-            position = "2560x0";
+            position = "${toString (2560 * 2)}x0"; # use nwg-displays to figure these out
           }
         ];
       };
