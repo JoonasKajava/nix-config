@@ -19,7 +19,7 @@
 
     "$mainMod" = "SUPER";
     "$terminal" = lib.getExe pkgs.kitty;
-    "$fileManager" = lib.getExe pkgs.kdePackages.dolphin;
+    "$fileManager" = lib.getExe pkgs.nemo-with-extensions;
     "$browser" = lib.getExe pkgs.brave;
     "$menu" = "${lib.getExe pkgs.anyrun}";
 
@@ -32,7 +32,7 @@
       "$mainMod, D, exec, ${lib.getExe pkgs.discord}"
       "$mainMod, O, exec, ${lib.getExe pkgs.obsidian}"
 
-      "$mainMod, Q, exec, killactive"
+      "$mainMod, Q, killactive,"
       "$mainMod SHIFT, Q, exec, hyprctl activewindow | grep pid | tr -d 'pid:' | xargs kill" # Quit active window and all open instances
       "$mainMod, F, fullscreen, 0"
       "$mainMod, M, fullscreen, 1"
@@ -48,10 +48,10 @@
       "$mainMod SHIFT, K, resizeactive, 0 -100" # Reduce window height with keyboard
       "$mainMod SHIFT, L, resizeactive, 100 0" # Increase window width with keyboard
 
-      "$mainMod ALT, H, swapwindow, l" # Swap tiled window left
-      "$mainMod ALT, J, swapwindow, d" # Swap tiled window down
-      "$mainMod ALT, K, swapwindow, u" # Swap tiled window up
-      "$mainMod ALT, L, swapwindow, r" # Swap tiled window right
+      "$mainMod ALT, H, movewindow, l" # Swap tiled window left
+      "$mainMod ALT, J, movewindow, d" # Swap tiled window down
+      "$mainMod ALT, K, movewindow, u" # Swap tiled window up
+      "$mainMod ALT, L, movewindow, r" # Swap tiled window right
 
       # Workspaces
       "$mainMod, 1, workspace, 1" # Open workspace 1

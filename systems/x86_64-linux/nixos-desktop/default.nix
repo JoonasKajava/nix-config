@@ -85,14 +85,14 @@ with lib.${namespace}; {
             resolution = "1920x1080";
             refreshRate = 60;
             scale = 1;
-            position = "2560x0";
+            position = "-2560x0";
           }
           {
             connector = "HDMI-A-1";
             resolution = "1920x1080";
             refreshRate = 60;
             scale = 1;
-            position = "-2560x0";
+            position = "2560x0";
           }
         ];
       };

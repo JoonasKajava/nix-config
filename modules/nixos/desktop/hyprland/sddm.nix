@@ -7,7 +7,7 @@
 }: {
   config = lib.mkIf config.${namespace}.desktop.hyprland.enable {
     environment.systemPackages = [
-      pkgs.sddm-astronaut
+      #pkgs.sddm-astronaut
     ];
 
     services.displayManager = {
@@ -16,7 +16,7 @@
       sddm = {
         enable = true;
         wayland.enable = true;
-        theme = "sddm-astronaut-theme";
+        #theme = "sddm-astronaut-theme";
       };
     };
   };
