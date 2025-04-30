@@ -25,8 +25,8 @@
 
     bind = [
       # Apps
-      "$mainMod, T, exec, $terminal"
-      "$mainMod, R, exec, $menu"
+      "$mainMod, ENTER, exec, $terminal"
+      "ALT, SPACE, exec, $menu"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, B, exec, $browser"
       "$mainMod, D, exec, ${lib.getExe pkgs.discord}"
@@ -36,6 +36,7 @@
       "$mainMod SHIFT, Q, exec, hyprctl activewindow | grep pid | tr -d 'pid:' | xargs kill" # Quit active window and all open instances
       "$mainMod, F, fullscreen, 0"
       "$mainMod, M, fullscreen, 1"
+      "$mainMod, T, togglefloating"
 
       # HJKL to change focus
       "$mainMod, H, movefocus, l"
