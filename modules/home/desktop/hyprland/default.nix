@@ -11,6 +11,7 @@
   inherit (lib.${namespace}.types) monitor;
 
   cfg = config.${namespace}.desktop.hyprland;
+  osCfg = osConfig.${namespace}.desktop.hyprland;
 in {
   options.${namespace}.desktop.hyprland = {
     enable =
@@ -50,11 +51,14 @@ in {
 
       settings = {
         # Autostart programs
-        exec-once = builtins.map (x: "${lib.getExe x}") (cfg.autostart
+        exec-once = builtins.map (x: "${lib.getExe x}") (
+          cfg.autostart
+          ++ osCfg.autostart
           ++ (with pkgs; [
             waybar
             hyprpaper
-          ]));
+          ])
+        );
 
         monitor =
           (builtins.map (x: "${x.connector}, ${x.resolution}@${toString x.refreshRate}, ${x.position}, ${toString x.scale}") cfg.monitors)
