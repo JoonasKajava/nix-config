@@ -5,6 +5,7 @@
   namespace,
   ...
 }: let
+  # TODO: Fix wayland
   useWayland = false;
 in {
   config = lib.mkIf config.${namespace}.desktop.hyprland.enable {
@@ -20,6 +21,7 @@ in {
       sddm = {
         extraPackages = lib.mkIf useWayland [
           pkgs.kdePackages.layer-shell-qt
+          pkgs.libsForQt5.layer-shell-qt
         ];
         settings = lib.mkIf useWayland {
           General = {
