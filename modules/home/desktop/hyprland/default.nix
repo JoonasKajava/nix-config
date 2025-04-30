@@ -159,7 +159,7 @@ in {
 
           follow_mouse = 1;
 
-          sensitivity = 0.25;
+          sensitivity = 0.15;
           accel_profile = "flat";
         };
       };
