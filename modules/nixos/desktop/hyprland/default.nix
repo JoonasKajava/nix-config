@@ -12,12 +12,11 @@ in {
   options.${namespace}.desktop.hyprland = {
     enable = mkEnableOption "Whether to install the hyprland";
     autostart = mkOption {
-      type = types.listOf types.package;
+      type = types.listOf types.str;
       default = [];
       description = ''
-        A list of packages to autostart.
-        Each entry in the list is a package that
-        will be started when hyprland starts.'';
+        List of commands to run on startup.
+      '';
     };
   };
 

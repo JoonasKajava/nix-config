@@ -18,8 +18,8 @@ in {
     environment.systemPackages = with pkgs; [
       easyeffects
     ];
-    ${namespace}.desktop.hyprland.autostart = [
-      "easyeffects --gapplication-service"
-    ];
+    # ${namespace}.desktop.hyprland.autostart = [
+    #   "easyeffects --gapplication-service"
+    # ];
   };
 }

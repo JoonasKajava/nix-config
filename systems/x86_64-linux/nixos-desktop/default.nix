@@ -66,7 +66,7 @@ with lib.${namespace}; {
             connector = "DP-2";
             resolution = "2560x1440";
             refreshRate = 165;
-            scale = 1.15;
+            scale = 1440.0 / 1080.0;
             position = "1920x0";
           }
           {
@@ -74,7 +74,7 @@ with lib.${namespace}; {
             resolution = "1920x1080";
             refreshRate = 60;
             scale = 1;
-            position = "4480x0";
+            position = "${toString (1920 * 2)}x0";
           }
           {
             connector = "HDMI-A-1";

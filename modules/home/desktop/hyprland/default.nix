@@ -28,12 +28,20 @@ in {
         configures a specific monitor.'';
     };
     autostart = mkOption {
-      type = types.listOf types.package;
+      type = types.listOf types.str;
       default = [];
+      example = ''
+        [
+          (lib.getExe pkgs.waybar)
+        ]
+      '';
       description = ''
-        A list of packages to autostart.
-        Each entry in the list is a package that
-        will be started when hyprland starts.'';
+        A list of programs to start when Hyprland starts.
+        Each entry in the list is a string that is passed
+        to the exec-once setting in Hyprland's config.
+        For example, you can use this to start waybar or
+        other programs that you want to run when Hyprland
+        starts.'';
     };
   };
 
@@ -51,18 +59,19 @@ in {
 
       settings = {
         # Autostart programs
-        exec-once = builtins.map (x: "${lib.getExe x}") (
+        exec-once =
           cfg.autostart
           ++ osCfg.autostart
           ++ (with pkgs; [
-            waybar
-            hyprpaper
-          ])
-        );
+            (lib.getExe waybar)
+            (lib.getExe hyprpaper)
+          ]);
 
         monitor =
           (builtins.map (x: "${x.connector}, ${x.resolution}@${toString x.refreshRate}, ${x.position}, ${toString x.scale}") cfg.monitors)
           ++ [", preferred, auto, 1"]; # Any new random monitor will be placed to the right of the last monitor.
+
+        xwayland.force_zero_scaling = true;
 
         general = {
           gaps_in = 5;
