@@ -15,18 +15,6 @@ with lib.${namespace}; {
     };
   };
 
-  specialisation = {
-    hyprland = {
-      inheritParentConfig = true;
-      configuration = {
-        lumi.desktop = {
-          kde.enable = lib.mkForce false;
-          hyprland.enable = true;
-        };
-      };
-    };
-  };
-
   lumi = {
     # TODO: remove once latest is >= 6.15
     system.kernelPackages = pkgs.linuxPackages_testing;
@@ -63,7 +51,8 @@ with lib.${namespace}; {
     cli.mangohud.enable = true;
 
     desktop = {
-      kde.enable = true;
+      kde.enable = false;
+      hyprland.enable = true;
     };
 
     hardware = {
@@ -74,25 +63,25 @@ with lib.${namespace}; {
         enable = true;
         monitors = [
           {
-            connector = "DP-1";
+            connector = "DP-2";
             resolution = "2560x1440";
             refreshRate = 165;
             scale = 1.15;
-            position = "0x0";
+            position = "1920x0";
           }
           {
             connector = "HDMI-A-2";
             resolution = "1920x1080";
             refreshRate = 60;
             scale = 1;
-            position = "-2560x0";
+            position = "4480x0";
           }
           {
             connector = "HDMI-A-1";
             resolution = "1920x1080";
             refreshRate = 60;
             scale = 1;
-            position = "${toString (2560 * 2)}x0"; # use nwg-displays to figure these out
+            position = "0x0"; # use nwg-displays to figure these out
           }
         ];
       };

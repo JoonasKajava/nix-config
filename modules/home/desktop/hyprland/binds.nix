@@ -25,7 +25,7 @@
 
     bind = [
       # Apps
-      "$mainMod, ENTER, exec, $terminal"
+      "$mainMod, RETURN, exec, $terminal"
       "ALT, SPACE, exec, $menu"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, B, exec, $browser"
