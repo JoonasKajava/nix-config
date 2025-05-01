@@ -8,7 +8,7 @@
 }: let
   inherit (lib) types mkEnableOption mkIf mkOption;
   inherit (builtins) toString;
-  inherit (lib.${namespace}.types) monitor;
+  inherit (lib.${namespace}.types) monitors;
 
   cfg = config.${namespace}.desktop.hyprland;
   osCfg = osConfig.${namespace}.desktop.hyprland;
@@ -20,12 +20,12 @@ in {
         default = osConfig.${namespace}.desktop.hyprland.enable;
       };
     monitors = mkOption {
-      type = types.listOf monitor;
+      type = monitors;
       default = osConfig.${namespace}.hardware.video.monitors;
       description = ''
-        A list of monitor configuration options.
-        Each entry in the list is a submodule that
-        configures a specific monitor.'';
+        A list of monitors to configure. Each monitor is a set of attributes
+        that specify the monitor's properties. See the monitor type for more
+        information on the available attributes.'';
     };
     autostart = mkOption {
       type = types.listOf types.str;
@@ -68,7 +68,7 @@ in {
           ]);
 
         monitor =
-          (builtins.map (x: "${x.connector}, ${x.resolution}@${toString x.refreshRate}, ${x.position}, ${toString x.scale}") cfg.monitors)
+          (lib.mapAttrsToList (connector: x: "${connector}, ${x.resolution}@${toString x.refreshRate}, ${toString x.width}x${toString x.height}, ${toString x.scale}") cfg.monitors)
           ++ [", preferred, auto, 1"]; # Any new random monitor will be placed to the right of the last monitor.
 
         xwayland.force_zero_scaling = true;

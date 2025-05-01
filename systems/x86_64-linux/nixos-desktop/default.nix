@@ -61,29 +61,30 @@ with lib.${namespace}; {
       keyboards.bazecor.enable = true;
       video = {
         enable = true;
-        monitors = [
-          {
-            connector = "DP-2";
-            resolution = "2560x1440";
+        monitors = rec {
+          DP-2 = {
+            width = 2560;
+            height = 1440;
             refreshRate = 165;
-            scale = 1440.0 / 1080.0;
+            #scale = 1440.0 / 1080.0;
+            scale = 1.15;
             position = "1920x0";
-          }
-          {
-            connector = "HDMI-A-2";
-            resolution = "1920x1080";
+          };
+          HDMI-A-2 = {
+            width = 1920;
+            height = 1080;
             refreshRate = 60;
             scale = 1;
-            position = "${toString (1920 * 2)}x0";
-          }
-          {
-            connector = "HDMI-A-1";
-            resolution = "1920x1080";
+            position = "${toString (HDMI-A-1.width + (DP-2.width / DP-2.scale))}x0";
+          };
+          HDMI-A-1 = {
+            width = 1920;
+            height = 1080;
             refreshRate = 60;
             scale = 1;
             position = "0x0"; # use nwg-displays to figure these out
-          }
-        ];
+          };
+        };
       };
     };
 

@@ -1,18 +1,22 @@
 {lib, ...}:
 with lib; {
-  types = {
+  types = rec {
+    monitors = types.attrsOf monitor;
+
     monitor = types.submodule {
       options = {
-        connector = mkOption {
-          type = types.str;
-          description = "Specifies what connector is used with the monitor.";
-          example = "HDMI-A-2";
+        width = mkOption {
+          type = types.number;
+          example = 1920;
+          description = "Specifies the width of the monitor.";
         };
-        resolution = mkOption {
-          type = types.str;
-          example = "1920x1080";
-          description = "Specifies the resolution of the monitor.";
+
+        height = mkOption {
+          type = types.number;
+          example = 1080;
+          description = "Specifies the height of the monitor.";
         };
+
         refreshRate = mkOption {
           type = types.number;
           description = "Specifies the refresh rate of the monitor.";
