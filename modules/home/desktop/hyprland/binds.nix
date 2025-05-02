@@ -23,7 +23,11 @@
     "$browser" = lib.getExe pkgs.brave;
     "$menu" = "${lib.getExe pkgs.anyrun}";
 
+    # use Wev to figure out keybind codes
     bind = [
+      # TODO: move to separate file
+      # Toggle mute
+      ", code:202, pass, class:^(discord)$"
       # Apps
       "$mainMod, RETURN, exec, $terminal"
       "ALT, SPACE, exec, $menu"
