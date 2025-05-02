@@ -1,5 +1,7 @@
 rebuild:
     nh os switch --ask .\?submodules=1;
+rebuild-boot:
+    sudo nixos-rebuild boot
 upgrade:
     nix flake update
 upgrade-my-configs: 
