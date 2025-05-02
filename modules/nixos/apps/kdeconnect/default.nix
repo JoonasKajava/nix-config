@@ -15,6 +15,12 @@ in {
   };
 
   config = mkIf cfg.enable {
+    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
+      services.kdeconnect = {
+        enable = true;
+        indicator = true;
+      };
+    };
     programs.kdeconnect = {
       enable = true;
     };
