@@ -48,6 +48,7 @@ in {
   imports = [
     ./binds.nix
     ./hyprpanel.nix
+    ./workspaces.nix
   ];
 
   config = mkIf cfg.enable {
@@ -153,7 +154,7 @@ in {
           kb_layout = "us,fi";
           kb_variant = "";
           kb_model = "";
-          kb_options = "grp:win_space_toggle";
+          kb_options = "grp:win_space_toggle,fkeys:basic_13-24";
           kb_rules = "";
 
           follow_mouse = 1;

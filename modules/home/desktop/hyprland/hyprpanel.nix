@@ -13,6 +13,7 @@
     override.enable = true;
 
     settings = {
+      scalingPriority = "hyprland";
       theme.name = "catppuccin_mocha";
       layout = {
         "bar.layouts" = {
@@ -33,6 +34,7 @@
       bar = {
         launcher.autoDetectIcon = true;
         workspaces.show_numbered = true;
+        workspaces.workspaces = 9;
         clock = {
           format = "%a %b %d  %H:%M:%S";
         };

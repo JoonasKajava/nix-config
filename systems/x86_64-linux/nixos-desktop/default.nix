@@ -66,7 +66,9 @@ with lib.${namespace}; {
             width = 2560;
             height = 1440;
             refreshRate = 165;
-            scale = 1440.0 / 1080.0;
+            #scale = 1440.0 / 1080.0;
+            # Currently this scale works with workspaces in the hyprpanel.
+            scale = 1.25;
             #scale = 1.15;
             position = "1920x0";
           };
