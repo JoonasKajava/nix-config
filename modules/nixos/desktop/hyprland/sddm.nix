@@ -8,8 +8,9 @@
   useWayland = true;
 in {
   config = lib.mkIf config.${namespace}.desktop.hyprland.enable {
-    environment.systemPackages = [
-      pkgs.sddm-astronaut
+    environment.systemPackages = with pkgs; [
+      sddm-astronaut
+      bibata-cursors
     ];
 
     services.xserver.enable = !useWayland;
@@ -26,6 +27,7 @@ in {
           compositor = "kwin";
         };
         theme = "sddm-astronaut-theme";
+        settings.Theme.CursorTheme = "Bibata-Modern-Ice";
       };
     };
   };
