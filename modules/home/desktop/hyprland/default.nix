@@ -63,7 +63,6 @@ in {
           cfg.autostart
           ++ osCfg.autostart
           ++ (with pkgs; [
-            (lib.getExe waybar)
             (lib.getExe hyprpaper)
           ]);
 

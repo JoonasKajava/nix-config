@@ -51,8 +51,8 @@ with lib.${namespace}; {
     cli.mangohud.enable = true;
 
     desktop = {
-      kde.enable = true;
-      hyprland.enable = false;
+      kde.enable = false;
+      hyprland.enable = true;
     };
 
     hardware = {
@@ -66,8 +66,8 @@ with lib.${namespace}; {
             width = 2560;
             height = 1440;
             refreshRate = 165;
-            #scale = 1440.0 / 1080.0;
-            scale = 1.15;
+            scale = 1440.0 / 1080.0;
+            #scale = 1.15;
             position = "1920x0";
           };
           HDMI-A-2 = {

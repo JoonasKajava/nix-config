@@ -19,6 +19,8 @@ in {
 
       sddm = {
         enable = true;
+        package = pkgs.kdePackages.sddm;
+        extraPackages = with pkgs; [sddm-astronaut];
         wayland = {
           enable = useWayland;
           compositor = "kwin";
