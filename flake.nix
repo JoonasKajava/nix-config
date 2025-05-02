@@ -35,6 +35,10 @@
       url = "github:JoonasKajava/nvf-config";
     };
     catppuccin.url = "github:catppuccin/nix";
+    hyprpanel = {
+      url = "github:jas-singhfsu/hyprpanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:

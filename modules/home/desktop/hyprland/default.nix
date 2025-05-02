@@ -47,7 +47,7 @@ in {
 
   imports = [
     ./binds.nix
-    ./waybar.nix
+    ./hyprpanel.nix
   ];
 
   config = mkIf cfg.enable {
