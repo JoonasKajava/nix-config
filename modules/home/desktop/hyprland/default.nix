@@ -68,7 +68,7 @@ in {
           ]);
 
         monitor =
-          (lib.mapAttrsToList (connector: x: "${connector}, ${x.resolution}@${toString x.refreshRate}, ${toString x.width}x${toString x.height}, ${toString x.scale}") cfg.monitors)
+          (lib.mapAttrsToList (connector: x: "${connector}, ${toString x.width}x${toString x.height}@${toString x.refreshRate}, ${x.position}, ${toString x.scale}") cfg.monitors)
           ++ [", preferred, auto, 1"]; # Any new random monitor will be placed to the right of the last monitor.
 
         xwayland.force_zero_scaling = true;

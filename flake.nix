@@ -58,6 +58,10 @@
         allowUnfree = true;
       };
 
+      overlays = with inputs; [
+        hyprpanel.overlay
+      ];
+
       homes.modules = with inputs; [
         plasma-manager.homeManagerModules.plasma-manager
         catppuccin.homeModules.catppuccin

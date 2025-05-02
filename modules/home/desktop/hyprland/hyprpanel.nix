@@ -15,7 +15,7 @@
     #TODO: do i need overlay.enable = true?
 
     settings = {
-      theme = "catppuccin_mocha";
+      theme.name = "catppuccin_mocha";
       layout = {
         "bar.layouts" = {
           "*" = {
