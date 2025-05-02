@@ -73,9 +73,9 @@ in {
         xwayland.force_zero_scaling = true;
 
         general = {
-          gaps_in = 5;
-          gaps_out = 20;
-          border_size = 2;
+          gaps_in = 2;
+          gaps_out = 6;
+          border_size = 1;
 
           # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
           "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
@@ -91,7 +91,7 @@ in {
         };
         # https://wiki.hyprland.org/Configuring/Variables/#decoration
         decoration = {
-          rounding = 10;
+          rounding = 5;
           rounding_power = 2;
 
           # Change transparency of focused and unfocused windows

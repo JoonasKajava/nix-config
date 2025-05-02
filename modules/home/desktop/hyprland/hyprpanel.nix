@@ -12,8 +12,6 @@
     hyprland.enable = true;
     override.enable = true;
 
-    #TODO: do i need overlay.enable = true?
-
     settings = {
       theme.name = "catppuccin_mocha";
       layout = {
@@ -28,12 +26,13 @@
               "microphone"
               "network"
               "bluetooth"
-              "power"
             ];
           };
         };
       };
       bar = {
+        launcher.autoDetectIcon = true;
+        workspaces.show_numbered = true;
         clock = {
           format = "%a %b %d  %H:%M:%S";
         };

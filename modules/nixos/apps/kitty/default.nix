@@ -25,6 +25,7 @@ in {
         enable = true;
         settings = {
           cursor_trail = 3;
+          confirm_os_window_close = 0;
         };
       };
     };
