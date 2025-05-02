@@ -13,15 +13,20 @@ in {
     plugins = mkOption {
       default = with pkgs.nushellPlugins; [
         query
-        net
       ];
       description = "List of plugins to install.";
       example = lib.literalExpression "[ pkgs.nushell.net ]";
     };
   };
 
+  imports = [
+    ./fish_completer.nix
+  ];
+
   config = mkIf cfg.enable {
     users.defaultUserShell = pkgs.nushell;
+
+    ${namespace}.cli.nushell.enableFishCompleter = false;
 
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       home.shell.enableNushellIntegration = true;
