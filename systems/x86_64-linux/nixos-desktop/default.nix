@@ -51,8 +51,8 @@ with lib.${namespace}; {
     cli.mangohud.enable = true;
 
     desktop = {
-      kde.enable = true;
-      hyprland.enable = false;
+      kde.enable = false;
+      hyprland.enable = true;
     };
 
     hardware = {

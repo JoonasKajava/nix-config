@@ -3,6 +3,7 @@
   config,
   namespace,
   inputs,
+  pkgs,
   ...
 }: {
   imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
@@ -14,7 +15,24 @@
 
     settings = {
       scalingPriority = "hyprland";
-      theme.name = "catppuccin_mocha";
+      theme = {
+        name = "catppuccin_mocha";
+      };
+      menus.dashboard.shortcuts.left = {
+        shortcut1 = {
+          command = "steam";
+          tooltip = "Steam";
+          icon = "";
+        };
+        shortcut2 = {
+          command = lib.getExe pkgs.mission-center;
+          tooltip = "Mission Center";
+          icon = "";
+        };
+        shortcut4 = {
+          command = lib.getExe pkgs.anyrun;
+        };
+      };
       layout = {
         "bar.layouts" = {
           "*" = {

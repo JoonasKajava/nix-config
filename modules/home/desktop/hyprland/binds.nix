@@ -27,7 +27,8 @@
     bind = [
       # TODO: move to separate file
       # Toggle mute
-      "CTRL_SHIFT, M, pass, class:^(discord)$"
+      # "CTRL_SHIFT, M, pass, class:^(discord)$"
+      ", code:202, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       # Apps
       "$mainMod, RETURN, exec, $terminal"
       "ALT, SPACE, exec, $menu"
