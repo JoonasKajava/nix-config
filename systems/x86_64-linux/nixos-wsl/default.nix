@@ -12,7 +12,6 @@
 }: {
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
-    ./hardware.nix
   ];
 
   wsl.enable = true;
