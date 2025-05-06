@@ -55,7 +55,7 @@ safe_mv ~/hardware-configuration.nix.temp /etc/nixos/systems/"${system}"/"${host
 
 export NIXPKGS_ALLOW_UNFREE=1
 
-nixos-rebuild switch --flake .#"${hostname}" --experimental-features 'nix-command flakes'
+nixos-rebuild switch --flake .#"${hostname}"
 
 gh auth logout
 
