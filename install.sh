@@ -3,26 +3,24 @@
 
 gh auth login
 
-gh repo clone JoonasKajava/nix-config /etc/nixos/
+gh repo clone JoonasKajava/nix-config /etc/nixos/ -- --recurse-submodules
 
-cd /etc/nixos/
+cd /etc/nixos/ || exit
 
-git submodule update --init --recursive
+printf "Enter which configuration you want to use:"
+read -r hostname
 
-echo "Enter which configuration you want to use:"
-read hostname
+printf "Enter the system architecture for this host (eg. \'x86_64-linux\')"
+read -r system
 
-echo "Enter the system architecture for this host (eg. \'x86_64-linux\')"
-read system
-
-nixos-generate-config --show-hardware-config >/etc/nixos/systems/${system}/${hostname}/hardware.nix
+nixos-generate-config --show-hardware-config >/etc/nixos/systems/"${system}"/"${hostname}"/hardware.nix
 
 rm /etc/nixos/configuration.nix
 rm /etc/nixos/hardware-configuration.nix
 
 export NIXPKGS_ALLOW_UNFREE=1
 
-nixos-rebuild switch --flake .#${hostname} --experimental-features 'nix-command flakes'
+nixos-rebuild switch --flake .#"${hostname}" --experimental-features 'nix-command flakes'
 
 gh auth logout
 
