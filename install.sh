@@ -42,13 +42,6 @@ printf "Select SSH auth"
 safe_mv /etc/nixos/configuration.nix ~/configuration.nix.backup
 safe_mv /etc/nixos/hardware-configuration.nix ~/hardware-configuration.nix.temp
 
-if [ -z "$(ls -A '/etc/nixos')" ]; then
-  echo "/etc/nixos/ is empty"
-else
-  echo "/etc/nixos/ is not empty"
-  exit
-fi
-
 gh auth login
 
 gh repo clone JoonasKajava/nix-config /etc/nixos/ -- --recurse-submodules
