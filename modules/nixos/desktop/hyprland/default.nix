@@ -26,7 +26,8 @@ in {
 
   config = mkIf cfg.enable {
     environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
+      # TODO: I need this, but for now obsidian won't start with it
+      # NIXOS_OZONE_WL = "1";
     };
     programs.hyprland = {
       enable = true;

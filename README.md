@@ -21,6 +21,15 @@ Run installation script:
 curl https://raw.githubusercontent.com/JoonasKajava/nix-config/refs/heads/master/install.sh | sudo sh
 ```
 
+If that command does not work use this:
+
+```shell
+cd ~;
+curl https://raw.githubusercontent.com/JoonasKajava/nix-config/refs/heads/master/install.sh > install.sh;
+sudo nix-shell ./install.sh;
+rm ./install.sh;
+```
+
 Or you can do the manual installation:
 
 Clone this repository to `/etc/nixos`.
