@@ -29,7 +29,7 @@ function select_folder() {
 
   select CHOICE in "${DIRS[@]}"; do
     if [[ -d "$CHOICE" ]]; then
-      echo "$CHOICE"
+      echo basename "$CHOICE"
       break
     else
       echo "Invalid choice. Please try again." >&2
