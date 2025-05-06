@@ -1,6 +1,8 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -i bash -p gh git
 
+printf "Select SSH auth"
+
 gh auth login
 
 gh repo clone JoonasKajava/nix-config /etc/nixos/ -- --recurse-submodules
@@ -13,10 +15,8 @@ read -r hostname
 printf "Enter the system architecture for this host (eg. \'x86_64-linux\')"
 read -r system
 
-nixos-generate-config --show-hardware-config >/etc/nixos/systems/"${system}"/"${hostname}"/hardware.nix
-
 rm /etc/nixos/configuration.nix
-rm /etc/nixos/hardware-configuration.nix
+rm /etc/nixos/hardware-configuration.nix /etc/nixos/systems/"${system}"/"${hostname}"/hardware.nix
 
 export NIXPKGS_ALLOW_UNFREE=1
 
