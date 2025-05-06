@@ -28,7 +28,7 @@ function select_folder() {
   PS3="$1"
 
   select CHOICE in "${DIRS[@]}"; do
-    if [[ -d "$CHOICE" ]]; then
+    if [[ -d "$2/$CHOICE" ]]; then
       echo "$CHOICE"
       break
     else
