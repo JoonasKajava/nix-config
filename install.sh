@@ -18,7 +18,7 @@ function select_folder() {
     exit 1
   fi
 
-  mapfile -d $'\0' DIRS < <(find "$2" -maxdepth 1 -mindepth 1 -type d -print0)
+  mapfile -d $'\0' DIRS < <(find "$2" -maxdepth 1 -mindepth 1 -type d -printf '%f\0')
 
   if ((${#DIRS[@]} == 0)); then
     echo "No subdirectories found in '$2'." >&2
@@ -29,7 +29,7 @@ function select_folder() {
 
   select CHOICE in "${DIRS[@]}"; do
     if [[ -d "$CHOICE" ]]; then
-      echo basename "$CHOICE"
+      echo "$CHOICE"
       break
     else
       echo "Invalid choice. Please try again." >&2
