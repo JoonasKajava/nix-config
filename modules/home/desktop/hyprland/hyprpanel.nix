@@ -4,6 +4,7 @@
   namespace,
   inputs,
   pkgs,
+  osConfig,
   ...
 }: {
   imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
@@ -18,19 +19,22 @@
       theme = {
         name = "catppuccin_mocha";
       };
-      menus.dashboard.shortcuts.left = {
-        shortcut1 = {
-          command = "steam";
-          tooltip = "Steam";
-          icon = "";
-        };
-        shortcut2 = {
-          command = lib.getExe pkgs.mission-center;
-          tooltip = "Mission Center";
-          icon = "";
-        };
-        shortcut4 = {
-          command = lib.getExe pkgs.anyrun;
+      menus = {
+        clock.weather.key = osConfig.sops.secrets.weather_api.path;
+        dashboard.shortcuts.left = {
+          shortcut1 = {
+            command = "steam";
+            tooltip = "Steam";
+            icon = "";
+          };
+          shortcut2 = {
+            command = lib.getExe pkgs.mission-center;
+            tooltip = "Mission Center";
+            icon = "";
+          };
+          shortcut4 = {
+            command = lib.getExe pkgs.anyrun;
+          };
         };
       };
       layout = {
