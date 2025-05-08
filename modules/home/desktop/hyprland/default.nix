@@ -73,10 +73,7 @@ in {
         # Autostart programs
         exec-once =
           cfg.autostart
-          ++ osCfg.autostart
-          ++ (with pkgs; [
-            (lib.getExe hyprpaper)
-          ]);
+          ++ osCfg.autostart;
 
         monitor =
           (lib.mapAttrsToList (connector: x: "${connector}, ${toString x.width}x${toString x.height}@${toString x.refreshRate}, ${x.position}, ${toString x.scale}") cfg.monitors)
