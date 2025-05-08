@@ -12,6 +12,11 @@
 in {
   options.${namespace}.cli.zellij = {
     enable = mkEnableOption "Whether to install zellij";
+    enableNushellIntegration =
+      mkEnableOption "Whether to enable Nushell integration"
+      // {
+        default = true;
+      };
   };
 
   config = mkIf cfg.enable {
@@ -25,7 +30,7 @@ in {
         };
       };
 
-      programs.nushell.extraConfig = ''
+      programs.nushell.extraConfig = mkIf cfg.enableNushellIntegration ''
         # zellij
         def start_zellij [] {
           if 'ZELLIJ' not-in ($env | columns) {
