@@ -52,7 +52,6 @@ with lib.${namespace}; {
 
     desktop = {
       kde.enable = true;
-      hyprland.enable = false;
     };
 
     hardware = {
