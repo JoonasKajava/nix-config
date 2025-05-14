@@ -1,3 +1,6 @@
+
+$env.MANPAGER = 'nvim +Man!'
+
 $env.config = {
   show_banner: false
   edit_mode: 'vi'
