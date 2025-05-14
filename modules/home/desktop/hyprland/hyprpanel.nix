@@ -20,7 +20,11 @@
         name = "catppuccin_mocha";
       };
       menus = {
-        clock.weather.key = osConfig.sops.secrets.weather_api.path;
+        clock.weather = {
+          key = osConfig.sops.secrets.weather_api.path;
+          location = "Kerava";
+          unit = "metric";
+        };
         dashboard.shortcuts.left = {
           shortcut1 = {
             command = "steam";
@@ -54,6 +58,7 @@
         };
       };
       bar = {
+        customModules.weather.unit = "metric";
         launcher.autoDetectIcon = true;
         workspaces.show_numbered = true;
         workspaces.workspaces = 9;

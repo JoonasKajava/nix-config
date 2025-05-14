@@ -21,6 +21,9 @@ with lib.${namespace}; {
 
     suites.cli.enable = true;
 
+    suites.hyprland.enable = true;
+    desktop.kde.enable = false;
+
     apps = {
       brave.enable = true;
       kdeconnect.enable = true;
@@ -49,10 +52,6 @@ with lib.${namespace}; {
     };
 
     cli.mangohud.enable = true;
-
-    desktop = {
-      kde.enable = true;
-    };
 
     hardware = {
       gpu.amd.enable = true;

@@ -11,7 +11,7 @@
 
   switch-script = pkgs.writeShellScriptBin "swww-switch" ''
     #!/usr/bin/env bash
-    swww img $1 --transition-step 1 --transition-fps 165
+    swww img "$1" --transition-step 90 --transition-fps 165 --transition-type grow --transition-pos top-right
   '';
 
   mkScriptOption = script:
@@ -26,6 +26,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.packages = [
+      switch-script
+    ];
+
     # Wallpapers
     services.swww.enable = true;
 

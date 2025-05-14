@@ -52,17 +52,6 @@ in {
   ];
 
   config = mkIf cfg.enable {
-    home.pointerCursor = {
-      enable = true;
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 24;
-      hyprcursor = {
-        enable = true;
-        size = 24;
-      };
-    };
-
     wayland.windowManager.hyprland = {
       enable = true;
 
