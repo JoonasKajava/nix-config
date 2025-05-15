@@ -21,6 +21,9 @@ in {
 
       desktop.hyprland.enable = true;
       apps.anyrun.enable = true;
+
+      # Audio control
+      apps.pavucontrol.enable = true;
     };
 
     home.pointerCursor = {
