@@ -15,10 +15,13 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # Wallpapers
-    lumi.services.swww.enable = true;
+    lumi = {
+      # Wallpapers
+      services.swww.enable = true;
 
-    lumi.desktop.hyprland.enable = true;
+      desktop.hyprland.enable = true;
+      apps.anyrun.enable = true;
+    };
 
     home.pointerCursor = {
       enable = true;
