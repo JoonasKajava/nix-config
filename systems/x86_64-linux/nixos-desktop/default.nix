@@ -21,8 +21,8 @@ with lib.${namespace}; {
 
     suites.cli.enable = true;
 
-    suites.hyprland.enable = true;
-    desktop.kde.enable = false;
+    suites.hyprland.enable = false;
+    desktop.kde.enable = true;
 
     apps = {
       brave.enable = true;
