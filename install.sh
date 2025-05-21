@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i bash -p gh git
+#! nix-shell -i bash -p gh git gum
 
 function safe_mv() {
   [ -f "$1" ] && mv "$1" "$2"
@@ -25,16 +25,7 @@ function select_folder() {
     exit 1
   fi
 
-  PS3="$1"
-
-  select CHOICE in "${DIRS[@]}"; do
-    if [[ -d "$2/$CHOICE" ]]; then
-      echo "$CHOICE"
-      break
-    else
-      echo "Invalid choice. Please try again." >&2
-    fi
-  done
+  gum choose "${DIRS[@]}" --header "$1"
 }
 
 printf "Select SSH auth"
