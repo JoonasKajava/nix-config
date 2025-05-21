@@ -18,16 +18,16 @@ Run installation script:
 > it.
 
 ```shell
-curl https://raw.githubusercontent.com/JoonasKajava/nix-config/refs/heads/master/install.sh | sudo sh
+curl https://raw.githubusercontent.com/JoonasKajava/nix-config/refs/heads/master/install.nu | sudo nix-shell
 ```
 
 If that command does not work use this:
 
 ```shell
 cd ~;
-curl https://raw.githubusercontent.com/JoonasKajava/nix-config/refs/heads/master/install.sh > install.sh;
-sudo nix-shell ./install.sh;
-rm ./install.sh;
+curl https://raw.githubusercontent.com/JoonasKajava/nix-config/refs/heads/master/install.nu > install.nu;
+sudo nix-shell ./install.nu;
+rm ./install.nu;
 ```
 
 Or you can do the manual installation:
