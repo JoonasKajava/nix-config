@@ -25,7 +25,7 @@ function select_folder() {
     exit 1
   fi
 
-  gum choose "${DIRS[@]}" --header "$1"
+  gum choose "${DIRS[@]}" --header "$1" || exit
 }
 
 printf "Select SSH auth"
