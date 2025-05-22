@@ -18,6 +18,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    lumi.cli.fastfetch.enable = true;
+    lumi.cli = {
+      fastfetch.enable = true;
+      yazi.enable = true;
+    };
   };
 }
