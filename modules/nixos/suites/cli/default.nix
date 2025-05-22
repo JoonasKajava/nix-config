@@ -18,7 +18,6 @@ in {
     environment.systemPackages = with pkgs; [
       htop-vim
       tldr
-      fastfetch
       rm-improved
       just
       nh
