@@ -23,7 +23,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       parsec-bin
-      parsec-fix-desktop-item
+      #parsec-fix-desktop-item
     ];
   };
 }

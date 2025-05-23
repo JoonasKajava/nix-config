@@ -30,7 +30,6 @@ in {
         nushell.enable = true;
 
         comma.enable = true;
-        yazi.enable = true;
 
         tmux.enable = false;
         zellij.enable = true;
