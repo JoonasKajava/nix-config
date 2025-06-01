@@ -28,7 +28,10 @@ in {
         settings = {
           gui = {
           };
-          git.paging.externalDiffCommand = "difft --color=always";
+          git = {
+            paging.externalDiffCommand = "difft --color=always";
+            disableForcePushing = true;
+          };
           customCommands = [
             {
               key = "c";
