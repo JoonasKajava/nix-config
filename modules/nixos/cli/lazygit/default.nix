@@ -36,7 +36,7 @@ in {
               description = "Commit with commitizen";
               context = "files";
               loadingText = "Opening commitizen commit tool";
-              subprocess = true;
+              output = "terminal";
             }
           ];
         };
