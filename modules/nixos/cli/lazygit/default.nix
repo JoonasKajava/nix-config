@@ -28,7 +28,10 @@ in {
         settings = {
           gui = {
           };
-          git.paging.externalDiffCommand = "difft --color=always";
+          git = {
+            paging.externalDiffCommand = "difft --color=always";
+            disableForcePushing = true;
+          };
           customCommands = [
             {
               key = "c";
@@ -36,7 +39,7 @@ in {
               description = "Commit with commitizen";
               context = "files";
               loadingText = "Opening commitizen commit tool";
-              subprocess = true;
+              output = "terminal";
             }
           ];
         };
