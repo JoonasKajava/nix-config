@@ -16,12 +16,12 @@
   wsl = {
     enable = true;
     interop = {
-      includePath = false;
+      includePath = true;
     };
     wslConf = {
       interop = {
-        enabled = false;
-        appendWindowsPath = false;
+        enabled = true;
+        appendWindowsPath = true;
       };
     };
     defaultUser = config.lumi.user.name;
