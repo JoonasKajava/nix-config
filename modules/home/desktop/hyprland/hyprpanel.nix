@@ -6,12 +6,14 @@
   pkgs,
   osConfig,
   ...
-}: {
+}: let
+  inherit (config.${namespace}.desktop.hyprland) enable;
+in {
   imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
-  xdg.configFile.hyprpanel.force = true;
+  xdg.configFile.hyprpanel.force = lib.mkIf enable true;
 
-  programs.hyprpanel = lib.mkIf config.${namespace}.desktop.hyprland.enable {
+  programs.hyprpanel = lib.mkIf enable {
     enable = true;
     hyprland.enable = true;
     override.enable = true;
