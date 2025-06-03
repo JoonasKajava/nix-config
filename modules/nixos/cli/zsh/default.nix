@@ -10,7 +10,6 @@ with lib; let
 in {
   options.${namespace}.cli.zsh = {
     enable = mkEnableOption "Zsh";
-    powerlevel = {enable = mkEnableOption "powerlevel10k" // {default = true;};};
   };
 
   config = mkIf cfg.enable {
@@ -33,8 +32,6 @@ in {
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         initExtra = ''
-          source /etc/nixos/modules/nixos/cli/zsh/theme.zsh
-          source /etc/secrets.sh
           eval "$(direnv hook zsh)"
         '';
         shellAliases = {
@@ -43,11 +40,7 @@ in {
 
         history.size = 10000;
         plugins = [
-          (mkIf cfg.powerlevel.enable {
-            name = "powerlevel10k";
-            src = pkgs.zsh-powerlevel10k;
-            file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-          })
+          
           {
             name = "vi-mode";
             src = pkgs.zsh-vi-mode;
