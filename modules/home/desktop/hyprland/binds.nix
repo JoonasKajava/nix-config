@@ -28,7 +28,7 @@
       # TODO: move to separate file
       # Toggle mute
       # "CTRL_SHIFT, M, pass, class:^(discord)$"
-      #", code:202, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      "$mainMod, code:202, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ", code:202, sendshortcut, CTRL_SHIFT, M, class:^(discord)$"
       # Apps
       "$mainMod, RETURN, exec, $terminal"

@@ -9,6 +9,8 @@
 }: {
   imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
+  xdg.configFile.hyprpanel.force = true;
+
   programs.hyprpanel = lib.mkIf config.${namespace}.desktop.hyprland.enable {
     enable = true;
     hyprland.enable = true;
