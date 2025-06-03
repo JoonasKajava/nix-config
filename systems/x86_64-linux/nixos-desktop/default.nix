@@ -18,8 +18,8 @@ with lib.${namespace}; {
   lumi = {
     suites.cli.enable = true;
 
-    suites.hyprland.enable = false;
-    desktop.kde.enable = true;
+    suites.hyprland.enable = true;
+    desktop.kde.enable = false;
 
     apps = {
       brave.enable = true;
