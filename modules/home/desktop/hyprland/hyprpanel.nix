@@ -11,7 +11,9 @@
 in {
   imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
-  xdg.configFile.hyprpanel.force = lib.mkIf enable true;
+  xdg.configFile = lib.mkIf enable {
+    hyprpanel.force = true;
+  };
 
   programs.hyprpanel = lib.mkIf enable {
     enable = true;
