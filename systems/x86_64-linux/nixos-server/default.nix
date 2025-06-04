@@ -2,14 +2,15 @@
   pkgs,
   lib,
   namespace,
+  config,
   ...
 }:
 with lib;
 with lib.${namespace}; {
   imports = [./gandicloud.nix];
 
-  users.users.joonas.openssh.authorizedKeys.keyFiles = [
-    config.sops.secrets."ssh/nixos-server/public".path
+  users.users.joonas.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
   ];
 
   lumi = {

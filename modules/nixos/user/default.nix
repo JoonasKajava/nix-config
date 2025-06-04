@@ -28,6 +28,7 @@ in {
         inherit (cfg) name initialPassword;
         description = cfg.fullName;
         extraGroups = ["networkmanager" "wheel"] ++ cfg.extraGroups;
+        hashedPasswordFile = config.${namespace}.secrets."hashed-password/${cfg.name}".path;
       }
       // cfg.extraOptions;
   };
