@@ -8,6 +8,9 @@ def dry_run_log [message: string] {
 def log_warn [message: string] {
     gum log -t rfc822 -s -l warn $message
 }
+def log_info [message: string] {
+    gum log -t rfc822 -s -l info $message
+}
 
 def safe_mv [
   --dry(-d) # Do not make any changes
@@ -17,6 +20,7 @@ def safe_mv [
   if ($dry) {
     dry_run_log $"Would move ($from) to ($to)"
   } else if ($from | path exists) {
+    log_info $"Moving ($from) to ($to)"
     mv $from $to
   } else {
     log_warn $"Source path ($from) does not exist"
