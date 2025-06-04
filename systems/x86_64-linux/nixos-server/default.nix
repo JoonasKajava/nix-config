@@ -7,7 +7,10 @@
 }:
 with lib;
 with lib.${namespace}; {
-  imports = [./gandicloud.nix];
+  imports = [
+    ./gandicloud.nix
+    ./wakapi.nix
+  ];
 
   users.users.joonas.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
@@ -15,6 +18,8 @@ with lib.${namespace}; {
 
   lumi = {
     suites.cli.enable = true;
+
+    cli.zellij.enableNushellIntegration = false;
 
     services = {
       docker = {
@@ -26,8 +31,17 @@ with lib.${namespace}; {
 
   lumi.services.ssh.enable = true;
 
-  networking.hostName = "nixos-server"; # Define your hostname.
+  services.caddy = {
+    enable = true;
+    virtualHosts = {
+      "wallos.joonaskajava.com".extraConfig = ''
+        reverse_proxy http://localhost:8282
+      '';
+    };
+  };
 
+  networking.hostName = "nixos-server"; # Define your hostname.
+  networking.firewall.allowedTCPPorts = [80 443];
   # Enable networking
   networking.networkmanager.enable = true;
 }
