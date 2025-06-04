@@ -16,8 +16,8 @@ def safe_mv [
 ] {
   if ($dry) {
     dry_run_log $"Would move ($from) to ($to)"
-  } else if (from | path exists) {
-    mv from to
+  } else if ($from | path exists) {
+    mv $from $to
   } else {
     log_warn $"Source path ($from) does not exist"
   }
