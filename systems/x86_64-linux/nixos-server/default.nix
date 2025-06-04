@@ -15,6 +15,10 @@ with lib.${namespace}; {
     };
   };
 
+  users.users.joonas.openssh.authorizedKeys.keyFiles = [
+    config.sops.secrets."ssh/nixos-server/public".path
+  ];
+
   lumi = {
     suites.cli.enable = true;
 
