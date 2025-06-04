@@ -23,10 +23,7 @@ with lib.${namespace}; {
     };
   };
 
-  lumi-private = {
-    services.borgbackup.enable = true;
-    services.ssh.enable = true;
-  };
+  lumi.services.ssh.enable = true;
 
   networking.hostName = "nixos-server"; # Define your hostname.
 

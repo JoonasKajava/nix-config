@@ -57,6 +57,8 @@ def main [
   safe_mv --dry=$dry /etc/nixos/configuration.nix ~/configuration.nix.backup
   safe_mv --dry=$dry /etc/nixos/hardware-configuration.nix ~/hardware-configuration.nix.temp
 
+  # TODO: move everything
+
   if ($dry == false) {
     gh auth login -p ssh
   } else  {
