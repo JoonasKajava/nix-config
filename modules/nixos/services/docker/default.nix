@@ -25,7 +25,7 @@ in {
       };
       oci-containers.backend = "docker";
       oci-containers.containers = {
-        wallos = mkIf cfg.wallos import ./containers/wallos.nix;
+        wallos = mkIf cfg.wallos (import ./containers/wallos.nix {inherit config;});
       };
     };
   };
