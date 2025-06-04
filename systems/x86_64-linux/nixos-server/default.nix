@@ -6,14 +6,7 @@
 }:
 with lib;
 with lib.${namespace}; {
-  imports = [./hardware.nix];
-  boot = {
-    loader = {
-      # Bootloader.
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-  };
+  imports = [./gandicloud.nix];
 
   users.users.joonas.openssh.authorizedKeys.keyFiles = [
     config.sops.secrets."ssh/nixos-server/public".path
