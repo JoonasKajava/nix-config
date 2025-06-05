@@ -31,6 +31,18 @@ with lib.${namespace}; {
 
   lumi.services.ssh.enable = true;
 
+  lumi-private = {
+    services.borgbackup = {
+      enable = true;
+      repositories = [
+        {
+          path = "ssh://zxb95s79@zxb95s79.repo.borgbase.com/./repo";
+          label = "nixos-server on BorgBase";
+        }
+      ];
+    };
+  };
+
   services.caddy = {
     enable = true;
     virtualHosts = {

@@ -92,7 +92,15 @@ with lib.${namespace}; {
   };
 
   lumi-private = {
-    services.borgbackup.enable = true;
+    services.borgbackup = {
+      enable = true;
+      repositories = [
+        {
+          path = "ssh://piabn1gh@piabn1gh.repo.borgbase.com/./repo";
+          label = "nixos-desktop on BorgBase";
+        }
+      ];
+    };
   };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
