@@ -37,7 +37,8 @@ in {
         in {
           format = mkSingleLine ''
             $os
-            $username
+            $username($hostname)
+            [ ](bg:${firstSegmentColor.bg} ${firstSegmentColor.fg})
             [](bg:${secondSegmentColor.bg} fg:${firstSegmentColor.bg})
             $directory
             [](fg:${secondSegmentColor.bg} bg:${thirdSegmentColor.bg})
@@ -75,7 +76,12 @@ in {
             show_always = true;
             style_user = "bg:${firstSegmentColor.bg} ${firstSegmentColor.fg}";
             style_root = style_user;
-            format = "[$user ]($style)";
+            format = "[$user]($style)";
+          };
+          hostname = {
+            style = "bg:${firstSegmentColor.bg} ${firstSegmentColor.fg}";
+            format = "[(@$hostname)]($style)";
+            disabled = false;
           };
           os = {
             style = "bg:${firstSegmentColor.bg} ${firstSegmentColor.fg}";

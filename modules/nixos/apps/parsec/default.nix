@@ -10,6 +10,7 @@
 
   cfg = config.${namespace}.apps.parsec;
 
+  # 6.6.2025 still happens
   parsec-fix-desktop-item = pkgs.makeDesktopItem {
     name = "parsec-fix";
     exec = "rm /home/joonas/.parsec/window.json";
@@ -23,7 +24,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       parsec-bin
-      #parsec-fix-desktop-item
+      parsec-fix-desktop-item
     ];
   };
 }
