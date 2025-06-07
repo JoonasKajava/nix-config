@@ -39,7 +39,7 @@ in {
 
         port = 28981;
         settings = {
-          PAPERLESS_OCR_LANGUAGE = "eng+equ+fin+osd+swe";
+          PAPERLESS_OCR_LANGUAGE = "eng+fin+swe";
         };
       };
     };
