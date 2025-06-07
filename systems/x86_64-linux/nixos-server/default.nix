@@ -21,6 +21,9 @@ with lib.${namespace}; {
 
     cli.zellij.enableNushellIntegration = false;
 
+    # This is slow on the server, so disable it.
+    cli.nushell.showFastfetchOnStartup = false;
+
     services = {
       docker = {
         enable = true;

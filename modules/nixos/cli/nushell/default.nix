@@ -17,6 +17,11 @@ in {
       description = "List of plugins to install.";
       example = lib.literalExpression "[ pkgs.nushell.net ]";
     };
+    showFastfetchOnStartup = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Whether to show fastfetch on Nushell startup.";
+    };
   };
 
   imports = [
@@ -38,12 +43,14 @@ in {
         enable = true;
         configFile.source = ./config.nu;
         extraConfig =
+
           # nushell
           ''
-            ${lib.getExe pkgs.fastfetch} # display fastfetch on startup
+            ${if cfg.showFastfetchOnStartup then lib.getExe pkgs.fastfetch else ""}
           ''
           + concatStringsSep "\n" (builtins.map (p: "plugin add ${getExe p}") cfg.plugins);
       };
+
     };
   };
 }
