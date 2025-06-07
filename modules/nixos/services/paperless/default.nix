@@ -14,7 +14,7 @@ in {
     localOnly = mkEnableOption "Whether to configure paperless for local access only";
     address = mkOption {
       type = types.str;
-      default = "127.0.0.1";
+      default = "paperless";
       example = "localhost";
     };
   };
@@ -34,11 +34,9 @@ in {
       };
 
       paperless = {
-        inherit (cfg) address enable;
-
+        inherit (cfg) enable;
         package = pkgs.stable.paperless-ngx;
 
-        passwordFile = config.sops.secrets."paperless/superuser_password".path;
         port = 28981;
         settings = {
           PAPERLESS_OCR_LANGUAGE = "eng+equ+fin+osd+swe";
