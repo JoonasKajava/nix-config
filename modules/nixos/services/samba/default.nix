@@ -29,6 +29,7 @@ in {
 
         settings.scans = {
           path = cfg.printerPath;
+          # set password for the users using sudo smbpasswd -a <username>
           security = "user";
           writable = true;
         };
