@@ -31,26 +31,37 @@ in {
   config = mkIf cfg.enable {
     users.defaultUserShell = pkgs.nushell;
 
-    ${namespace}.cli.nushell.enableFishCompleter = false;
 
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       home.shell.enableNushellIntegration = true;
+      programs = {
+        carapace.enable = true;
 
-      programs.carapace.enable = true;
-      programs.nix-your-shell.enable = true;
+        fish = {
+          enable = true;
+          generateCompletions = true;
+        };
 
-      programs.nushell = {
-        enable = true;
-        configFile.source = ./config.nu;
-        extraConfig =
+        nix-your-shell.enable = true;
 
-          # nushell
-          ''
-            ${if cfg.showFastfetchOnStartup then lib.getExe pkgs.fastfetch else ""}
-          ''
-          + concatStringsSep "\n" (builtins.map (p: "plugin add ${getExe p}") cfg.plugins);
+        nushell = {
+          enable = true;
+          configFile.source = ./config.nu;
+          environmentVariables = {
+            CARAPACE_BRIDGES = "fish";
+          };
+          extraConfig =
+            # nushell
+            ''
+              ${
+                if cfg.showFastfetchOnStartup
+                then lib.getExe pkgs.fastfetch
+                else ""
+              }
+            ''
+            + concatStringsSep "\n" (builtins.map (p: "plugin add ${getExe p}") cfg.plugins);
+        };
       };
-
     };
   };
 }
