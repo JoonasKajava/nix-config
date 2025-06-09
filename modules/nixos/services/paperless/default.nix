@@ -23,6 +23,9 @@ in {
     networking.hosts = mkIf cfg.localOnly {
       "127.0.0.1" = [cfg.address];
     };
+
+    lumi.services.samba.enable = true;
+
     services = {
       caddy = mkIf (!cfg.localOnly) {
         enable = true;
@@ -36,6 +39,8 @@ in {
       paperless = {
         inherit (cfg) enable;
         package = pkgs.stable.paperless-ngx;
+
+        consumptionDir = config.${namespace}.services.samba.printerPath;
 
         port = 28981;
         settings = {
