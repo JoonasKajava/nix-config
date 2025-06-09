@@ -10,3 +10,9 @@ optimize:
     devenv gc; sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'
 edit-sops:
     sops nix-config-private/modules/nixos/services/sops/secrets/joonas.yaml
+mount-latest-backup:
+    sudo mkdir -p /mnt/backup; sudo borgmatic mount --archive latest --mount-point /mnt/backup
+unmount-latest-backup:
+    sudo borgmatic umount --mount-point /mnt/backup
+manual-backup:
+    sudo borgmatic create --verbosity 1 --list --stats
