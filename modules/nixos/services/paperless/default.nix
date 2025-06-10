@@ -11,6 +11,18 @@
 in {
   options.${namespace}.services.paperless = {
     enable = mkEnableOption "Whether to enable paperless service";
+    paperless-ai = mkOption {
+      type = types.submodule {
+        options = {
+          enable = mkEnableOption "Whether to enable paperless ai service";
+          port = mkOption {
+            type = types.number;
+            default = 3000;
+          };
+        };
+      };
+    };
+
     localOnly = mkEnableOption "Whether to configure paperless for local access only";
     address = mkOption {
       type = types.str;
@@ -25,6 +37,26 @@ in {
     };
 
     lumi.services.samba.enable = true;
+
+    virtualisation = mkIf cfg.paperless-ai.enable {
+      docker.enable = true;
+
+      oci-containers = {
+        backend = "docker";
+
+        containers = {
+          paperless-ai = {
+            image = "clusterzx/paperless-ai:latest";
+            ports = ["${builtins.toString cfg.paperless-ai.port}:3000/tcp"];
+            volumes = [
+              "/var/www/paperless/paperless-ai:/app/data:rw"
+            ];
+            autoStart = true;
+            extraOptions = ["--pull=always" "--network=host"];
+          };
+        };
+      };
+    };
 
     services = {
       caddy = mkIf (!cfg.localOnly) {

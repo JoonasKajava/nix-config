@@ -87,10 +87,15 @@ with lib.${namespace}; {
 
     services = {
       printing.enable = true;
-      docker.enable = false; # Disable docker for now.
 
-      paperless.enable = true;
-      paperless.localOnly = true;
+        # Disable docker for now.
+      docker.enable = false;
+
+      paperless = {
+        enable = true;
+        localOnly = true;
+        paperless-ai.enable = true;
+      };
     };
   };
 
