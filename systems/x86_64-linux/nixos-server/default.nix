@@ -25,6 +25,7 @@ with lib.${namespace}; {
     cli.nushell.showFastfetchOnStartup = false;
 
     services = {
+      karakeep.enable = true;
       docker = {
         enable = true;
         wallos = true;

@@ -19,6 +19,10 @@ in {
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/I9fBvav2dg4zYvScZ/+ipDEs68WylJAEYTYwwRWDk"
     ];
 
+    environment.systemPackages = with pkgs; [
+      kitty.terminfo
+    ];
+
     services = {
       openssh = {
         enable = true;
