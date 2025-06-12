@@ -49,7 +49,7 @@ in {
             image = "clusterzx/paperless-ai:latest";
             ports = ["${builtins.toString cfg.paperless-ai.port}:3000/tcp"];
             volumes = [
-              "/var/www/paperless/paperless-ai:/app/data:rw"
+              "/var/lib/paperless/paperless-ai:/app/data:rw"
             ];
             autoStart = true;
             extraOptions = ["--pull=always" "--network=host"];
