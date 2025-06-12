@@ -18,6 +18,9 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.shellAliases = {
+      cd-to-sops-secrets = "cd /etc/nixos/nix-config-private/modules/nixos/services/sops/secrets/";
+    };
     lumi.cli = {
       fastfetch.enable = true;
       yazi.enable = true;
