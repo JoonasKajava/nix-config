@@ -33,9 +33,19 @@ in {
         auth-file = "/var/lib/ntfy/user.db";
         auth-default-access = "deny-all";
         upstream-base-url = "https://ntfy.sh";
-        # TODO: add smtp options
       };
     };
+
+    sops.templates."ntfy-env".content = ''
+      NTFY_SMTP_SENDER_ADDR=${config.sops.placeholder."smtp/host"}:${config.sops.placeholder."smtp/port-starttls"}
+      NTFY_SMTP_SENDER_USER=${config.sops.placeholder."smtp/username"}
+      NTFY_SMTP_SENDER_PASS=${config.sops.placeholder."smtp/app-password"}
+      NTFY_SMTP_SENDER_FROM=ntfy@ntfy.sh
+    '';
+
+    systemd.services.ntfy-sh.EnvironmentFile = [
+      config.sops.templates."ntfy-env".path
+    ];
 
     services.caddy.virtualHosts."ntfy.${cfg.host}" = {
       extraConfig = ''
