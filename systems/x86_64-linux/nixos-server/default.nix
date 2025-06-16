@@ -26,6 +26,7 @@ with lib.${namespace}; {
 
     services = {
       karakeep.enable = true;
+      ntfy.enable = true;
       docker = {
         enable = true;
         wallos = true;

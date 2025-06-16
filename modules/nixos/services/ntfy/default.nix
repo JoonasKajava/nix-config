@@ -24,15 +24,22 @@ in {
   };
 
   config = mkIf cfg.enable {
+    services.borgmatic.settings.exclude_patterns = [
+      "/var/lib/ntfy-sh/cache"
+    ];
+
     services.ntfy-sh = {
       enable = true;
       settings = {
         behind-proxy = true;
-        listen-http = "127.0.0.1:${cfg.internalPort}";
+        listen-http = "127.0.0.1:${toString cfg.internalPort}";
         base-url = "https://${cfg.host}";
-        auth-file = "/var/lib/ntfy/user.db";
+        auth-file = "/var/lib/ntfy-sh/user.db";
         auth-default-access = "deny-all";
         upstream-base-url = "https://ntfy.sh";
+
+        attachment-cache-dir = "/var/lib/ntfy-sh/attachments";
+        cache-file = "/var/lib/ntfy-sh/cache-file.db";
       };
     };
 
@@ -42,14 +49,24 @@ in {
       NTFY_SMTP_SENDER_PASS=${config.sops.placeholder."smtp/app-password"}
       NTFY_SMTP_SENDER_FROM=ntfy@ntfy.sh
     '';
+    systemd.services.ntfy-sh = {
+      after = ["sops-nix.service"];
+      # serviceConfig.ReadWritePaths = [
+      #   "/var/cache/ntfy-sh"
+      #   "/var/lib/ntfy-sh"
+      # ];
+      serviceConfig.EnvironmentFile = [
+        config.sops.templates."ntfy-env".path
+      ];
+    };
 
-    systemd.services.ntfy-sh.EnvironmentFile = [
-      config.sops.templates."ntfy-env".path
-    ];
+    # systemd.tmpfiles.rules = [
+    #   "d /var/cache/ntfy-sh 0600 ntfy-sh ntfy-sh"
+    # ];
 
     services.caddy.virtualHosts."ntfy.${cfg.host}" = {
       extraConfig = ''
-        reverse_proxy 127.0.0.1:${cfg.internalPort}
+        reverse_proxy 127.0.0.1:${toString cfg.internalPort}
       '';
     };
   };
