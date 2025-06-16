@@ -26,7 +26,10 @@ with lib.${namespace}; {
 
     services = {
       karakeep.enable = true;
+
       ntfy.enable = true;
+      auto-system-rebuild.enable = true;
+
       docker = {
         enable = true;
         wallos = true;
