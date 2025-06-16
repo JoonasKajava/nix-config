@@ -1,35 +1,32 @@
 {
-  pkgs,
   lib,
   namespace,
   config,
   ...
-}:
-with lib;
-with lib.${namespace}; {
+}: {
   imports = [
-    ./gandicloud.nix
-    ./wakapi.nix
+    ./temp.nix
   ];
 
   users.users.joonas.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
   ];
 
+  services.ddns-updater = {
+    enable = true;
+    environment = {
+      TZ = "Europe/Berlin";
+      CONFIG_FILEPATH = config.sops.secrets.home-server-ddns-config.path;
+    };
+  };
+
   lumi = {
     suites.cli.enable = true;
 
     cli.zellij.enableNushellIntegration = false;
 
-    # This is slow on the server, so disable it.
-    cli.nushell.showFastfetchOnStartup = false;
-
     services = {
       karakeep.enable = true;
-
-      ntfy.enable = true;
-      auto-system-rebuild.enable = true;
-
       docker = {
         enable = true;
         wallos = true;
@@ -44,8 +41,8 @@ with lib.${namespace}; {
       enable = true;
       repositories = [
         {
-          path = "ssh://zxb95s79@zxb95s79.repo.borgbase.com/./repo";
-          label = "nixos-server on BorgBase";
+          path = "ssh://o5fkvkv8@o5fkvkv8.repo.borgbase.com/./repo";
+          label = "nixos-home-server on BorgBase";
         }
       ];
     };
@@ -59,9 +56,10 @@ with lib.${namespace}; {
       '';
     };
   };
-
-  networking.hostName = "nixos-server"; # Define your hostname.
-  networking.firewall.allowedTCPPorts = [80 443];
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos-home-server"; # Define your hostname.
+    firewall.allowedTCPPorts = [80 443];
+    # Enable networking
+    networkmanager.enable = true;
+  };
 }

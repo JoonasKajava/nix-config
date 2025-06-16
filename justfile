@@ -8,8 +8,6 @@ upgrade-my-configs:
     nix flake update lumi-private my-nvf
 optimize:
     devenv gc; sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'
-edit-sops:
-    sops nix-config-private/modules/nixos/services/sops/secrets/joonas.yaml
 mount-latest-backup:
     sudo mkdir -p /mnt/backup; sudo borgmatic mount --archive latest --mount-point /mnt/backup
 unmount-latest-backup:
