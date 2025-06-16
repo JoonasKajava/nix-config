@@ -64,7 +64,7 @@ in {
     #   "d /var/cache/ntfy-sh 0600 ntfy-sh ntfy-sh"
     # ];
 
-    services.caddy.virtualHosts."ntfy.${cfg.host}" = {
+    services.caddy.virtualHosts."${cfg.host}" = {
       extraConfig = ''
         reverse_proxy 127.0.0.1:${toString cfg.internalPort}
       '';
