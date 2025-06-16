@@ -32,17 +32,17 @@
 
       try {
         if ((git status --porcelain | length) > 0) {
-          notify "Automatic Rebuilding Aborted" "There are uncommitted changes in the NixOS configuration. Please commit or stash them before running the auto-rebuild script." "high" "rotating_light";
+          notify "Automatic Rebuilding Aborted" $"($hostname) has uncommitted changes in the NixOS configuration. Please commit or stash them before running the auto-rebuild script." "high" "rotating_light";
           exit;
         }
 
         git pull;
 
-        nix-rebuild switch;
+        nixos-rebuild switch;
 
-        notify "Automatic Rebuilding Succefull" $"($hostname) just performed automatic rebuild successfully." "default" "white_check_mark";
+        notify "Automatic Rebuilding Successful" $"($hostname) just performed automatic rebuild successfully." "default" "white_check_mark";
       } catch { |err|
-        notify "Automatic Rebuilding Aborted" $"Unable to automatically rebuild the system due: ($err.msg)" "high" "rotating_light";
+        notify "Automatic Rebuilding Aborted" $"($hostname) had to abort rebuild due: ($err.rendered | ansi strip)" "high" "rotating_light";
       };
     '';
 in {
