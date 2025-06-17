@@ -30,6 +30,12 @@ in {
       };
     };
 
+    registery = {
+      importantDirs = [
+        "/var/lib/karakeep/"
+      ];
+    };
+
     services.karakeep = {
       enable = true;
       extraEnvironment = {

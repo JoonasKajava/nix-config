@@ -58,6 +58,13 @@ in {
       };
     };
 
+    registery = {
+      importantDirs = [
+        "/var/lib/paperless/"
+        "/var/lib/paperless/paperless-ai/"
+      ];
+    };
+
     services = {
       caddy = mkIf (!cfg.localOnly) {
         enable = true;
