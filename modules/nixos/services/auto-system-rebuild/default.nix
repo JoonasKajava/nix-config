@@ -54,5 +54,21 @@ in {
     environment.systemPackages = [
       rebuildScript
     ];
+    systemd = {
+      timers.auto-system-rebuild = {
+        wantedBy = ["timers.target"];
+        timerConfig = {
+          OnCalendar = "weekly";
+          Persistent = true;
+        };
+      };
+      services.auto-system-rebuild = {
+        script = "${rebuildScript}/bin/rebuild-script.nu";
+        serviceConfig = {
+          Type = "oneshot";
+          User = "root";
+        };
+      };
+    };
   };
 }
