@@ -27,7 +27,7 @@ in {
       settings = {
         BASE_URL = "https://${cfg.host}";
         TZ = "Europe/Helsinki";
-        ALLOW_SIGNUP = false;
+        ALLOW_SIGNUP = "false";
       };
     };
 
@@ -49,7 +49,7 @@ in {
 
     services.caddy.virtualHosts."${cfg.host}" = {
       extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString cfg.internalPort}
+        reverse_proxy 127.0.0.1:${toString config.services.mealie.port}
       '';
     };
   };

@@ -26,6 +26,7 @@ with lib.${namespace}; {
 
     services = {
       karakeep.enable = true;
+      mealie.enable = true;
 
       ntfy.enable = true;
       auto-system-rebuild.enable = true;
