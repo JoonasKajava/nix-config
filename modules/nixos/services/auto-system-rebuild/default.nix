@@ -13,9 +13,6 @@
     pkgs.writeScriptBin "rebuild-script.nu"
     # nu
     ''
-      #! /usr/bin/env nix-shell
-      #! nix-shell -i nu -p git nushell
-
       def notify [
         title: string,
         message: string,
@@ -26,19 +23,11 @@
           http post --user "" --password $token --headers { Title: $title Priority: $priority Tags: $tags } $"https://ntfy.joonaskajava.com/nixos-system" $message
       }
 
-      cd /etc/nixos;
-
       let hostname = (sys host).hostname
 
       try {
-        if ((git status --porcelain | length) > 0) {
-          notify "Automatic Rebuilding Aborted" $"($hostname) has uncommitted changes in the NixOS configuration. Please commit or stash them before running the auto-rebuild script." "high" "rotating_light";
-          exit;
-        }
 
-        git pull;
-
-        nixos-rebuild switch;
+        nixos-rebuild switch --flake github:JoonasKajava/nix-config#nixos-server
 
         notify "Automatic Rebuilding Successful" $"($hostname) just performed automatic rebuild successfully." "default" "white_check_mark";
       } catch { |err|
@@ -54,6 +43,9 @@ in {
     environment.systemPackages = [
       rebuildScript
     ];
+
+    # Cannot get this working, use system.autoUpgrade.flake
+    # Use OnFailure and OnSuccess to notify about rebuilds
     systemd = {
       timers.auto-system-rebuild = {
         wantedBy = ["timers.target"];
@@ -63,7 +55,21 @@ in {
         };
       };
       services.auto-system-rebuild = {
-        script = "${rebuildScript}/bin/rebuild-script.nu";
+        script = "${pkgs.nushell}/bin/nu ${rebuildScript}/bin/rebuild-script.nu";
+        after = ["sops-nix.service"];
+        environment = {
+          GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets."ssh/github".path}";
+        };
+        path = with pkgs; [
+          nixos-rebuild
+          coreutils
+          gnutar
+          xz.bin
+          gzip
+          gitMinimal
+          config.nix.package.out
+          config.programs.ssh.package
+        ];
         serviceConfig = {
           Type = "oneshot";
           User = "root";

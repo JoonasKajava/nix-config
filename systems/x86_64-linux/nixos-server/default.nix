@@ -29,7 +29,6 @@ with lib.${namespace}; {
       mealie.enable = true;
 
       ntfy.enable = true;
-      auto-system-rebuild.enable = true;
 
       docker = {
         enable = true;
