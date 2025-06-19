@@ -6,5 +6,6 @@
 }: {
   lumi = {
     #apps.anyrun.enable = true;
+    apps.naps2.enable = true;
   };
 }
