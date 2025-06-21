@@ -42,7 +42,7 @@ in {
       docker.enable = true;
 
       oci-containers = {
-        backend = "docker";
+        backend = "podman";
 
         containers = {
           paperless-ai = {
@@ -52,7 +52,7 @@ in {
               "/var/lib/paperless/paperless-ai:/app/data:rw"
             ];
             autoStart = true;
-            extraOptions = ["--pull=always" "--network=host"];
+            extraOptions = ["--pull=newer" "--network=host"];
           };
         };
       };
