@@ -91,6 +91,8 @@ with lib.${namespace}; {
         # Disable docker for now.
       docker.enable = false;
 
+      systemd-notifications.enable = true;
+
       paperless = {
         enable = true;
         localOnly = true;
