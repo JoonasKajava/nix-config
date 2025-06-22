@@ -44,6 +44,7 @@ in {
             [](fg:${secondSegmentColor.bg} bg:${thirdSegmentColor.bg})
             $git_branch
             $git_status
+            $git_metrics
             [](fg:${thirdSegmentColor.bg} bg:${fourthSegmentColor.bg})
             $lua
             $c
@@ -138,6 +139,12 @@ in {
             style = "bg:${thirdSegmentColor.bg} ${thirdSegmentColor.fg}";
             modified = " $count";
             format = "[($all_status )]($style)";
+          };
+          git_metrics = {
+            added_style = "bg:${thirdSegmentColor.bg} ${thirdSegmentColor.fg}";
+            deleted_style = "bg:${thirdSegmentColor.bg} ${thirdSegmentColor.fg}";
+            disabled = false;
+            format = "([+$added]($added_style))([ ]($deleted_style)[-$deleted]($deleted_style))[ ]($deleted_style)";
           };
           golang = {
             symbol = " ";
