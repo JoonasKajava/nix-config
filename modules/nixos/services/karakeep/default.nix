@@ -38,12 +38,14 @@ in {
 
     services.karakeep = {
       enable = true;
-      extraEnvironment = {
+      extraEnvironment = rec {
         PORT = "${toString cfg.port}";
         DISABLE_SIGNUPS = "true";
         CRAWLER_FULL_PAGE_SCREENSHOT = "true";
         CRAWLER_FULL_PAGE_ARCHIVE = "true";
         MAX_ASSET_SIZE_MB = "100";
+        CRAWLER_VIDEO_DOWNLOAD_MAX_SIZE = MAX_ASSET_SIZE_MB;
+        CRAWLER_VIDEO_DOWNLOAD = "true";
       };
     };
   };
