@@ -39,8 +39,6 @@ in {
     lumi.services.samba.enable = true;
 
     virtualisation = mkIf cfg.paperless-ai.enable {
-      docker.enable = true;
-
       oci-containers = {
         backend = "podman";
 
