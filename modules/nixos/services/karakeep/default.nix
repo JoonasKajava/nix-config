@@ -41,6 +41,8 @@ in {
       extraEnvironment = {
         PORT = "${toString cfg.port}";
         DISABLE_SIGNUPS = "true";
+        CRAWLER_FULL_PAGE_SCREENSHOT = "true";
+        CRAWLER_FULL_PAGE_ARCHIVE = "true";
       };
     };
   };
