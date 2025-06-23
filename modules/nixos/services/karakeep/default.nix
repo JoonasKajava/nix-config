@@ -43,6 +43,7 @@ in {
         DISABLE_SIGNUPS = "true";
         CRAWLER_FULL_PAGE_SCREENSHOT = "true";
         CRAWLER_FULL_PAGE_ARCHIVE = "true";
+        MAX_ASSET_SIZE_MB = "100";
       };
     };
   };
