@@ -35,10 +35,6 @@
       url = "github:JoonasKajava/nvf-config";
     };
     catppuccin.url = "github:catppuccin/nix";
-    hyprpanel = {
-      url = "github:jas-singhfsu/hyprpanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs:
@@ -57,10 +53,6 @@
       channels-config = {
         allowUnfree = true;
       };
-
-      overlays = with inputs; [
-        hyprpanel.overlay
-      ];
 
       homes.modules = with inputs; [
         plasma-manager.homeManagerModules.plasma-manager

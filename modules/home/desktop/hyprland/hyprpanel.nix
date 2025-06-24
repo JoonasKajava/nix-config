@@ -2,14 +2,12 @@
   lib,
   config,
   namespace,
-  inputs,
   pkgs,
   osConfig,
   ...
 }: let
   inherit (config.${namespace}.desktop.hyprland) enable;
 in {
-  imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
   xdg.configFile = lib.mkIf enable {
     hyprpanel.force = true;
@@ -17,8 +15,7 @@ in {
 
   programs.hyprpanel = lib.mkIf enable {
     enable = true;
-    hyprland.enable = true;
-    override.enable = true;
+    systemd.enable = true;
 
     settings = {
       scalingPriority = "hyprland";
