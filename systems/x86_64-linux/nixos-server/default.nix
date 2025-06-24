@@ -18,6 +18,7 @@ with lib.${namespace}; {
 
   lumi = {
     suites.cli.enable = true;
+    suites.system-utilities.enable = true;
 
     cli.zellij.enableNushellIntegration = false;
 
