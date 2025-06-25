@@ -5,8 +5,11 @@
   ...
 }: {
   lumi = {
-    #apps.anyrun.enable = true;
-    apps.naps2.enable = true;
-    apps.ludusavi.enable = true;
+    apps = {
+      #apps.anyrun.enable = true;
+      naps2.enable = true;
+      ludusavi.enable = true;
+      ferdium.enable = true;
+    };
   };
 }
