@@ -24,8 +24,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-
-
     assertions = [
       {
         assertion = !cfg.enable;
@@ -40,7 +38,7 @@ in {
         containers = {
           donetick = {
             image = "donetick/donetick:latest";
-            ports = ["${builtins.toString cfg.paperless-ai.port}:2021/tcp"];
+            ports = ["${builtins.toString cfg.internalPort}:2021/tcp"];
             volumes = [
               "${homeFolder}/data:/donetick-data:rw"
               "${homeFolder}/config:/config:rw"
@@ -56,7 +54,7 @@ in {
       };
     };
     sops.templates."donetick-config.yaml" = {
-      restartUnits = [""];
+      restartUnits = ["podman-donetick.service"];
       path = "${homeFolder}/config/selfhosted.yaml";
       content =
         # yaml
@@ -64,19 +62,15 @@ in {
           name: "selfhosted"
           is_done_tick_dot_com: false
           is_user_creation_disabled: true
-          telegram:
-            token: ""
-          pushover:
-            token: ""
           database:
             type: "sqlite"
             migration: true
           jwt:
-            secret: "change_this_to_a_secure_random_string_32_characters_long"
+            secret: "${config.sops.placeholder.donetick-swt-secret}"
             session_time: 168h
             max_refresh: 168h
           server:
-            port: 2021
+            port: ${cfg.internalPort}
             read_timeout: 10s
             write_timeout: 10s
             rate_period: 60s
@@ -96,20 +90,6 @@ in {
             due_job: 30m
             overdue_job: 3h
             pre_due_job: 3h
-          email:
-            host:
-            port:
-            key:
-            email:
-            appHost:
-          oauth2:
-            client_id:
-            client_secret:
-            auth_url:
-            token_url:
-            user_info_url:
-            redirect_url:
-            name:
           # Real-time configuration
           realtime:
             enabled: true
