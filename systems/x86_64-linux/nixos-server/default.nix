@@ -28,6 +28,7 @@ with lib.${namespace}; {
     services = {
       karakeep.enable = true;
       mealie.enable = true;
+      homebox.enable = true;
 
       ntfy.enable = true;
 
