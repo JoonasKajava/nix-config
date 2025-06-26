@@ -24,14 +24,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = !cfg.enable;
-        message = ''
-          This is not ready yet,
-        '';
-      }
-    ];
     virtualisation = mkIf cfg.enable {
       oci-containers = {
         backend = "podman";
@@ -70,7 +62,7 @@ in {
             session_time: 168h
             max_refresh: 168h
           server:
-            port: ${cfg.internalPort}
+            port: ${toString cfg.internalPort}
             read_timeout: 10s
             write_timeout: 10s
             rate_period: 60s

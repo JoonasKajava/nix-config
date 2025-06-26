@@ -13,13 +13,14 @@
     pkgs.writeScriptBin "send-script.nu"
     # nu
     ''
+#! /usr/bin/env nix-shell
+#! nix-shell -i nu -p nushell
       def main [
-        title: string,
         service: string,
       ] {
           let token = cat ${config.sops.secrets.ntfy-token.path}
           let message = (systemctl status --full $service)
-          http post --user "" --password $token --headers { Title: $title Priority: "high" Tags: "" } $"https://ntfy.joonaskajava.com/nixos-system" $message
+          http post --user "" --password $token --headers { Title: "Systemd service failed to run on ${config.networking.hostName}" Priority: "high" Tags: "" } $"https://ntfy.joonaskajava.com/nixos-system" $message
         }
     '';
 in {
@@ -42,6 +43,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = [sendScript];
     systemd.services.${cfg.serviceName} = {
       description = "Systemd Notifications Service";
       onFailure = mkForce [];

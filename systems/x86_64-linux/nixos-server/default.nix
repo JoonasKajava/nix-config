@@ -28,13 +28,11 @@ with lib.${namespace}; {
     services = {
       karakeep.enable = true;
       mealie.enable = true;
+      donetick.enable = true;
+      wallos.enable = true;
 
       ntfy.enable = true;
 
-      docker = {
-        enable = true;
-        wallos = true;
-      };
     };
   };
 
@@ -52,14 +50,6 @@ with lib.${namespace}; {
     };
   };
 
-  services.caddy = {
-    enable = true;
-    virtualHosts = {
-      "wallos.joonaskajava.com".extraConfig = ''
-        reverse_proxy http://localhost:8282
-      '';
-    };
-  };
 
   networking.hostName = "nixos-server"; # Define your hostname.
   networking.firewall.allowedTCPPorts = [80 443];
