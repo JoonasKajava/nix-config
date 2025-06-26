@@ -28,7 +28,8 @@ with lib.${namespace}; {
     services = {
       karakeep.enable = true;
       mealie.enable = true;
-      donetick.enable = true;
+      # does not work yet
+      donetick.enable = false;
       wallos.enable = true;
 
       ntfy.enable = true;
