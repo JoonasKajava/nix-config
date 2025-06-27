@@ -24,6 +24,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+
     virtualisation = mkIf cfg.enable {
       oci-containers = {
         backend = "podman";
@@ -33,12 +34,12 @@ in {
             ports = ["${builtins.toString cfg.internalPort}:2021/tcp"];
             volumes = [
               "${homeFolder}/data:/donetick-data:rw"
-              "${homeFolder}/config:/config:rw"
+              "${config.sops.templates."donetick-config.yaml".path}:/config/selfhosted.yaml:rw"
             ];
             autoStart = true;
             environment = {
               DT_ENV = "selfhosted";
-              DT_SQLITE_PATH = "${homeFolder}/data/donetick.db";
+              DT_SQLITE_PATH = "/donetick-data/donetick.db";
             };
             extraOptions = ["--pull=newer"];
           };
@@ -47,7 +48,7 @@ in {
     };
     sops.templates."donetick-config.yaml" = {
       restartUnits = ["podman-donetick.service"];
-      path = "${homeFolder}/config/selfhosted.yaml";
+      #mode = "0444";
       content =
         # yaml
         ''
