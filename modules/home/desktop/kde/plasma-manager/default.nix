@@ -66,6 +66,7 @@ in {
                   [
                     "preferred://filemanager"
                     "preferred://browser"
+                    "file://${pkgs.ferdium}/share/applications/ferdium.desktop"
                   ]
                   
                   # ++ [
