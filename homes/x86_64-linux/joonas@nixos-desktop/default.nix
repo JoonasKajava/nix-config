@@ -10,6 +10,7 @@
       naps2.enable = true;
       ludusavi.enable = true;
 
+      firefox.enable = true;
       #ferdium notifications are still not working
       ferdium.enable = false;
     };

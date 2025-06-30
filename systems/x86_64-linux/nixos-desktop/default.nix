@@ -24,6 +24,7 @@ with lib.${namespace}; {
 
     apps = {
       brave.enable = true;
+
       kdeconnect.enable = true;
       obsidian.enable = true;
       _1password.enable = true;
