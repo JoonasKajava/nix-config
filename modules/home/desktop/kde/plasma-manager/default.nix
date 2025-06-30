@@ -65,13 +65,15 @@ in {
                 launchers =
                   [
                     "preferred://filemanager"
+                    "preferred://browser"
                   ]
-                  ++ [
-                    "file://${pkgs.brave}/share/applications/brave-browser.desktop"
-                    # If one of these is not working, just generate new shortcuts from brave and check the app id
-                    "file:///home/joonas/.local/share/applications/brave-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop" # Whatsapp
-                    "file:///home/joonas/.local/share/applications/brave-nkbljeindhmekmppbpgebpjebkjbmfaj-Default.desktop" # Fastmail
-                  ]
+                  
+                  # ++ [
+                  #   "file://${pkgs.brave}/share/applications/brave-browser.desktop"
+                  #   # If one of these is not working, just generate new shortcuts from brave and check the app id
+                  #   "file:///home/joonas/.local/share/applications/brave-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop" # Whatsapp
+                  #   "file:///home/joonas/.local/share/applications/brave-nkbljeindhmekmppbpgebpjebkjbmfaj-Default.desktop" # Fastmail
+                  # ]
                   ++ [
                     "file://${pkgs.obsidian}/share/applications/obsidian.desktop"
                   ]

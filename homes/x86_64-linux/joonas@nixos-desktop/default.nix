@@ -11,8 +11,7 @@
       ludusavi.enable = true;
 
       firefox.enable = true;
-      #ferdium notifications are still not working
-      ferdium.enable = false;
+      ferdium.enable = true;
     };
   };
 }

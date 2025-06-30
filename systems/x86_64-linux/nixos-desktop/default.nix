@@ -23,7 +23,6 @@ with lib.${namespace}; {
     desktop.kde.enable = true;
 
     apps = {
-      brave.enable = true;
 
       kdeconnect.enable = true;
       obsidian.enable = true;
