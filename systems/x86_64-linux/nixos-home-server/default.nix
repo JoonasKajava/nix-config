@@ -5,8 +5,10 @@
   ...
 }: {
   imports = [
-    ./temp.nix
+    ./hardware.nix
   ];
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   users.users.joonas.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
@@ -25,13 +27,13 @@
 
     cli.zellij.enableNushellIntegration = false;
 
-    services = {
-      karakeep.enable = true;
-      docker = {
-        enable = true;
-        wallos = true;
-      };
-    };
+    # services = {
+    #   karakeep.enable = true;
+    #   docker = {
+    #     enable = true;
+    #     wallos = true;
+    #   };
+    # };
   };
 
   lumi.services.ssh.enable = true;
@@ -48,18 +50,17 @@
     };
   };
 
-  services.caddy = {
-    enable = true;
-    virtualHosts = {
-      "wallos.joonaskajava.com".extraConfig = ''
-        reverse_proxy http://localhost:8282
-      '';
-    };
-  };
   networking = {
     hostName = "nixos-home-server"; # Define your hostname.
-    firewall.allowedTCPPorts = [80 443];
     # Enable networking
     networkmanager.enable = true;
   };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It's perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "25.11"; # Did you read the comment?
 }
