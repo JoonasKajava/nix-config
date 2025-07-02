@@ -10,32 +10,38 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  users.users.joonas.openssh.authorizedKeys.keys = [
+  users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/I9fBvav2dg4zYvScZ/+ipDEs68WylJAEYTYwwRWDk"
   ];
 
-  services.ddns-updater = {
-    enable = true;
-    environment = {
-      TZ = "Europe/Berlin";
-      CONFIG_FILEPATH = config.sops.secrets.home-server-ddns-config.path;
-    };
-  };
+  users.users.joonas.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/I9fBvav2dg4zYvScZ/+ipDEs68WylJAEYTYwwRWDk"
+  ];
 
   lumi = {
     suites.cli.enable = true;
+    suites.system-utilities.enable = true;
 
     cli.zellij.enableNushellIntegration = false;
 
-    # services = {
-    #   karakeep.enable = true;
-    #   docker = {
-    #     enable = true;
-    #     wallos = true;
-    #   };
-    # };
+    # This is slow on the server, so disable it.
+    cli.nushell.showFastfetchOnStartup = false;
+
+    services = {
+      karakeep.enable = true;
+      mealie.enable = true;
+      donetick.enable = true;
+      wallos.enable = true;
+
+      ntfy.enable = true;
+
+      ddns-updater.enable = true;
+    };
   };
 
+  networking.firewall.allowedTCPPorts = [8000];
   lumi.services.ssh.enable = true;
 
   lumi-private = {
