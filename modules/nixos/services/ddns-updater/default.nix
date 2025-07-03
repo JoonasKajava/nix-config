@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf mkForce;
 
   cfg = config.${namespace}.services.ddns-updater;
 in {
@@ -23,10 +23,23 @@ in {
       };
     };
 
+
+    users.users.ddns-updater = {
+      isSystemUser = true;
+      group = "ddns-updater";
+      description = "Dynamic DNS Updater Service User";
+      createHome = false;
+    };
+
+    users.groups.ddns-updater = {};
+
     systemd.services.ddns-updater = {
       after = ["sops-nix.service"];
-      # serviceConfig.User = "root";
-      # serviceConfig.Group = "root";
+      serviceConfig = {
+        DynamicUser = mkForce false;
+        User = "ddns-updater";
+        Group = "ddns-updater";
+      };
     };
   };
 }
