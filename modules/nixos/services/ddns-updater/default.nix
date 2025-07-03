@@ -20,9 +20,9 @@ in {
         TZ = "Europe/Berlin";
         CONFIG_FILEPATH = config.sops.secrets.home-server-ddns-config.path;
         LOG_LEVEL = "debug";
+        RESOLVER_ADDRESS = "1.1.1.1:53";
       };
     };
-
 
     users.users.ddns-updater = {
       isSystemUser = true;
@@ -32,6 +32,16 @@ in {
     };
 
     users.groups.ddns-updater = {};
+
+    systemd.tmpfiles.settings.ddns-updater = {
+      "/var/lib/ddns-updater/updates.json" = {
+        d = {
+          group = "ddns-updater";
+          user = "ddns-updater";
+          mode = "0660";
+        };
+      };
+    };
 
     systemd.services.ddns-updater = {
       after = ["sops-nix.service"];
