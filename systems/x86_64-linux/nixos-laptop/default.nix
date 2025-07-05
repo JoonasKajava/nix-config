@@ -65,10 +65,13 @@
       };
 
       hardware.gpu.nvidia.enable = true;
-      # hardware.audio.enable = true;
+      services = {
+        # hardware.audio.enable = true;
 
-      services.printing.enable = true;
-      services.ssh.enable = true;
+        printing.enable = true;
+        ssh.enable = true;
+        tailscale.enable = true;
+      };
     };
 
     # Open ports in the firewall.
