@@ -30,18 +30,21 @@
     cli.nushell.showFastfetchOnStartup = false;
 
     services = {
-      karakeep.enable = true;
-      mealie.enable = true;
-      donetick.enable = true;
-      wallos.enable = true;
+      karakeep.enable = false;
+      mealie.enable = false;
+      donetick.enable = false;
+      wallos.enable = false;
 
-      ntfy.enable = true;
+      ntfy.enable = false;
 
-      ddns-updater.enable = true;
+      tailscale = {
+        enable = true;
+        authKeyFile = config.sops.secrets.tailscale-auth-key.path;
+      };
+
     };
   };
 
-  networking.firewall.allowedTCPPorts = [8000];
   lumi.services.ssh.enable = true;
 
   lumi-private = {

@@ -35,7 +35,7 @@ in {
 
     systemd.tmpfiles.settings.ddns-updater = {
       "/var/lib/ddns-updater/updates.json" = {
-        d = {
+        f = {
           group = "ddns-updater";
           user = "ddns-updater";
           mode = "0660";

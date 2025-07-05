@@ -15,6 +15,9 @@ with lib.${namespace}; {
     };
   };
 
+  # temp
+  services.tailscale.enable = true;
+
   lumi = {
     suites.cli.enable = true;
     suites.system-utilities.enable = true;
