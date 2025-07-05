@@ -7,8 +7,6 @@
   imports = [
     ./hardware.nix
   ];
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
@@ -19,6 +17,23 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/I9fBvav2dg4zYvScZ/+ipDEs68WylJAEYTYwwRWDk"
   ];
+
+  services.logind = {
+    lidSwitch = "ignore";
+    lidSwitchDocked = "ignore";
+    lidSwitchExternalPower = "ignore";
+    extraConfig = ''
+      IdleAction=ignore
+      HandlePowerKey=ignore
+      HandleSuspendKey=ignore
+    '';
+  };
+
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelParams = ["button.lid_init_state=open"];
+  };
 
   lumi = {
     suites.cli.enable = true;
@@ -41,7 +56,6 @@
         enable = true;
         authKeyFile = config.sops.secrets.tailscale-auth-key.path;
       };
-
     };
   };
 

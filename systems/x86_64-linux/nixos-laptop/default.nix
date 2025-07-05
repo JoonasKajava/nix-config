@@ -53,7 +53,7 @@
         kitty.enable = true;
         vlc.enable = true;
         jetbrains = {
-          enable = true;
+          enable = false;
           ide = {
             rider = true;
             rust-rover = true;
