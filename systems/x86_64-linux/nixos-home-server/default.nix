@@ -51,6 +51,7 @@
       wallos.enable = false;
 
       ntfy.enable = false;
+      immich.enable = true;
 
       tailscale = {
         enable = true;
