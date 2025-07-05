@@ -39,7 +39,7 @@ in {
     boot.kernelParams = [
       "nvidia_drm.modeset=1"
       "nvidia_drm.fbdev=1"
-      "module_blacklist=i915"
+      #"module_blacklist=i915" blacklisting this causes audio not to work
     ];
 
     hardware.nvidia = {
