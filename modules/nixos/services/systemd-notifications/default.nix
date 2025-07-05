@@ -18,9 +18,11 @@
       def main [
         service: string,
       ] {
-          let token = cat ${config.sops.secrets.ntfy-token.path}
-          let message = (systemctl status --full $service)
-          http post --user "" --password $token --headers { Title: "Systemd service failed to run on ${config.networking.hostName}" Priority: "high" Tags: "" } $"https://ntfy.joonaskajava.com/nixos-system" $message
+        try {
+            let token = cat ${config.sops.secrets.ntfy-token.path}
+            let message = (do -i { systemctl status --full $service | complete }).stdout
+            http post --user "" --password $token --headers { Title: "Systemd service failed to run on ${config.networking.hostName}" Priority: "high" Tags: "" } $"https://ntfy.joonaskajava.com/nixos-system" $message
+          } catch {|err| echo $err}
         }
     '';
 in {
