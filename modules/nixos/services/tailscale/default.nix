@@ -25,6 +25,7 @@ in {
   config = mkIf cfg.enable {
     services.tailscale = {
       enable = true;
+      inherit (cfg) authKeyFile;
     };
 
     systemd.services.tailscaled-autoconnect = {
