@@ -51,7 +51,8 @@
       wallos.enable = false;
 
       ntfy.enable = false;
-      immich.enable = true;
+      immich.enable = false;
+      homepage-dashboard.enable = true;
 
       tailscale = {
         enable = true;

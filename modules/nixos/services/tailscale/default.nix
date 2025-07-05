@@ -25,6 +25,7 @@ in {
   config = mkIf cfg.enable {
     services.tailscale = {
       enable = true;
+      permitCertUid = "caddy";
       inherit (cfg) authKeyFile;
     };
 
