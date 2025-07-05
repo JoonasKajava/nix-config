@@ -65,7 +65,7 @@
       };
 
       hardware.gpu.nvidia.enable = true;
-      hardware.audio.enable = true;
+      # hardware.audio.enable = true;
 
       services.printing.enable = true;
       services.ssh.enable = true;
