@@ -9,6 +9,16 @@
 
   cfg = config.${namespace}.services.systemd-notifications;
 
+  checkConditions = pkgs.writeScript "checkConditions" ''
+    #!/bin/sh
+    STATUS=$(systemctl status --full "$1")
+
+    case "$STATUS" in
+      *"activating (auto-restart) (Result: timeout)"*) exit 1 ;;
+      *) exit 0 ;;
+    esac
+    '';
+
   sendScript =
     pkgs.writeScriptBin "send-script.nu"
     # nu
@@ -49,7 +59,12 @@ in {
     systemd.services.${cfg.serviceName} = {
       description = "Systemd Notifications Service";
       onFailure = mkForce [];
+      unitConfig = {
+        StartLimitIntervalSec = "5m";
+        StartLimitBurst = 1;
+      };
       serviceConfig = {
+        ExecCondition = "${checkConditions} %i";
         ExecStart = "${pkgs.nushell}/bin/nu ${lib.getExe sendScript} %i";
         Type = "oneshot";
       };
