@@ -22,10 +22,40 @@ in {
     services.homepage-dashboard = {
       enable = true;
       allowedHosts = cfg.host;
+      settings = {
+        title = "Homepage Dashboard";
+        #background = "";
+        theme = "dark";
+      };
+      widgets = [
+        {
+          resources = {
+            cpu = true;
+            memory = true;
+            disk = "/";
+            cputemp = true;
+            tempmin = 0;
+            tempmax = 100;
+            uptime = true;
+            units = "metric";
+            refresh = 1000;
+          };
+        }
+        {
+          datetime = {
+            text_size = "x1";
+            locale = "fi";
+            format = {
+              timeStyle = "medium";
+              dateStyle = "short";
+              hour12 = false;
+            };
+          };
+        }
+      ];
     };
 
     ${namespace}.services.caddy.enable = true;
-
     services.caddy = {
       virtualHosts."${cfg.host}" = {
         extraConfig = ''
