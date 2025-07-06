@@ -42,6 +42,14 @@ in {
           };
         }
         {
+          search = {
+            provider = "google";
+            focus = true;
+            showSearchSuggestions = true;
+            target = "_self";
+          };
+        }
+        {
           datetime = {
             text_size = "x1";
             locale = "fi";
