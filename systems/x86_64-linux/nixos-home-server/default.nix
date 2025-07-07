@@ -36,8 +36,11 @@
   };
 
   lumi = {
-    suites.cli.enable = true;
-    suites.system-utilities.enable = true;
+    suites = {
+      cli.enable = true;
+      system-utilities.enable = true;
+      jellyfin.enable = true;
+    };
 
     cli.zellij.enableNushellIntegration = false;
 
