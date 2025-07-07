@@ -16,33 +16,41 @@ in {
       default = "jellyfin.joonaskajava.com";
       description = "The host name for the Jellyfin service";
     };
+    group = lib.mkOption {
+      type = lib.types.str;
+      default = "jellyfin";
+      description = "The group for the Jellyfin service";
+    };
   };
 
   config = mkIf cfg.enable {
     systemd = {
       tmpfiles.settings.jellyfinDirs = {
         "/jellyfin-library"."d" = {
-          mode = "700";
-          inherit (config.services.jellyfin) user group;
+          mode = "770";
+          inherit (config.services.jellyfin) user;
+          inherit (cfg) group;
         };
       };
     };
-
-    services.jellyfin.enable = true;
     environment.systemPackages = with pkgs; [
       jellyfin
       jellyfin-web
       jellyfin-ffmpeg
     ];
+    services = {
+      jellyfin.enable = true;
 
-    ${namespace}.services.caddy.enable = true;
-    services.caddy = {
-      virtualHosts."${cfg.host}" = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:8096
-          import cloudflare
-        '';
+      caddy = {
+        virtualHosts."${cfg.host}" = {
+          extraConfig = ''
+            reverse_proxy 127.0.0.1:8096
+            import cloudflare
+          '';
+        };
       };
     };
+
+    ${namespace}.services.caddy.enable = true;
   };
 }
