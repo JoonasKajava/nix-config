@@ -2,6 +2,7 @@
   lib,
   config,
   namespace,
+  pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf mkOption;
@@ -24,29 +25,44 @@ in {
     ];
 
     users.users.immich.extraGroups = ["video" "render"];
-    services.immich = {
-      enable = true;
-      accelerationDevices = null;
-      # I just sops templates to create config file
-      settings = null;
-      environment = {
-        TZ = "Europe/Helsinki";
-        IMMICH_CONFIG_FILE = config.sops.templates."immich-config.json".path;
+    services = {
+      # Immich does not support PostgreSQL 17 yet
+      postgresql.package = pkgs.postgresql_16;
+
+      immich = {
+        enable = true;
+        accelerationDevices = null;
+        # I just sops templates to create config file
+        settings = null;
+        environment = {
+          TZ = "Europe/Helsinki";
+          IMMICH_CONFIG_FILE = config.sops.templates."immich-config.json".path;
+        };
+      };
+      caddy.virtualHosts."${cfg.host}" = {
+        extraConfig = ''
+          reverse_proxy localhost:${toString config.services.immich.port}
+          import cloudflare
+        '';
       };
     };
+    sops.templates."immich-config.json" = {
+      inherit (config.services.immich) group;
+      owner = config.services.immich.user;
 
-    sops.templates."immich-config.json".content = toJSON {} {
-      newVersionCheck.enabled = false;
-      server.externalDomain = "https://${cfg.host}";
-      notifications.smtp = {
-        enabled = true;
-        from = "immich@${cfg.host}";
-        transport = {
-          ignoreCert = false;
-          host = config.sops.placeholder."smtp/host";
-          port = config.sops.placeholder."smtp/port-starttls";
-          username = config.sops.placeholder."smtp/username";
-          password = config.sops.placeholder."smtp/app-password";
+      content = toJSON {} {
+        newVersionCheck.enabled = false;
+        server.externalDomain = "https://${cfg.host}";
+        notifications.smtp = {
+          enabled = true;
+          from = "immich@${cfg.host}";
+          transport = {
+            ignoreCert = false;
+            host = config.sops.placeholder."smtp/host";
+            port =  587;
+            username = config.sops.placeholder."smtp/username";
+            password = config.sops.placeholder."smtp/app-password";
+          };
         };
       };
     };
@@ -55,10 +71,6 @@ in {
       after = ["sops-nix.service"];
     };
 
-    services.caddy.virtualHosts."${cfg.host}" = {
-      extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString config.services.immich.port}
-      '';
-    };
+    ${namespace}.services.caddy.enable = true;
   };
 }
