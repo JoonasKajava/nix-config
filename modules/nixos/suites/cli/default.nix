@@ -16,7 +16,6 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      htop-vim
       tldr
       rm-improved
       just

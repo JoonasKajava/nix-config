@@ -24,6 +24,7 @@ in {
     lumi.cli = {
       fastfetch.enable = true;
       yazi.enable = true;
+      btop.enable = true;
     };
   };
 }
