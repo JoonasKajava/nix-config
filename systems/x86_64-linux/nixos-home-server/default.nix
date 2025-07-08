@@ -29,6 +29,11 @@
     '';
   };
 
+  # This laptop has overheating issues, so just limit the cpu for now.
+  powerManagement.cpuFreqGovernor = "powersave";
+  powerManagement.cpufreq.max = 1700000;
+  services.thermald.enable = true;
+
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;

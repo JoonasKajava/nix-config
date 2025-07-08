@@ -23,8 +23,12 @@ in {
     registery.importantDirs = [
       "/var/lib/immich/"
     ];
+    users.users.immich = {
+      extraGroups = ["video" "render"];
+      home = "/var/lib/immich";
+      createHome = true;
+    };
 
-    users.users.immich.extraGroups = ["video" "render"];
     services = {
       # Immich does not support PostgreSQL 17 yet
       postgresql.package = pkgs.postgresql_16;
@@ -59,7 +63,7 @@ in {
           transport = {
             ignoreCert = false;
             host = config.sops.placeholder."smtp/host";
-            port =  587;
+            port = 587;
             username = config.sops.placeholder."smtp/username";
             password = config.sops.placeholder."smtp/app-password";
           };
