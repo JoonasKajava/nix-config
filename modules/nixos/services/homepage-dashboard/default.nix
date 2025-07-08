@@ -22,6 +22,7 @@ in {
   config = mkIf cfg.enable {
     sops.secrets.immich-api.restartUnits = ["homepage-dashboard.service"];
 
+    # TODO: rewrite to https://github.com/DenzoNL/nixbox.tv/blob/e1b331f6c13629255bf677b1fc28bbdb411abe18/services/homepage.nix#L4
     # this is handled by sops-nix
     environment.etc."homepage-dashboard/widgets.yaml".enable = mkForce false;
     environment.etc."homepage-dashboard/services.yaml".enable = mkForce false;
