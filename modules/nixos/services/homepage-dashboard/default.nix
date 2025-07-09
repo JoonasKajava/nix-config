@@ -4,8 +4,7 @@
   namespace,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf mkOption mkForce;
-  inherit (lib.generators) toYAML;
+  inherit (lib) mkEnableOption mkIf mkOption;
 
   cfg = config.${namespace}.services.homepage-dashboard;
   mkIcon = icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/${icon}.svg";
@@ -20,106 +19,92 @@ in {
   };
 
   config = mkIf cfg.enable {
-    sops.secrets.immich-api.restartUnits = ["homepage-dashboard.service"];
-
-    # TODO: rewrite to https://github.com/DenzoNL/nixbox.tv/blob/e1b331f6c13629255bf677b1fc28bbdb411abe18/services/homepage.nix#L4
-    # this is handled by sops-nix
-    environment.etc."homepage-dashboard/widgets.yaml".enable = mkForce false;
-    environment.etc."homepage-dashboard/services.yaml".enable = mkForce false;
+    sops = {
+      templates = {
+        "immich-env" = {
+          restartUnits = ["homepage-dashboard.service"];
+          content = ''
+            HOMEPAGE_VAR_IMMICH_API=${config.sops.placeholder."immich-api"}
+            HOMEPAGE_VAR_KARAKEEP_API=${config.sops.placeholder."karakeep-api"}
+          '';
+        };
+      };
+    };
 
     services.homepage-dashboard = {
       enable = true;
       allowedHosts = cfg.host;
+      environmentFile = config.sops.templates."immich-env".path;
       settings = {
         title = "Homepage Dashboard";
         #background = "";
         theme = "dark";
       };
-    };
-    sops.templates = {
-      "services.yaml" = {
-        restartUnits = ["homepage-dashboard.service"];
-        path = "/etc/homepage-dashboard/services.yaml";
-        mode = "0440";
-        group = "homepage-dashboard";
-        content = toYAML {} [
-          {
-            "Services" = [
-              {
-                "Immich" = rec {
-                  icon = mkIcon "immich";
-                  href = "https://immich.joonaskajava.com";
-                  description = "Self-hosted photo and video backup solution";
-                  widget = {
-                    type = "immich";
-                    url = href;
-                    key = config.sops.placeholder."immich-api";
-                    version = 2;
-                  };
+      services = [
+        {
+          "Services" = [
+            {
+              "Immich" = rec {
+                icon = mkIcon "immich";
+                href = "https://immich.joonaskajava.com";
+                description = "Self-hosted photo and video backup solution";
+                widget = {
+                  type = "immich";
+                  url = href;
+                  key = "{{HOMEPAGE_VAR_IMMICH_API}}";
+                  version = 2;
                 };
-              }
-            ];
-          }
-        ];
-      };
-      "widgets.yaml" = {
-        restartUnits = ["homepage-dashboard.service"];
-        path = "/etc/homepage-dashboard/widgets.yaml";
-        mode = "0440";
-        group = "homepage-dashboard";
-        content = toYAML {} [
-          {
-            resources = {
-              cpu = true;
-              memory = true;
-              disk = "/";
-              cputemp = true;
-              tempmin = 0;
-              tempmax = 100;
-              uptime = true;
-              units = "metric";
-              refresh = 1000;
-            };
-          }
-          {
-            search = {
-              provider = "google";
-              focus = true;
-              showSearchSuggestions = true;
-              target = "_self";
-            };
-          }
-          {
-            datetime = {
-              text_size = "x1";
-              locale = "fi";
-              format = {
-                timeStyle = "medium";
-                dateStyle = "short";
-                hour12 = false;
               };
+            }
+            {
+              "Karakeep" = rec {
+                icon = mkIcon "karakeep";
+                href = "https://karakeep.joonaskajava.com";
+                description = "Bookmark manager";
+                widget = {
+                  type = "karakeep";
+                  url = href;
+                  key = "{{HOMEPAGE_VAR_KARAKEEP_API}}";
+                };
+              };
+            }
+          ];
+        }
+      ];
+      widgets = [
+        {
+          resources = {
+            cpu = true;
+            memory = true;
+            disk = "/";
+            cputemp = true;
+            tempmin = 0;
+            tempmax = 100;
+            uptime = true;
+            units = "metric";
+            refresh = 1000;
+          };
+        }
+        {
+          search = {
+            provider = "google";
+            focus = true;
+            showSearchSuggestions = true;
+            target = "_self";
+          };
+        }
+        {
+          datetime = {
+            text_size = "x1";
+            locale = "fi";
+            format = {
+              timeStyle = "medium";
+              dateStyle = "short";
+              hour12 = false;
             };
-          }
-        ];
-      };
-    };
-
-    users.groups.homepage-dashboard = {};
-
-    users.users.homepage-dashboard = {
-      isSystemUser = true;
-      group = "homepage-dashboard";
-      description = "Homepage Dashboard Service User";
-      createHome = false;
-    };
-
-    systemd.services.homepage-dashboard = {
-      after = ["sops-nix.service"];
-      serviceConfig = {
-        DynamicUser = mkForce false;
-        User = "homepage-dashboard";
-        Group = "homepage-dashboard";
-      };
+          };
+        }
+      ];
     };
 
     ${namespace}.services.caddy.enable = true;
