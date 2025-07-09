@@ -18,7 +18,7 @@ in {
       enable = true;
 
       workspace = {
-        wallpaper = wallpaper;
+        inherit wallpaper;
         theme = mkDefault "breeze-dark";
         colorScheme = mkDefault "BreezeDark";
         cursor = mkDefault {
@@ -39,6 +39,7 @@ in {
 
       shortcuts = {
         "kwin"."Window Maximize" = ["Meta+Up"];
+        "kwin"."Close Window" = ["Meta+Q"];
       };
 
       panels = [
@@ -68,7 +69,6 @@ in {
                     "preferred://browser"
                     "file://${pkgs.ferdium}/share/applications/ferdium.desktop"
                   ]
-                  
                   # ++ [
                   #   "file://${pkgs.brave}/share/applications/brave-browser.desktop"
                   #   # If one of these is not working, just generate new shortcuts from brave and check the app id
@@ -110,6 +110,18 @@ in {
               };
             }
           ];
+        }
+      ];
+
+      window-rules = [
+        {
+          description = "Kitty";
+          match.window-class = "kitty kitty";
+          apply = {
+            maximizehoriz = true;
+            maximizevert = true;
+            noborder = true;
+          };
         }
       ];
 
