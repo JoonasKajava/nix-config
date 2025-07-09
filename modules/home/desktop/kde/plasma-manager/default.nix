@@ -120,7 +120,6 @@ in {
           apply = {
             maximizehoriz = true;
             maximizevert = true;
-            noborder = true;
           };
         }
       ];
