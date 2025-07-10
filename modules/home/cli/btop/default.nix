@@ -17,6 +17,7 @@ in {
       enable = true;
       settings = {
         vim_keys = true;
+        cpu_single_graph = true;
       };
     };
   };
