@@ -26,6 +26,7 @@ in {
     services.tailscale = {
       enable = true;
       permitCertUid = "caddy";
+      openFirewall = true;
       inherit (cfg) authKeyFile;
     };
 
