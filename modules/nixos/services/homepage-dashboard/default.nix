@@ -26,6 +26,7 @@ in {
           content = ''
             HOMEPAGE_VAR_IMMICH_API=${config.sops.placeholder."immich-api"}
             HOMEPAGE_VAR_KARAKEEP_API=${config.sops.placeholder."karakeep-api"}
+            HOMEPAGE_VAR_MEALIE_API=${config.sops.placeholder."mealie-api"}
           '';
         };
       };
@@ -65,6 +66,19 @@ in {
                   type = "karakeep";
                   url = href;
                   key = "{{HOMEPAGE_VAR_KARAKEEP_API}}";
+                };
+              };
+            }
+            {
+              "Mealie" = rec {
+                icon = mkIcon "mealie";
+                href = "https://mealie.joonaskajava.com";
+                description = "Meal planning and recipe management";
+                widget = {
+                  type = "mealie";
+                  url = href;
+                  key = "{{HOMEPAGE_VAR_MEALIE_API}}";
+                  version = 2;
                 };
               };
             }
