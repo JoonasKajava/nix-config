@@ -41,6 +41,12 @@ in {
         title = "Homepage Dashboard";
         #background = "";
         theme = "dark";
+        layout = {
+          "Services" = {
+            style = "row";
+            columns = 4;
+          };
+        };
       };
       services = [
         {
