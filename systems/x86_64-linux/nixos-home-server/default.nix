@@ -61,6 +61,7 @@
       ntfy.enable = false;
       immich.enable = true;
       homepage-dashboard.enable = true;
+      changedetection-io.enable = true;
 
       tailscale = {
         enable = true;

@@ -27,6 +27,7 @@ in {
             HOMEPAGE_VAR_IMMICH_API=${config.sops.placeholder."immich-api"}
             HOMEPAGE_VAR_KARAKEEP_API=${config.sops.placeholder."karakeep-api"}
             HOMEPAGE_VAR_MEALIE_API=${config.sops.placeholder."mealie-api"}
+            HOMEPAGE_VAR_CHANGEDETECTION_API=${config.sops.placeholder."changedetection-api"}
           '';
         };
       };
@@ -79,6 +80,18 @@ in {
                   url = href;
                   key = "{{HOMEPAGE_VAR_MEALIE_API}}";
                   version = 2;
+                };
+              };
+            }
+            {
+              "Changedetection.io" = rec {
+                icon = mkIcon "changedetection";
+                href = "https://changedetection.joonaskajava.com";
+                description = "Monitor websites for changes";
+                widget = {
+                  type = "changedetectionio";
+                  url = href;
+                  key = "{{HOMEPAGE_VAR_CHANGEDETECTION_API}}";
                 };
               };
             }
