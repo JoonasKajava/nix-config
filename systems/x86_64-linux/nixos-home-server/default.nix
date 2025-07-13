@@ -63,6 +63,9 @@
       homepage-dashboard.enable = true;
       changedetection-io.enable = true;
 
+      # Monitor disk health and send notifications.
+      smartd.enable = true;
+
       tailscale = {
         enable = true;
         authKeyFile = config.sops.secrets.tailscale-auth-key.path;
