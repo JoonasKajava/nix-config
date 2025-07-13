@@ -53,7 +53,7 @@
     cli.nushell.showFastfetchOnStartup = false;
 
     services = {
-      karakeep.enable = false;
+      karakeep.enable = true;
       mealie.enable = false;
       donetick.enable = false;
       wallos.enable = false;

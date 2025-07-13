@@ -26,6 +26,7 @@ in {
       virtualHosts = {
         ${cfg.address}.extraConfig = ''
           reverse_proxy http://localhost:${toString cfg.port}
+          import cloudflare
         '';
       };
     };
