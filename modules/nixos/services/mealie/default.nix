@@ -50,6 +50,7 @@ in {
     services.caddy.virtualHosts."${cfg.host}" = {
       extraConfig = ''
         reverse_proxy 127.0.0.1:${toString config.services.mealie.port}
+        import cloudflare
       '';
     };
   };
