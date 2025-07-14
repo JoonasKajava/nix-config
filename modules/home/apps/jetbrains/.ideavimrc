@@ -28,6 +28,8 @@ set undolevels=10000
 " Disable line wrap
 set nowrap
 
+set iskeyword-=_
+
 " find and replace
 set hlsearch
 set incsearch
