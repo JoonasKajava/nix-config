@@ -75,6 +75,5 @@ in {
       after = ["sops-nix.service"];
     };
 
-    ${namespace}.services.caddy.enable = true;
   };
 }

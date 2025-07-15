@@ -62,6 +62,8 @@
       immich.enable = true;
       homepage-dashboard.enable = true;
       changedetection-io.enable = true;
+      uptime-kuma.enable = true;
+
 
       # Monitor disk health and send notifications.
       smartd.enable = true;

@@ -29,7 +29,6 @@ in {
       playwrightSupport = true;
     };
 
-    ${namespace}.services.caddy.enable = true;
     services = {
       caddy.virtualHosts."${cfg.host}" = {
         extraConfig = ''

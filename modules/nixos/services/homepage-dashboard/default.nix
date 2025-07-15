@@ -28,6 +28,7 @@ in {
             HOMEPAGE_VAR_KARAKEEP_API=${config.sops.placeholder."karakeep-api"}
             HOMEPAGE_VAR_MEALIE_API=${config.sops.placeholder."mealie-api"}
             HOMEPAGE_VAR_CHANGEDETECTION_API=${config.sops.placeholder."changedetection-api"}
+            HOMEPAGE_VAR_UPTIME_KUMA_API=${config.sops.placeholder."uptime-kuma-api"}
           '';
         };
       };
@@ -101,6 +102,18 @@ in {
                 };
               };
             }
+            {
+              "Uptime Kuma" = rec {
+                icon = mkIcon "uptime-kuma";
+                href = "https://uptime.joonaskajava.com";
+                description = "Self-hosted status monitoring solution";
+                widget = {
+                  type = "uptimekuma";
+                  url = href;
+                  slug = "all";
+                };
+              };
+            }
           ];
         }
       ];
@@ -140,7 +153,6 @@ in {
       ];
     };
 
-    ${namespace}.services.caddy.enable = true;
     services.caddy = {
       virtualHosts."${cfg.host}" = {
         extraConfig = ''

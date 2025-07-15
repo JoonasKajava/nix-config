@@ -1,27 +1,25 @@
 {
   lib,
   config,
-  namespace,
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf mkOption;
-  inherit (lib.generators) toJSON;
+  inherit (lib) mkEnableOption mkIf optionals;
 
-  cfg = config.${namespace}.services.caddy;
+  inherit (config.services.caddy)enableCloudflareIntegration;
 in {
-  options.${namespace}.services.caddy = {
-    enable = mkEnableOption "Whether to enable caddy";
+  options.services.caddy = {
+    enableCloudflareIntegration = mkEnableOption "Whether to enable cloudflare integration for Caddy";
   };
 
-  config = mkIf cfg.enable {
+  config = {
     services.caddy = {
       enable = true;
       package = pkgs.caddy.withPlugins {
-        plugins = ["github.com/caddy-dns/cloudflare@v0.2.1"];
+        plugins = optionals enableCloudflareIntegration ["github.com/caddy-dns/cloudflare@v0.2.1"];
         hash = "sha256-2D7dnG50CwtCho+U+iHmSj2w14zllQXPjmTHr6lJZ/A=";
       };
-      extraConfig = ''
+      extraConfig = mkIf enableCloudflareIntegration ''
         (cloudflare) {
           tls {
             dns cloudflare {env.CF_API_TOKEN}
@@ -30,9 +28,11 @@ in {
       '';
     };
 
-    sops.templates."caddy-env".content = ''
-      CF_API_TOKEN=${config.sops.placeholder."cloudflare-api"}
-    '';
+    sops.templates."caddy-env".content =
+      mkIf enableCloudflareIntegration
+      ''
+        CF_API_TOKEN=${config.sops.placeholder."cloudflare-api"}
+      '';
 
     systemd.services.caddy = {
       after = ["sops-nix.service"];

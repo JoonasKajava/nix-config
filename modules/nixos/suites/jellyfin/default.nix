@@ -51,6 +51,5 @@ in {
       };
     };
 
-    ${namespace}.services.caddy.enable = true;
   };
 }
