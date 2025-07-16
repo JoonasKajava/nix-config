@@ -14,7 +14,6 @@ in {
 
   config = {
     services.caddy = {
-      enable = true;
       package = pkgs.caddy.withPlugins {
         plugins = optionals enableCloudflareIntegration ["github.com/caddy-dns/cloudflare@v0.2.1"];
         hash = "sha256-2D7dnG50CwtCho+U+iHmSj2w14zllQXPjmTHr6lJZ/A=";
@@ -34,7 +33,7 @@ in {
         CF_API_TOKEN=${config.sops.placeholder."cloudflare-api"}
       '';
 
-    systemd.services.caddy = {
+    systemd.services.caddy = mkIf config.services.caddy.enable {
       after = ["sops-nix.service"];
       serviceConfig.EnvironmentFile = [
         config.sops.templates."caddy-env".path
