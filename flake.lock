@@ -141,6 +141,22 @@
         "type": "github"
       }
     },
+    "ghostty-shaders": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751916907,
+        "narHash": "sha256-dfk2Ti+T1jEC5M8ijaO1KnfzW6MP5yswovZgoptqO3A=",
+        "owner": "KroneCorylus",
+        "repo": "ghostty-shader-playground",
+        "rev": "b539cea7b34cdc883726db018ae09e8e3f862aea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KroneCorylus",
+        "repo": "ghostty-shader-playground",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -442,6 +458,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "ghostty-shaders": "ghostty-shaders",
         "home-manager": "home-manager",
         "lumi-private": "lumi-private",
         "my-nvf": "my-nvf",

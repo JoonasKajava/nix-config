@@ -21,7 +21,7 @@ in {
         firefox.enable = true;
         ferdium.enable = true;
 
-        ghostty.enable = true;
+        ghostty.enable = false;
       };
   };
 

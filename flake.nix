@@ -35,6 +35,11 @@
       url = "github:JoonasKajava/nvf-config";
     };
     catppuccin.url = "github:catppuccin/nix";
+
+    ghostty-shaders = {
+      url = "github:KroneCorylus/ghostty-shader-playground";
+      flake = false;
+    };
   };
 
   outputs = inputs:

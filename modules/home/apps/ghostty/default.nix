@@ -2,6 +2,7 @@
   lib,
   config,
   namespace,
+  inputs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
@@ -15,6 +16,11 @@ in {
   config = mkIf cfg.enable {
     programs.ghostty = {
       enable = true;
+      settings = {
+        custom-shader = [
+          "${inputs.ghostty-shaders}/shaders/cursor_smear.glsl"
+        ];
+      };
     };
   };
 }
