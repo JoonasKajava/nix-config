@@ -44,7 +44,6 @@
     suites = {
       cli.enable = true;
       system-utilities.enable = true;
-      jellyfin.enable = true;
     };
 
     cli.zellij.enableNushellIntegration = false;
@@ -76,6 +75,7 @@
   };
 
   lumi.services.ssh.enable = true;
+  lumi-private.suites.jellyfin.enable = true;
 
   lumi-private = {
     services.borgbackup = {
