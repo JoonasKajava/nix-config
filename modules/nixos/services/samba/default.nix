@@ -23,7 +23,7 @@ in {
     services = {
       resolved.enable = true;
       samba = {
-        package = pkgs.sambaFull;
+        package = pkgs.stable.sambaFull;
         enable = true;
         openFirewall = true;
 

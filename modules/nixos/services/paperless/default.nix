@@ -75,7 +75,6 @@ in {
 
       paperless = {
         inherit (cfg) enable;
-        package = pkgs.stable.paperless-ngx;
 
         consumptionDir = config.${namespace}.services.samba.printerPath;
 
