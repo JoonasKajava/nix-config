@@ -75,7 +75,7 @@
   };
 
   lumi.services.ssh.enable = true;
-  lumi-private.suites.jellyfin.enable = true;
+  lumi-private.suites.jellyfin.enable = false;
 
   lumi-private = {
     services.borgbackup = {
