@@ -2,7 +2,7 @@
   lib,
   config,
   namespace,
-  osConfig,
+  osConfig ? null,
   pkgs,
   ...
 }: let
@@ -11,7 +11,14 @@
   cfg = config.${namespace}.suites.hyprland;
 in {
   options.${namespace}.suites.hyprland = {
-    enable = mkEnableOption "Whether to enable the Hyprland suite." // {default = osConfig.${namespace}.suites.hyprland.enable;};
+    enable =
+      mkEnableOption "Whether to enable the Hyprland suite."
+      // {
+        default =
+          if osConfig
+          then osConfig.${namespace}.suites.hyprland.enable
+          else false;
+      };
   };
 
   config = mkIf cfg.enable {
