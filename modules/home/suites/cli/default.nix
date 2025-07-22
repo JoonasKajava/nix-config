@@ -2,7 +2,7 @@
   lib,
   config,
   namespace,
-  osConfig,
+  osConfig ? {},
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;

@@ -3,7 +3,7 @@
   config,
   namespace,
   pkgs,
-  osConfig,
+  osConfig ? {},
   ...
 }: let
   inherit (config.${namespace}.desktop.hyprland) enable;
