@@ -15,7 +15,7 @@ in {
       mkEnableOption "Whether to enable the Hyprland suite."
       // {
         default =
-          if osConfig
+          if osConfig != null
           then osConfig.${namespace}.suites.hyprland.enable
           else false;
       };
