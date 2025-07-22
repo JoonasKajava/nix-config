@@ -2,7 +2,9 @@
   lib,
   config,
   namespace,
-  osConfig ? {},
+  osConfig ? {
+    ${namespace}.desktop.hyprland.enable = false;
+  },
   pkgs,
   ...
 }: let
