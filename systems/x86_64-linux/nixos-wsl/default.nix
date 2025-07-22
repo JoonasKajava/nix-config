@@ -13,15 +13,17 @@
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
   ];
-  wsl = {
+  wsl = let
+    interop = false;
+  in {
     enable = true;
     interop = {
-      includePath = true;
+      includePath = interop;
     };
     wslConf = {
       interop = {
-        enabled = true;
-        appendWindowsPath = true;
+        enabled = interop;
+        appendWindowsPath = interop;
       };
     };
     defaultUser = config.lumi.user.name;
