@@ -15,6 +15,14 @@ in {
   };
 
   config = mkIf cfg.enable {
+    users.users.${config.${namespace}.user.name} = {
+      extraGroups = ["scanner" "lp"];
+    };
+
+    hardware.sane = {
+      enable = true;
+      extraBackends = [pkgs.hplipWithPlugin];
+    };
     services = {
       printing = {
         enable = true;
