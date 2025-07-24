@@ -1,0 +1,139 @@
+add_newline = true
+format = "$os$username($hostname)[ ](bg:#dcdcdc #000000)[](bg:#0c72cb fg:#dcdcdc)$directory[](fg:#0c72cb bg:yellow)$git_branch$git_status$git_metrics[](fg:yellow bg:#86BBD8)$lua$c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala$dotnet$docker_context$nix_shell[ ](fg:#86BBD8)"
+right_format = "$status[](fg:#dcdcdc)$time"
+
+[c]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[directory]
+fish_style_pwd_dir_length = 2
+format = "[ $path ]($style)"
+home_symbol = "󰋜 ~"
+style = "bg:#0c72cb bold"
+truncate_to_repo = false
+truncation_length = 3
+
+[directory.substitutions]
+Development = "  Development"
+Documents = "󰈙 Documents"
+Downloads = " Downloads"
+Music = " Music"
+Pictures = " Pictures"
+
+[docker_context]
+format = "[ $symbol $context ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[dotnet]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+
+[elixir]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[elm]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[git_branch]
+format = "[( $symbol $branch )]($style)"
+style = "bg:yellow black"
+symbol = ""
+
+[git_metrics]
+added_style = "bg:yellow black"
+deleted_style = "bg:yellow black"
+disabled = false
+format = "([+$added]($added_style))([ ]($deleted_style)[-$deleted]($deleted_style))[ ]($deleted_style)"
+
+[git_status]
+format = "[($all_status )]($style)"
+modified = " $count"
+style = "bg:yellow black"
+
+[golang]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[gradle]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+
+[haskell]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[hostname]
+disabled = false
+format = "[(@$hostname)]($style)"
+style = "bg:#dcdcdc #000000"
+
+[java]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[julia]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[lua]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[nim]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = "󰆥 "
+
+[nix_shell]
+format = "[ nix-shell ]($style)"
+style = "bg:#86BBD8 black"
+
+[nodejs]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = ""
+
+[os]
+disabled = false
+format = "[ $symbol]($style)"
+style = "bg:#dcdcdc #000000"
+
+[rust]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = ""
+
+[scala]
+format = "[ $symbol ($version) ]($style)"
+style = "bg:#86BBD8 black"
+symbol = " "
+
+[status]
+disabled = false
+format = "[ $symbol $status ]($style)"
+style = "bg:red yellow"
+success_style = "bg:none"
+success_symbol = "✔"
+
+[time]
+disabled = false
+format = "[ $time  ]($style)"
+style = "bg:#dcdcdc #000000"
+
+[username]
+format = "[$user]($style)"
+show_always = true
+style_root = "bg:#dcdcdc #000000"
+style_user = "bg:#dcdcdc #000000"
