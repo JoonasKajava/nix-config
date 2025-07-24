@@ -11,6 +11,8 @@ winget install -e --id rsteube.Carapace
 winget install sxyazi.yazi
 winget install Gyan.FFmpeg 7zip.7zip jqlang.jq sharkdp.fd BurntSushi.ripgrep.MSVC junegunn.fzf ajeetdsouza.zoxide ImageMagick.ImageMagick
 
+winget install starship
+
 function Sym-Link
 {
     param (
@@ -24,5 +26,7 @@ function Sym-Link
 Sym-Link (Join-Path $PSScriptRoot win-config.nu) (Join-Path $env:APPDATA nushell\config.nu)
 
 Sym-Link (Join-Path $PSScriptRoot win-env.nu) (Join-Path $env:APPDATA nushell\env.nu)
+
+Sym-Link (Join-Path $PSScriptRoot win-starship.toml) (Join-Path $HOME .config\starship.toml)
 
 Read-Host -Prompt "Press Enter to exit"
