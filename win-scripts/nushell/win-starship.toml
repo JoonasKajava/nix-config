@@ -1,5 +1,5 @@
 add_newline = true
-format = "$os$username($hostname)[ ](bg:#dcdcdc #000000)[](bg:#0c72cb fg:#dcdcdc)$directory[](fg:#0c72cb bg:yellow)$git_branch$git_status$git_metrics[](fg:yellow bg:#86BBD8)$lua$c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala$dotnet$docker_context$nix_shell[ ](fg:#86BBD8)$line_break[]()"
+format = "$os$username($hostname)[ ](bg:#dcdcdc #000000)[](bg:#0c72cb fg:#dcdcdc)$directory[](fg:#0c72cb bg:yellow)$git_branch$git_status$git_metrics[](fg:yellow bg:#86BBD8)$lua$c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala$dotnet$docker_context$nix_shell[ ](fg:#86BBD8)$line_break[ ]()"
 right_format = "$status[](fg:#dcdcdc)$time"
 
 [c]
