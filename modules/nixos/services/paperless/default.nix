@@ -29,6 +29,11 @@ in {
       default = "paperless";
       example = "localhost";
     };
+
+    gotenbergPort = mkOption {
+      type = types.number;
+      default = 43467;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -73,14 +78,19 @@ in {
         };
       };
 
+      gotenberg = {
+        port = cfg.gotenbergPort;
+      };
       paperless = {
         inherit (cfg) enable;
 
         consumptionDir = config.${namespace}.services.samba.printerPath;
 
         port = 28981;
+        configureTika = true;
         settings = {
           PAPERLESS_OCR_LANGUAGE = "eng+fin+swe";
+          PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://localhost:${toString config.services.gotenberg.port}";
         };
       };
     };
