@@ -64,6 +64,7 @@
       uptime-kuma.enable = true;
 
 
+
       # Monitor disk health and send notifications.
       smartd.enable = true;
 
