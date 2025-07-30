@@ -15,7 +15,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; (optionals (!config.${namespace}.hardware.video.terminalOnly) [
+    environment.systemPackages = with pkgs; (optionals (config.${namespace}.hardware.video.displayBackend != "terminal") [
       qpwgraph
     ]);
     security.rtkit.enable = true;

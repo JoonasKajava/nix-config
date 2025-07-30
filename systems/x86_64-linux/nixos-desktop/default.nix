@@ -58,8 +58,10 @@ with lib.${namespace}; {
       gpu.amd.enable = true;
       audio.enable = true;
       keyboards.bazecor.enable = true;
+
       video = {
-        enable = true;
+        displayBackend = "wayland";
+
         monitors = rec {
           DP-2 = {
             width = 2560;
