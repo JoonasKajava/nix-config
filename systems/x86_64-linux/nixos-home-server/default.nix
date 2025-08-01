@@ -41,6 +41,7 @@
   };
 
   lumi = {
+    hardware.video.displayBackend = "terminal";
     suites = {
       cli.enable = true;
       system-utilities.enable = true;
@@ -62,6 +63,7 @@
       homepage-dashboard.enable = true;
       changedetection-io.enable = true;
       uptime-kuma.enable = true;
+      home-assistant.enable = true;
 
 
 
