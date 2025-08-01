@@ -47,8 +47,10 @@ in {
         "withings"
         "tplink"
         "tplink_tapo"
+        "mobile_app"
       ];
       config = {
+        default_config = {};
         homeassistant = {
           unit_system = "metric";
         };
