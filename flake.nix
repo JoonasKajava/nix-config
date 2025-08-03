@@ -62,7 +62,7 @@
       homes.modules = with inputs; [
         plasma-manager.homeManagerModules.plasma-manager
         catppuccin.homeModules.catppuccin
-        nix-index-database.hmModules.nix-index
+        nix-index-database.homeModules.nix-index
       ];
 
       systems.modules.nixos = with inputs;

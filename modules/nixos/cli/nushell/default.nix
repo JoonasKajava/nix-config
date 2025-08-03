@@ -31,7 +31,6 @@ in {
   config = mkIf cfg.enable {
     users.defaultUserShell = pkgs.nushell;
 
-
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       home.shell.enableNushellIntegration = true;
       programs = {
