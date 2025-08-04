@@ -26,7 +26,7 @@ with lib.${namespace}; {
     cli.nushell.showFastfetchOnStartup = false;
 
     services = {
-      donetick.enable = true;
+      donetick.enable = false;
       wallos.enable = true;
 
       ntfy.enable = true;

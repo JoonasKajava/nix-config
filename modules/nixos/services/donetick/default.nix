@@ -113,9 +113,11 @@ in {
     services = {
       caddy = {
         enable = true;
+        enableCloudflareIntegration = true;
         virtualHosts = {
           "${cfg.address}".extraConfig = ''
             reverse_proxy http://127.0.0.1:${builtins.toString cfg.internalPort}
+            import cloudflare
           '';
         };
       };
