@@ -25,10 +25,6 @@ with lib.${namespace}; {
     # This is slow on the server, so disable it.
     cli.nushell.showFastfetchOnStartup = false;
 
-    services = {
-      ntfy.enable = true;
-
-    };
   };
 
   lumi.services.ssh.enable = true;

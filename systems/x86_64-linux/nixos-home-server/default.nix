@@ -58,7 +58,7 @@
       donetick.enable = true;
       wallos.enable = true;
 
-      ntfy.enable = false;
+      ntfy.enable = true;
       immich.enable = true;
       homepage-dashboard.enable = true;
       changedetection-io.enable = true;

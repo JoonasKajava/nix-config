@@ -59,15 +59,14 @@ in {
         config.sops.templates."ntfy-env".path
       ];
     };
-
-    # systemd.tmpfiles.rules = [
-    #   "d /var/cache/ntfy-sh 0600 ntfy-sh ntfy-sh"
-    # ];
-
-    services.caddy.virtualHosts."${cfg.host}" = {
-      extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString cfg.internalPort}
-      '';
+    services.caddy = {
+      enableCloudflareIntegration = true;
+      virtualHosts."${cfg.host}" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:${toString cfg.internalPort}
+          import cloudflare
+        '';
+      };
     };
   };
 }
