@@ -56,7 +56,7 @@
       karakeep.enable = true;
       mealie.enable = true;
       donetick.enable = true;
-      wallos.enable = false;
+      wallos.enable = true;
 
       ntfy.enable = false;
       immich.enable = true;

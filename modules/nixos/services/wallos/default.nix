@@ -8,7 +8,7 @@
   inherit (lib) mkEnableOption mkIf mkOption types;
 
   cfg = config.${namespace}.services.wallos;
-  homeFolder = "/var/www/wallos";
+  homeFolder = "/var/lib/wallos";
 in {
   options.${namespace}.services.wallos = {
     enable = mkEnableOption "Whether to enable wallos service";
@@ -48,9 +48,11 @@ in {
     };
     services.caddy = {
       enable = true;
+      enableCloudflareIntegration = true;
       virtualHosts = {
         ${cfg.address}.extraConfig = ''
           reverse_proxy http://localhost:${toString cfg.internalPort}
+          import cloudflare
         '';
       };
     };
