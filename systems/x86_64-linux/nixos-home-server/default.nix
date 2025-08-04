@@ -64,6 +64,8 @@
       changedetection-io.enable = true;
       uptime-kuma.enable = true;
       home-assistant.enable = true;
+      wakapi-server.enable = true;
+
 
 
 

@@ -9,7 +9,6 @@ with lib;
 with lib.${namespace}; {
   imports = [
     ./gandicloud.nix
-    ./wakapi.nix
   ];
 
   users.users.joonas.openssh.authorizedKeys.keys = [
@@ -17,6 +16,7 @@ with lib.${namespace}; {
   ];
 
   lumi = {
+    hardware.video.displayBackend = "terminal";
     suites.cli.enable = true;
     suites.system-utilities.enable = true;
 
