@@ -20,6 +20,11 @@ in {
 
   config = mkIf cfg.enable {
     sops = {
+      secrets = {
+        home-assistant-api = {
+          restartUnits = ["homepage-dashboard.service"];
+        };
+      };
       templates = {
         "immich-env" = {
           restartUnits = ["homepage-dashboard.service"];
@@ -29,6 +34,7 @@ in {
             HOMEPAGE_VAR_MEALIE_API=${config.sops.placeholder."mealie-api"}
             HOMEPAGE_VAR_CHANGEDETECTION_API=${config.sops.placeholder."changedetection-api"}
             HOMEPAGE_VAR_UPTIME_KUMA_API=${config.sops.placeholder."uptime-kuma-api"}
+            HOMEPAGE_VAR_HOME_ASSISTANT_API=${config.sops.placeholder."home-assistant-api"}
           '';
         };
       };
@@ -111,6 +117,18 @@ in {
                   type = "uptimekuma";
                   url = href;
                   slug = "all";
+                };
+              };
+            }
+            {
+              "Home Assistant" = rec {
+                icon = mkIcon "home-assistant";
+                href = "https://home-assistant.joonaskajava.com";
+                description = "Home automation platform";
+                widget = {
+                  type = "homeassistant";
+                  url = href;
+                  key = "{{HOMEPAGE_VAR_HOME_ASSISTANT_API}}";
                 };
               };
             }
