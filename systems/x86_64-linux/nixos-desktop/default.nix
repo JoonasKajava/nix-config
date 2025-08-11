@@ -15,18 +15,16 @@ with lib.${namespace}; {
     };
   };
 
-  # temp
-  services.tailscale.enable = true;
-
   lumi = {
-    suites.cli.enable = true;
-    suites.system-utilities.enable = true;
+    suites = {
+      cli.enable = true;
+      system-utilities.enable = true;
 
-    suites.hyprland.enable = false;
+      hyprland.enable = false;
+    };
     desktop.kde.enable = true;
 
     apps = {
-
       kdeconnect.enable = true;
       obsidian.enable = true;
       _1password.enable = true;
@@ -93,8 +91,9 @@ with lib.${namespace}; {
 
     services = {
       printing.enable = true;
+      tailscale.enable = true;
 
-        # Disable docker for now.
+      # Disable docker for now.
       docker.enable = false;
 
       systemd-notifications.enable = true;
