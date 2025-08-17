@@ -1,16 +1,13 @@
 {
   lib,
   config,
-  pkgs,
+  inputs,
   namespace,
+  system,
   ...
 }: let
   cfg = config.${namespace}.cli.fastfetch;
 
-  birthScript = pkgs.writeShellScriptBin "birth.nu" ''
-    #! nix-shell -i nu -p nushell
-    stat /etc/nixos/ | lines | parse "{key}: {value}" | str trim | where key == "Birth" | get 0.value | into datetime
-  '';
 in {
   options.${namespace}.cli.fastfetch = {
     enable = lib.mkEnableOption "fastfetch";
@@ -27,7 +24,7 @@ in {
           "kernel"
           {
             type = "command";
-            text = "nix-shell ${lib.getExe birthScript}";
+            text = "${lib.getExe inputs.system-age.packages.${system}.default} -e";
             key = "Birth";
           }
           "uptime"

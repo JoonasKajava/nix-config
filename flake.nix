@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.snowfall-lib.follows = "snowfall-lib";
     };
+    system-age = {
+      url = "git+ssh://git@github.com/JoonasKajava/system-age";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     my-nvf = {
       url = "github:JoonasKajava/nvf-config";
     };
