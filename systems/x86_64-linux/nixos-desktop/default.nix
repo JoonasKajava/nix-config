@@ -42,7 +42,7 @@ with lib.${namespace}; {
       heroic.enable = true;
 
       jetbrains = {
-        enable = false; #TODO:enable once build is fixed
+        enable = true;
         ide = {
           rider = true;
           rust-rover = true;
