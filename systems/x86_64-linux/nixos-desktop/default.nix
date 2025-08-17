@@ -14,6 +14,9 @@ with lib.${namespace}; {
       efi.canTouchEfiVariables = true;
     };
   };
+  
+  # try fix windows clock issue
+  time.hardwareClockInLocalTime = true;
 
   lumi = {
     suites = {
