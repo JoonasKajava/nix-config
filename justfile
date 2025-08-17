@@ -5,7 +5,7 @@ rebuild-boot:
 upgrade:
     nix flake update
 upgrade-my-configs: 
-    nix flake update lumi-private my-nvf
+    nix flake update lumi-private my-nvf system-age
 optimize:
     devenv gc; sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'
 mount-latest-backup:

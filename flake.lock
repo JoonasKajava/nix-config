@@ -681,11 +681,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1755441929,
-        "narHash": "sha256-h1qXZ0Qr91Gg2vWSb8/riMeU1AscJ4OXSrvE3wQJSp8=",
+        "lastModified": 1755442330,
+        "narHash": "sha256-Twrgjfs33BV9B3+hBnX2ib60uyYqG1//ACYSKgZ1F8s=",
         "ref": "refs/heads/master",
-        "rev": "85a3e9e30665a3c31b3d1ebd5b8d73b3ad5588a6",
-        "revCount": 8,
+        "rev": "bf0412e56a6a9e6dbb21436ff9f884b23dc6fbb6",
+        "revCount": 9,
         "type": "git",
         "url": "ssh://git@github.com/JoonasKajava/system-age"
       },
