@@ -49,9 +49,6 @@
 
     cli.zellij.enableNushellIntegration = false;
 
-    # This is slow on the server, so disable it.
-    cli.nushell.showFastfetchOnStartup = false;
-
     services = {
       karakeep.enable = true;
       mealie.enable = true;
@@ -65,9 +62,6 @@
       uptime-kuma.enable = true;
       home-assistant.enable = true;
       wakapi-server.enable = true;
-
-
-
 
       # Monitor disk health and send notifications.
       smartd.enable = true;
