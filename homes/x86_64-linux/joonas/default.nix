@@ -20,6 +20,7 @@ in {
 
         firefox.enable = true;
         ferdium.enable = true;
+        vscode.enable = true;
 
         ghostty.enable = false;
       };
