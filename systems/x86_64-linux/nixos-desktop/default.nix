@@ -14,7 +14,7 @@ with lib.${namespace}; {
       efi.canTouchEfiVariables = true;
     };
   };
-  
+
   # try fix windows clock issue
   time.hardwareClockInLocalTime = true;
 
@@ -32,9 +32,9 @@ with lib.${namespace}; {
       obsidian.enable = true;
       _1password.enable = true;
       gimp.enable = true;
-      kdenlive.enable = true;
+      kdenlive.enable = false;
       discord.enable = true;
-      minecraft.enable = true;
+      minecraft.enable = false;
       steam.enable = true;
       lutris.enable = true;
       kitty.enable = true;
@@ -46,10 +46,7 @@ with lib.${namespace}; {
 
       jetbrains = {
         enable = true;
-        ide = {
-          rider = true;
-          rust-rover = true;
-        };
+        ide.rust-rover = true;
       };
     };
 
