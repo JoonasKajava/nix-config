@@ -2,11 +2,9 @@
   lib,
   config,
   namespace,
-  pkgs,
   ...
 }: let
-  inherit (lib) types mkEnableOption mkIf;
-  inherit (lib.${namespace}) mkOpt;
+  inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.cli.zellij;
 in {
@@ -27,6 +25,32 @@ in {
         settings = {
           default_mode = "locked";
           show_startup_tips = false;
+          keybinds = {
+            normal = let
+              nums = builtins.genList (n: n + 1) 9 ++ [0];
+            in
+              builtins.listToAttrs (map (i: {
+                  name = ''bind "${toString i}"'';
+                  value = {
+                    GoToTab =
+                      if i == 0
+                      then 10
+                      else i;
+                    SwitchToMode = "Locked";
+                  };
+                })
+                nums)
+              // builtins.listToAttrs (map (i: {
+                  name = ''bind "Ctrl ${toString i}"'';
+                  value = {
+                    GoToTab =
+                      if i == 0
+                      then 10
+                      else i;
+                  };
+                })
+                nums);
+          };
         };
       };
 
