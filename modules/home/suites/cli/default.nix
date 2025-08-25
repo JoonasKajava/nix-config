@@ -25,6 +25,7 @@ in {
       fastfetch.enable = true;
       yazi.enable = true;
       btop.enable = true;
+      zoxide.enable = true;
     };
   };
 }
