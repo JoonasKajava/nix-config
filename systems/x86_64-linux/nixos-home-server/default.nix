@@ -19,14 +19,14 @@
   ];
 
   services.logind = {
-    lidSwitch = "ignore";
-    lidSwitchDocked = "ignore";
-    lidSwitchExternalPower = "ignore";
-    extraConfig = ''
-      IdleAction=ignore
-      HandlePowerKey=ignore
-      HandleSuspendKey=ignore
-    '';
+    settings.Login = {
+      HandleLidSwitch = "ignore";
+      HandleLidSwitchDocked = "ignore";
+      HandleLidSwitchExternalPower = "ignore";
+      HandlePowerKey = "ignore";
+      HandleSuspendKey = "ignore";
+      IdleAction = "ignore";
+    };
   };
 
   # This laptop has overheating issues, so just limit the cpu for now.
