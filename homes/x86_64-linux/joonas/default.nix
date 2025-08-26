@@ -8,8 +8,13 @@
   inherit (lib) mkIf;
   mkIfHost = list: content: mkIf (builtins.elem host list) content;
 in {
+
   lumi = {
     suites.cli.enable = true;
+
+    services = {
+      syncthing.enable = true;
+    };
 
     apps =
       {
