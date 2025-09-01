@@ -123,6 +123,7 @@ with lib.${namespace}; {
   environment.systemPackages = with pkgs; [
     wowup-cf
     slack
+    obs-studio
   ];
 
   # Enable networking
