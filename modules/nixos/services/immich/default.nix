@@ -36,6 +36,7 @@ in {
       immich = {
         enable = true;
         accelerationDevices = null;
+        database.enableVectors = true;
         # I just sops templates to create config file
         settings = null;
         environment = {
