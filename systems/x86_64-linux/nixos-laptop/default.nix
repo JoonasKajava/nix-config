@@ -40,6 +40,7 @@
     # List services that you want to enable:
 
     lumi = {
+      hardware.video.displayBackend = "wayland";
       suites.cli.enable = true;
 
       apps = {
