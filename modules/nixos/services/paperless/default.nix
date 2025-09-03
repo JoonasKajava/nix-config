@@ -87,6 +87,7 @@ in {
         consumptionDir = config.${namespace}.services.samba.printerPath;
 
         port = 28981;
+        domain = cfg.address;
         configureTika = true;
         settings = {
           PAPERLESS_OCR_LANGUAGE = "eng+fin+swe";
