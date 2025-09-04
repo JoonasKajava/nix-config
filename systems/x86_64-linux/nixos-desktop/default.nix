@@ -34,7 +34,7 @@ with lib.${namespace}; {
       gimp.enable = true;
       kdenlive.enable = false;
       discord.enable = true;
-      minecraft.enable = false;
+      minecraft.enable = true;
       steam.enable = true;
       lutris.enable = true;
       kitty.enable = true;
