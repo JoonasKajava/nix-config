@@ -34,7 +34,10 @@ with lib.${namespace}; {
       gimp.enable = true;
       kdenlive.enable = false;
       discord.enable = true;
-      minecraft.enable = true;
+      minecraft = {
+        enable = true;
+        openServerPorts = false;
+      };
       steam.enable = true;
       lutris.enable = true;
       kitty.enable = true;
@@ -123,7 +126,6 @@ with lib.${namespace}; {
   environment.systemPackages = with pkgs; [
     wowup-cf
     slack
-    ftb-app
   ];
 
   # Enable networking
@@ -134,10 +136,6 @@ with lib.${namespace}; {
     layout = "us";
     variant = "";
   };
-networking.firewall = lib.mkIf false {
-  allowedTCPPorts = [25565];
-  allowedUDPPorts = [25565];
-};
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
