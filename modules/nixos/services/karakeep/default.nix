@@ -2,6 +2,7 @@
   lib,
   config,
   namespace,
+  pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf mkOption types;
@@ -36,8 +37,12 @@ in {
           '';
         };
       };
-
-      meilisearch.settings.experimental_dumpless_upgrade = true;
+      meilisearch = {
+        # settings = {
+        #   experimental_dumpless_upgrade = true;
+        # };
+        package = pkgs.meilisearch_1_11;
+      };
       karakeep = {
         enable = true;
         extraEnvironment = rec {
