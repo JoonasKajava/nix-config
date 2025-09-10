@@ -31,12 +31,14 @@ with lib.${namespace}; {
       kdeconnect.enable = true;
       obsidian.enable = true;
       _1password.enable = true;
-      gimp.enable = true;
+
+      gimp.enable = false;
+
       kdenlive.enable = false;
       discord.enable = true;
       minecraft = {
         enable = true;
-        openServerPorts = false;
+        openServerPorts = true;
       };
       steam.enable = true;
       lutris.enable = true;
@@ -44,7 +46,7 @@ with lib.${namespace}; {
       easyeffects.enable = true;
       vlc.enable = true;
       parsec.enable = true;
-      onlyoffice.enable = true;
+      onlyoffice.enable = false;
       heroic.enable = true;
 
       jetbrains = {
@@ -95,9 +97,6 @@ with lib.${namespace}; {
     services = {
       printing.enable = true;
       tailscale.enable = true;
-
-      # Disable docker for now.
-      docker.enable = false;
 
       systemd-notifications.enable = true;
 
