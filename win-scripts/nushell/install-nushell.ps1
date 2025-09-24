@@ -3,6 +3,7 @@
     Exit
 }
 
+winget install ajeetdsouza.zoxide
 
 winget install nushell
 winget install -e --id rsteube.Carapace
