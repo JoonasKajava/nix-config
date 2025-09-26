@@ -265,8 +265,8 @@ nmap gR <Action>(FindUsages)
 nmap gI <Action>(GotoImplementation)
 " Goto Type Definition
 nmap gy <Action>(GotoTypeDeclaration)
-" Goto Declaration
-nmap gD <Action>(GotoDeclaration)
+" Goto Super Method
+nmap gD <Action>(GotoSuperMethod)
 " Signature Help
 nmap gK <Action>(ParameterInfo)
 " Hover Info
