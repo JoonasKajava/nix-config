@@ -35,6 +35,11 @@ in {
 
       immich = {
         enable = true;
+        package = pkgs.immich.override {
+          vips = pkgs.vips.overrideAttrs (prev: {
+            mesonFlags = prev.mesonFlags ++ ["-Dtiff=disabled"];
+          });
+        };
         accelerationDevices = null;
         database.enableVectors = true;
         # I just sops templates to create config file
@@ -75,6 +80,5 @@ in {
     systemd.services.immich = {
       after = ["sops-nix.service"];
     };
-
   };
 }
