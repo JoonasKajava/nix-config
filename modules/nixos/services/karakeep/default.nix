@@ -37,12 +37,6 @@ in {
           '';
         };
       };
-      meilisearch = {
-        # settings = {
-        #   experimental_dumpless_upgrade = true;
-        # };
-        package = pkgs.meilisearch_1_11;
-      };
       karakeep = {
         enable = true;
         extraEnvironment = rec {
