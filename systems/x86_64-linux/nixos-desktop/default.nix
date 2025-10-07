@@ -38,7 +38,7 @@ with lib.${namespace}; {
       discord.enable = true;
       minecraft = {
         enable = true;
-        openServerPorts = true;
+        openServerPorts = false;
       };
       steam.enable = true;
       lutris.enable = true;

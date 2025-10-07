@@ -31,6 +31,8 @@ in {
           vscode.enable = true;
 
           ghostty.enable = false;
+          
+          anki.enable = true;
         })
     ];
   };
