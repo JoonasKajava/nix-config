@@ -45,6 +45,11 @@
       url = "github:KroneCorylus/ghostty-shader-playground";
       flake = false;
     };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -74,6 +79,7 @@
         [
           catppuccin.nixosModules.catppuccin
           nix-index-database.nixosModules.nix-index
+          lanzaboote.nixosModules.lanzaboote
         ]
         ++ (builtins.attrValues lumi-private.nixosModules);
     };
