@@ -17,7 +17,8 @@ in {
       enable = true;
       settings = {
         #theme = "Kitty Default";
-        theme = "TokyoNight Night";
+        #theme = "TokyoNight Night";
+        theme = "TokyoNight Storm";
         custom-shader = [
           "${./shaders/cursor_smear.glsl}"
         ];
