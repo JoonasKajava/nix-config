@@ -30,7 +30,7 @@ in {
           ferdium.enable = true;
           vscode.enable = true;
 
-          ghostty.enable = false;
+          ghostty.enable = true;
         })
     ];
   };

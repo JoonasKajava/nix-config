@@ -42,7 +42,6 @@ with lib.${namespace}; {
       };
       steam.enable = true;
       lutris.enable = true;
-      kitty.enable = true;
       easyeffects.enable = true;
       vlc.enable = true;
       parsec.enable = true;

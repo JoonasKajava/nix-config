@@ -23,6 +23,7 @@ in {
         enable = true;
         enableZshIntegration = true;
         settings = {
+          theme = "tokyo-night-dark";
           default_mode = "locked";
           show_startup_tips = false;
           keybinds = {

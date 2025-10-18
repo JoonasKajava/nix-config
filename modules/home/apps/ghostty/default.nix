@@ -2,7 +2,6 @@
   lib,
   config,
   namespace,
-  inputs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
@@ -17,10 +16,13 @@ in {
     programs.ghostty = {
       enable = true;
       settings = {
+        #theme = "Kitty Default";
+        theme = "TokyoNight Night";
         custom-shader = [
-          "${inputs.ghostty-shaders}/shaders/cursor_smear.glsl"
+          "${./shaders/cursor_smear.glsl}"
         ];
       };
+
     };
   };
 }

@@ -41,11 +41,6 @@
     };
     catppuccin.url = "github:catppuccin/nix";
 
-    ghostty-shaders = {
-      url = "github:KroneCorylus/ghostty-shader-playground";
-      flake = false;
-    };
-
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
