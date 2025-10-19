@@ -51,6 +51,12 @@ in {
                   };
                 })
                 nums);
+            locked = {
+              "bind \"Ctrl h\"" = {MoveFocus = "Left";};
+              "bind \"Ctrl j\"" = {MoveFocus = "Down";};
+              "bind \"Ctrl k\"" = {MoveFocus = "Up";};
+              "bind \"Ctrl l\"" = {MoveFocus = "Right";};
+            };
           };
         };
       };
