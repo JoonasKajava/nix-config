@@ -20,9 +20,14 @@ in {
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.git = {
         enable = true;
-        inherit (cfg) userName userEmail;
+
         lfs.enable = true;
-        extraConfig = {
+        settings = {
+          user = {
+            email = cfg.userEmail;
+            name = cfg.userName;
+          };
+
           safe.directory = "/etc/nixos";
           push.autoSetupRemote = true;
         };
