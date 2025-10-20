@@ -30,7 +30,8 @@ in {
           ferdium.enable = true;
           vscode.enable = true;
 
-          ghostty.enable = true;
+          # laggy for some reason
+          ghostty.enable = false;
           kitty.enable = true;
         })
     ];
