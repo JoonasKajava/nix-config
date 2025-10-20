@@ -22,8 +22,7 @@ in {
       enable = true;
       settings = {
         font-family = "FiraMono Nerd Font Mono";
-        #theme = "Kitty Default";
-        #theme = "TokyoNight Night";
+        mouse-scroll-multiplier = 0.3;
         theme = "TokyoNight Moon";
         custom-shader = [
           "${./shaders/cursor_smear.glsl}"
