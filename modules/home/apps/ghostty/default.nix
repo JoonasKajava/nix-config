@@ -2,6 +2,7 @@
   lib,
   config,
   namespace,
+  pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
@@ -13,9 +14,14 @@ in {
   };
 
   config = mkIf cfg.enable {
+    fonts.fontconfig.enable = true;
+    home.packages = with pkgs.nerd-fonts; [
+      fira-mono
+    ];
     programs.ghostty = {
       enable = true;
       settings = {
+        font-family = "FiraMono Nerd Font Mono";
         #theme = "Kitty Default";
         #theme = "TokyoNight Night";
         theme = "TokyoNight Moon";
