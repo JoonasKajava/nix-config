@@ -45,6 +45,11 @@
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    kitty-themes = {
+      url = "github:kovidgoyal/kitty-themes";
+      flake = false;
+    };
   };
 
   outputs = inputs:

@@ -389,6 +389,22 @@
         "type": "github"
       }
     },
+    "kitty-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761036293,
+        "narHash": "sha256-pA2G19ZXyU2M8XZYNsRvJ2AuVN9Wxp/tFs2zpXkv9yQ=",
+        "owner": "kovidgoyal",
+        "repo": "kitty-themes",
+        "rev": "b52b91134687c8869d8f87e665d5f5dec8140d10",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kovidgoyal",
+        "repo": "kitty-themes",
+        "type": "github"
+      }
+    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -726,6 +742,7 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
+        "kitty-themes": "kitty-themes",
         "lanzaboote": "lanzaboote",
         "lumi-private": "lumi-private",
         "my-nvf": "my-nvf",

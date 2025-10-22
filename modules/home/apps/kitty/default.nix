@@ -3,10 +3,10 @@
   config,
   namespace,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  inherit (lib.${namespace});
 
   cfg = config.${namespace}.apps.kitty;
 in {
@@ -25,6 +25,7 @@ in {
       settings = {
         cursor_trail = 3;
         confirm_os_window_close = 0;
+        include = "${inputs.kitty-themes}/themes/tokyo_night_moon.conf";
       };
     };
   };
