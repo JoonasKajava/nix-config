@@ -24,7 +24,7 @@ in {
         isNormalUser = true;
         inherit (cfg) name;
         description = cfg.fullName;
-        extraGroups = ["networkmanager" "wheel"] ++ cfg.extraGroups;
+        extraGroups = ["networkmanager" "wheel" "postgres"] ++ cfg.extraGroups;
         # TODO: Fix this
         #hashedPasswordFile = config.sops.secrets."hashed-password/${cfg.name}".path;
       }

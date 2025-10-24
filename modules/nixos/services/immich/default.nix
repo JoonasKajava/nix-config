@@ -30,8 +30,7 @@ in {
     };
 
     services = {
-      # Immich does not support PostgreSQL 17 yet
-      postgresql.package = pkgs.postgresql_16;
+      postgresql.package = pkgs.postgresql_17;
 
       immich = {
         enable = true;
@@ -41,7 +40,7 @@ in {
           });
         };
         accelerationDevices = null;
-        database.enableVectors = true;
+        #database.enableVectors = true;
         # I just sops templates to create config file
         settings = null;
         environment = {
