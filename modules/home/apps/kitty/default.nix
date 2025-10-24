@@ -24,6 +24,8 @@ in {
       enable = true;
       settings = {
         cursor_trail = 3;
+        wheel_scroll_multiplier = 0.3;
+        touch_scroll_multiplier = 0.3;
         confirm_os_window_close = 0;
         include = "${inputs.kitty-themes}/themes/tokyo_night_moon.conf";
       };
