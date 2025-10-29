@@ -23,7 +23,7 @@ in {
         enable = true;
         enableZshIntegration = true;
         settings = {
-          theme = "tokyo-night-storm";
+          theme = "tokyo-night-moon";
           default_mode = "locked";
           show_startup_tips = false;
           keybinds = {
@@ -56,6 +56,27 @@ in {
               "bind \"Ctrl j\"" = {MoveFocus = "Down";};
               "bind \"Ctrl k\"" = {MoveFocus = "Up";};
               "bind \"Ctrl l\"" = {MoveFocus = "Right";};
+            };
+          };
+        };
+        themes = {
+          "tokyo-night-moon" = {
+            themes = {
+              "tokyo-night-moon" = {
+                fg = "#c8d3f5";
+                bg = "#2f334d";
+                # Black should match the terminal background color
+                # This ensures the top and bottom bars are transparent
+                black = "#222436";
+                red = "#ff757f";
+                green = "#c3e88d";
+                yellow = "#ffc777";
+                blue = "#82aaff";
+                magenta = "#c099ff";
+                cyan = "#86e1fc";
+                white = "#828bb8";
+                orange = "#ff966c";
+              };
             };
           };
         };
