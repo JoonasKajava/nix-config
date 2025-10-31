@@ -2,6 +2,7 @@
   pkgs,
   lib,
   namespace,
+  config,
   ...
 }:
 with lib;
@@ -102,9 +103,19 @@ with lib.${namespace}; {
       paperless = {
         enable = true;
         localOnly = true;
-        paperless-ai.enable = true;
+        # Disable this to "Free" port 8000
+        paperless-ai.enable = false;
       };
     };
+  };
+
+  virtualisation = lib.mkIf (config.lumi.services.paperless.paperless-ai.enable == false) {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    }; 
   };
 
   lumi-private = {
