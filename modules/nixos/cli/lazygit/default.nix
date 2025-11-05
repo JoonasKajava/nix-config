@@ -29,7 +29,7 @@ in {
           gui = {
           };
           git = {
-            paging.externalDiffCommand = "difft --color=always";
+            pagers = [{externalDiffCommand = "difft --color=always";}];
             disableForcePushing = true;
           };
           customCommands = [
