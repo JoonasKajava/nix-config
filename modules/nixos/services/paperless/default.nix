@@ -68,6 +68,9 @@ in {
       ];
     };
 
+    # Paperless blocks shutdown way too often, so we set a reasonable timeout
+    systemd.services.paperless-task-queue.serviceConfig.TimeoutSec = 15;
+
     services = {
       caddy = mkIf (!cfg.localOnly) {
         enable = true;
