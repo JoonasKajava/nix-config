@@ -495,6 +495,9 @@ nmap <leader>tw <Action>(ToggleTestWatch)
 " Debug Nearest
 nmap <leader>td <Action>(ChooseDebugConfiguration)
 
+
+nmap <leader>; <Action>(ActivateStructureToolWindow)
+
 " Neovim mappings
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
 
