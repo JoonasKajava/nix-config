@@ -51,7 +51,6 @@
         gimp.enable = true;
         discord.enable = true;
         steam.enable = true;
-        kitty.enable = true;
         vlc.enable = true;
         jetbrains = {
           enable = false;

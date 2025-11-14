@@ -16,7 +16,7 @@ in {
     services.caddy = {
       package = pkgs.caddy.withPlugins {
         plugins = ["github.com/caddy-dns/cloudflare@v0.2.1"];
-        hash = "sha256-iRzpN9awuEFsc7hqKzOMNiCFFEv833xhd4LM+VFQedI=";
+        hash = "sha256-aRMg7R0dBAy+LJeGCMPg6HKppM6NPX2NPwtc0CeSQLg=";
       };
       extraConfig = mkIf enableCloudflareIntegration ''
         (cloudflare) {
