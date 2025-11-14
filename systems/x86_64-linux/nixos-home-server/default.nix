@@ -51,7 +51,7 @@
 
     services = {
       karakeep.enable = true;
-      mealie.enable = true;
+      mealie.enable = false;
       donetick.enable = true;
       wallos.enable = true;
 
