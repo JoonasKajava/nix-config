@@ -18,27 +18,13 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/I9fBvav2dg4zYvScZ/+ipDEs68WylJAEYTYwwRWDk"
   ];
 
-  services.logind = {
-    settings.Login = {
-      HandleLidSwitch = "ignore";
-      HandleLidSwitchDocked = "ignore";
-      HandleLidSwitchExternalPower = "ignore";
-      HandlePowerKey = "ignore";
-      HandleSuspendKey = "ignore";
-      IdleAction = "ignore";
-    };
-  };
-
-  # This laptop has overheating issues, so just limit the cpu for now.
-  powerManagement.cpuFreqGovernor = "powersave";
-  powerManagement.cpufreq.max = 1700000;
-  services.thermald.enable = true;
 
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    kernelParams = ["button.lid_init_state=open"];
   };
+
+  services.thermald.enable = true;
 
   lumi = {
     hardware.video.displayBackend = "terminal";
