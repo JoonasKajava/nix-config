@@ -34,6 +34,11 @@ in {
       #image = lib.mkForce "dgtlmoon/sockpuppetbrowser:latest";
     };
 
+    environment.systemPackages = with pkgs; [
+      playwright
+      python313Packages.playwright
+    ];
+
     services = {
       caddy.virtualHosts."${cfg.host}" = {
         extraConfig = ''
