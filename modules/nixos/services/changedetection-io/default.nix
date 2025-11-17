@@ -2,6 +2,7 @@
   lib,
   config,
   namespace,
+  pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf mkOption;
@@ -27,6 +28,10 @@ in {
       behindProxy = true;
       baseURL = "https://${cfg.host}";
       playwrightSupport = true;
+    };
+    virtualisation.oci-containers.containers.changedetection-io-playwright = {
+      extraOptions = ["--pull=newer"];
+      #image = lib.mkForce "dgtlmoon/sockpuppetbrowser:latest";
     };
 
     services = {
