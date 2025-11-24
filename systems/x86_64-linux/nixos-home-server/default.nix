@@ -58,6 +58,8 @@
         paperless-ai.enable = true;
       };
 
+      myspeed.enable = true;
+
       tailscale = {
         enable = true;
         authKeyFile = config.sops.secrets.tailscale-auth-key.path;

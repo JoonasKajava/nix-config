@@ -146,6 +146,17 @@ in {
                 };
               };
             }
+            {
+              "MySpeed" = rec {
+                icon = mkIcon "myspeed";
+                href = "https://myspeed.joonaskajava.com";
+                description = "Self-hosted internet speed test";
+                widget = {
+                  type = "myspeed";
+                  url = href;
+                };
+              };
+            }
           ];
         }
       ];
