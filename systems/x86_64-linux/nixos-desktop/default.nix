@@ -99,23 +99,16 @@ with lib.${namespace}; {
       tailscale.enable = true;
 
       systemd-notifications.enable = true;
-
-      paperless = {
-        enable = true;
-        localOnly = true;
-        # Disable this to "Free" port 8000
-        paperless-ai.enable = false;
-      };
     };
   };
 
-  virtualisation = lib.mkIf (config.lumi.services.paperless.paperless-ai.enable == false) {
+  virtualisation = {
     containers.enable = true;
     podman = {
       enable = true;
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
-    }; 
+    };
   };
 
   lumi-private = {

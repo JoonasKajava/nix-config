@@ -19,15 +19,17 @@ in {
             type = types.number;
             default = 3000;
           };
+          address = mkOption {
+            type = types.str;
+            default = "paperless-ai.joonaskajava.com";
+          };
         };
       };
     };
 
-    localOnly = mkEnableOption "Whether to configure paperless for local access only";
     address = mkOption {
       type = types.str;
-      default = "paperless";
-      example = "localhost";
+      default = "paperless.joonaskajava.com";
     };
 
     gotenbergPort = mkOption {
@@ -37,10 +39,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    networking.hosts = mkIf cfg.localOnly {
-      "127.0.0.1" = [cfg.address];
-    };
-
     lumi.services.samba.enable = true;
 
     virtualisation = mkIf cfg.paperless-ai.enable {
@@ -69,14 +67,17 @@ in {
     };
 
     # Paperless blocks shutdown way too often, so we set a reasonable timeout
-    systemd.services.paperless-task-queue.serviceConfig.TimeoutSec = 15;
+    # systemd.services.paperless-task-queue.serviceConfig.TimeoutSec = 15;
 
     services = {
-      caddy = mkIf (!cfg.localOnly) {
+      caddy = {
         enable = true;
         virtualHosts = {
           "${cfg.address}".extraConfig = ''
             reverse_proxy http://127.0.0.1:${builtins.toString config.services.paperless.port}
+          '';
+          "${cfg.paperless-ai.address}".extraConfig = ''
+            reverse_proxy http://127.0.0.1:${builtins.toString cfg.paperless-ai.port}
           '';
         };
       };

@@ -53,6 +53,11 @@
       # Monitor disk health and send notifications.
       smartd.enable = true;
 
+      paperless = {
+        enable = true;
+        paperless-ai.enable = true;
+      };
+
       tailscale = {
         enable = true;
         authKeyFile = config.sops.secrets.tailscale-auth-key.path;
