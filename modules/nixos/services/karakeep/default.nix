@@ -56,7 +56,7 @@ in {
           DISABLE_SIGNUPS = "true";
           CRAWLER_FULL_PAGE_SCREENSHOT = "true";
           CRAWLER_FULL_PAGE_ARCHIVE = "true";
-          MAX_ASSET_SIZE_MB = "100";
+          MAX_ASSET_SIZE_MB = "1000";
           CRAWLER_VIDEO_DOWNLOAD_MAX_SIZE = MAX_ASSET_SIZE_MB;
           CRAWLER_VIDEO_DOWNLOAD = "true";
           NEXT_CACHE_DIR = "%C/karakeep";
