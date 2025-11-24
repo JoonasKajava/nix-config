@@ -418,11 +418,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1759826741,
-        "narHash": "sha256-djoGhn5xJoWtVyqbJVQuUsANTtepSoJftZ3nXYzIqTM=",
+        "lastModified": 1764021889,
+        "narHash": "sha256-4/ZKOi/bytiDcueYlcQCjuOa0PdW4rAQVfsLswDMBC0=",
         "ref": "refs/heads/master",
-        "rev": "9add699fd34ffe19269b4cb78890dd4b80e724db",
-        "revCount": 143,
+        "rev": "a98ad00d1fd37097f443179bcd31522be8a2c9f4",
+        "revCount": 144,
         "type": "git",
         "url": "ssh://git@github.com/JoonasKajava/nix-config-private"
       },

@@ -24,9 +24,10 @@ in {
         home-assistant-api = {
           restartUnits = ["homepage-dashboard.service"];
         };
+        paperless-api = {};
       };
       templates = {
-        "immich-env" = {
+        "homepage-env" = {
           restartUnits = ["homepage-dashboard.service"];
           content = ''
             HOMEPAGE_VAR_IMMICH_API=${config.sops.placeholder."immich-api"}
@@ -35,6 +36,7 @@ in {
             HOMEPAGE_VAR_CHANGEDETECTION_API=${config.sops.placeholder."changedetection-api"}
             HOMEPAGE_VAR_UPTIME_KUMA_API=${config.sops.placeholder."uptime-kuma-api"}
             HOMEPAGE_VAR_HOME_ASSISTANT_API=${config.sops.placeholder."home-assistant-api"}
+            HOMEPAGE_VAR_PAPERLESS_API=${config.sops.placeholder."paperless-api"}
           '';
         };
       };
@@ -43,7 +45,7 @@ in {
     services.homepage-dashboard = {
       enable = true;
       allowedHosts = cfg.host;
-      environmentFile = config.sops.templates."immich-env".path;
+      environmentFile = config.sops.templates."homepage-env".path;
       settings = {
         title = "Homepage Dashboard";
         #background = "";
@@ -129,6 +131,18 @@ in {
                   type = "homeassistant";
                   url = href;
                   key = "{{HOMEPAGE_VAR_HOME_ASSISTANT_API}}";
+                };
+              };
+            }
+            {
+              "Paperless" = rec {
+                icon = mkIcon "paperless-ngx";
+                href = "https://paperless.joonaskajava.com";
+                description = "Document management system";
+                widget = {
+                  type = "paperlessngx";
+                  url = href;
+                  key = "{{HOMEPAGE_VAR_PAPERLESS_API}}";
                 };
               };
             }
