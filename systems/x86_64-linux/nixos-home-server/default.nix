@@ -58,7 +58,7 @@
         paperless-ai.enable = true;
       };
 
-      myspeed.enable = true;
+      myspeed.enable = false;
 
       tailscale = {
         enable = true;
