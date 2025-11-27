@@ -22,12 +22,17 @@ in {
       "/var/lib/mealie/"
     ];
 
+    sops.secrets."openai-api" = {
+      restartUnits = ["mealie.service"];
+    };
+
     services.mealie = {
       enable = true;
       settings = {
         BASE_URL = "https://${cfg.host}";
         TZ = "Europe/Helsinki";
         ALLOW_SIGNUP = "false";
+        TOKEN_TIME = 87000;
       };
     };
 
@@ -38,7 +43,7 @@ in {
       SMTP_PASSWORD=${config.sops.placeholder."smtp/app-password"}
       SMTP_FROM_NAME=Mealie
       SMTP_FROM_EMAIL=mealie@${cfg.host}
-
+      OPENAI_API_KEY=${config.sops.placeholder."openai-api"}
     '';
     systemd.services.mealie = {
       after = ["sops-nix.service"];
