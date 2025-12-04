@@ -36,15 +36,19 @@ in {
     virtualisation.oci-containers.containers = {
       changedetection-io = {
         image = "dgtlmoon/changedetection.io:latest";
-        ports = ["${builtins.toString cfg.port}:5000/tcp"];
+        #ports = ["${builtins.toString cfg.port}:5000/tcp"];
         volumes = [
           "${dataDir}:/datastore:rw"
         ];
         autoStart = true;
-        extraOptions = ["--pull=newer"];
+        extraOptions = [
+          "--pull=newer"
+          "--network=host"
+        ];
         environment = {
           PLAYWRIGHT_DRIVER_URL = "ws://host.containers.internal:${builtins.toString cfg.playwright-port}";
           BASE_URL = "https://${cfg.host}";
+          PORT = builtins.toString cfg.port;
         };
       };
 
