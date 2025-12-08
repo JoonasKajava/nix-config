@@ -14,6 +14,7 @@ in {
     ide = {
       rider = mkEnableOption "JetBrains Rider";
       rust-rover = mkEnableOption "JetBrains Rider";
+      datagrip = mkEnableOption "JetBrains DataGrip";
     };
   };
 
@@ -26,6 +27,9 @@ in {
         [
           nodejs
         ]
+        ++ lib.optionals cfg.ide.datagrip (with pkgs; [
+          (withPlugins jetbrains.datagrip)
+        ])
         ++ lib.optionals cfg.ide.rider (with pkgs; [
           (withPlugins jetbrains.rider)
           dotnet-sdk_8

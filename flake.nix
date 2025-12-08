@@ -37,7 +37,7 @@
     };
 
     my-nvf = {
-      url = "github:JoonasKajava/nvf-config";
+      url = "github:JoonasKajava/nvf-config/v0.7";
     };
     catppuccin.url = "github:catppuccin/nix";
 
