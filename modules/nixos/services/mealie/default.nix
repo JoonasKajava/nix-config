@@ -32,7 +32,7 @@ in {
         BASE_URL = "https://${cfg.host}";
         TZ = "Europe/Helsinki";
         ALLOW_SIGNUP = "false";
-        TOKEN_TIME = 87000;
+        TOKEN_TIME = 9500;
       };
     };
 
