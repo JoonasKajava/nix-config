@@ -48,7 +48,6 @@
       uptime-kuma.enable = true;
       home-assistant.enable = true;
       wakapi-server.enable = true;
-      firefly-iii.enable = true;
       #anki-sync-server.enable = true;
 
       # Monitor disk health and send notifications.
