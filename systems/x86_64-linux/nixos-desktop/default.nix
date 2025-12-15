@@ -20,6 +20,9 @@ with lib.${namespace}; {
   time.hardwareClockInLocalTime = true;
 
   lumi = {
+
+    school.enable = false;
+
     suites = {
       cli.enable = true;
       system-utilities.enable = true;
@@ -124,15 +127,21 @@ with lib.${namespace}; {
     };
   };
 
-  networking.hostName = "nixos-desktop"; # Define your hostname.
-
   environment.systemPackages = with pkgs; [
     wowup-cf
     slack
   ];
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos-desktop";
+    networkmanager = {
+      # Enable networking
+      enable = true;
+      plugins = [
+        pkgs.networkmanager-openvpn
+      ];
+    };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
