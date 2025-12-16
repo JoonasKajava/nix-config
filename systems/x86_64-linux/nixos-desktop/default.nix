@@ -21,7 +21,7 @@ with lib.${namespace}; {
 
   lumi = {
 
-    school.enable = false;
+    school.enable = true;
 
     suites = {
       cli.enable = true;
