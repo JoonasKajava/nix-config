@@ -6,9 +6,9 @@
 }: let
   inherit (lib) types mkEnableOption mkIf;
   inherit (lib.${namespace}) mkOpt;
+  inherit (config.${namespace}) user;
 
   cfg = config.${namespace}.cli.git;
-  user = config.${namespace}.user;
 in {
   options.${namespace}.cli.git = {
     enable = mkEnableOption "Git";
@@ -27,6 +27,8 @@ in {
             email = cfg.userEmail;
             name = cfg.userName;
           };
+
+          init.defaultBranch = "main";
 
           safe.directory = "/etc/nixos";
           push.autoSetupRemote = true;
