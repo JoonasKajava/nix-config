@@ -39,6 +39,8 @@ in {
         devenv.enable = true;
 
         neovim.nvf.enable = true;
+
+        bat.enable = true;
       };
     };
     lumi-private = {
