@@ -1,0 +1,11 @@
+#app #header .window-buttongroup {
+  top: 0 !important;
+  right: 0 !important;
+}
+
+#app #header .window-buttongroup button {
+  border-radius: 0 !important;
+  padding: 0.5rem !important;
+  height: auto !important;
+  width: 30px !important;
+}
