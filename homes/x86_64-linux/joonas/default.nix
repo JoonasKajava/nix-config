@@ -26,7 +26,9 @@ in {
           naps2.enable = true;
           ludusavi.enable = true;
 
-          firefox.enable = true;
+          #firefox.enable = true;
+          vivaldi.enable = true;
+
           ferdium.enable = true;
           vscode.enable = true;
 
