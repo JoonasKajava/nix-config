@@ -3,11 +3,14 @@
   pkgs,
   config,
   namespace,
+  inputs,
+  system,
   ...
 }:
 with lib; let
   cfg = config.${namespace}.apps.jetbrains;
-  withPlugins = idePkg: (pkgs.jetbrains.plugins.addPlugins idePkg ["17718"]);
+  inherit (inputs.jetbrains-plugins.lib."${system}") buildIdeWithPlugins;
+  withPlugins = ide: (buildIdeWithPlugins pkgs.jetbrains ide ["com.github.copilot"]);
 in {
   options.${namespace}.apps.jetbrains = {
     enable = mkEnableOption "Jetbrain products";
@@ -27,15 +30,15 @@ in {
         [
           nodejs
         ]
-        ++ lib.optionals cfg.ide.datagrip (with pkgs; [
-          (withPlugins jetbrains.datagrip)
-        ])
+        ++ lib.optionals cfg.ide.datagrip [
+          (withPlugins "datagrip")
+        ]
         ++ lib.optionals cfg.ide.rider (with pkgs; [
-          (withPlugins jetbrains.rider)
+          (withPlugins "rider")
           dotnet-sdk_8
         ])
         ++ lib.optionals cfg.ide.rust-rover (with pkgs; [
-          (withPlugins jetbrains.rust-rover)
+          (withPlugins "rust-rover")
           rustup
           gcc
         ]);

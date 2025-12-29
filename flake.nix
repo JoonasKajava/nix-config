@@ -50,6 +50,10 @@
       url = "github:kovidgoyal/kitty-themes";
       flake = false;
     };
+    jetbrains-plugins = {
+      url = "github:nix-community/nix-jetbrains-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
