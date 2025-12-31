@@ -48,6 +48,7 @@
       uptime-kuma.enable = true;
       home-assistant.enable = true;
       wakapi-server.enable = true;
+      forgejo.enable = true;
       #anki-sync-server.enable = true;
 
       # Monitor disk health and send notifications.
