@@ -36,6 +36,7 @@ in {
         HTTP_PORT = cfg.port;
         ROOT_URL = "https://${cfg.address}";
       };
+      #https://forgejo.org/docs/next/admin/actions/runner-installation/#nixos
     };
 
     services.caddy = {
