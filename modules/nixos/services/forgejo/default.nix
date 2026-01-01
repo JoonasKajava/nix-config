@@ -16,6 +16,10 @@ in {
       default = "forgejo.joonaskajava.com";
       example = "localhost";
     };
+    port = mkOption {
+      type = types.number;
+      default = 38131;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -28,7 +32,10 @@ in {
       package = pkgs.stable.forgejo-lts;
       lfs.enable = true;
       database.type = "sqlite3";
-
+      settings.server = {
+        HTTP_PORT = cfg.port;
+        ROOT_URL = "https://${cfg.address}";
+      };
     };
 
     services.caddy = {
