@@ -149,7 +149,7 @@ in {
               };
             }
             {
-              "MySpeed" = rec {
+              "MySpeed" = mkIf false rec {
                 icon = mkIcon "myspeed";
                 href = "https://myspeed.joonaskajava.com";
                 description = "Self-hosted internet speed test";
