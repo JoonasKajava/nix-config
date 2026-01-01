@@ -25,6 +25,7 @@ in {
           restartUnits = ["homepage-dashboard.service"];
         };
         paperless-api = {};
+        forgejo-api = {};
       };
       templates = {
         "homepage-env" = {
@@ -37,6 +38,7 @@ in {
             HOMEPAGE_VAR_UPTIME_KUMA_API=${config.sops.placeholder."uptime-kuma-api"}
             HOMEPAGE_VAR_HOME_ASSISTANT_API=${config.sops.placeholder."home-assistant-api"}
             HOMEPAGE_VAR_PAPERLESS_API=${config.sops.placeholder."paperless-api"}
+            HOMEPAGE_VAR_FORGEJO_API=${config.sops.placeholder."forgejo-api"}
           '';
         };
       };
@@ -154,6 +156,18 @@ in {
                 widget = {
                   type = "myspeed";
                   url = href;
+                };
+              };
+            }
+            {
+              "Forgejo" = rec {
+                icon = mkIcon "forgejo";
+                href = "https://forgejo.joonaskajava.com";
+                description = "Self-hosted Git service";
+                widget = {
+                  type = "gitea";
+                  url = href;
+                  key = "{{HOMEPAGE_VAR_FORGEJO_API}}";
                 };
               };
             }
