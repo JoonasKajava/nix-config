@@ -32,6 +32,8 @@ in {
     services = {
       postgresql.package = pkgs.postgresql_17;
 
+      # TODO: MPF marker causes image to fail
+      #https://github.com/lovell/sharp/issues/4314
       immich = {
         enable = true;
         package = pkgs.immich.override {
@@ -62,6 +64,7 @@ in {
       content = toJSON {} {
         newVersionCheck.enabled = false;
         server.externalDomain = "https://${cfg.host}";
+        image.extractEmbedded = true;
         notifications.smtp = {
           enabled = true;
           from = "immich@${cfg.host}";
