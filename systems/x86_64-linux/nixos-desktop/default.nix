@@ -39,7 +39,6 @@ with lib.${namespace}; {
       gimp.enable = false;
 
       kdenlive.enable = false;
-      discord.enable = true;
       minecraft = {
         enable = true;
         openServerPorts = false;

@@ -49,7 +49,6 @@
         obsidian.enable = true;
         _1password.enable = true;
         gimp.enable = true;
-        discord.enable = true;
         steam.enable = true;
         vlc.enable = true;
         jetbrains = {

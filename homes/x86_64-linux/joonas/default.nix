@@ -32,6 +32,8 @@ in {
           ferdium.enable = true;
           vscode.enable = true;
 
+          discord.enable = true;
+
           # laggy for some reason
           ghostty.enable = false;
           kitty.enable = true;

@@ -2,11 +2,9 @@
   lib,
   config,
   namespace,
-  pkgs,
   ...
 }: let
-  inherit (lib) types mkEnableOption mkIf;
-  inherit (lib.${namespace}) mkOpt;
+  inherit (lib) mkEnableOption mkIf;
 
   cfg = config.${namespace}.apps.discord;
 in {
@@ -15,8 +13,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      discord
-    ];
+    programs.discord = {
+      enable = true;
+    };
   };
 }
