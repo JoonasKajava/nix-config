@@ -32,15 +32,15 @@ in {
     services = {
       postgresql.package = pkgs.postgresql_17;
 
-      # TODO: MPF marker causes image to fail
-      #https://github.com/lovell/sharp/issues/4314
       immich = {
         enable = true;
-        package = pkgs.immich.override {
-          vips = pkgs.vips.overrideAttrs (prev: {
-            mesonFlags = prev.mesonFlags ++ ["-Dtiff=disabled"];
-          });
-        };
+        # According to immich source file, this is already like this
+        # This was here to fix thumbnail creation of raw images.
+        # package = pkgs.immich.override {
+        #   vips_8_17 = pkgs.vips_8_17.overrideAttrs (prev: {
+        #     mesonFlags = prev.mesonFlags ++ ["-Dtiff=disabled"];
+        #   });
+        # };
         accelerationDevices = null;
         #database.enableVectors = true;
         # I just sops templates to create config file
