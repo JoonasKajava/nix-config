@@ -48,7 +48,7 @@ with lib.${namespace}; {
       easyeffects.enable = true;
       vlc.enable = true;
       parsec.enable = true;
-      onlyoffice.enable = false;
+      #onlyoffice.enable = false;
       heroic.enable = true;
 
       jetbrains = {

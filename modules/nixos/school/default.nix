@@ -16,6 +16,8 @@ in {
       vscode
     ];
 
+    lumi.apps.onlyoffice.enable = true;
+
     networking.networkmanager.plugins = [
       pkgs.networkmanager-openvpn
     ];
