@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (lib) mkIf;
+  inherit (lib.${namespace}) useVivaldi;
   mkIfHost = list: content: mkIf (builtins.elem host list) content;
 in {
   lumi = {
@@ -27,7 +28,7 @@ in {
           ludusavi.enable = true;
 
           #firefox.enable = true;
-          vivaldi.enable = true;
+          vivaldi.enable = useVivaldi;
 
           ferdium.enable = true;
           vscode.enable = true;
