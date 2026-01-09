@@ -14,7 +14,7 @@ in {
     programs = {
       steam = {
         enable = true;
-        remotePlay.openFirewall = true;
+        remotePlay.openFirewall = false;
 
         extraCompatPackages = with pkgs; [
           proton-ge-bin
