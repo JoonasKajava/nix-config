@@ -26,6 +26,7 @@ in {
       yazi.enable = true;
       btop.enable = true;
       zoxide.enable = true;
+      nix-inspect.enable = true;
     };
   };
 }
