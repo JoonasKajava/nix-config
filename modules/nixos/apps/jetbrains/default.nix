@@ -4,13 +4,12 @@
   config,
   namespace,
   inputs,
-  system,
   ...
 }:
 with lib; let
   cfg = config.${namespace}.apps.jetbrains;
-  inherit (inputs.jetbrains-plugins.lib."${system}") buildIdeWithPlugins;
-  withPlugins = ide: (buildIdeWithPlugins pkgs.jetbrains ide ["com.github.copilot"]);
+  inherit (inputs.jetbrains-plugins.lib) buildIdeWithPlugins;
+  withPlugins = ide: (buildIdeWithPlugins pkgs ide ["com.github.copilot"]);
 in {
   options.${namespace}.apps.jetbrains = {
     enable = mkEnableOption "Jetbrain products";
