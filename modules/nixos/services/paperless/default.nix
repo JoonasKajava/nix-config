@@ -72,12 +72,15 @@ in {
     services = {
       caddy = {
         enable = true;
+        enableCloudflareIntegration = true;
         virtualHosts = {
           "${cfg.address}".extraConfig = ''
             reverse_proxy http://127.0.0.1:${builtins.toString config.services.paperless.port}
+            import cloudflare
           '';
           "${cfg.paperless-ai.address}".extraConfig = ''
             reverse_proxy http://127.0.0.1:${builtins.toString cfg.paperless-ai.port}
+            import cloudflare
           '';
         };
       };

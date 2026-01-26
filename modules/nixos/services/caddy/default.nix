@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf optionals;
+  inherit (lib) mkEnableOption mkIf;
 
   inherit (config.services.caddy)enableCloudflareIntegration;
 in {
@@ -15,8 +15,8 @@ in {
   config = {
     services.caddy = {
       package = pkgs.caddy.withPlugins {
-        plugins = ["github.com/caddy-dns/cloudflare@v0.2.1"];
-        hash = "sha256-Zls+5kWd/JSQsmZC4SRQ/WS+pUcRolNaaI7UQoPzJA0=";
+        plugins = ["github.com/caddy-dns/cloudflare@v0.2.2"];
+        hash = "sha256-dnhEjopeA0UiI+XVYHYpsjcEI6Y1Hacbi28hVKYQURg=";
       };
       extraConfig = mkIf enableCloudflareIntegration ''
         (cloudflare) {
