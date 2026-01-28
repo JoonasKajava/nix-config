@@ -6,7 +6,7 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
 
-  inherit (config.services.caddy)enableCloudflareIntegration;
+  inherit (config.services.caddy) enableCloudflareIntegration;
 in {
   options.services.caddy = {
     enableCloudflareIntegration = mkEnableOption "Whether to enable cloudflare integration for Caddy";
@@ -27,11 +27,14 @@ in {
       '';
     };
 
-    sops.templates."caddy-env".content =
-      mkIf enableCloudflareIntegration
-      ''
+    sops = mkIf enableCloudflareIntegration {
+      secrets.cloudflare-api = {
+        restartUnits = ["caddy.service"];
+      };
+      templates."caddy-env".content = ''
         CF_API_TOKEN=${config.sops.placeholder."cloudflare-api"}
       '';
+    };
 
     systemd.services.caddy = mkIf config.services.caddy.enable {
       after = ["sops-nix.service"];
