@@ -1,6 +1,4 @@
 {
-  lib,
-  namespace,
   config,
   ...
 }: {
@@ -32,8 +30,6 @@
       cli.enable = true;
       system-utilities.enable = true;
     };
-
-    cli.zellij.enableNushellIntegration = false;
 
     services = {
       karakeep.enable = true;

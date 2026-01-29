@@ -32,9 +32,6 @@
   lumi = {
     hardware.video.displayBackend = "terminal";
     suites.cli.enable = true;
-
-    # Do not open zellij automatically because it does not work well with jetbrains IDEs
-    cli.zellij.enableNushellIntegration = false;
   };
 
   environment.systemPackages = with pkgs; [

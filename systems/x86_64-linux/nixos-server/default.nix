@@ -20,8 +20,6 @@ with lib.${namespace}; {
     suites.cli.enable = true;
     suites.system-utilities.enable = true;
 
-    cli.zellij.enableNushellIntegration = false;
-
     # This is slow on the server, so disable it.
     cli.nushell.showFastfetchOnStartup = false;
 

@@ -11,6 +11,8 @@ in {
   lumi = {
     suites.cli.enable = true;
 
+    cli.zellij.enableNushellIntegration = builtins.elem host ["nixos-desktop" "nixos-laptop"];
+
     services = {
       syncthing.enable = true;
     };

@@ -31,7 +31,6 @@ in {
         comma.enable = true;
 
         tmux.enable = false;
-        zellij.enable = true;
 
         git.enable = true;
         lazygit.enable = true;
