@@ -387,11 +387,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769952507,
-        "narHash": "sha256-eNTfxT3v8b7s1dqswgposi5Y1CUMoOUhQKiy29QY25U=",
+        "lastModified": 1769978395,
+        "narHash": "sha256-gj1yP3spUb1vGtaF5qPhshd2j0cg4xf51pklDsIm19Q=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b59376563943ce163b2553aeb63d0c170967d74e",
+        "rev": "984708c34d3495a518e6ab6b8633469bbca2f77a",
         "type": "github"
       },
       "original": {
@@ -508,11 +508,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1769611332,
-        "narHash": "sha256-b4uQ7CJSHB7UFUuV1DKEn6ptMdiAD0AHgA3ANI2CYvQ=",
+        "lastModified": 1769985759,
+        "narHash": "sha256-nmBRq24L5vgZjT51VVOVGf9edt71LZWWRGXLK5j3eQg=",
         "owner": "JoonasKajava",
         "repo": "nvf-config",
-        "rev": "6b2fd5bb8347f234e8ffee1d79cb38e9f5e480e2",
+        "rev": "63711e4580a8ffa9bfa1a19ca2374f7ba2c9af22",
         "type": "github"
       },
       "original": {
@@ -826,7 +826,8 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "plasma-manager": "plasma-manager",
         "snowfall-lib": "snowfall-lib",
-        "system-age": "system-age"
+        "system-age": "system-age",
+        "vim-zellij-navigator": "vim-zellij-navigator"
       }
     },
     "rust-overlay": {
@@ -996,6 +997,18 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "vim-zellij-navigator": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-uOd2rSDM4Ruwr8JrYd8ucQei2PJyAykpIyR09sKvnYg=",
+        "type": "file",
+        "url": "https://github.com/hiasr/vim-zellij-navigator/releases/latest/download/vim-zellij-navigator.wasm"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/hiasr/vim-zellij-navigator/releases/latest/download/vim-zellij-navigator.wasm"
       }
     }
   },

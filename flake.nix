@@ -54,6 +54,11 @@
       url = "github:nix-community/nix-jetbrains-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vim-zellij-navigator = {
+      url = "https://github.com/hiasr/vim-zellij-navigator/releases/latest/download/vim-zellij-navigator.wasm";
+      flake = false;
+    };
   };
 
   outputs = inputs:

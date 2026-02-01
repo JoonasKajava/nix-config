@@ -2,6 +2,7 @@
   lib,
   config,
   namespace,
+  inputs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
@@ -22,38 +23,62 @@ in {
         theme = "tokyo-night-moon";
         default_mode = "locked";
         show_startup_tips = false;
+        # This doesn't work very well
+        plugins.z-nav._props.location = "file:${inputs.vim-zellij-navigator}";
+
         keybinds = {
-          normal = let
-            nums = builtins.genList (n: n + 1) 9 ++ [0];
-          in
-            builtins.listToAttrs (map (i: {
-                name = ''bind "${toString i}"'';
-                value = {
-                  GoToTab =
-                    if i == 0
-                    then 10
-                    else i;
-                  SwitchToMode = "Locked";
+          shared_except = let
+            mkZNav = bind: name: payload: {
+              "bind \"${bind}\"" = {
+                MessagePlugin = {
+                  _args = ["z-nav"];
+                  inherit name payload;
+                  move_mod = "ctrl";
                 };
-              })
-              nums)
-            // builtins.listToAttrs (map (i: {
-                name = ''bind "Ctrl ${toString i}"'';
-                value = {
-                  GoToTab =
-                    if i == 0
-                    then 10
-                    else i;
-                };
-              })
-              nums);
-          locked = {
-            "bind \"Ctrl h\"" = {MoveFocusOrTab = "Left";};
-            "bind \"Ctrl j\"" = {MoveFocusOrTab = "Down";};
-            "bind \"Ctrl k\"" = {MoveFocusOrTab = "Up";};
-            "bind \"Ctrl l\"" = {MoveFocusOrTab = "Right";};
-          };
+              };
+            };
+          in {
+              _args = ["locked"];
+          }
+          // (mkZNav "Ctrl h" "move_focus_or_tab" "left")
+          // (mkZNav "Ctrl l" "move_focus_or_tab" "right")
+          // (mkZNav "Ctrl j" "move_focus" "down")
+          // (mkZNav "Ctrl k" "move_focus" "up")
+            ;
         };
+
+        # keybinds = {
+        #   normal = let
+        #     nums = builtins.genList (n: n + 1) 9 ++ [0];
+        #   in
+        #     builtins.listToAttrs (map (i: {
+        #         name = ''bind "${toString i}"'';
+        #         value = {
+        #           GoToTab =
+        #             if i == 0
+        #             then 10
+        #             else i;
+        #           SwitchToMode = "Locked";
+        #         };
+        #       })
+        #       nums)
+        #     // builtins.listToAttrs (map (i: {
+        #         name = ''bind "Ctrl ${toString i}"'';
+        #         value = {
+        #           GoToTab =
+        #             if i == 0
+        #             then 10
+        #             else i;
+        #         };
+        #       })
+        #       nums);
+        #   locked = {
+        #     "bind \"Ctrl h\"" = {MoveFocusOrTab = "Left";};
+        #     "bind \"Ctrl j\"" = {MoveFocusOrTab = "Down";};
+        #     "bind \"Ctrl k\"" = {MoveFocusOrTab = "Up";};
+        #     "bind \"Ctrl l\"" = {MoveFocusOrTab = "Right";};
+        #   };
+        # };
       };
       themes = {
         "tokyo-night-moon" = {
