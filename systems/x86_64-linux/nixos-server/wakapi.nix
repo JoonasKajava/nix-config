@@ -12,7 +12,6 @@ in {
     };
     wakapi = {
       enable = true;
-      passwordSaltFile = config.sops.secrets.wakapi-password-salt.path;
       settings = {
         server = {
           inherit port;
