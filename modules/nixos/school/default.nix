@@ -14,6 +14,12 @@ in {
     environment.systemPackages = with pkgs; [
       zoom-us
       vscode
+      (python3.withPackages (p: with p; [
+        pytest
+        numpy
+        pandas
+        matplotlib
+      ]))
     ];
 
     lumi.apps.jetbrains.ide.pycharm = true;
