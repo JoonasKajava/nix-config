@@ -16,6 +16,8 @@ in {
       vscode
     ];
 
+    lumi.apps.jetbrains.ide.pycharm = true;
+
     lumi.apps.onlyoffice.enable = true;
 
     networking.networkmanager.plugins = [
