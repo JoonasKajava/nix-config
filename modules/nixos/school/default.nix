@@ -23,6 +23,7 @@ in {
     ];
 
     lumi.apps.jetbrains.ide.pycharm = true;
+    lumi.apps.kdenlive.enable = true;
 
     lumi.apps.onlyoffice.enable = true;
 
