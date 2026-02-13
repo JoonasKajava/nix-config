@@ -498,6 +498,12 @@ nmap <leader>td <Action>(ChooseDebugConfiguration)
 
 nmap <leader>; <Action>(ActivateStructureToolWindow)
 
+nmap <leader>ac <Action>(ActivateGitHubCopilotChatToolWindow)
+vmap <leader>ac <Action>(ActivateGitHubCopilotChatToolWindow)
+
+nmap <leader>ai <Action>(copilot.chat.inline)
+vmap <leader>ai <Action>(copilot.chat.inline)
+
 " Neovim mappings
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
 
