@@ -47,7 +47,7 @@ in {
     services.homepage-dashboard = {
       enable = true;
       allowedHosts = cfg.host;
-      environmentFile = config.sops.templates."homepage-env".path;
+      environmentFiles = [config.sops.templates."homepage-env".path];
       settings = {
         title = "Homepage Dashboard";
         #background = "";
