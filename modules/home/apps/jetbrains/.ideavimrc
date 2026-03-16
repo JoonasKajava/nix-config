@@ -504,6 +504,9 @@ vmap <leader>ac <Action>(ActivateGitHubCopilotChatToolWindow)
 nmap <leader>ai <Action>(copilot.chat.inline)
 vmap <leader>ai <Action>(copilot.chat.inline)
 
+nmap <leader>aa <Action>(IntentionActionAsAction_com.intellij.ml.llm.intentions.chat.AIAssistantIntention)
+vmap <leader>aa <Action>(IntentionActionAsAction_com.intellij.ml.llm.intentions.chat.AIAssistantIntention)
+
 " Neovim mappings
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
 
