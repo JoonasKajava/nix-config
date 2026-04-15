@@ -45,6 +45,7 @@
       home-assistant.enable = true;
       wakapi-server.enable = true;
       forgejo.enable = true;
+      couchdb.enable = true;
       #anki-sync-server.enable = true;
 
       # Monitor disk health and send notifications.

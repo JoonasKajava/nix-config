@@ -18,7 +18,7 @@ in {
     };
     internalPort = mkOption {
       type = lib.types.port;
-      default = 4369;
+      default = 58685;
       description = "The internal port to use for the ntfy service.";
     };
   };
