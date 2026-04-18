@@ -22,6 +22,7 @@ with lib; let
     util-linux
     xz
     systemd
+    mpi
   ]);
   # Darwin requires a different library path prefix
   wrapPrefix =
@@ -31,6 +32,9 @@ with lib; let
 
   python = pkgs.python312.withPackages (ps: [
     ps.tkinter
+    ps.mpi4py
+    ps.scikit-image
+    ps.numpy
   ]);
 
   patchedpython = pkgs.symlinkJoin {
