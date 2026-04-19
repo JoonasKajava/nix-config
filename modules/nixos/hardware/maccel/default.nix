@@ -20,7 +20,7 @@ in {
         mode = "linear";
         sensMultiplier = 1.0;
         acceleration = 0.1;
-        offset = 7.0;
+        offset = 10.0;
         outputCap = 2.0;
       };
     };
