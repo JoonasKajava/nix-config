@@ -502,6 +502,21 @@
         "url": "ssh://git@github.com/JoonasKajava/nix-config-private"
       }
     },
+    "maccel": {
+      "locked": {
+        "lastModified": 1771614512,
+        "narHash": "sha256-KzvNWDGVpoNcR9wcIOlwxr6Nwtgt9Hicck/0fswhi7U=",
+        "owner": "Gnarus-G",
+        "repo": "maccel",
+        "rev": "c7c1369d4bd4f240b38365cd43bd696d06635e4d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gnarus-G",
+        "repo": "maccel",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1770419553,
@@ -836,6 +851,7 @@
         "kitty-themes": "kitty-themes",
         "lanzaboote": "lanzaboote",
         "lumi-private": "lumi-private",
+        "maccel": "maccel",
         "my-nvf": "my-nvf",
         "nix-index-database": "nix-index-database",
         "nixos-wsl": "nixos-wsl",

@@ -59,6 +59,9 @@
       url = "https://github.com/hiasr/vim-zellij-navigator/releases/latest/download/vim-zellij-navigator.wasm";
       flake = false;
     };
+
+
+    maccel.url = "github:Gnarus-G/maccel";
   };
 
   outputs = inputs:
@@ -89,6 +92,7 @@
           catppuccin.nixosModules.catppuccin
           nix-index-database.nixosModules.nix-index
           lanzaboote.nixosModules.lanzaboote
+          maccel.nixosModules.default
         ]
         ++ (builtins.attrValues lumi-private.nixosModules);
     };

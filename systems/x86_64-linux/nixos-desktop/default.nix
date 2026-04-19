@@ -60,6 +60,8 @@ with lib.${namespace}; {
     cli.mangohud.enable = true;
 
     hardware = {
+      maccel.enable = true;
+
       gpu.amd.enable = true;
       audio.enable = true;
       keyboards.bazecor.enable = true;
