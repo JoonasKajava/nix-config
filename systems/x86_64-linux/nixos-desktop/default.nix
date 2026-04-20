@@ -9,6 +9,8 @@ with lib;
 with lib.${namespace}; {
   imports = [./hardware.nix];
   boot = {
+    # TODO: Latest has freezing issues
+    kernelPackages = pkgs.linuxPackages_6_19;
     loader = {
       # Bootloader.
       systemd-boot.enable = true;
