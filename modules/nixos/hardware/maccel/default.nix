@@ -13,6 +13,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # For custom mouse acceleration curves
     hardware.maccel = {
       enable = true;
       enableCli = true;
