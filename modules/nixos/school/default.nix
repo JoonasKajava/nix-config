@@ -35,6 +35,7 @@ with lib; let
     ps.mpi4py
     ps.scikit-image
     ps.numpy
+    ps.setuptools
   ]);
 
   patchedpython = pkgs.symlinkJoin {
@@ -49,9 +50,25 @@ in {
   options.${namespace}.school = {enable = mkEnableOption "school";};
 
   config = mkIf cfg.enable {
+    nixpkgs.config.rocmSupport = true;
+
+    hardware.amdgpu.opencl.enable = true;
+    systemd.tmpfiles.rules = let
+      rocmEnv = pkgs.symlinkJoin {
+        name = "rocm-combined";
+        paths = with pkgs.rocmPackages; [
+          rocblas
+          hipblas
+          clr
+        ];
+      };
+    in [
+      "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
+    ];
     environment.systemPackages = with pkgs; [
       zoom-us
       vscode
+      rocmPackages.rocminfo
       patchedpython
       # (python3.withPackages (p:
       #   with p; [
