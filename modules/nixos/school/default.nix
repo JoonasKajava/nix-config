@@ -36,6 +36,7 @@ with lib; let
     ps.scikit-image
     ps.numpy
     ps.setuptools
+    ps.graphviz
   ]);
 
   patchedpython = pkgs.symlinkJoin {
@@ -66,6 +67,7 @@ in {
       "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
     ];
     environment.systemPackages = with pkgs; [
+      graphviz
       zoom-us
       vscode
       rocmPackages.rocminfo
