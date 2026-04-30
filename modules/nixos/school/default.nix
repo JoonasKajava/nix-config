@@ -67,6 +67,7 @@ in {
       "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
     ];
     environment.systemPackages = with pkgs; [
+      podman-compose
       graphviz
       zoom-us
       vscode
