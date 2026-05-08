@@ -8,9 +8,10 @@
 with lib;
 with lib.${namespace}; {
   imports = [./hardware.nix];
+
   boot = {
     # TODO: Latest has freezing issues
-    kernelPackages = pkgs.linuxPackages_6_19;
+    # kernelPackages = pkgs.linuxPackages_6_18;
     loader = {
       # Bootloader.
       systemd-boot.enable = true;
@@ -22,7 +23,6 @@ with lib.${namespace}; {
   time.hardwareClockInLocalTime = true;
 
   lumi = {
-
     school.enable = true;
 
     suites = {
@@ -45,7 +45,8 @@ with lib.${namespace}; {
         openServerPorts = false;
       };
       steam.enable = true;
-      lutris.enable = true;
+      # https://github.com/NixOS/nixpkgs/issues/513245
+      # lutris.enable = true;
       easyeffects.enable = true;
       vlc.enable = true;
       parsec.enable = true;
