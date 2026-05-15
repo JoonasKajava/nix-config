@@ -32,6 +32,8 @@ with lib.${namespace}; {
     desktop.kde.enable = true;
 
     apps = {
+      winboat.enable = true;
+
       kdeconnect.enable = true;
       obsidian.enable = true;
       _1password.enable = true;
@@ -107,14 +109,14 @@ with lib.${namespace}; {
     };
   };
 
-  virtualisation = {
-    containers.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
+  # virtualisation = {
+  #   containers.enable = true;
+  #   podman = {
+  #     enable = true;
+  #     dockerCompat = true;
+  #     defaultNetwork.settings.dns_enabled = true;
+  #   };
+  # };
 
   lumi-private = {
     services.borgbackup = {
