@@ -59,7 +59,10 @@
       url = "https://github.com/hiasr/vim-zellij-navigator/releases/latest/download/vim-zellij-navigator.wasm";
       flake = false;
     };
-
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     maccel.url = "github:Gnarus-G/maccel";
   };
@@ -89,6 +92,7 @@
 
       systems.modules.nixos = with inputs;
         [
+          stylix.nixosModules.stylix
           catppuccin.nixosModules.catppuccin
           nix-index-database.nixosModules.nix-index
           lanzaboote.nixosModules.lanzaboote

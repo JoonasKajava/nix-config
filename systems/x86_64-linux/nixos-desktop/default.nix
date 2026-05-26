@@ -21,6 +21,8 @@ with lib.${namespace}; {
   time.hardwareClockInLocalTime = true;
 
   lumi = {
+    themes.stylix.enable = false;
+
     school.enable = true;
 
     suites = {
