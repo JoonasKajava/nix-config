@@ -271,6 +271,7 @@ nmap gD <Action>(GotoSuperMethod)
 nmap gK <Action>(ParameterInfo)
 " Hover Info
 nmap <S-k> <Action>(ShowHoverInfo)
+nmap <C-k> <Action>(QuickJavaDoc)
 " Signature Help in Insert Mode
 imap <C-k> <C-o><Action>(ParameterInfo)
 " Code Action
