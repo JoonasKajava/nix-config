@@ -25,6 +25,7 @@ in {
   config = mkIf cfg.enable {
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       catppuccin = {
+        autoEnable = true;
         enable = true;
         nvim.enable = false;
         kvantum.enable = true;
