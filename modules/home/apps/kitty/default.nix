@@ -28,8 +28,6 @@ in {
         touch_scroll_multiplier = 0.3;
         confirm_os_window_close = 0;
         include = "${inputs.kitty-themes}/themes/tokyo_night_moon.conf";
-        # TODO: https://github.com/kovidgoyal/kitty/issues/10102
-        auto_reload_config = -1;
       };
     };
   };
