@@ -57,7 +57,7 @@ with lib.${namespace}; {
 
       jetbrains = {
         enable = true;
-        ide.rust-rover = true;
+        ide.rust-rover = false;
         ide.datagrip = true;
       };
     };

@@ -67,11 +67,12 @@ in {
       "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
     ];
     environment.systemPackages = with pkgs; [
-      podman-compose
+      docker-compose
       graphviz
       zoom-us
       vscode
       rocmPackages.rocminfo
+      github-copilot-cli
       patchedpython
       # (python3.withPackages (p:
       #   with p; [
