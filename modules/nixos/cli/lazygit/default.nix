@@ -19,7 +19,7 @@ in {
       gh
       git
       difftastic
-      commitizen
+      stable.commitizen
     ];
 
     snowfallorg.users.${config.${namespace}.user.name}.home.config = {
