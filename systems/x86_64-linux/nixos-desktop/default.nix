@@ -106,6 +106,7 @@ with lib.${namespace}; {
     services = {
       printing.enable = true;
       tailscale.enable = true;
+      ollama.enable = false;
 
       systemd-notifications.enable = true;
     };

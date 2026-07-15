@@ -2,6 +2,7 @@
   lib,
   config,
   namespace,
+  pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
@@ -13,10 +14,15 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.ollama = {
-      enable = true;
-      loadModels = ["llama3.2:3b"];
-      acceleration = "rocm";
+    services = {
+      open-webui.enable = true;
+      open-webui.package = pkgs.stable.open-webui;
+      ollama = {
+        package = pkgs.ollama-rocm;
+        enable = true;
+        loadModels = ["qwen3.5:9b"];
+        syncModels = true;
+      };
     };
   };
 }
