@@ -27,7 +27,6 @@ in {
   config = mkIf cfg.enable {
     virtualisation = mkIf cfg.enable {
       oci-containers = {
-        backend = "podman";
         containers = {
           donetick = {
             image = "donetick/donetick:latest";
@@ -41,13 +40,13 @@ in {
               DT_ENV = "selfhosted";
               DT_SQLITE_PATH = "/donetick-data/donetick.db";
             };
-            extraOptions = ["--pull=newer"];
+            extraOptions = ["--pull=always"];
           };
         };
       };
     };
     sops.templates."donetick-config.yaml" = {
-      restartUnits = ["podman-donetick.service"];
+      restartUnits = ["docker-donetick.service"];
       #mode = "0444";
       content = toYAML {} {
         name = "selfhosted";

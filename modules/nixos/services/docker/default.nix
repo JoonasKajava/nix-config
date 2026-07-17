@@ -14,9 +14,15 @@ in {
   };
 
   config = mkIf cfg.enable {
+    users.users.${config.${namespace}.user.name}.linger = true;
+
+    environment.systemPackages = with pkgs; [
+      lazydocker
+    ];
     virtualisation = {
+      oci-containers.backend = "docker";
       docker = {
-        enable = true;
+        enable = true; # Disable the system wide Docker daemon
         rootless = {
           enable = true;
           setSocketVariable = true;

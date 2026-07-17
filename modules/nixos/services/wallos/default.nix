@@ -41,7 +41,7 @@ in {
               TZ = "Europe/Berlin";
             };
             autoStart = true;
-            extraOptions = ["--pull=newer"];
+            extraOptions = ["--pull=always"];
           };
         };
       };

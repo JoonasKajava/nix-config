@@ -43,7 +43,7 @@ in {
               "${homeFolder}:/myspeed/data:rw"
             ];
             autoStart = true;
-            extraOptions = ["--pull=newer"];
+            extraOptions = ["--pull=always"];
           };
         };
       };

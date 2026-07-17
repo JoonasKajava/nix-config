@@ -36,6 +36,7 @@
       mealie.enable = true;
       donetick.enable = true;
       wallos.enable = true;
+      nextcloud.enable = false; # Find alternative, difficult to work with
 
       ntfy.enable = true;
       immich.enable = true;
@@ -57,6 +58,8 @@
       };
 
       myspeed.enable = false;
+
+      docker.enable = true;
 
       tailscale = {
         enable = true;

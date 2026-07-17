@@ -42,7 +42,7 @@ in {
         ];
         autoStart = true;
         extraOptions = [
-          "--pull=newer"
+          "--pull=always"
           "--network=host"
         ];
         environment = {
@@ -56,7 +56,7 @@ in {
         image = "dgtlmoon/sockpuppetbrowser:latest";
         ports = ["${builtins.toString cfg.playwright-port}:3000/tcp"];
         autoStart = true;
-        extraOptions = ["--pull=newer"];
+        extraOptions = ["--pull=always"];
         environment = {
           SCREEN_WIDTH = "1920";
           SCREEN_HEIGHT = "1024";

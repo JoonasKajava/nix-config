@@ -43,8 +43,6 @@ in {
 
     virtualisation = mkIf cfg.paperless-ai.enable {
       oci-containers = {
-        backend = "podman";
-
         containers = {
           paperless-ai = {
             image = "clusterzx/paperless-ai:latest";
@@ -53,7 +51,7 @@ in {
               "/var/lib/paperless/paperless-ai:/app/data:rw"
             ];
             autoStart = true;
-            extraOptions = ["--pull=newer" "--network=host"];
+            extraOptions = ["--pull=always" "--network=host"];
           };
         };
       };
