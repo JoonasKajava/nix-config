@@ -38,7 +38,7 @@ in {
         ]
         ++ lib.optionals cfg.ide.rider (with pkgs; [
           (withPlugins "rider")
-          dotnet-sdk_8
+          dotnet-sdk_11
         ])
         ++ lib.optionals cfg.ide.rust-rover (with pkgs; [
           (withPlugins "rust-rover")
