@@ -43,7 +43,6 @@ in {
         ])
         ++ lib.optionals cfg.ide.rust-rover (with pkgs; [
           (withPlugins "rust-rover")
-          rustup
           gcc
         ]);
 

@@ -65,12 +65,17 @@
     };
 
     maccel.url = "github:Gnarus-G/maccel";
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   outputs = inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
+
+      overlays = with inputs; [
+        rust-overlay.overlays.default
+      ];
 
       snowfall = {
         namespace = "lumi";

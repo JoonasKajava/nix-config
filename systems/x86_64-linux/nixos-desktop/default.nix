@@ -58,7 +58,7 @@ with lib.${namespace}; {
       jetbrains = {
         enable = true;
         ide = {
-          rust-rover = false;
+          rust-rover = true;
           datagrip = true;
           rider = true;
         };
