@@ -28,6 +28,7 @@ in {
       zoxide.enable = true;
       nix-inspect.enable = true;
       zellij.enable = true;
+      devenv.enable = true;
     };
   };
 }

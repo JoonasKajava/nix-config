@@ -35,8 +35,6 @@ in {
         git.enable = true;
         lazygit.enable = true;
 
-        devenv.enable = true;
-
         neovim.nvf.enable = true;
 
         bat.enable = true;
