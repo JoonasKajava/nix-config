@@ -40,6 +40,8 @@ in {
           # laggy for some reason
           ghostty.enable = false;
           kitty.enable = true;
+
+          zed.enable = true;
         })
     ];
   };

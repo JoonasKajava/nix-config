@@ -3,7 +3,7 @@
   config,
   pkgs,
   namespace,
-  osConfig,
+  osConfig ? null,
   ...
 }: let
   cfg = config.${namespace}.apps.jetbrains;
