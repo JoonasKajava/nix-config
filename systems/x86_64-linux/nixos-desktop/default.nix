@@ -61,6 +61,7 @@ with lib.${namespace}; {
           rust-rover = true;
           datagrip = true;
           rider = true;
+          webstorm = true;
         };
       };
     };

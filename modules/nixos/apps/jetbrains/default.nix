@@ -18,6 +18,7 @@ in {
       rust-rover = mkEnableOption "JetBrains Rider";
       datagrip = mkEnableOption "JetBrains DataGrip";
       pycharm = mkEnableOption "JetBrains PyCharm";
+      webstorm = mkEnableOption "JetBrains Webstorm";
     };
   };
 
@@ -32,6 +33,9 @@ in {
         ]
         ++ lib.optionals cfg.ide.datagrip [
           (withPlugins "datagrip")
+        ]
+        ++ lib.optionals cfg.ide.webstorm [
+          (withPlugins "webstorm")
         ]
         ++ lib.optionals cfg.ide.pycharm [
           (withPlugins "pycharm")
