@@ -12,6 +12,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      jetbrains-mono
+    ];
     programs.zed-editor = {
       enable = true;
       package = pkgs.zed-editor-fhs;
@@ -21,17 +24,21 @@ in {
             enabled = true;
           };
         };
-
-        "vim" = {
-          "toggle_relative_line_numbers" = true;
+        ui_font_family = "JetBrains Mono";
+        buffer_font_family = "JetBrains Mono";
+        buffer_font_features = {
+          calt = false;
+        };
+        vim = {
+          toggle_relative_line_numbers = true;
         };
 
         base_keymap = "VSCode";
-        "icon_theme" = "Zed (Default)";
-        "theme" = {
-          "mode" = "dark";
-          "light" = "One Light";
-          "dark" = "One Dark";
+        icon_theme = "Zed (Default)";
+        theme = {
+          mode = "dark";
+          light = "One Light";
+          dark = "One Dark";
         };
         vim_mode = true;
         lsp = {
