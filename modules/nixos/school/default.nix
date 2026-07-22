@@ -72,7 +72,6 @@ in {
       zoom-us
       vscode
       rocmPackages.rocminfo
-      github-copilot-cli
       patchedpython
       # (python3.withPackages (p:
       #   with p; [

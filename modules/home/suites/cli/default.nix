@@ -29,6 +29,7 @@ in {
       nix-inspect.enable = true;
       zellij.enable = true;
       devenv.enable = true;
+      opencode.enable = true;
     };
   };
 }
