@@ -84,7 +84,6 @@ in {
     ];
     lumi = {
       apps = {
-        jetbrains.ide.pycharm = true;
         kdenlive.enable = true;
 
         onlyoffice.enable = true;

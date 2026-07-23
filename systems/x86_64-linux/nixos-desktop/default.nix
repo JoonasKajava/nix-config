@@ -55,15 +55,6 @@ with lib.${namespace}; {
       #onlyoffice.enable = false;
       heroic.enable = true;
 
-      jetbrains = {
-        enable = true;
-        ide = {
-          rust-rover = true;
-          datagrip = true;
-          rider = true;
-          webstorm = true;
-        };
-      };
     };
 
     cli.mangohud.enable = true;

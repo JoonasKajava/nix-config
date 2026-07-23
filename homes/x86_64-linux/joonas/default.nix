@@ -42,6 +42,16 @@ in {
           kitty.enable = true;
 
           zed.enable = true;
+
+          jetbrains = {
+            enable = true;
+            ide = {
+              rust-rover = true;
+              datagrip = true;
+              rider = true;
+              webstorm = true;
+            };
+          };
         })
     ];
   };
