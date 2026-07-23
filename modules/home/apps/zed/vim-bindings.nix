@@ -1,8 +1,8 @@
 [
   {
-    context = "Workspace";
+    context = "Editor && vim_mode == normal"; # TODO: this should be Workspace
     bindings = {
-      "space l" = "zed::Extensions";
+      "space l" = null;
       "space q q" = "zed::Quit";
       "space L" = "git_panel::ToggleFocus";
       "space f t" = "terminal_panel::ToggleFocus";
@@ -91,6 +91,11 @@
     bindings = {
       "shift-h" = "pane::ActivatePreviousItem";
       "shift-l" = "pane::ActivateNextItem";
+    };
+  }
+  {
+    context = "Editor && vim_mode == normal";
+    bindings = {
       "[ b" = "pane::ActivatePreviousItem";
       "] b" = "pane::ActivateNextItem";
       "space b d" = ["pane::CloseActiveItem" {close_pinned = false;}];
@@ -103,7 +108,7 @@
     };
   }
   {
-    context = "Editor";
+    context = "Editor && vim_mode == normal";
     bindings = {
       "alt-j" = "editor::MoveLineDown";
       "alt-k" = "editor::MoveLineUp";
