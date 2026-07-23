@@ -18,6 +18,7 @@ in {
     programs.zed-editor = {
       enable = true;
       package = pkgs.zed-editor-fhs;
+      userKeymaps = import ./vim-bindings.nix;
       userSettings = {
         diagnostics = {
           inline = {
