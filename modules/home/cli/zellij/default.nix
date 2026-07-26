@@ -27,8 +27,10 @@ in {
         # This doesn't work very well
         plugins.z-nav._props.location = "file:${inputs.vim-zellij-navigator}";
 
+        # TODO: Add smart splits to nvim
+
         keybinds = {
-          shared_except = let
+          shared = let
             mkZNav = bind: name: payload: {
               "bind \"${bind}\"" = {
                 MessagePlugin = {
@@ -40,7 +42,6 @@ in {
             };
           in
             {
-              _args = ["locked"];
             }
             // (mkZNav "Ctrl h" "move_focus_or_tab" "left")
             // (mkZNav "Ctrl l" "move_focus_or_tab" "right")

@@ -658,11 +658,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1784381907,
+        "lastModified": 1785103543,
         "narHash": "sha256-qrW/9gyW02ow6L+FmOENb3Njf9gsvbzJbA9msRaBWSQ=",
         "owner": "JoonasKajava",
         "repo": "nvf-config",
-        "rev": "450e723a7eac507abfab068d8e240f96347216f6",
+        "rev": "c8812486a0b1ce7dc75ec3884b1f9d1e9225de9c",
         "type": "github"
       },
       "original": {

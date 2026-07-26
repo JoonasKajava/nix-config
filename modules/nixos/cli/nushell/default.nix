@@ -49,6 +49,16 @@ in {
           environmentVariables = {
             CARAPACE_BRIDGES = "fish";
           };
+          settings = {
+            keybindings = [
+              {
+                modifier = "control";
+                keycode = "char_l";
+                mode = ["emacs" "vi_normal" "vi_insert"];
+                event = null;
+              }
+            ];
+          };
           extraConfig =
             # nushell
             ''
