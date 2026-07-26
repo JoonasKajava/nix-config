@@ -54,7 +54,6 @@ with lib.${namespace}; {
       parsec.enable = true;
       #onlyoffice.enable = false;
       heroic.enable = true;
-
     };
 
     cli.mangohud.enable = true;

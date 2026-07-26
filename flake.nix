@@ -87,6 +87,9 @@
 
       channels-config = {
         allowUnfree = true;
+        permittedInsecurePackages = [
+          "electron-40.10.5"
+        ];
       };
 
       homes.modules = with inputs; [

@@ -72,7 +72,7 @@ in {
       zoom-us
       vscode
       rocmPackages.rocminfo
-      patchedpython
+      #patchedpython
       # (python3.withPackages (p:
       #   with p; [
       #     pytest
