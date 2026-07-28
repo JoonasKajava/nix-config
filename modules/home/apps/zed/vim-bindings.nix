@@ -87,7 +87,7 @@
     };
   }
   {
-    context = "Pane";
+    context = "Pane && vim_mode == normal";
     bindings = {
       "shift-h" = "pane::ActivatePreviousItem";
       "shift-l" = "pane::ActivateNextItem";
@@ -96,6 +96,8 @@
   {
     context = "Editor && vim_mode == normal";
     bindings = {
+      "shift-h" = "pane::ActivatePreviousItem";
+      "shift-l" = "pane::ActivateNextItem";
       "[ b" = "pane::ActivatePreviousItem";
       "] b" = "pane::ActivateNextItem";
       "space b d" = ["pane::CloseActiveItem" {close_pinned = false;}];
