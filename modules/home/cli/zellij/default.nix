@@ -18,6 +18,8 @@ in {
   config = mkIf cfg.enable {
     programs.zellij = {
       enable = true;
+      attachExistingSession = true;
+      exitShellOnExit = true;
       enableZshIntegration = true;
       extraConfig = builtins.readFile ./tokyo-night-moon.kdl;
       settings = {
