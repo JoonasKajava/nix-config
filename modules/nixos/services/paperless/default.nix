@@ -96,7 +96,7 @@ in {
         configureTika = true;
         settings = {
           PAPERLESS_OCR_LANGUAGE = "eng+fin+swe";
-          PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://localhost:${toString config.services.gotenberg.port}";
+          PAPERLESS_TIKA_GOTENBERG_ENDPOINT = lib.mkForce "http://localhost:${toString config.services.gotenberg.port}";
         };
       };
     };
