@@ -28,6 +28,9 @@ in {
       systemPackages = with pkgs.kdePackages; [
         kcolorchooser
         filelight
+        (spectacle.override {
+          tesseractLanguages = [ "eng" "fin" ];
+        })
       ];
     };
 
