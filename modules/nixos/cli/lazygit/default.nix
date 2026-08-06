@@ -29,7 +29,12 @@ in {
           gui = {
           };
           git = {
-            pagers = [{externalDiffCommand = "difft --color=always";}];
+            diffRenderers = [
+              {
+                command = "difft --color=always";
+                type = "extDiff";
+              }
+            ];
             disableForcePushing = true;
           };
           customCommands = [
