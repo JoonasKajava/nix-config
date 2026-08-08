@@ -36,7 +36,7 @@
       mealie.enable = true;
       donetick.enable = true;
       wallos.enable = true;
-      nextcloud.enable = false; # Find alternative, difficult to work with
+      opencloud.enable = true;
 
       ntfy.enable = true;
       immich.enable = true;
