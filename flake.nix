@@ -1,112 +1,23 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
-  description = "A very basic flake";
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixos-wsl = {
-      url = "github:nix-community/nixos-wsl";
-      inputs.nixpkgs.follows = "nixpkgs";
+    den.url = "github:denful/den";
+    flake-file.url = "github:vic/flake-file";
+    flake-parts = {
+      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
+      url = "github:hercules-ci/flake-parts";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
     };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-    snowfall-lib = {
-      url = "github:snowfallorg/lib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    lumi-private = {
-      url = "git+ssh://git@github.com/JoonasKajava/nix-config-private";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.snowfall-lib.follows = "snowfall-lib";
-    };
-    system-age = {
-      url = "git+ssh://git@github.com/JoonasKajava/system-age";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    my-nvf = {
-      url = "github:JoonasKajava/nvf-config";
-    };
-    catppuccin.url = "github:catppuccin/nix";
-
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    kitty-themes = {
-      url = "github:kovidgoyal/kitty-themes";
-      flake = false;
-    };
-    jetbrains-plugins = {
-      url = "github:nix-community/nix-jetbrains-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    vim-zellij-navigator = {
-      url = "https://github.com/hiasr/vim-zellij-navigator/releases/latest/download/vim-zellij-navigator.wasm";
-      flake = false;
-    };
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    maccel.url = "github:Gnarus-G/maccel";
-    rust-overlay.url = "github:oxalica/rust-overlay";
+    import-tree.url = "github:vic/import-tree";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+    nixpkgs-lib.follows = "nixpkgs";
   };
 
-  outputs = inputs:
-    inputs.snowfall-lib.mkFlake {
-      inherit inputs;
-      src = ./.;
-
-      overlays = with inputs; [
-        rust-overlay.overlays.default
-      ];
-
-      snowfall = {
-        namespace = "lumi";
-        meta = {
-          name = "lumi";
-          title = "Lumi, the NixOS configuration";
-        };
-      };
-
-      channels-config = {
-        allowUnfree = true;
-        permittedInsecurePackages = [
-          "electron-40.10.5"
-          "pnpm-9.15.9"
-        ];
-      };
-
-      homes.modules = with inputs; [
-        plasma-manager.homeModules.plasma-manager
-        catppuccin.homeModules.catppuccin
-        nix-index-database.homeModules.nix-index
-      ];
-
-      systems.modules.nixos = with inputs;
-        [
-          stylix.nixosModules.stylix
-          catppuccin.nixosModules.catppuccin
-          nix-index-database.nixosModules.nix-index
-          lanzaboote.nixosModules.lanzaboote
-          maccel.nixosModules.default
-        ]
-        ++ (builtins.attrValues lumi-private.nixosModules);
-    };
 }
