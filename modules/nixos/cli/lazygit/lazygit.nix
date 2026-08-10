@@ -1,28 +1,13 @@
 {
-  lib,
-  config,
-  namespace,
-  pkgs,
-  ...
-}: let
-  inherit (lib) types mkEnableOption mkIf;
-  inherit (lib.${namespace}) mkOpt;
+  den.aspects.cli = {
+    homeManager = {pkgs, ...}: {
+      home.packages = with pkgs; [
+        gh
+        git
+        difftastic
+        stable.commitizen
+      ];
 
-  cfg = config.${namespace}.cli.lazygit;
-in {
-  options.${namespace}.cli.lazygit = {
-    enable = mkEnableOption "Lazygit";
-  };
-
-  config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      gh
-      git
-      difftastic
-      stable.commitizen
-    ];
-
-    snowfallorg.users.${config.${namespace}.user.name}.home.config = {
       programs.lazygit = {
         enable = true;
         settings = {

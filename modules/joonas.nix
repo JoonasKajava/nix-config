@@ -1,11 +1,11 @@
 { den, ... }:
 {
   # user aspect
-  den.aspects.tux = {
+  den.aspects.joonas = {
     includes = [
       den.batteries.define-user
       den.batteries.primary-user
-      (den.batteries.user-shell "fish")
+      # (den.batteries.user-shell "nushell")
     ];
 
     homeManager =
