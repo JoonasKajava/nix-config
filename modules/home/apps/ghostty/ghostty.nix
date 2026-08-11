@@ -1,19 +1,5 @@
 {
-  lib,
-  config,
-  namespace,
-  pkgs,
-  ...
-}: let
-  inherit (lib) mkEnableOption mkIf;
-
-  cfg = config.${namespace}.apps.ghostty;
-in {
-  options.${namespace}.apps.ghostty = {
-    enable = mkEnableOption "Whether to install ghostty";
-  };
-
-  config = mkIf cfg.enable {
+  den.aspects.ghostty.homeManage = {pkgs, ...}: {
     fonts.fontconfig.enable = true;
     home.packages = with pkgs.nerd-fonts; [
       fira-mono
@@ -28,7 +14,6 @@ in {
           "${./shaders/cursor_smear.glsl}"
         ];
       };
-
     };
   };
 }

@@ -1,17 +1,5 @@
 {
-  lib,
-  config,
-  pkgs,
-  namespace,
-  ...
-}: let
-  cfg = config.${namespace}.apps.anyrun;
-in {
-  options.${namespace}.apps.anyrun = {
-    enable = lib.mkEnableOption "anyrun";
-  };
-
-  config = lib.mkIf cfg.enable {
+  den.aspects.anyrun.homeManager = {pkgs, ...}: {
     programs.anyrun = {
       enable = true;
       config = {

@@ -1,66 +1,70 @@
 {
-  lib,
-  config,
-  pkgs,
-  namespace,
   inputs,
+  pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption;
-  cfg = config.${namespace}.apps.jetbrains;
   inherit (inputs.jetbrains-plugins.lib) buildIdeWithPlugins;
   withPlugins = ide: (buildIdeWithPlugins pkgs ide ["com.github.copilot"]);
   rustToolchain = pkgs.rust-bin.stable.latest.default.override {
     extensions = ["rust-src" "clippy" "rustfmt"];
   };
-  rust-rover-enabled = cfg.enable && cfg.ide.rust-rover;
 in {
-  options.${namespace}.apps.jetbrains = {
-    enable = lib.mkEnableOption "Jetbrains";
-    ide = {
-      rider = mkEnableOption "JetBrains Rider";
-      rust-rover = mkEnableOption "JetBrains Rider";
-      datagrip = mkEnableOption "JetBrains DataGrip";
-      pycharm = mkEnableOption "JetBrains PyCharm";
-      webstorm = mkEnableOption "JetBrains Webstorm";
+  flake-file.inputs = {
+    jetbrains-plugins = {
+      url = "github:nix-community/nix-jetbrains-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    home = {
-      sessionVariables = lib.mkIf cfg.ide.rider {
+  den.aspects.jetbrains = {
+    rider.homeManager = {pkgs, ...}: {
+      home.sessionVariables = {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
       };
-      packages = with pkgs;
-        [
-          nodejs
-        ]
-        ++ lib.optionals cfg.ide.datagrip [
-          (withPlugins "datagrip")
-        ]
-        ++ lib.optionals cfg.ide.webstorm [
-          (withPlugins "webstorm")
-        ]
-        ++ lib.optionals cfg.ide.pycharm [
-          (withPlugins "pycharm")
-        ]
-        ++ lib.optionals cfg.ide.rider (with pkgs; [
-          (withPlugins "rider")
-          dotnet-sdk_11
-          dotnet-ef
-        ])
-        ++ lib.optionals cfg.ide.rust-rover (with pkgs; [
+      home.packages = with pkgs; [
+        (withPlugins "rider")
+        dotnet-sdk_11
+        dotnet-ef
+      ];
+    };
+
+    datagrip.homeManager = {pkgs, ...}: {
+      home.packages = [
+        (withPlugins "datagrip")
+      ];
+    };
+
+    webstorm.homeManager = {pkgs, ...}: {
+      home.packages = [
+        (withPlugins "webstorm")
+      ];
+    };
+
+    pycharm.homeManager = {pkgs, ...}: {
+      home.packages = [
+        (withPlugins "pycharm")
+      ];
+    };
+    rust-rover.homeManager = {pkgs, ...}: {
+      home = {
+        packages = with pkgs; [
           (withPlugins "rust-rover")
           gcc
-        ]);
+        ];
+      };
       file = {
+        ".rust-rover/toolchain/bin".source = "${rustToolchain}/bin";
+
+        ".rust-rover/toolchain/lib".source = "${rustToolchain}/lib";
+      };
+    };
+
+    homeManager = {pkgs, config, ...}: {
+      home.packages = [pkgs.nodejs];
+      home.file = {
         ".ideavimrc".source =
           config.lib.file.mkOutOfStoreSymlink
           "/etc/nixos/modules/home/apps/jetbrains/.ideavimrc";
-
-        ".rust-rover/toolchain/bin" = lib.mkIf rust-rover-enabled {source = "${rustToolchain}/bin";};
-
-        ".rust-rover/toolchain/lib" = lib.mkIf rust-rover-enabled {source = "${rustToolchain}/lib";};
       };
     };
   };
