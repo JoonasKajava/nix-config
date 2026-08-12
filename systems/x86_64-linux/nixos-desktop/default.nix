@@ -3,6 +3,7 @@
   lib,
   namespace,
   config,
+  inputs,
   ...
 }:
 with lib;
@@ -10,6 +11,8 @@ with lib.${namespace}; {
   imports = [./hardware.nix];
 
   boot = {
+    # TODO: Downgrade to 7.1.5 kernel to fix gpu artifacting
+    kernelPackages = inputs.kernel-fix.legacyPackages.${pkgs.system}.linuxPackages_latest;
     loader = {
       # Bootloader.
       systemd-boot.enable = true;
