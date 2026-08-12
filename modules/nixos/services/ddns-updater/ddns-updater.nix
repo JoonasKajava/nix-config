@@ -1,19 +1,7 @@
 {
-  lib,
-  config,
-  namespace,
-  pkgs,
-  ...
-}: let
-  inherit (lib) mkEnableOption mkIf mkForce;
+  den.aspects.ddns-updater = {
+    nixos = {config, lib,...}: {
 
-  cfg = config.${namespace}.services.ddns-updater;
-in {
-  options.${namespace}.services.ddns-updater = {
-    enable = mkEnableOption "Whether to enable dynamic DNS updater service";
-  };
-
-  config = mkIf cfg.enable {
     services.ddns-updater = {
       enable = true;
       environment = {
@@ -46,10 +34,11 @@ in {
     systemd.services.ddns-updater = {
       after = ["sops-nix.service"];
       serviceConfig = {
-        DynamicUser = mkForce false;
+        DynamicUser = lib.mkForce false;
         User = "ddns-updater";
         Group = "ddns-updater";
       };
+    };
     };
   };
 }
