@@ -1,0 +1,54 @@
+{den, ...}: {
+  den.aspects.caddy = {
+    includes = [
+      den.aspects.sops
+    ];
+
+    nixos = {
+      pkgs,
+      lib,
+      config,
+      ...
+    }: let
+      inherit (lib) mkEnableOption mkIf;
+
+      inherit (config.services.caddy) enableCloudflareIntegration;
+    in {
+      options.services.caddy = {
+        enableCloudflareIntegration = mkEnableOption "Whether to enable cloudflare integration for Caddy";
+      };
+
+      config = {
+        services.caddy = {
+          package = pkgs.caddy.withPlugins {
+            plugins = ["github.com/caddy-dns/cloudflare@v0.2.2"];
+            hash = "sha256-mqIa0wI/VfjDblg0NnkzKllWHXZZPLwHP8xEVSwZuPE=";
+          };
+          extraConfig = mkIf enableCloudflareIntegration ''
+            (cloudflare) {
+              tls {
+                dns cloudflare {env.CF_API_TOKEN}
+              }
+            }
+          '';
+        };
+
+        sops = mkIf enableCloudflareIntegration {
+          secrets.cloudflare-api = {
+            restartUnits = ["caddy.service"];
+          };
+          templates."caddy-env".content = ''
+            CF_API_TOKEN=${config.sops.placeholder."cloudflare-api"}
+          '';
+        };
+
+        systemd.services.caddy = mkIf config.services.caddy.enable {
+          after = ["sops-nix.service"];
+          serviceConfig.EnvironmentFile = [
+            config.sops.templates."caddy-env".path
+          ];
+        };
+      };
+    };
+  };
+}

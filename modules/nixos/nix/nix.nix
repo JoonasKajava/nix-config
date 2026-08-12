@@ -1,5 +1,17 @@
 {
   den.aspects.base = {
+    homeManager = {
+      home.file.".config/nixpkgs/config.nix".text =
+        /*
+        Nix
+        */
+        ''
+          {
+            allowUnfree = true;
+          }
+        '';
+    };
+
     nixos = {
       nixpkgs.config.allowUnfree = true;
 
