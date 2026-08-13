@@ -12,7 +12,10 @@
     };
 
     includes = [ 
+      den.aspects.base
       den.aspects.gui
+      den.aspects.cli
+      den.aspects.school
     ];
   };
 }
