@@ -1,13 +1,13 @@
 write-flake:
     nix run ".#write-flake"
-check: write-flake
+check: 
     nix flake check
-rebuild subcommand='switch': write-flake
+rebuild subcommand='switch': 
     nh os {{subcommand}} --ask .\?submodules=1;
-upgrade: write-flake
+upgrade: 
     nix flake update
-upgrade-my-configs: write-flake
-    nix flake update lumi-private my-nvf system-age
+upgrade-my-configs: 
+    nix flake update nix-config-private  my-nvf system-age
 optimize:
     devenv gc; sudo sh -c 'nix-collect-garbage -v -d && nix-store -v --optimize'
 mount-backup archive='latest':

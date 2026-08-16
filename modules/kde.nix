@@ -12,7 +12,6 @@ in {
   den.aspects.desktop.kde = {
     nixos = {
       pkgs,
-      user,
       ...
     }: {
       environment = {
@@ -37,7 +36,7 @@ in {
 
         displayManager = {
           autoLogin.enable = true;
-          autoLogin.user = user.name;
+          autoLogin.user = "joonas";
           defaultSession = "plasma";
           sddm = {
             wayland.enable = true;

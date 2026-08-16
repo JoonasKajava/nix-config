@@ -5,6 +5,7 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
+    catppuccin.url = "github:catppuccin/nix";
     den.url = "github:denful/den";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
@@ -16,8 +17,53 @@
       url = "github:nix-community/home-manager";
     };
     import-tree.url = "github:vic/import-tree";
+    jetbrains-plugins = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nix-jetbrains-plugins";
+    };
+    kitty-themes = {
+      flake = false;
+      url = "github:kovidgoyal/kitty-themes";
+    };
+    lanzaboote = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/lanzaboote";
+    };
+    maccel.url = "github:Gnarus-G/maccel";
+    my-nvf.url = "github:JoonasKajava/nvf-config";
+    nix-config-private = {
+      flake = false;
+      url = "git+ssh://git@github.com/JoonasKajava/nix-config-private?ref=den";
+    };
+    nix-index-database = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nix-index-database";
+    };
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     nixpkgs-lib.follows = "nixpkgs";
+    plasma-manager = {
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+      url = "github:nix-community/plasma-manager";
+    };
+    sops-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Mic92/sops-nix";
+    };
+    stylix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/stylix";
+    };
+    system-age = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "git+ssh://git@github.com/JoonasKajava/system-age";
+    };
+    vim-zellij-navigator = {
+      flake = false;
+      url = "https://github.com/hiasr/vim-zellij-navigator/releases/latest/download/vim-zellij-navigator.wasm";
+    };
   };
 
 }

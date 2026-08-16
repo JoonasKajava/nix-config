@@ -1,4 +1,8 @@
-{
+{den, ...}: {
+  den.aspects.school.includes = with den.aspects; [
+    kdenlive
+    onlyoffice
+  ];
   den.aspects.school.nixos = {
     pkgs,
     lib,
@@ -76,13 +80,6 @@
       #     jupyter
       #   ]))
     ];
-    lumi = {
-      apps = {
-        kdenlive.enable = true;
-
-        onlyoffice.enable = true;
-      };
-    };
 
     networking.networkmanager.plugins = [
       pkgs.networkmanager-openvpn

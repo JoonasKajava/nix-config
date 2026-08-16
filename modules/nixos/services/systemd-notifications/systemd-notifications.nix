@@ -49,18 +49,21 @@
             }
           );
       };
-      environment.systemPackages = [sendScript];
-      systemd.services.${serviceName} = {
-        description = "Systemd Notifications Service";
-        onFailure = mkForce [];
-        unitConfig = {
-          StartLimitIntervalSec = "5m";
-          StartLimitBurst = 1;
-        };
-        serviceConfig = {
-          ExecCondition = "${checkConditions} %i";
-          ExecStart = "${pkgs.nushell}/bin/nu ${lib.getExe sendScript} %i";
-          Type = "oneshot";
+
+      config = {
+        environment.systemPackages = [sendScript];
+        systemd.services.${serviceName} = {
+          description = "Systemd Notifications Service";
+          onFailure = mkForce [];
+          unitConfig = {
+            StartLimitIntervalSec = "5m";
+            StartLimitBurst = 1;
+          };
+          serviceConfig = {
+            ExecCondition = "${checkConditions} %i";
+            ExecStart = "${pkgs.nushell}/bin/nu ${lib.getExe sendScript} %i";
+            Type = "oneshot";
+          };
         };
       };
     };

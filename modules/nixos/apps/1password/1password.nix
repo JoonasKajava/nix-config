@@ -1,12 +1,9 @@
-{
-  den,
-  user,
-  ...
-}: {
-  den.aspects.gui = {
+{den, ...}: {
+  den.aspects.one-password = {
     nixos = {
       lib,
       config,
+      user,
       ...
     }: {
       programs._1password.enable = true;
