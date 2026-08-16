@@ -45,7 +45,7 @@
         type = with types;
           attrsOf (
             submodule {
-              config.onFailure = lib.optionals cfg.enable ["${cfg.serviceName}%n.service"];
+              config.onFailure = ["${serviceName}%n.service"];
             }
           );
       };

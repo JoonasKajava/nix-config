@@ -6,6 +6,8 @@
 
   inputs = {
     catppuccin.url = "github:catppuccin/nix";
+    configA.url = "github:JoonasKajava/nix-config";
+    configB.url = "github:JoonasKajava/nix-config?ref=dendritic";
     den.url = "github:denful/den";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
@@ -39,7 +41,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nix-index-database";
     };
-    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-lib.follows = "nixpkgs";
     plasma-manager = {
       inputs = {

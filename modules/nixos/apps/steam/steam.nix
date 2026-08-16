@@ -1,5 +1,5 @@
 {den, ...}: {
-  den.aspects.steam = {
+  den.aspects.gaming = {
     nixos = {pkgs, ...}: {
       environment.sessionVariables = {
         PROTON_FSR4_UPGRADE = "1";

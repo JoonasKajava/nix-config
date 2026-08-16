@@ -1,5 +1,8 @@
 {den, ...}: {
   # host aspect
+
+  flake.den = den;
+
   den.aspects.nixos-desktop = {
     # # host NixOS configuration
     # nixos = {pkgs, ...}: {
@@ -10,6 +13,31 @@
     # provides.to-users.homeManager = {pkgs, ...}: {
     #   home.packages = [pkgs.vim];
     # };
+
+    includes = with den.aspects; [
+      gui
+      ssh
+
+      maccel
+      gpu.amd
+
+      bazecor
+      printing
+
+      jetbrains
+      jetbrains.rider
+      jetbrains.datagrip
+
+      docker
+      obs-studio
+      parsec
+
+      winboat
+      school
+      work
+      zed
+
+    ];
 
     nixos = {
       pkgs,
@@ -80,32 +108,5 @@
     #   path = "ssh://piabn1gh@piabn1gh.repo.borgbase.com/./repo";
     #   label = "nixos-desktop on BorgBase";
     # };
-
-    includes = with den.aspects; [
-      backup
-      base
-      one-password
-      cli
-      school
-      desktop.kde
-
-      winboat
-      obsidian
-      steam
-      easyeffects
-      vlc
-      parsec
-      gaming
-      gaming.heroic
-
-      maccel
-      gpu.amd
-
-      hardware.audio
-
-      bazecor
-      printing
-      tailscale
-    ];
   };
 }
