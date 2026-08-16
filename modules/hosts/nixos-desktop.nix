@@ -11,9 +11,12 @@
     #   home.packages = [pkgs.vim];
     # };
 
+    nixos.system.stateVersion = "23.11";
+    homeManager.home.stateVersion = "23.11";
+
     includes = [ 
       den.aspects.base
-      den.aspects.gui
+      # den.aspects.gui
       den.aspects.cli
       den.aspects.school
     ];

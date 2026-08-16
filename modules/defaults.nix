@@ -1,10 +1,13 @@
-{ lib, den, ... }:
 {
+  lib,
+  den,
+  ...
+}: {
   den.default.nixos.system.stateVersion = "25.11";
   den.default.homeManager.home.stateVersion = "25.11";
 
   # enable hm by default
-  den.schema.user.classes = lib.mkDefault [ "homeManager" ];
+  den.schema.user.classes = lib.mkDefault ["homeManager"];
 
   # User TODO: REMOVE THIS
   den.aspects.tux.nixos = {
