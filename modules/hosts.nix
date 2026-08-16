@@ -7,7 +7,7 @@
         classes = ["homeManager"];
       };
     };
-    nixos-laptop = {};
-    nixos-home-server = {};
+    # nixos-laptop = {};
+    # nixos-home-server = {};
   };
 }
