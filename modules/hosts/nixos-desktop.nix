@@ -15,6 +15,7 @@
     # };
 
     includes = with den.aspects; [
+      den.batteries.host-aspects
       gui
       ssh
 
@@ -36,6 +37,7 @@
       school
       work
       zed
+
 
     ];
 

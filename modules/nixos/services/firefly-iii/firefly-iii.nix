@@ -1,11 +1,11 @@
-{config, ...}: {
+{...}: {
   den.aspects.firefly-iii = let
     host = "firefly.joonaskajava.com";
   in {
-    backup.includes = [
+    backup.patterns = {config,...}: [
       config.services.firefly-iii.dataDir
     ];
-    nixos = {pkgs,...}: {
+    nixos = {pkgs,config,...}: {
       sops.secrets.firefly-iii-app-key = {
         owner = "firefly-iii";
       };

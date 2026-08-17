@@ -4,7 +4,7 @@
     address = "donetick.joonaskajava.com";
     port = 2021;
   in {
-    backup.includes = [
+    backup.patterns = [
       "+ ${homeFolder}"
     ];
     includes = [

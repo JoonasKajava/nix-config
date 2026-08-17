@@ -59,7 +59,11 @@ in {
       };
     };
 
-    homeManager = {pkgs, config, ...}: {
+    homeManager = {
+      pkgs,
+      config,
+      ...
+    }: {
       home.packages = [pkgs.nodejs];
       home.file = {
         ".ideavimrc".source =

@@ -42,7 +42,7 @@
           '';
         };
 
-        systemd.services.caddy = mkIf config.services.caddy.enable {
+        systemd.services.caddy = mkIf enableCloudflareIntegration {
           after = ["sops-nix.service"];
           serviceConfig.EnvironmentFile = [
             config.sops.templates."caddy-env".path

@@ -20,9 +20,5 @@
         gamemode.enable = true;
       };
     };
-
-    includes = [
-      den.aspects.gui
-    ];
   };
 }

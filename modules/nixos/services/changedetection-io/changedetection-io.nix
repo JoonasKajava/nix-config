@@ -5,7 +5,7 @@
     playwright-port = 33937;
     host = "changedetection.joonaskajava.com";
   in {
-    backup.includes = [
+    backup.patterns = [
       "+ ${dataDir}"
     ];
 

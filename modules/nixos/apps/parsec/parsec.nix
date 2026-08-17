@@ -7,7 +7,7 @@
       desktopName = "Fix Parsec by deleting window.json";
     };
   in {
-    environment.systemPackages = with pkgs; [
+    home.packages = with pkgs; [
       parsec-bin
       #parsec-fix-desktop-item
     ];

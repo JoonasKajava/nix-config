@@ -3,15 +3,15 @@
     includes = [
       den.aspects.caddy
     ];
+    backup = {
+      patterns = [
+        "+ /var/lib/karakeep/"
+      ];
+    };
     nixos = {pkgs, ...}: let
       host = "karakeep.joonaskajava.com";
       port = 38446;
     in {
-      backup = {
-        includes = [
-          "+ /var/lib/karakeep/"
-        ];
-      };
       systemd.services.karakeep-web.serviceConfig.CacheDirectory = "karakeep";
       services = {
         caddy = {

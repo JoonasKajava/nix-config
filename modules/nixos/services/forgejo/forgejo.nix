@@ -4,7 +4,7 @@
   ...
 }: {
   den.aspects.forgejo = {
-    backup.includes = [
+    backup.patterns = {config,...}: [
       "+ ${config.services.forgejo.stateDir}"
     ];
 

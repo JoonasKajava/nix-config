@@ -4,13 +4,14 @@
       den.aspects.caddy
       den.aspects.sops
     ];
+
+    backup.patterns = [
+      "- /var/lib/ntfy-sh/cache"
+    ];
     nixos = {config, ...}: let
       host = "ntfy.joonaskajava.com";
       port = 58685;
     in {
-      backup.patterns = [
-        "- /var/lib/ntfy-sh/cache"
-      ];
 
       services.ntfy-sh = {
         enable = true;

@@ -2,7 +2,7 @@
   den.aspects.couchdb = let
     address = "couchdb.joonaskajava.com";
   in {
-    backup.includes = [
+    backup.patterns = {config, ...}: [
       "+ ${config.services.couchdb.databaseDir}"
     ];
     nixos = {pkgs, ...}: {

@@ -4,6 +4,9 @@
       den.aspects.caddy
     ];
 
+    backup.patterns = {config,...}: [
+      "+ ${config.services.home-assistant.configDir}"
+    ];
     nixos = {
       pkgs,
       config,
@@ -17,9 +20,6 @@
           import cloudflare
         '';
       };
-      backup.includes = [
-        "+ ${config.services.home-assistant.configDir}"
-      ];
       services.home-assistant = {
         enable = true;
         package = pkgs.stable.home-assistant;

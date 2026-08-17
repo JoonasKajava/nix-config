@@ -2,7 +2,7 @@
   den.aspects.anki-sync-server = let
     host = "anki.joonaskajava.com";
   in {
-    backup.includes = [
+    backup.patterns = [
       "+ /var/lib/anki-sync-server"
     ];
 
