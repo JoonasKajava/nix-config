@@ -1,12 +1,10 @@
-{
-  inputs,
-  ...
-}: let
+{inputs, ...}: let
   inherit (inputs.jetbrains-plugins.lib) buildIdeWithPlugins;
   withPlugins = ide: pkgs: (buildIdeWithPlugins pkgs ide ["com.github.copilot"]);
-  rustToolchain = pkgs: pkgs.rust-bin.stable.latest.default.override {
-    extensions = ["rust-src" "clippy" "rustfmt"];
-  };
+  rustToolchain = pkgs:
+    pkgs.rust-bin.stable.latest.default.override {
+      extensions = ["rust-src" "clippy" "rustfmt"];
+    };
 in {
   flake-file.inputs = {
     jetbrains-plugins = {
@@ -56,11 +54,12 @@ in {
           (withPlugins "rust-rover" pkgs)
           gcc
         ];
-      };
-      file = {
-        ".rust-rover/toolchain/bin".source = "${rustToolchain pkgs}/bin";
 
-        ".rust-rover/toolchain/lib".source = "${rustToolchain pkgs}/lib";
+        file = {
+          ".rust-rover/toolchain/bin".source = "${rustToolchain pkgs}/bin";
+
+          ".rust-rover/toolchain/lib".source = "${rustToolchain pkgs}/lib";
+        };
       };
     };
 
