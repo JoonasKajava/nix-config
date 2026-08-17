@@ -27,6 +27,7 @@
       jetbrains
       jetbrains.rider
       jetbrains.datagrip
+      jetbrains.rust-rover
 
       docker
       obs-studio
@@ -37,6 +38,7 @@
       work
       zed
 
+      (den.batteries.insecure ["electron-40.10.5"])
 
     ];
 
