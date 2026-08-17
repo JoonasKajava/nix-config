@@ -49,6 +49,7 @@
       };
       url = "github:nix-community/plasma-manager";
     };
+    rust-overlay.url = "github:oxalica/rust-overlay";
     sops-nix = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:Mic92/sops-nix";

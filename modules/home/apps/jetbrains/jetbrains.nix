@@ -13,9 +13,15 @@ in {
       url = "github:nix-community/nix-jetbrains-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   den.aspects.jetbrains = {
+    nixos.nixpkgs.overlays = [
+      inputs.rust-overlay.overlays.default
+    ];
+
     rider.homeManager = {pkgs, ...}: {
       home.sessionVariables = {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
