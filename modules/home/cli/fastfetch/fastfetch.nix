@@ -1,10 +1,10 @@
-{
+{inputs,...}: {
   flake-file.inputs.system-age = {
     url = "git+ssh://git@github.com/JoonasKajava/system-age";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  den.aspects.cli.homeManager = {lib, inputs, system, ...}: {
+  den.aspects.cli.homeManager = {lib, system, ...}: {
     programs.fastfetch = {
       enable = true;
       settings = {

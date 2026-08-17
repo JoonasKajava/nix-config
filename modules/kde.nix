@@ -1,4 +1,4 @@
-let
+{inputs,...}: let
   wallpaper = "/etc/nixos/nix-config-private/wallpapers/wallhaven-g8dm6e_3840x2160.png";
 in {
   flake-file.inputs = {
@@ -58,7 +58,6 @@ in {
 
     homeManager = {
       pkgs,
-      inputs,
       ...
     }: {
       imports = [

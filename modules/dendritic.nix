@@ -10,7 +10,7 @@
     den.url = "github:denful/den";
     flake-file.url = "github:vic/flake-file";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

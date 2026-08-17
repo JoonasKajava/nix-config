@@ -4,10 +4,11 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
   den.aspects.cli = {
+    homeManager = {
+
     imports = [
       inputs.nix-index-database.homeModules.default
     ];
-    homeManager = {
       programs.nix-index-database.comma.enable = true;
     };
   };

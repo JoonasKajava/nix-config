@@ -1,11 +1,11 @@
-{
+{inputs,...}:{
   flake-file.inputs = {
     vim-zellij-navigator = {
       url = "https://github.com/hiasr/vim-zellij-navigator/releases/latest/download/vim-zellij-navigator.wasm";
       flake = false;
     };
   };
-  den.aspects.cli.homeManager = {inputs, ...}: {
+  den.aspects.cli.homeManager = {
     programs.zellij = {
       enable = true;
       attachExistingSession = true;

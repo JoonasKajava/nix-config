@@ -1,5 +1,5 @@
 {
-  den.aspects.base.homeManager = {
+  den.aspects.base.nixos = {
     home-manager = {
       backupFileExtension = "hm-backup";
       useGlobalPkgs = true;

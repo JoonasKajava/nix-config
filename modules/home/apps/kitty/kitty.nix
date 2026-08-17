@@ -1,11 +1,10 @@
-{
+{inputs,...}: {
   flake-file.inputs.kitty-themes = {
     url = "github:kovidgoyal/kitty-themes";
     flake = false;
   };
   den.aspects.kitty.homeManager = {
     pkgs,
-    inputs,
     ...
   }: {
     fonts.fontconfig.enable = true;

@@ -1,7 +1,7 @@
 {den, ...}: {
   # host aspect
 
-  flake.den = den;
+  # flake.den = den;
 
   den.aspects.nixos-desktop = {
     # # host NixOS configuration
@@ -15,7 +15,6 @@
     # };
 
     includes = with den.aspects; [
-      den.batteries.host-aspects
       gui
       ssh
 

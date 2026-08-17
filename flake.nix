@@ -14,7 +14,7 @@
     };
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
     };
     import-tree.url = "github:vic/import-tree";
     jetbrains-plugins = {
@@ -41,6 +41,7 @@
     };
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     nixpkgs-lib.follows = "nixpkgs";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     plasma-manager = {
       inputs = {
         home-manager.follows = "home-manager";

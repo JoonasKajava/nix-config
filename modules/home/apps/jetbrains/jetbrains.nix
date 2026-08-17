@@ -1,11 +1,10 @@
 {
   inputs,
-  pkgs,
   ...
 }: let
   inherit (inputs.jetbrains-plugins.lib) buildIdeWithPlugins;
-  withPlugins = ide: (buildIdeWithPlugins pkgs ide ["com.github.copilot"]);
-  rustToolchain = pkgs.rust-bin.stable.latest.default.override {
+  withPlugins = ide: pkgs: (buildIdeWithPlugins pkgs ide ["com.github.copilot"]);
+  rustToolchain = pkgs: pkgs.rust-bin.stable.latest.default.override {
     extensions = ["rust-src" "clippy" "rustfmt"];
   };
 in {
@@ -22,7 +21,7 @@ in {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
       };
       home.packages = with pkgs; [
-        (withPlugins "rider")
+        (withPlugins "rider" pkgs)
         dotnet-sdk_11
         dotnet-ef
       ];
@@ -30,32 +29,32 @@ in {
 
     datagrip.homeManager = {pkgs, ...}: {
       home.packages = [
-        (withPlugins "datagrip")
+        (withPlugins "datagrip" pkgs)
       ];
     };
 
     webstorm.homeManager = {pkgs, ...}: {
       home.packages = [
-        (withPlugins "webstorm")
+        (withPlugins "webstorm" pkgs)
       ];
     };
 
     pycharm.homeManager = {pkgs, ...}: {
       home.packages = [
-        (withPlugins "pycharm")
+        (withPlugins "pycharm" pkgs)
       ];
     };
     rust-rover.homeManager = {pkgs, ...}: {
       home = {
         packages = with pkgs; [
-          (withPlugins "rust-rover")
+          (withPlugins "rust-rover" pkgs)
           gcc
         ];
       };
       file = {
-        ".rust-rover/toolchain/bin".source = "${rustToolchain}/bin";
+        ".rust-rover/toolchain/bin".source = "${rustToolchain pkgs}/bin";
 
-        ".rust-rover/toolchain/lib".source = "${rustToolchain}/lib";
+        ".rust-rover/toolchain/lib".source = "${rustToolchain pkgs}/lib";
       };
     };
 
