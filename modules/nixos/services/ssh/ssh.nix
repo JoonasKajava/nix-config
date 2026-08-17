@@ -1,5 +1,5 @@
 {
-  den.aspects.ssh = {
+  den.aspects.openssh = {
     nixos = {
       pkgs,
       ...
