@@ -3,12 +3,15 @@
   mkIcon = icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/${icon}.svg";
 in {
   den.aspects.homepage-dashboard = {
-    nixos = {config,lib, ...}: {
-      includes = [
-        den.aspects.caddy
-        den.aspects.sops
-      ];
-
+    includes = [
+      den.aspects.caddy
+      den.aspects.sops
+    ];
+    nixos = {
+      config,
+      lib,
+      ...
+    }: {
       sops = {
         secrets = {
           home-assistant-api = {

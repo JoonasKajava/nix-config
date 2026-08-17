@@ -1,5 +1,5 @@
 {
-  den.aspects.ghostty.homeManage = {pkgs, ...}: {
+  den.aspects.ghostty.homeManager = {pkgs, ...}: {
     fonts.fontconfig.enable = true;
     home.packages = with pkgs.nerd-fonts; [
       fira-mono

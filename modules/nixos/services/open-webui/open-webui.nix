@@ -1,5 +1,8 @@
 {den, ...}: {
   den.aspects.open-webui = {
+    includes = [
+      den.aspects.caddy
+    ];
     nixos = {
       config,
       pkgs,
@@ -7,10 +10,6 @@
     }: let
       host = "ai.joonaskajava.com";
     in {
-      includes = [
-        den.aspects.caddy
-      ];
-
       services = {
         open-webui = {
           enable = true;

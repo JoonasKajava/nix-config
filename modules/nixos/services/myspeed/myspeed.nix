@@ -1,14 +1,13 @@
 {den, ...}: {
   den.aspects.myspeed = {
+    includes = [
+      den.aspects.caddy
+    ];
     nixos = {config, ...}: let
       homeFolder = "/var/lib/myspeed";
       host = "myspeed.joonaskajava.com";
       port = 42371;
     in {
-      includes = [
-        den.aspects.caddy
-      ];
-
       backup.includes = [
         "+ ${homeFolder}"
       ];

@@ -1,10 +1,9 @@
 {den, ...}: {
   den.aspects.msmtp = {
+    includes = [
+      den.aspects.sops
+    ];
     nixos = {config, ...}: {
-      includes = [
-        den.aspects.sops
-      ];
-
       programs.msmtp = {
         enable = true;
         setSendmail = true;

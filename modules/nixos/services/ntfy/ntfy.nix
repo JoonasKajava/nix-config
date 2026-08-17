@@ -1,16 +1,15 @@
 {den, ...}: {
   den.aspects.ntfy = {
+    includes = [
+      den.aspects.caddy
+      den.aspects.sops
+    ];
     nixos = {config, ...}: let
       host = "ntfy.joonaskajava.com";
       port = 58685;
     in {
       backup.patterns = [
         "- /var/lib/ntfy-sh/cache"
-      ];
-
-      includes = [
-        den.aseccts.caddy
-        den.aseccts.sops
       ];
 
       services.ntfy-sh = {

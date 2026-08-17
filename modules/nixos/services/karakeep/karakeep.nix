@@ -1,13 +1,12 @@
 {den, ...}: {
   den.aspects.karakeep = {
+    includes = [
+      den.aspects.caddy
+    ];
     nixos = {pkgs, ...}: let
       host = "karakeep.joonaskajava.com";
       port = 38446;
     in {
-      includes = [
-        den.aspects.caddy
-      ];
-
       backup = {
         includes = [
           "+ /var/lib/karakeep/"

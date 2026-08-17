@@ -1,13 +1,12 @@
 {den, ...}: {
   den.aspects.mealie = {
+    includes = [
+      den.aspects.caddy
+      den.aspects.sops
+    ];
     nixos = {config, ...}: let
       host = "mealie.joonaskajava.com";
     in {
-      includes = [
-        den.aspects.caddy
-        den.aspects.sops
-      ];
-
       backup.includes = [
         "+ /var/lib/mealie/"
       ];

@@ -2,6 +2,10 @@
   den.aspects.immich = let
     host = "immich.joonaskajava.com";
   in {
+    includes = [
+      den.aspects.caddy
+      den.aspects.sops
+    ];
     nixos = {
       config,
       lib,
@@ -10,11 +14,6 @@
     }: let
       inherit (lib.generators) toJSON;
     in {
-      includes = [
-        den.aspects.caddy
-        den.aspects.sops
-      ];
-
       backup.includes = [
         "+ /var/lib/immich/"
       ];

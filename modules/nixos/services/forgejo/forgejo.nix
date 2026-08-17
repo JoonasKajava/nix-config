@@ -3,7 +3,7 @@
   den,
   ...
 }: {
-  den.aspects.forjejo = {
+  den.aspects.forgejo = {
     backup.includes = [
       "+ ${config.services.forgejo.stateDir}"
     ];

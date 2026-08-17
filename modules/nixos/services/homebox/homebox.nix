@@ -1,14 +1,13 @@
 {den, ...}: {
   den.aspects.homebox = {
-    nixos = { config, ...}: let
+    includes = [
+      den.aspects.caddy
+      den.aspects.sops
+    ];
+    nixos = {config, ...}: let
       port = 7745;
       host = "homebox.joonaskajava.com";
     in {
-      includes = [
-        den.aspects.caddy
-        den.aspects.sops
-      ];
-
       services.caddy = {
         enable = true;
         virtualHosts = {
