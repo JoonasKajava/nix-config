@@ -11,11 +11,19 @@
       enable = true;
       package = pkgs.zed-editor-fhs;
       userSettings = {
+        git = {
+          inline_blame = "on";
+        };
+        code_lens = "on";
         diagnostics = {
           inline = {
             enabled = true;
           };
         };
+        toolbar = {
+          code_actions = true;
+        };
+        auto_signature_help = true;
         ui_font_family = "JetBrains Mono";
         buffer_font_family = "JetBrains Mono";
         buffer_font_features = {
@@ -31,6 +39,14 @@
           mode = "dark";
           light = "One Light";
           dark = "One Dark";
+        };
+        which_key = {
+          delay_ms = 500;
+          enabled = true;
+        };
+
+        inlay_hints = {
+          enabled = true;
         };
         vim_mode = true;
         lsp = {

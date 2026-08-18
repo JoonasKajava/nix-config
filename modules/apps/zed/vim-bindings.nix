@@ -2,7 +2,7 @@
   den.aspects.zed.homeManager = {
     programs.zed-editor.userKeymaps = [
       {
-        context = "Editor && vim_mode == normal"; # TODO: this should be Workspace
+        context = "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu";
         bindings = {
           "space l" = null;
           "space q q" = "zed::Quit";
@@ -86,18 +86,7 @@
           "space a i" = "assistant::InlineAssist";
           "space a a" = "assistant::InlineAssist";
           "space e" = "project_panel::ToggleFocus";
-        };
-      }
-      {
-        context = "Pane && vim_mode == normal";
-        bindings = {
-          "shift-h" = "pane::ActivatePreviousItem";
-          "shift-l" = "pane::ActivateNextItem";
-        };
-      }
-      {
-        context = "Editor && vim_mode == normal";
-        bindings = {
+
           "shift-h" = "pane::ActivatePreviousItem";
           "shift-l" = "pane::ActivateNextItem";
           "[ b" = "pane::ActivatePreviousItem";
@@ -112,7 +101,7 @@
         };
       }
       {
-        context = "Editor && vim_mode == normal";
+        context = "Editor && vim_mode == normal && !VimWaiting && !menu";
         bindings = {
           "alt-j" = "editor::MoveLineDown";
           "alt-k" = "editor::MoveLineUp";
@@ -138,7 +127,6 @@
           "g D" = "editor::GoToDefinition";
           "g K" = "editor::ShowSignatureHelp";
           "shift-k" = "editor::Hover";
-          "ctrl-k" = "editor::Hover";
           "space c r" = "editor::ToggleCodeActions";
           "space o i" = "editor::OrganizeImports";
           "space c C" = null;
@@ -191,11 +179,7 @@
           "space d e" = "debugger::EvaluateSelectedText";
           "Y" = ["workspace::SendKeystrokes" "y $"];
           "Q" = ["workspace::SendKeystrokes" "@ @"];
-        };
-      }
-      {
-        context = "Editor && vim_mode == normal";
-        bindings = {
+
           "s" = "vim::PushSneak";
           "ctrl-h" = "workspace::ActivatePaneLeft";
           "ctrl-j" = "workspace::ActivatePaneDown";
@@ -299,7 +283,7 @@
         };
       }
       {
-        context = "Editor && vim_mode == visual";
+        context = "Editor && vim_mode == visual && !VimWaiting && !menu";
         bindings = {
           "space l f" = "editor::Format";
           "space c r" = "editor::ToggleCodeActions";
@@ -313,26 +297,13 @@
         };
       }
       {
-        context = "Editor && vim_mode == insert";
+        context = "Editor && vim_mode == insert && !VimWaiting && !menu";
         bindings = {
           "alt-j" = "editor::MoveLineDown";
           "alt-k" = "editor::MoveLineUp";
           "ctrl-k" = "editor::ShowSignatureHelp";
           "ctrl-u" = ["workspace::SendKeystrokes" "ctrl-g u ctrl-u"];
           "ctrl-w" = ["workspace::SendKeystrokes" "ctrl-g u ctrl-w"];
-        };
-      }
-
-      {
-        context = "VimControl && !menu";
-        unbind = {
-          "shift-h" = "vim::WindowTop";
-        };
-      }
-      {
-        context = "VimControl && !menu";
-        unbind = {
-          "shift-l" = "vim::WindowBottom";
         };
       }
     ];
