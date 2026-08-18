@@ -70,6 +70,7 @@
       zoom-us
       vscode
       rocmPackages.rocminfo
+      zotero
       #patchedpython
       # (python3.withPackages (p:
       #   with p; [
