@@ -4,15 +4,21 @@
   ...
 }: {
   den.aspects.forgejo = {
-    backup.patterns = {config,...}: [
-      "+ ${config.services.forgejo.stateDir}"
-    ];
+    backup = {config, ...}: {
+      patterns = [
+        "+ ${config.services.forgejo.stateDir}"
+      ];
+    };
 
     includes = [
       den.aspects.caddy
     ];
 
-    nixos = {pkgs, ...}: let
+    nixos = {
+      pkgs,
+      config,
+      ...
+    }: let
       host = "forgejo.joonaskajava.com";
       port = 38131;
     in {

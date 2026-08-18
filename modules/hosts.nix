@@ -8,6 +8,10 @@
       };
     };
     # nixos-laptop = {};
-    # nixos-home-server = {};
+    nixos-home-server = {
+      users.joonas = {
+        classes = ["homeManager"];
+      };
+    };
   };
 }

@@ -2,10 +2,16 @@
   den.aspects.couchdb = let
     address = "couchdb.joonaskajava.com";
   in {
-    backup.patterns = {config, ...}: [
-      "+ ${config.services.couchdb.databaseDir}"
-    ];
-    nixos = {pkgs, ...}: {
+    backup = {config, ...}: {
+      patterns = [
+        "+ ${config.services.couchdb.databaseDir}"
+      ];
+    };
+    nixos = {
+      pkgs,
+      config,
+      ...
+    }: {
       sops.secrets.couchdb-admin-pass.mode = "0400";
 
       sops.templates.couchdb_admin = {

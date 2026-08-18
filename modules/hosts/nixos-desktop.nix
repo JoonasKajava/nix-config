@@ -48,6 +48,7 @@
 
       den.batteries.hostname
       (den.batteries.insecure ["electron-40.10.5"])
+      backup
     ];
 
     nixos = {
@@ -117,9 +118,11 @@
 
     homeManager.home.stateVersion = "23.11";
 
-    # backup.repositories.nixos-desktop = {
-    #   path = "ssh://piabn1gh@piabn1gh.repo.borgbase.com/./repo";
-    #   label = "nixos-desktop on BorgBase";
-    # };
+    backup.repositories = [
+      {
+        path = "ssh://piabn1gh@piabn1gh.repo.borgbase.com/./repo";
+        label = "nixos-desktop on BorgBase";
+      }
+    ];
   };
 }

@@ -4,19 +4,17 @@
       den.aspects.caddy
     ];
 
-    backup.patterns = {config,...}: [
-      "+ ${config.services.home-assistant.configDir}"
-    ];
-    nixos = {
-      pkgs,
-      config,
-      ...
-    }: let
+    backup = {config, ...}: {
+      patterns = [
+        "+ ${config.services.home-assistant.configDir}"
+      ];
+    };
+    nixos = {pkgs, ...}: let
       host = "home-assistant.joonaskajava.com";
     in {
       services.caddy.virtualHosts."${host}" = {
         extraConfig = ''
-          reverse_proxy 127.0.0.1:${toString config.services.home-assistant.config.http.server_port}
+          reverse_proxy 127.0.0.1:${toString 8123}
           import cloudflare
         '';
       };
