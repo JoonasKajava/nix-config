@@ -1,3 +1,0 @@
-{
-  useVivaldi = true;
-}
