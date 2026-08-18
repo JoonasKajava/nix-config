@@ -21,6 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nix-jetbrains-plugins";
     };
+    kernel-fix.url = "github:nixos/nixpkgs/104240a772428cc2e20d8fd86c9ddbb886bbaff2";
     kitty-themes = {
       flake = false;
       url = "github:kovidgoyal/kitty-themes";

@@ -1,7 +1,15 @@
-{den, ...}: {
+{
+  den,
+  inputs,
+  ...
+}: {
   # host aspect
 
   # flake.den = den;
+
+  flake-file.inputs = {
+    kernel-fix.url = "github:nixos/nixpkgs/104240a772428cc2e20d8fd86c9ddbb886bbaff2";
+  };
 
   den.aspects.nixos-desktop = {
     # # host NixOS configuration
@@ -38,8 +46,8 @@
       work
       zed
 
+      den.batteries.hostname
       (den.batteries.insecure ["electron-40.10.5"])
-
     ];
 
     nixos = {
@@ -77,6 +85,8 @@
       boot = {
         initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage"];
         initrd.kernelModules = [];
+        # TODO: Downgrade to 7.1.5 kernel to fix gpu artifacting
+        kernelPackages = inputs.kernel-fix.legacyPackages.${pkgs.system}.linuxPackages_latest;
         kernelModules = ["kvm-amd"];
         extraModulePackages = [];
         loader = {
