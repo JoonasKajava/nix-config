@@ -23,7 +23,7 @@
         toolbar = {
           code_actions = true;
         };
-        auto_signature_help = true;
+        auto_signature_help = false;
         ui_font_family = "JetBrains Mono";
         buffer_font_family = "JetBrains Mono";
         buffer_font_features = {
