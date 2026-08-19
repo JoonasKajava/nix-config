@@ -41,6 +41,11 @@
     ];
 
     nixos = {config, ...}: {
+      services = {
+        tailscale.authKeyFile = config.sops.secrets.tailscale-auth-key.path;
+        thermald.enable = true;
+      };
+
       users.users.root.openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/I9fBvav2dg4zYvScZ/+ipDEs68WylJAEYTYwwRWDk"
@@ -54,10 +59,6 @@
       boot = {
         loader.systemd-boot.enable = true;
         loader.efi.canTouchEfiVariables = true;
-      };
-      services = {
-        tailscale.authKeyFile = config.sops.secrets.tailscale-auth-key.path;
-        thermald.enable = true;
       };
 
       networking = {
