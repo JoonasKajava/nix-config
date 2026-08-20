@@ -1,5 +1,5 @@
 {
-  den.aspects.cli.homeManager = {
+  den.aspects.opencode.homeManager = {
     pkgs,
     lib,
     ...

@@ -28,6 +28,7 @@
       bazecor
       printing
 
+      opencode
       jetbrains
       jetbrains.rider
       jetbrains.datagrip
