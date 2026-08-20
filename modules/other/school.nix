@@ -51,6 +51,10 @@
   in {
     nixpkgs.config.rocmSupport = true;
 
+    fonts.packages = with pkgs; [
+      corefonts
+    ];
+
     hardware.amdgpu.opencl.enable = true;
     systemd.tmpfiles.rules = let
       rocmEnv = pkgs.symlinkJoin {
