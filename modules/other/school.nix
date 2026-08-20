@@ -65,12 +65,13 @@
       "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
     ];
     environment.systemPackages = with pkgs; [
-      docker-compose
       graphviz
       zoom-us
       vscode
       rocmPackages.rocminfo
       zotero
+      typst
+
       #patchedpython
       # (python3.withPackages (p:
       #   with p; [

@@ -2,6 +2,7 @@
   den.aspects.docker = {
     nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
+        docker-compose
         lazydocker
       ];
       virtualisation = {
