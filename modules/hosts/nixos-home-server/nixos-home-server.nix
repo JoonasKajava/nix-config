@@ -9,7 +9,7 @@
     includes = with den.aspects; [
       base
       ssh
-      openssh
+      ssh-server
       cli
 
       karakeep
@@ -45,16 +45,6 @@
         tailscale.authKeyFile = config.sops.secrets.tailscale-auth-key.path;
         thermald.enable = true;
       };
-
-      users.users.root.openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/I9fBvav2dg4zYvScZ/+ipDEs68WylJAEYTYwwRWDk"
-      ];
-
-      users.users.joonas.openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlZjgPGkod3ZHstX7jZJnShM6J4JdlIBL+O1P3tvRKU"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/I9fBvav2dg4zYvScZ/+ipDEs68WylJAEYTYwwRWDk"
-      ];
 
       boot = {
         loader.systemd-boot.enable = true;
