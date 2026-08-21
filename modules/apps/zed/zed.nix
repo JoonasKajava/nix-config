@@ -12,7 +12,10 @@
       package = pkgs.zed-editor-fhs;
       userSettings = {
         git = {
-          inline_blame = "on";
+          inline_blame = {
+            enabled = true;
+            location = "inline";
+          };
         };
         code_lens = "on";
         diagnostics = {
