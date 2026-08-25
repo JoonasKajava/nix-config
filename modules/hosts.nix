@@ -7,7 +7,12 @@
         classes = ["homeManager"];
       };
     };
-    # nixos-laptop = {};
+    nixos-laptop = {
+      users.joonas = {
+        classes = ["homeManager"];
+      };
+    };
+
     nixos-home-server = {
       users.joonas = {
         classes = ["homeManager"];
