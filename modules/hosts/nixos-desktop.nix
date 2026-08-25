@@ -29,7 +29,6 @@
       printing
 
       opencode
-      jetbrains
       jetbrains.rider
       jetbrains.datagrip
       jetbrains.rust-rover

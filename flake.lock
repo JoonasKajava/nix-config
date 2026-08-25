@@ -294,7 +294,7 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
-          "nixpkgs-lib"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -1015,9 +1015,6 @@
         "nix-config-private": "nix-config-private",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-lib": [
-          "nixpkgs"
-        ],
         "nixpkgs-stable": "nixpkgs-stable",
         "plasma-manager": "plasma-manager",
         "rust-overlay": "rust-overlay_2",

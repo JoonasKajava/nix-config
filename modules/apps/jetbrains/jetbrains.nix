@@ -1,10 +1,22 @@
-{inputs, ...}: let
+{
+  inputs,
+  den,
+  ...
+}: let
   inherit (inputs.jetbrains-plugins.lib) buildIdeWithPlugins;
   withPlugins = ide: pkgs: (buildIdeWithPlugins pkgs ide ["com.github.copilot"]);
   rustToolchain = pkgs:
     pkgs.rust-bin.stable.latest.default.override {
       extensions = ["rust-src" "clippy" "rustfmt"];
     };
+
+  mkIde = homeManager: {
+    includes = [
+      den.aspects.jetbrains.common
+    ];
+
+    inherit homeManager;
+  };
 in {
   flake-file.inputs = {
     jetbrains-plugins = {
@@ -16,11 +28,7 @@ in {
   };
 
   den.aspects.jetbrains = {
-    nixos.nixpkgs.overlays = [
-      inputs.rust-overlay.overlays.default
-    ];
-
-    rider.homeManager = {pkgs, ...}: {
+    rider = mkIde ({pkgs, ...}: {
       home.sessionVariables = {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
       };
@@ -29,26 +37,26 @@ in {
         dotnet-sdk_11
         dotnet-ef
       ];
-    };
+    });
 
-    datagrip.homeManager = {pkgs, ...}: {
+    datagrip = mkIde ({pkgs, ...}: {
       home.packages = [
         (withPlugins "datagrip" pkgs)
       ];
-    };
+    });
 
-    webstorm.homeManager = {pkgs, ...}: {
+    webstorm = mkIde ({pkgs, ...}: {
       home.packages = [
         (withPlugins "webstorm" pkgs)
       ];
-    };
+    });
 
-    pycharm.homeManager = {pkgs, ...}: {
+    pycharm = mkIde ({pkgs, ...}: {
       home.packages = [
         (withPlugins "pycharm" pkgs)
       ];
-    };
-    rust-rover.homeManager = {pkgs, ...}: {
+    });
+    rust-rover = mkIde ({pkgs, ...}: {
       home = {
         packages = with pkgs; [
           (withPlugins "rust-rover" pkgs)
@@ -61,9 +69,13 @@ in {
           ".rust-rover/toolchain/lib".source = "${rustToolchain pkgs}/lib";
         };
       };
-    };
+    });
 
-    homeManager = {
+    common.nixos.nixpkgs.overlays = [
+      inputs.rust-overlay.overlays.default
+    ];
+
+    common.homeManager = {
       pkgs,
       config,
       ...
