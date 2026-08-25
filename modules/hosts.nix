@@ -18,5 +18,12 @@
         classes = ["homeManager"];
       };
     };
+
+    nixos-wsl = {
+      wsl.enable = true;
+      users.joonas = {
+        classes = ["homeManager"];
+      };
+    };
   };
 }
