@@ -34,7 +34,6 @@
       jetbrains.rust-rover
 
       docker
-      obs-studio
       parsec
 
       winboat
