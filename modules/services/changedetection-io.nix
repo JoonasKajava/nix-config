@@ -23,7 +23,7 @@
             "--network=host"
           ];
           environment = {
-            PLAYWRIGHT_DRIVER_URL = "ws://host.containers.internal:${toString playwright-port}";
+            PLAYWRIGHT_DRIVER_URL = "ws://127.0.0.1:${toString playwright-port}";
             BASE_URL = "https://${host}";
             PORT = toString port;
           };
