@@ -6,6 +6,7 @@
       cli
       cli.nushell
 
+      den.batteries.hostname
       tailscale
     ];
   };

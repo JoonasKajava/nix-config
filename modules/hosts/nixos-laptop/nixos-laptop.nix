@@ -5,7 +5,11 @@
       ssh
       printing
 
+      opencode
+      school
+
       gpu.nvidia
+      # backup
     ];
     nixos = {
       imports = [
