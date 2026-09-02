@@ -65,6 +65,9 @@
       system.stateVersion = "25.11"; # Did you read the comment?
     };
 
-    homeManager.home.stateVersion = "25.11";
+    homeManager = {lib,...}: {
+      home.stateVersion = "25.11";
+      programs.zellij.enable = lib.mkForce false;
+    };
   };
 }
