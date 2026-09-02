@@ -24,9 +24,9 @@
         };
         brave-search = {
           command = "${pkgs.nodejs}/bin/npx";
-          args = ["-y" "@brave/brave-search-mcp-server" "--transport" "http"];
+          args = ["-y" "@brave/brave-search-mcp-server"];
           env = {
-            BRAVE_API_KEY.file = osConfig.sops.secrets."brave-search-api-key".path;
+            BRAVE_API_KEY_FILE = osConfig.sops.secrets."brave-search-api-key".path;
           };
         };
       };
