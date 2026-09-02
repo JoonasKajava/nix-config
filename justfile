@@ -4,6 +4,8 @@ check:
     nix flake check
 rebuild subcommand='switch': 
     nh os {{subcommand}} --ask .\?submodules=1;
+rebuild-home-server subcommand='switch': 
+    nh os {{subcommand}} . --ask -H nixos-home-server --target-host root@nixos-home-server
 upgrade: 
     nix flake update
 upgrade-my-configs: 

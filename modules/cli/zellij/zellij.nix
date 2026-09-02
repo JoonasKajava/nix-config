@@ -5,7 +5,7 @@
       flake = false;
     };
   };
-  den.aspects.cli.homeManager = {
+  den.aspects.cli.homeManager = {config,lib,...}: {
     programs.zellij = {
       enable = true;
       attachExistingSession = true;
@@ -218,7 +218,7 @@
     };
 
     # TODO: Maybe conditional here to check if nushell aspect is on
-    programs.nushell.extraConfig =  ''
+    programs.nushell.extraConfig = lib.mkIf config.programs.zellij.enable ''
       # zellij
       def start_zellij [] {
         if 'ZELLIJ' not-in ($env | columns) {
