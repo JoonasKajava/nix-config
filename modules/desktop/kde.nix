@@ -1,4 +1,4 @@
-{inputs,...}: let
+{inputs, ...}: let
   wallpaper = "/etc/nixos/nix-config-private/wallpapers/wallhaven-g8dm6e_3840x2160.png";
 in {
   flake-file.inputs = {
@@ -10,10 +10,7 @@ in {
   };
 
   den.aspects.desktop.kde = {
-    nixos = {
-      pkgs,
-      ...
-    }: {
+    nixos = {pkgs, ...}: {
       environment = {
         plasma6.excludePackages = with pkgs.kdePackages; [
           kate
@@ -56,10 +53,7 @@ in {
       programs.dconf.enable = true;
     };
 
-    homeManager = {
-      pkgs,
-      ...
-    }: {
+    homeManager = {pkgs, ...}: {
       imports = [
         inputs.plasma-manager.homeModules.plasma-manager
       ];
@@ -112,6 +106,7 @@ in {
                   settings.General = {
                     interactiveMute = false;
                   };
+                  behavior.grouping.clickAction = "showPresentWindowsEffect";
                   launchers =
                     [
                       "preferred://filemanager"
