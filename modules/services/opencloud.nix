@@ -4,7 +4,7 @@
   in {
     backup = {config, ...}: {
       patterns = [
-        config.services.opencloud.stateDir
+        "+ ${config.services.opencloud.stateDir}"
       ];
     };
     nixos = {

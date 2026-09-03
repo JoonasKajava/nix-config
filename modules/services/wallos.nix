@@ -4,7 +4,7 @@ in
 {
   den.aspects.wallos = {
     backup.patterns = [
-      homeFolder
+      "+ ${homeFolder}"
     ];
     nixos =
       let

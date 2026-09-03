@@ -10,8 +10,8 @@
       includes = [ den.aspects.samba ];
 
       backup.patterns = [
-        "/var/lib/paperless/"
-        "/var/lib/paperless/paperless-ai/"
+        "+ /var/lib/paperless/"
+        "+ /var/lib/paperless/paperless-ai/"
       ];
 
       nixos =

@@ -3,7 +3,7 @@
     host = "firefly.joonaskajava.com";
   in {
     backup.patterns = {config,...}: [
-      config.services.firefly-iii.dataDir
+      "+ ${config.services.firefly-iii.dataDir}"
     ];
     nixos = {pkgs,config,...}: {
       sops.secrets.firefly-iii-app-key = {
