@@ -1,6 +1,6 @@
 {
   den.aspects.bazecor = {
-    user.extraGroups = ["dialout"];
+    provides.to-users.user.extraGroups = ["dialout"];
     nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
         bazecor
