@@ -2,8 +2,8 @@
   den.aspects.nixos-home-server = {
     backup.repositories = [
       {
-        path = "ssh://piabn1gh@piabn1gh.repo.borgbase.com/./repo";
-        label = "nixos-desktop on BorgBase";
+        path = "ssh://o5fkvkv8@o5fkvkv8.repo.borgbase.com/./repo";
+        label = "nixos-home-server on BorgBase";
       }
     ];
     includes = with den.aspects; [
@@ -65,7 +65,7 @@
       system.stateVersion = "25.11"; # Did you read the comment?
     };
 
-    homeManager = {lib,...}: {
+    homeManager = {lib, ...}: {
       home.stateVersion = "25.11";
       programs.zellij.enable = lib.mkForce false;
     };
