@@ -20,6 +20,7 @@
     };
 
     nixos-wsl = {
+      class = "nixos";
       wsl.enable = true;
       users.joonas = {
         classes = ["homeManager"];
