@@ -13,11 +13,15 @@
       opencode
     ];
 
-    homeManager.home.stateVersion = "26.05";
+    joonas.includes = with den.aspects; [
+      cli
+      base
+      opencode
+    ];
+
+    joonas.homeManager.home.stateVersion = "26.05";
     nixos = {
       users.users.joonas.linger = true;
-
-      home-manager.startAsUserService = true;
 
       system.stateVersion = "26.05";
       wsl.defaultUser = "joonas";
