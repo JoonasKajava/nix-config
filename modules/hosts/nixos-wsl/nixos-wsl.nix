@@ -16,6 +16,9 @@
     homeManager.home.stateVersion = "26.05";
     nixos = {
       users.users.joonas.linger = true;
+
+      home-manager.startAsUserService = true;
+
       system.stateVersion = "26.05";
       wsl.defaultUser = "joonas";
     };
