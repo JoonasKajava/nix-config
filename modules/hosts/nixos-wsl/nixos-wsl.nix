@@ -25,6 +25,7 @@
 
       system.stateVersion = "26.05";
       wsl.defaultUser = "joonas";
+      wslConf.interop.appendWindowsPath = false;
     };
   };
 }
