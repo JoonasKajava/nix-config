@@ -3,7 +3,7 @@ write-flake:
 check: 
     nix flake check
 rebuild subcommand='switch': 
-    nh os {{subcommand}} --ask .\?submodules=1;
+    nh os {{subcommand}} --ask .
 rebuild-home-server subcommand='switch': 
     nh os {{subcommand}} . --ask -H nixos-home-server --target-host root@nixos-home-server
 upgrade: 
