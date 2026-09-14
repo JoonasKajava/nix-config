@@ -20,6 +20,9 @@
     ];
 
     joonas.homeManager.home.stateVersion = "26.05";
+    homeManager = {lib, ...}: {
+      programs.zellij.enable = lib.mkForce false;
+    };
     nixos = {
       users.users.joonas.linger = true;
 
