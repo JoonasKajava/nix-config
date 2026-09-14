@@ -19,8 +19,8 @@
       opencode
     ];
 
-    joonas.homeManager.home.stateVersion = "26.05";
-    homeManager = {lib, ...}: {
+    joonas.homeManager = {lib, ...}: {
+      home.stateVersion = "26.05";
       programs.zellij.enable = lib.mkForce false;
     };
     nixos = {
