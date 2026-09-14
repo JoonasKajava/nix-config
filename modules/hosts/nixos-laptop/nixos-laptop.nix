@@ -5,6 +5,7 @@
       ssh
       printing
 
+      zellij
       opencode
       school
 

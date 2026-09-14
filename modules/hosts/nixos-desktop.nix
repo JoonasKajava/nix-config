@@ -28,6 +28,7 @@
       bazecor
       printing
 
+      zellij
       opencode
       jetbrains.rider
       jetbrains.datagrip

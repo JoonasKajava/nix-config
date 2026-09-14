@@ -67,7 +67,6 @@
 
     homeManager = {lib, ...}: {
       home.stateVersion = "25.11";
-      programs.zellij.enable = lib.mkForce false;
     };
   };
 }
