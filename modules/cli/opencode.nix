@@ -39,6 +39,7 @@
       programs.opencode = {
         enableMcpIntegration = true;
         enable = true;
+        package = pkgs.stable.opencode;
       };
     };
   };
