@@ -37,6 +37,13 @@
                 mode = ["emacs" "vi_normal" "vi_insert"];
                 event = null;
               }
+              {
+                name = "open_editor";
+                modifier = "none";
+                keycode = "char_v";
+                mode = "vi_normal";
+                event = {send = "openeditor";};
+              }
             ];
           };
           extraConfig =
