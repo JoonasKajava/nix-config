@@ -1,4 +1,4 @@
-{den,...}:{
+{den, ...}: {
   den.aspects.opencode = {
     includes = with den.aspects; [
       sops
@@ -40,6 +40,9 @@
         enableMcpIntegration = true;
         enable = true;
         package = pkgs.stable.opencode;
+        settings = {
+          autoupdate = false;
+        };
       };
     };
   };
