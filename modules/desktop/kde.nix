@@ -120,7 +120,7 @@ in {
                     #   "file:///home/joonas/.local/share/applications/brave-nkbljeindhmekmppbpgebpjebkjbmfaj-Default.desktop" # Fastmail
                     # ]
                     ++ [
-                      "file://${pkgs.obsidian}/share/applications/obsidian.desktop"
+                      "file://${pkgs.obsidian}/share/applications/md.obsidian.Obsidian.desktop"
                     ]
                     ++ [
                       "file://${pkgs.steam}/share/applications/steam.desktop"
