@@ -1,0 +1,12 @@
+[
+  {
+    "name": "opencode",
+    "installScript": "npm install -g @opencode/cli",
+    "symlinks": [
+      {
+        "source": "../modules/cli/opencode/opencode-config.jsonc",
+        "target": "%USERPROFILE%\\.config\\opencode\\opencode.json"
+      }
+    ]
+  }
+]
