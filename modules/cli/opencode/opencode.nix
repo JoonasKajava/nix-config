@@ -40,9 +40,14 @@
         enableMcpIntegration = true;
         enable = true;
         package = pkgs.stable.opencode;
-        settings = {
-          autoupdate = false;
-        };
+        settings =
+          (
+            builtins.readFile ./opencode-config.jsonc
+            |> builtins.fromJSON
+          )
+          // {
+            autoupdate = false;
+          };
       };
     };
   };

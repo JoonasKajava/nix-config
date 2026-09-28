@@ -1,0 +1,26 @@
+---
+- name: Install and configure OpenCode
+  hosts: windows
+  gather_facts: true
+  vars_prompt:
+    - name: nixos_config_dir
+      prompt: Path to the nixos configuration checkout on the Windows host
+      private: false
+  tasks:
+    - name: Install OpenCode
+      chocolatey.chocolatey.win_chocolatey:
+        name: opencode
+        state: present
+
+    - name: Create the OpenCode configuration directory
+      ansible.windows.win_file:
+        path: '{{ ansible_env.USERPROFILE }}\.config\opencode'
+        state: directory
+
+    - name: Link the shared OpenCode configuration
+      ansible.windows.win_script: >-
+        New-Symlink.ps1
+        '{{ nixos_config_dir }}\modules\cli\opencode\opencode-config.jsonc'
+        '{{ ansible_env.USERPROFILE }}\.config\opencode\opencode.json'
+      register: symlink_result
+      changed_when: "'changed' in symlink_result.output"

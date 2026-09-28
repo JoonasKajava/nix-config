@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "bash": {
+      "pwsh *Get-*": "allow",
+      "pwsh *Select-Object*": "allow",
+      "pwsh *Select-String*": "allow",
+      "pwsh *Test-Path*": "allow",
+      "pwsh *Resolve-Path*": "allow",
+      "pwsh *Measure-Object*": "allow",
+      "pwsh *Compare-Object*": "allow",
+      "pwsh *Format-*": "allow",
+      "pwsh *Out-String*": "allow",
+      "powershell *Get-*": "allow",
+      "powershell *Select-Object*": "allow",
+      "powershell *Select-String*": "allow",
+      "powershell *Test-Path*": "allow",
+      "powershell *Resolve-Path*": "allow",
+      "powershell *Measure-Object*": "allow",
+      "powershell *Compare-Object*": "allow",
+      "powershell *Format-*": "allow",
+      "powershell *Out-String*": "allow"
+    }
+  }
+}
