@@ -31,7 +31,7 @@
     maccel.url = "github:Gnarus-G/maccel";
     my-nvf.url = "github:JoonasKajava/nvf-config";
     nix-config-private = {
-      url = "git+ssh://git@github.com/JoonasKajava/nix-config-private?ref=den";
+      url = "git+ssh://git@github.com/JoonasKajava/nix-config-private";
       flake = false;
     };
     nix-index-database = {

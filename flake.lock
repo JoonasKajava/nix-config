@@ -736,14 +736,13 @@
       "locked": {
         "lastModified": 1790604023,
         "narHash": "sha256-XJrAcIjOJTNaGcj7tHJnDv0/XYdlHOlTh+AQh8unUk4=",
-        "ref": "den",
+        "ref": "refs/heads/main",
         "rev": "d70ba65162a57744e1fed0a4fae09271bdf65c08",
         "revCount": 192,
         "type": "git",
         "url": "ssh://git@github.com/JoonasKajava/nix-config-private"
       },
       "original": {
-        "ref": "den",
         "type": "git",
         "url": "ssh://git@github.com/JoonasKajava/nix-config-private"
       }

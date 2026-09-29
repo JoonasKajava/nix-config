@@ -1,7 +1,7 @@
 {inputs, ...}: {
   flake-file.inputs = {
     nix-config-private = {
-      url = "git+ssh://git@github.com/JoonasKajava/nix-config-private?ref=den";
+      url = "git+ssh://git@github.com/JoonasKajava/nix-config-private";
       flake = false;
     };
   };
