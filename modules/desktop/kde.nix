@@ -126,7 +126,7 @@ in {
                       "file://${pkgs.steam}/share/applications/steam.desktop"
                     ]
                     ++ [
-                      "file://${pkgs._1password-gui}/share/applications/1password.desktop"
+                      "file://${pkgs._1password-gui}/share/applications/com.onepassword.OnePassword.desktop"
                     ]
                     ++ [
                       "file://${pkgs.discord}/share/applications/discord.desktop"
