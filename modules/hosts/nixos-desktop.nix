@@ -34,7 +34,7 @@
       jetbrains.datagrip
       jetbrains.rust-rover
 
-      docker
+      podman-desktop
       parsec
 
       winboat
