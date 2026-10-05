@@ -73,7 +73,7 @@
       zoom-us
       vscode
       rocmPackages.rocminfo
-      zotero
+      # zotero
       typst
 
       #patchedpython
