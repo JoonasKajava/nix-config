@@ -10,6 +10,7 @@
     programs.zed-editor = {
       enable = true;
       package = pkgs.zed-editor-fhs;
+      enableMcpIntegration = true;
       userSettings = {
         git = {
           inline_blame = {
