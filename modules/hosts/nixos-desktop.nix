@@ -54,6 +54,11 @@
       config,
       ...
     }: {
+      # Try fix KDE RA24 issue
+      environment.sessionVariables = {
+        KWIN_FORCE_SW_CURSOR = "1";
+      };
+
       imports = [
         (modulesPath + "/installer/scan/not-detected.nix")
       ];
