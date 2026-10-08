@@ -10,7 +10,7 @@
     };
 
     includes = with den.aspects; [
-      cli.nushell
+      fish
       git
       neovim.nvf
       ssh
