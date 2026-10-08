@@ -11,6 +11,10 @@
       pkgs,
       ...
     }: {
+      home.packages = with pkgs; [
+        fzf
+        fd
+      ];
       home.shell.enableFishIntegration = true;
 
       programs.nix-your-shell.enable = true;
@@ -24,6 +28,12 @@
 
           ${lib.getExe pkgs.fastfetch}
         '';
+        plugins = [
+          {
+            name = "fzf-fish";
+            src = pkgs.fishPlugins.fzf-fish.src;
+          }
+        ];
       };
     };
   };
