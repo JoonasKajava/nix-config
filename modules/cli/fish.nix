@@ -16,12 +16,14 @@
       programs.nix-your-shell.enable = true;
       programs.fish = {
         enable = true;
-        interactiveShellInit =
-          ''
-            eval (${lib.getExe pkgs.zellij} setup --generate-auto-start fish | string collect)
+        interactiveShellInit = ''
+          # fish_vi_key_bindings doesn't work well
+          set -g fish_greeting
 
-            ${lib.getExe pkgs.fastfetch}
-          '';
+          eval (${lib.getExe pkgs.zellij} setup --generate-auto-start fish | string collect)
+
+          ${lib.getExe pkgs.fastfetch}
+        '';
       };
     };
   };
