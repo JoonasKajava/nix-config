@@ -1,5 +1,9 @@
 {den, ...}: {
   den.aspects.fish = {
+    includes = with den.aspects; [
+      starship
+    ];
+
     nixos = {pkgs, ...}: {
       users.users.joonas.shell = pkgs.fish;
       programs.fish = {

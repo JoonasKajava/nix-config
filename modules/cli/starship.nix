@@ -1,5 +1,5 @@
 {
-  den.aspects.cli.homeManager = let
+  den.aspects.starship.homeManager = let
     mkSingleLine = str: builtins.replaceStrings ["\n"] [""] str;
   in {
     programs.starship = {
