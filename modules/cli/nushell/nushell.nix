@@ -1,5 +1,8 @@
-{
+{den, ...}: {
   den.aspects.cli.nushell = {
+    includes = with den.aspects; [
+      starship
+    ];
     nixos = {pkgs, ...}: {
       users.defaultUserShell = pkgs.nushell;
     };
