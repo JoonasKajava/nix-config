@@ -14,7 +14,9 @@
       lib,
       osConfig,
       ...
-    }: {
+    }: let
+      default_model = "openai/gpt-5.6-terra";
+    in {
       programs.mcp = {
         enable = true;
         servers = {
@@ -48,9 +50,23 @@
           // {
             autoupdate = false;
             plugin = ["micode"];
+            model = default_model;
           };
         context = ./opencode-context.md;
       };
+
+      home.file.".config/opencode/micode.json".text =
+        {
+          agents = {
+            commander.model = default_model;
+            brainstormer.model = default_model;
+            planner.model = default_model;
+            executor.model = default_model;
+            implementer.model = default_model;
+            reviewer.model = default_model;
+          };
+        }
+        |> builtins.toJSON;
     };
   };
 }
