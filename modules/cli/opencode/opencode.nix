@@ -47,7 +47,9 @@
           )
           // {
             autoupdate = false;
+            plugin = ["micode"];
           };
+        context = ./opencode-context.md;
       };
     };
   };
