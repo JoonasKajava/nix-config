@@ -10,7 +10,7 @@
       ];
     };
     nixos =
-      { config, ... }:
+      { config, pkgs, ... }:
       let
         port = 7745;
         host = "homebox.joonaskajava.com";
@@ -20,10 +20,13 @@
           enable = true;
           virtualHosts = {
             ${host}.extraConfig = ''
-              reverse_proxy http://localhost:${toString port}
+              reverse_proxy http://127.0.0.1:${toString port}
             '';
           };
         };
+
+        sops.templates."homebox-env".restartUnits = ["homebox.service"];
+
 
         sops.templates."homebox-env".content = ''
           HBOX_MAILER_HOST=${config.sops.placeholder."smtp/host"}
@@ -34,7 +37,6 @@
 
         '';
         systemd.services.homebox = {
-          after = [ "sops-nix.service" ];
           serviceConfig.EnvironmentFile = [
             config.sops.templates."homebox-env".path
           ];
@@ -42,10 +44,12 @@
 
         services.homebox = {
           enable = true;
+          package = pkgs.stable.homebox;
           settings = {
             HBOX_WEB_PORT = toString port;
             HBOX_OPTIONS_ALLOW_REGISTRATION = "false";
             HBOX_WEB_MAX_UPLOAD = "100";
+            HBOX_OPTIONS_TRUST_PROXY = "true";
           };
         };
       };

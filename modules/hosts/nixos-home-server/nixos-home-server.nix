@@ -17,6 +17,7 @@
       donetick
       wallos
       opencloud
+      homebox
 
       ntfy
       immich
