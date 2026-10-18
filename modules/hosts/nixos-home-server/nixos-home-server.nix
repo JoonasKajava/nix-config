@@ -18,6 +18,7 @@
       wallos
       opencloud
       homebox
+      litellm
 
       ntfy
       immich
