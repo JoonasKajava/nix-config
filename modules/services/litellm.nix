@@ -14,7 +14,7 @@
       pkgs,
       ...
     }: let
-      port = 34989;
+      port = 4000;
       dbPort = 39645;
       host = "litellm.joonaskajava.com";
       stateDir = "/var/lib/litellm";
@@ -61,10 +61,11 @@
           containers = {
             litellm = {
               image = "docker.litellm.ai/berriai/litellm:latest";
-              ports = ["127.0.0.1:${toString port}:4000/tcp"];
+              dependsOn = ["litellm-db"];
+              # ports = ["127.0.0.1:${toString port}:4000/tcp"];
               environmentFiles = [config.sops.templates."litellm-env".path];
               autoStart = true;
-              extraOptions = ["--pull=always"];
+              extraOptions = ["--pull=always" "--network=host"];
             };
             litellm-db = {
               image = "postgres:16";
