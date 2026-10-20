@@ -85,6 +85,9 @@
       system.stateVersion = "23.11";
 
       boot = {
+        # Attempt for fix control resonant stutters
+        kernelParams = ["amdgpu.vm_update_mode=3"];
+
         initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage"];
         initrd.kernelModules = [];
         kernelModules = ["kvm-amd"];
