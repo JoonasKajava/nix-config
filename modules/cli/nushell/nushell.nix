@@ -9,13 +9,15 @@
     homeManager = {
       pkgs,
       lib,
-      config,
       ...
     }: {
       home.shell.enableNushellIntegration = true;
 
       programs = {
-        carapace.enable = true;
+        carapace = {
+          enable = true;
+          enableNushellIntegration = true;
+        };
 
         fish = {
           enable = true;
@@ -54,23 +56,6 @@
             ''
               ${lib.getExe pkgs.fastfetch}
 
-              let fish_completer = {|spans|
-                ${lib.getExe config.programs.fish.package} --command $"complete '--do-complete=($spans | str join ' ')'"
-                | from tsv --flexible --noheaders --no-infer
-                | rename value description
-                | update value {
-                    if ($in | path exists) {$'"($in | str replace "\"" "\\\"" )"'} else {$in}
-                }
-              }
-
-              $env.config = {
-                completions: {
-                  external: {
-                    enable: true
-                    completer: $fish_completer
-                  }
-                }
-              }
             ''
             + lib.concatStringsSep "\n" (map (p: "plugin add ${lib.getExe p}") plugins);
         };
