@@ -1,4 +1,7 @@
-{
+{den, ...}: {
+  den.aspects.zed.includes = with den.aspects; [
+    mcp
+  ];
   den.aspects.zed.homeManager = {
     pkgs,
     lib,

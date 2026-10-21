@@ -6,6 +6,7 @@
         rm-improved
         just
         nh
+        jq
       ];
     };
 
