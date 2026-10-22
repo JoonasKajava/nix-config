@@ -649,11 +649,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1785409335,
-        "narHash": "sha256-n/mh0p+4xDZjGnnMarV9mB2f/FFEAqEqauD7hdzZ1vc=",
+        "lastModified": 1792589713,
+        "narHash": "sha256-5L4u73WF4bF+XY7UPJ8VaaBBQM8gUOIi8lPLDO390tM=",
         "owner": "JoonasKajava",
         "repo": "nvf-config",
-        "rev": "7c64737ead8211d81fa5515a3476bef4cebb71ad",
+        "rev": "59cfff55caf635ffc9098ef7e41360672442117b",
         "type": "github"
       },
       "original": {
@@ -734,11 +734,11 @@
     "nix-config-private": {
       "flake": false,
       "locked": {
-        "lastModified": 1792356393,
-        "narHash": "sha256-aijcXq0AqDhAhWVTBlV4r1pg66ZzbnMcx2rmZ+bBudI=",
+        "lastModified": 1792655265,
+        "narHash": "sha256-Og2pUuy8GGFwoxMBHPH54aERNFmfSsATxoHJ3fwAROk=",
         "ref": "refs/heads/main",
-        "rev": "e4ef1f9a15f597f27412020884899d8bf0849321",
-        "revCount": 193,
+        "rev": "e50bba64fc4313666d95be0953da35d8d1402f39",
+        "revCount": 194,
         "type": "git",
         "url": "ssh://git@github.com/JoonasKajava/nix-config-private"
       },

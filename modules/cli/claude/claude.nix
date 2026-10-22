@@ -8,12 +8,12 @@
       programs.claude-code = {
         enableMcpIntegration = true;
         enable = true;
+        context = ./claude-context.md;
         settings = {
           editorMode = "vim";
           tui = "fullscreen";
           enabledPlugins."superpowers@claude-plugins-official" = true;
           attribution = false;
-          context = ./claude-context.md;
         };
       };
     };
