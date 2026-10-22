@@ -13,6 +13,7 @@
           tui = "fullscreen";
           enabledPlugins."superpowers@claude-plugins-official" = true;
           attribution = false;
+          context = ./claude-context.md;
         };
       };
     };
