@@ -19,6 +19,8 @@ in {
           };
           paperless-api = {};
           forgejo-api = {};
+          homebox-user = {};
+          homebox-password = {};
         };
         templates = {
           "homepage-env" = {
@@ -32,6 +34,8 @@ in {
               HOMEPAGE_VAR_HOME_ASSISTANT_API=${config.sops.placeholder."home-assistant-api"}
               HOMEPAGE_VAR_PAPERLESS_API=${config.sops.placeholder."paperless-api"}
               HOMEPAGE_VAR_FORGEJO_API=${config.sops.placeholder."forgejo-api"}
+              HOMEPAGE_VAR_HOMEBOX_USER=${config.sops.placeholder."homebox-user"}
+              HOMEPAGE_VAR_HOMEBOX_PASSOWRD=${config.sops.placeholder."homebox-password"}
             '';
           };
         };
@@ -161,6 +165,19 @@ in {
                     type = "gitea";
                     url = href;
                     key = "{{HOMEPAGE_VAR_FORGEJO_API}}";
+                  };
+                };
+              }
+              {
+                "Homebox" = rec {
+                  icon = mkIcon "homebox";
+                  href = "https://homebox.joonaskajava.com";
+                  description = "Self-hosted home server management";
+                  widget = {
+                    type = "homebox";
+                    url = href;
+                    username = "{{HOMEPAGE_VAR_HOMEBOX_USER}}";
+                    password = "{{HOMEPAGE_VAR_HOMEBOX_PASSWORD}}";
                   };
                 };
               }
