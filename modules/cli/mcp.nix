@@ -3,6 +3,11 @@
     includes = with den.aspects; [
       sops
     ];
+    nixos = {
+      sops.secrets."brave-search-api-key" = {
+        owner = "joonas";
+      };
+    };
     homeManager = {
       pkgs,
       lib,

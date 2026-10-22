@@ -3,13 +3,7 @@
     includes = with den.aspects; [
       mcp
       skills
-      sops
     ];
-    nixos = {
-      sops.secrets."brave-search-api-key" = {
-        owner = "joonas";
-      };
-    };
     homeManager = {pkgs, ...}: let
       default_model = "openai/gpt-5.6-terra";
     in {
