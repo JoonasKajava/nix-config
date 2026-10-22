@@ -4,6 +4,9 @@
       sops
     ];
     nixos = {
+      sops.secrets."github-mcp-token" = {
+        owner = "joonas";
+      };
       sops.secrets."brave-search-api-key" = {
         owner = "joonas";
       };
@@ -20,6 +23,15 @@
           nixos = {
             command = lib.getExe pkgs.mcp-nixos;
             enabled = true;
+          };
+          github = {
+            command = lib.getExe pkgs.github-mcp-server;
+            args = ["stdio" "--read-only"];
+            enabled = true;
+            env = {
+              GITHUB_READ_ONLY = "1";
+              GITHUB_PERSONAL_ACCESS_TOKEN.file = osConfig.sops.secrets."github-mcp-token".path;
+            };
           };
           context7 = {
             type = "local";
