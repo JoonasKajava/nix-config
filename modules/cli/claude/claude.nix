@@ -14,6 +14,7 @@
           tui = "fullscreen";
           enabledPlugins."superpowers@claude-plugins-official" = true;
           attribution = false;
+          env.CLAUDE_CODE_SCROLL_SPEED = "3";
         };
       };
     };
