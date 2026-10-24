@@ -2,12 +2,11 @@
   den.aspects.mcp = {
     includes = with den.aspects; [
       sops
+      # mcp.brave-search
+      mcp.exa
     ];
     nixos = {
       sops.secrets."github-mcp-token" = {
-        owner = "joonas";
-      };
-      sops.secrets."brave-search-api-key" = {
         owner = "joonas";
       };
     };
@@ -34,16 +33,8 @@
             };
           };
           context7 = {
-            type = "local";
             command = lib.getExe pkgs.context7-mcp;
             enabled = true;
-          };
-          brave-search = {
-            command = "${pkgs.nodejs}/bin/npx";
-            args = ["-y" "@brave/brave-search-mcp-server"];
-            env = {
-              BRAVE_API_KEY_FILE = osConfig.sops.secrets."brave-search-api-key".path;
-            };
           };
         };
       };
