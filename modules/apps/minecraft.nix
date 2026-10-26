@@ -5,7 +5,7 @@ in {
     homeManager = {pkgs, ...}: {
       home.packages = with pkgs; [
         prismlauncher
-        ftb-app
+        # ftb-app
       ];
     };
 

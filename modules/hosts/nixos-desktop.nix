@@ -43,6 +43,8 @@
       work
       zed
 
+      gaming.minecraft
+
       den.batteries.hostname
       (den.batteries.insecure ["electron-40.10.5"])
       backup
@@ -59,6 +61,8 @@
       environment.sessionVariables = {
         KWIN_FORCE_SW_CURSOR = "1";
       };
+
+      environment.systemPackages = [pkgs.mpv];
 
       imports = [
         (modulesPath + "/installer/scan/not-detected.nix")
