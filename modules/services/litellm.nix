@@ -60,12 +60,12 @@
         oci-containers = {
           containers = {
             litellm = {
-              image = "docker.litellm.ai/berriai/litellm:latest";
+              image = "docker.litellm.ai/berriai/litellm:v1.90.2";
               dependsOn = ["litellm-db"];
               # ports = ["127.0.0.1:${toString port}:4000/tcp"];
               environmentFiles = [config.sops.templates."litellm-env".path];
               autoStart = true;
-              extraOptions = ["--pull=always" "--network=host"];
+              extraOptions = ["--network=host"];
             };
             litellm-db = {
               image = "postgres:16";

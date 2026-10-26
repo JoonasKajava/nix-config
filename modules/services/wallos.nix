@@ -26,7 +26,6 @@ in
                   TZ = "Europe/Berlin";
                 };
                 autoStart = true;
-                extraOptions = [ "--pull=always" ];
               };
             };
           };

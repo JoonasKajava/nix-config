@@ -25,14 +25,13 @@
             oci-containers = {
               containers = {
                 paperless-ai = {
-                  image = "clusterzx/paperless-ai:latest";
+                  image = "clusterzx/paperless-ai:3.0.9";
                   ports = [ "${toString portAi}:3000/tcp" ];
                   volumes = [
                     "/var/lib/paperless/paperless-ai:/app/data:rw"
                   ];
                   autoStart = true;
                   extraOptions = [
-                    "--pull=always"
                     "--network=host"
                   ];
                 };

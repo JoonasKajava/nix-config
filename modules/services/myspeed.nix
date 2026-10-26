@@ -28,13 +28,12 @@
             oci-containers = {
               containers = {
                 myspeed = {
-                  image = "germannewsmaker/myspeed:latest";
+                  image = "germannewsmaker/myspeed:1.0.9";
                   ports = [ "${toString port}:5216/tcp" ];
                   volumes = [
                     "${homeFolder}:/myspeed/data:rw"
                   ];
                   autoStart = true;
-                  extraOptions = [ "--pull=always" ];
                 };
               };
             };

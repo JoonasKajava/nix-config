@@ -19,7 +19,7 @@
         oci-containers = {
           containers = {
             donetick = {
-              image = "donetick/donetick:latest";
+              image = "donetick/donetick:v0.1.83";
               ports = ["${toString port}:2021/tcp"];
               volumes = [
                 "${homeFolder}/data:/donetick-data:rw"
@@ -30,7 +30,6 @@
                 DT_ENV = "selfhosted";
                 DT_SQLITE_PATH = "/donetick-data/donetick.db";
               };
-              extraOptions = ["--pull=always"];
             };
           };
         };

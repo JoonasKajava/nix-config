@@ -12,14 +12,13 @@
     nixos = {
       virtualisation.oci-containers.containers = {
         changedetection-io = {
-          image = "dgtlmoon/changedetection.io:latest";
+          image = "dgtlmoon/changedetection.io:0.60.10";
           #ports = ["${builtins.toString cfg.port}:5000/tcp"];
           volumes = [
             "${dataDir}:/datastore:rw"
           ];
           autoStart = true;
           extraOptions = [
-            "--pull=always"
             "--network=host"
           ];
           environment = {
@@ -30,10 +29,9 @@
         };
 
         changedetection-io-playwright = {
-          image = "dgtlmoon/sockpuppetbrowser:latest";
+          image = "dgtlmoon/sockpuppetbrowser:0.0.3";
           ports = ["${toString playwright-port}:3000/tcp"];
           autoStart = true;
-          extraOptions = ["--pull=always"];
           environment = {
             SCREEN_WIDTH = "1920";
             SCREEN_HEIGHT = "1024";
