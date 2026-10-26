@@ -7,6 +7,7 @@
       users.defaultUserShell = pkgs.nushell;
     };
     homeManager = {
+      config,
       pkgs,
       lib,
       ...
@@ -22,6 +23,9 @@
         fish = {
           enable = true;
           generateCompletions = true;
+          shellInit = ''
+            set -p fish_complete_path ${config.xdg.dataHome}/fish/home-manager/generated_completions
+          '';
         };
 
         nix-your-shell.enable = true;
