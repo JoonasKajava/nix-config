@@ -4,7 +4,10 @@
       enable = true;
       enableNushellIntegration = true;
       settings = {
-        shell_integration.channel_triggers."files" = ["sops"];
+        shell_integration.channel_triggers = {
+          dirs = ["cd" "ls" "rmdir"];
+          files = ["mv" "cp" "nvim" "vim" "sops"];
+        };
       };
     };
   };
