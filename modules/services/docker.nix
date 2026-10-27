@@ -13,6 +13,10 @@
             enable = true;
             setSocketVariable = true;
           };
+          autoPrune = {
+            enable = true;
+            flags = ["--all"];
+          };
         };
       };
     };

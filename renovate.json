@@ -1,19 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "timezone": "Europe/Helsinki",
-  "schedule": [
-    "before 6am on monday"
-  ],
+  "schedule": ["before 6am on monday"],
   "customManagers": [
     {
       "customType": "regex",
       "description": "Container images in Nix modules",
-      "managerFilePatterns": [
-        "/^modules/.+\\.nix$/"
-      ],
+      "managerFilePatterns": ["/^modules/.+\\.nix$/"],
       "matchStrings": [
         "image\\s*=\\s*\"(?<depName>[^\"@\\s]+?):(?<currentValue>[^\"@\\s]+)(?:@(?<currentDigest>sha256:[a-f0-9]{64}))?\""
       ],
@@ -22,9 +16,7 @@
     {
       "customType": "regex",
       "description": "Caddy plugins (Go modules)",
-      "managerFilePatterns": [
-        "/^modules/services/caddy\\.nix$/"
-      ],
+      "managerFilePatterns": ["/^modules/services/caddy\\.nix$/"],
       "matchStrings": [
         "\"(?<depName>github\\.com/[^\"@\\s]+)@(?<currentValue>v[^\"@\\s]+)\""
       ],
@@ -33,27 +25,14 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchDepNames": [
-        "postgres",
-        "docker.io/library/postgres"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
+      "matchDatasources": ["docker"],
+      "matchDepNames": ["postgres", "docker.io/library/postgres"],
+      "matchUpdateTypes": ["major"],
       "enabled": false
     },
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "digest"
-      ],
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
       "groupName": "container images"
     }
   ]
