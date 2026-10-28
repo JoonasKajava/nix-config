@@ -3,12 +3,12 @@
     includes = with den.aspects; [
       mcp
       skills
+      agent-context
     ];
     homeManager = {
       programs.claude-code = {
         enableMcpIntegration = true;
         enable = true;
-        context = ./claude-context.md;
         settings = {
           editorMode = "vim";
           tui = "fullscreen";

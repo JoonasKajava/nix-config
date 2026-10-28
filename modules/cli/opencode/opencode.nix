@@ -3,6 +3,7 @@
     includes = with den.aspects; [
       mcp
       skills
+      agent-context
     ];
     homeManager = {pkgs, ...}: let
       default_model = "openai/gpt-5.6-terra";
@@ -21,7 +22,6 @@
             plugin = ["micode"];
             model = default_model;
           };
-        context = ./opencode-context.md;
       };
 
       home.file.".config/opencode/micode.json".text =
