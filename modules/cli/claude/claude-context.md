@@ -4,6 +4,11 @@
 - Make changes directly in the current branch.
 - Leave changes uncommitted. Do not commit, unless I explicitly ask you to.
 
+# Making changes
+
+- Only make changes to code when I explicitly ask for them with words like "change", "modify" or "create".
+- When I ask how something should be done or fixed, answer the question. DO NOT make any changes to the code.
+
 # Comments
 
 - Do not write comments for readable or obvious code. I will ask for comments if I need them.
