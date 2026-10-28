@@ -22,7 +22,7 @@
       gui
       ssh
 
-      maccel
+      # maccel doesn't work at the moment
       gpu.amd
 
       bazecor
