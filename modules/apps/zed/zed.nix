@@ -10,6 +10,9 @@
     home.packages = with pkgs; [
       jetbrains-mono
     ];
+    programs.nushell.shellAliases = {
+      zed = "zeditor";
+    };
     programs.zed-editor = {
       enable = true;
       package = pkgs.zed-editor-fhs;
