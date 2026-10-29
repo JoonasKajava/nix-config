@@ -13,7 +13,8 @@ let carapace_completer = {|spans|
   carapace $spans.0 nushell ...$spans | from json
 }
 
-let external_completer = {|spans|
+let external_completer = {|place|
+  let spans = $place.command
   let expanded_alias = (scope aliases | where name == $spans.0 | get -o 0.expansion)
   let spans = if $expanded_alias != null {
     $spans | skip 1 | prepend ($expanded_alias | split row " " | take 1)
