@@ -35,6 +35,7 @@
         in {
           enable = true;
           configFile.source = ./config.nu;
+          loadSessionVariables = true;
           environmentVariables = {
             CARAPACE_BRIDGES = "fish";
           };
