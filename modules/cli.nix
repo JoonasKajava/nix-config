@@ -7,6 +7,8 @@
         just
         nh
         jq
+        ripgrep
+        wl-clipboard-rs
       ];
     };
 
