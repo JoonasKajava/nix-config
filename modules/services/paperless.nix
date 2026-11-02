@@ -25,7 +25,7 @@
             oci-containers = {
               containers = {
                 paperless-ai = {
-                  image = "clusterzx/paperless-ai:3.0.9";
+                  image = "clusterzx/paperless-ai:3.0.9@sha256:2b65888163fd59716f1c8285b31c5bd0b30c9c3c192c42b516688e3887d4ba60";
                   ports = [ "${toString portAi}:3000/tcp" ];
                   volumes = [
                     "/var/lib/paperless/paperless-ai:/app/data:rw"
