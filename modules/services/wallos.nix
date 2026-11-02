@@ -16,7 +16,7 @@ in
           oci-containers = {
             containers = {
               wallos = {
-                image = "bellamy/wallos:5.10.2";
+                image = "bellamy/wallos:5.10.4";
                 ports = [ "${toString port}:80/tcp" ];
                 volumes = [
                   "${homeFolder}/db:/var/www/html/db:rw"
