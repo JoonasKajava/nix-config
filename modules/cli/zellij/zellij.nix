@@ -12,7 +12,7 @@
   }: {
     programs.zellij = {
       enable = true;
-      attachExistingSession = true;
+      attachExistingSession = false;
       exitShellOnExit = true;
       enableZshIntegration = true;
       extraConfig = builtins.readFile ./tokyo-night-moon.kdl;
