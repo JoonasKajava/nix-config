@@ -119,7 +119,7 @@
           "space w d" = ["pane::CloseActiveItem" {close_pinned = false;}];
           "space c c" = null;
           "g d" = "editor::GoToDefinition";
-          "g a" = "editor::ToggleCodeActions";
+          "g a" = "command_palette::Toggle";
           "g r" = "editor::FindAllReferences";
           "g R" = "editor::FindAllReferences";
           "g I" = "editor::GoToImplementation";
