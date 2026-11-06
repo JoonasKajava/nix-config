@@ -31,6 +31,7 @@
       zellij
       opencode
       claude
+      codex
       jetbrains.rider
       jetbrains.datagrip
       jetbrains.rust-rover
