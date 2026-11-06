@@ -19,7 +19,7 @@
         oci-containers = {
           containers = {
             donetick = {
-              image = "donetick/donetick:v0.1.85@sha256:fe6b04d496f315181c196bdf1fbea93d3525e105642c2d0b7a3e5dd7b53d3674";
+              image = "donetick/donetick:v0.1.86@sha256:66253a32a8e8ed8c49c49418b43abe1181db23e07defe97748d2cb7508c487cd";
               ports = ["${toString port}:2021/tcp"];
               volumes = [
                 "${homeFolder}/data:/donetick-data:rw"
