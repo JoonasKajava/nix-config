@@ -17,7 +17,8 @@
       "matchStrings": [
         "image\\s*=\\s*\"(?<depName>[^\"@\\s]+?):(?<currentValue>[^\"@\\s]+)(?:@(?<currentDigest>sha256:[a-f0-9]{64}))?\""
       ],
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "autoReplaceStringTemplate": "image = \"{{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}\""
     },
     {
       "customType": "regex",
