@@ -226,13 +226,13 @@
       # zellij
       def start_zellij [] {
         if 'ZELLIJ' not-in ($env | columns) {
-          if 'ZELLIJ_AUTO_ATTACH' in ($env | columns) and $env.ZELLIJ_AUTO_ATTACH == 'true' {
+          if ${lib.boolToString config.programs.zellij.attachExistingSession} {
             zellij attach -c
           } else {
             zellij
           }
 
-          if 'ZELLIJ_AUTO_EXIT' in ($env | columns) and $env.ZELLIJ_AUTO_EXIT == 'true' {
+          if ${lib.boolToString config.programs.zellij.exitShellOnExit} {
             exit
           }
         }
