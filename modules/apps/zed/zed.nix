@@ -17,6 +17,10 @@
       enable = true;
       package = pkgs.zed-editor-fhs;
       enableMcpIntegration = true;
+      extraPackages = with pkgs; [
+        cargo
+        rustc
+      ];
       userSettings = {
         git = {
           inline_blame = {
