@@ -45,6 +45,7 @@
       zed
 
       gaming.minecraft
+      gaming.wow
 
       den.batteries.hostname
       (den.batteries.insecure ["electron-40.10.5"])
