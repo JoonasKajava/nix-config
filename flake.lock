@@ -740,11 +740,11 @@
     "nix-config-private": {
       "flake": false,
       "locked": {
-        "lastModified": 1793962045,
-        "narHash": "sha256-aRWKiHdGBxNyoQtAjxGa3kZDe28kVxp8uws87I2vrwQ=",
+        "lastModified": 1794523414,
+        "narHash": "sha256-DQAESo1NXQ5QUfaDrfwdmmcw4EbB3JpAlZxftvJwoSs=",
         "ref": "refs/heads/main",
-        "rev": "3bbc49918f66efbbec0599da1f6bbf305ec758d3",
-        "revCount": 199,
+        "rev": "b4ee68f5cb47a53b86f5a9b6aeb177328696a88d",
+        "revCount": 200,
         "type": "git",
         "url": "ssh://git@github.com/JoonasKajava/nix-config-private"
       },
