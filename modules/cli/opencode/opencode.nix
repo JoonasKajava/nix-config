@@ -6,12 +6,12 @@
       agent-context
     ];
     homeManager = {pkgs, ...}: let
-      default_model = "openai/gpt-5.6-terra";
+      default_model = "openai/gpt-6.1-sol";
     in {
       programs.opencode = {
         enableMcpIntegration = true;
         enable = true;
-        package = pkgs.stable.opencode;
+        #package = pkgs.stable.opencode;
         settings =
           (
             builtins.readFile ./opencode-config.jsonc
