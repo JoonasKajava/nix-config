@@ -19,23 +19,23 @@
           )
           // {
             autoupdate = false;
-            plugin = ["micode"];
+            plugin = [];
             model = default_model;
           };
       };
 
-      home.file.".config/opencode/micode.json".text =
-        {
-          agents = {
-            commander.model = default_model;
-            brainstormer.model = default_model;
-            planner.model = default_model;
-            executor.model = default_model;
-            implementer.model = default_model;
-            reviewer.model = default_model;
-          };
-        }
-        |> builtins.toJSON;
+      # home.file.".config/opencode/micode.json".text =
+      #   {
+      #     agents = {
+      #       commander.model = default_model;
+      #       brainstormer.model = default_model;
+      #       planner.model = default_model;
+      #       executor.model = default_model;
+      #       implementer.model = default_model;
+      #       reviewer.model = default_model;
+      #     };
+      #   }
+      #   |> builtins.toJSON;
     };
   };
 }
