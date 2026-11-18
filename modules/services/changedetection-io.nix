@@ -12,7 +12,7 @@
     nixos = {
       virtualisation.oci-containers.containers = {
         changedetection-io = {
-          image = "dgtlmoon/changedetection.io:0.70.2@sha256:36ebb3586e9a6b14af6fb488c6e29b60eceb79ee414ecdb6ac2b91dd25b1c7ba";
+          image = "dgtlmoon/changedetection.io:0.70.3@sha256:47b1e9cc3eff820e6022b655e3fcc948625f60c1770ae8b9c30aa3bf104dc255";
           #ports = ["${builtins.toString cfg.port}:5000/tcp"];
           volumes = [
             "${dataDir}:/datastore:rw"
@@ -29,7 +29,7 @@
         };
 
         changedetection-io-playwright = {
-          image = "dgtlmoon/sockpuppetbrowser:0.0.3@sha256:23a7be698216407648b6c78fc55de0411bde550635edc30347373c86a5176fad";
+          image = "dgtlmoon/sockpuppetbrowser:0.0.5@sha256:71fed9b1de8de865a8f30c61e6d8d129de183bf34f8cc545dc7ae499198ec935";
           ports = ["${toString playwright-port}:3000/tcp"];
           autoStart = true;
           environment = {

@@ -60,7 +60,7 @@
         oci-containers = {
           containers = {
             litellm = {
-              image = "docker.litellm.ai/berriai/litellm:v1.108.3@sha256:f14d0a035d84d1a8bc98538faf5999e456641fd4cfa191822fd4be1934c1f4f6";
+              image = "docker.litellm.ai/berriai/litellm:1.110.0@sha256:4295b064b22eb88f9530e616afc812edd47048891ba64896bfc3fa74e2b883c3";
               dependsOn = ["litellm-db"];
               # ports = ["127.0.0.1:${toString port}:4000/tcp"];
               environmentFiles = [config.sops.templates."litellm-env".path];
