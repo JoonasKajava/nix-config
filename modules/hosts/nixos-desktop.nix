@@ -43,6 +43,7 @@
       school
       work
       zed
+      gimp
 
       gaming.minecraft
       gaming.wow
