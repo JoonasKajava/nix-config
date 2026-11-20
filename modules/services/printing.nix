@@ -6,6 +6,8 @@
           enable = true;
           drivers = with pkgs; [
             hplip
+            cups-filters
+            cups-browsed
           ];
         };
         avahi = {
