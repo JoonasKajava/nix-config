@@ -30,11 +30,6 @@
 
       zellij
       opencode
-      claude
-      codex
-      jetbrains.rider
-      jetbrains.datagrip
-      jetbrains.rust-rover
 
       podman-desktop
       parsec
@@ -50,7 +45,7 @@
       gaming.wow
 
       den.batteries.hostname
-      (den.batteries.insecure ["electron-40.10.5"])
+      # (den.batteries.insecure ["electron-40.10.5"])
       backup
     ];
 
