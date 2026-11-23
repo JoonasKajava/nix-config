@@ -44,6 +44,7 @@
       work
       zed
       gimp
+      appimage
 
       gaming.minecraft
       gaming.wow
