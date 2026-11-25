@@ -12,7 +12,7 @@
     nixos = {
       virtualisation.oci-containers.containers = {
         changedetection-io = {
-          image = "dgtlmoon/changedetection.io:0.70.3@sha256:47b1e9cc3eff820e6022b655e3fcc948625f60c1770ae8b9c30aa3bf104dc255";
+          image = "dgtlmoon/changedetection.io:0.70.4@sha256:b6aae2572a0bf1a671b1b202365ddcfe16a31fa8a60be89df606705731b55f8b";
           #ports = ["${builtins.toString cfg.port}:5000/tcp"];
           volumes = [
             "${dataDir}:/datastore:rw"
