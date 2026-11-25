@@ -60,7 +60,7 @@
         oci-containers = {
           containers = {
             litellm = {
-              image = "docker.litellm.ai/berriai/litellm:1.110.0@sha256:4295b064b22eb88f9530e616afc812edd47048891ba64896bfc3fa74e2b883c3";
+              image = "docker.litellm.ai/berriai/litellm:1.111.0@sha256:ce00096d012719d58c52cecfa373f7c6256dd1b0ff08f6fa607e10e9628f1f46";
               dependsOn = ["litellm-db"];
               # ports = ["127.0.0.1:${toString port}:4000/tcp"];
               environmentFiles = [config.sops.templates."litellm-env".path];
@@ -68,7 +68,7 @@
               extraOptions = ["--network=host"];
             };
             litellm-db = {
-              image = "postgres:16@sha256:dd2bf3ce2dc83a81674cf7f217fcfd8a5009a4b325dda5b843bfee82a06cff6f";
+              image = "postgres:16@sha256:07abc3f43c9395b0bdbbab36bc25ddb0e8d83cd4fcafb5fb7d6abe14ff156dd8";
               ports = ["127.0.0.1:${toString dbPort}:5432/tcp"];
               environmentFiles = [config.sops.templates."litellm-db-env".path];
               volumes = [
