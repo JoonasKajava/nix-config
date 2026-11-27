@@ -14,7 +14,14 @@ let carapace_completer = {|spans|
 }
 
 let external_completer = {|place|
-  let spans = $place.command
+
+  # This temporary fix for nh upstream issue, maybe remove in the future?
+  let spans = if ($place | describe) =~ "record" {
+    $place.command
+  } else {
+    $place
+  }
+
   let expanded_alias = (scope aliases | where name == $spans.0 | get -o 0.expansion)
   let spans = if $expanded_alias != null {
     $spans | skip 1 | prepend ($expanded_alias | split row " " | take 1)
