@@ -12,11 +12,7 @@
         '';
     };
 
-    nixos = {pkgs,...}: {
-      environment.systemPackages = with pkgs; [
-        dix
-      ];
-
+    nixos = {
       nixpkgs.config.allowUnfree = true;
 
       nix = {

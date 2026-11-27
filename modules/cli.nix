@@ -5,7 +5,6 @@
         tldr
         rm-improved
         just
-        nh
         jq
         ripgrep
         wl-clipboard-rs
