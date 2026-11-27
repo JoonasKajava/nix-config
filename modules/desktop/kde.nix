@@ -138,7 +138,11 @@ in {
               }
               {
                 systemTray.items = {
-                  hidden = ["org.kde.plasma.brightness"];
+                  hidden = [
+                    "org.kde.plasma.brightness"
+                    "org.kde.merkuro.contact.applet"
+                    "org.kde.plasma.battery"
+                  ];
                 };
               }
               {
